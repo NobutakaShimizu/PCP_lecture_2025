@@ -370,10 +370,13 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm1
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 OUTPUT main.toc
+INPUT ./preface.tex
+INPUT ./preface.tex
+INPUT preface.tex
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmsl12.tfm
 INPUT ./error-correcting code.tex
 INPUT ./error-correcting code.tex
 INPUT error-correcting code.tex
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmsl12.tfm
 INPUT ./expander graph.tex
 INPUT ./expander graph.tex
 INPUT expander graph.tex
