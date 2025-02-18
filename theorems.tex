@@ -1,0 +1,56 @@
+\newcommand{\kara}{} %無を出力するコマンド
+
+%def
+\newtcolorbox[auto counter, number within=section, crefname = {定義}{定義}]{definition}[3][]
+{enhanced, breakable = true, fonttitle = \bfseries,
+title = 定義~\thetcbcounter~\if #2\kara \else（#2） \fi,
+#1,
+label = def:#3}
+
+%thm
+\newtcolorbox[auto counter, use counter from=definition, crefname = {定理}{定理}]{theorem}[3][]
+{enhanced, colback = orange!10!white, colframe = red!50!black, breakable = true, fonttitle = \bfseries,
+title = 定理~\thetcbcounter~\if #2\kara \else（#2） \fi,
+#1,
+label = thm:#3}
+
+%prop
+\newtcolorbox[auto counter, use counter from=definition, crefname = {命題}{命題}]{proposition}[3][]
+{enhanced,  colback = orange!10!white, colframe = red!50!black, breakable = true, fonttitle = \bfseries,
+title = 命題~\thetcbcounter~\if #2\kara \else（#2） \fi,
+#1,
+label = prop:#3}
+
+%lemma
+\newtcolorbox[auto counter, use counter from=definition, crefname = {補題}{補題}]{lemma}[3][]
+{enhanced,  colback = green!10!white, colframe = green!50!black, breakable = true, fonttitle = \bfseries,
+title = 補題~\thetcbcounter~\if #2\kara \else（#2） \fi,
+#1,
+label = lem:#3}
+
+%cor
+\newtcolorbox[auto counter, use counter from=definition, crefname = {系}{系}]{corollary}[3][]
+{enhanced, breakable = true, fonttitle = \bfseries,
+title = 系~\thetcbcounter~\if #2\kara \else（#2） \fi,
+#1,
+label = cor:#3}
+
+%remark
+\newtcolorbox[auto counter, use counter from=definition, crefname = {注釈}{注釈}]{remark}[3][]
+{enhanced, breakable = true, colback = white, fonttitle = \bfseries,
+title = 注釈~\thetcbcounter~\if #2\kara \else（#2） \fi,
+#1,
+label = rem:#3}
+
+%exercise
+\newtcolorbox[auto counter, crefname = {演習問題}{演習問題}]{exercise}[3][]
+{enhanced, breakable = true, colback = blue!10!white, colframe = blue!50!black, fonttitle = \bfseries,
+title = 演習問題~\thetcbcounter~\if #2\kara \else（#2） \fi,
+#1,
+label = exer:#3}
+
+\renewcommand{\proofname}{\textbf{証明}}
+\renewcommand{\figurename}{図}
+\crefname{equation}{式}{式}
+\crefname{section}{セクション}{セクション}
+\crefname{figure}{図}{図}

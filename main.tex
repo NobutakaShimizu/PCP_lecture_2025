@@ -1,0 +1,57 @@
+\documentclass[12pt,dvipdfmx]{book}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts,mathtools,amsthm}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{tcolorbox,todonotes}
+%\usepackage{slashbox}
+%\usepackage{wrapfig}
+%\usepackage{url,xspace,ascmac}
+%\usepackage[]{xcolor}
+%\usepackage{tcolorbox,todonotes}
+\tcbuselibrary{breakable, skins, theorems}
+%\usepackage{svg}
+%\usepackage{etoolbox}
+%\usepackage[subrefformat=parens]{subcaption}
+%\usepackage{algorithm}
+%\usepackage{algorithmic}
+\usepackage[normalem]{ulem}
+\usepackage{comment,tikz}
+%\usepackage{todonotes}
+%\usepackage{thmtools,thm-restate}
+%\usepackage{enumitem}
+%\usepackage{ifthen}
+%\usepackage{float}
+
+\usetikzlibrary{positioning,calc}
+
+\tikzset{every picture/.style={font issue=\footnotesize},
+            font issue/.style={execute at begin picture={#1\selectfont}}
+        }
+
+\usepackage[unicode,colorlinks=true,citecolor=blue,linkcolor=blue,pdfusetitle]{hyperref}
+\usepackage[style=alphabetic,natbib=true,natbib=true,maxnames=99,maxalphanames=99,isbn=false,url=false,backref=true,backend=biber,giveninits=true]{biblatex}
+
+%\usepackage[style=alphabetic,natbib=true,maxnames=99,maxalphanames=99]{biblatex}
+\addbibresource{ref.bib}
+
+\usepackage{cleveref}
+
+\input{theorems.tex}
+\input{commands.tex}
+
+\title{PCP定理とその証明}
+\author{清水 伸高 (東京科学大学)}
+\date{}
+\begin{document}
+\maketitle
+\tableofcontents
+%\input{preface.tex}
+%\addcontentsline{toc}{chapter}{Preface}
+\input{error-correcting code.tex}
+\input{expander graph.tex}
+\input{HDX.tex}
+\input{matroid.tex}
+\printbibliography
+\appendix
+\input{appendix.tex}
+\end{document}
