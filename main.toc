@@ -1,0 +1,10 @@
+\contentsline {chapter}{Preface}{5}{chapter*.2}%
+\contentsline {chapter}{\numberline {1}導入}{7}{chapter.1}%
+\contentsline {section}{\numberline {1.1}検証能力}{7}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}クラスNP}{7}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}クラスAM}{7}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}クラスPCP}{7}{subsection.1.1.3}%
+\contentsline {section}{\numberline {1.2}PCP定理}{7}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}自明な例}{7}{subsection.1.2.1}%
+\contentsline {section}{\numberline {1.3}制約充足問題(CSP)}{7}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}充足可能性判定問題(SAT)}{7}{subsection.1.3.1}%
