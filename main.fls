@@ -351,85 +351,10 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT ./main.toc
 INPUT ./main.toc
 INPUT main.toc
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 OUTPUT main.toc
 INPUT ./preface.tex
 INPUT ./preface.tex
 INPUT preface.tex
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmsl12.tfm
-INPUT ./error-correcting code.tex
-INPUT ./error-correcting code.tex
-INPUT error-correcting code.tex
-INPUT ./expander graph.tex
-INPUT ./expander graph.tex
-INPUT expander graph.tex
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti8.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
-INPUT ./images/tree.pdf
-INPUT ./images/tree.pdf
-INPUT ./images/tree.pdf
-INPUT extractbb -B cropbox -O images/tree.pdf
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm
-INPUT ./images/EML.pdf
-INPUT ./images/EML.pdf
-INPUT ./images/EML.pdf
-INPUT extractbb -B cropbox -O images/EML.pdf
-INPUT ./HDX.tex
-INPUT ./HDX.tex
-INPUT HDX.tex
-INPUT ./images/matching.pdf
-INPUT ./images/matching.pdf
-INPUT ./images/matching.pdf
-INPUT extractbb -B cropbox -O images/matching.pdf
-INPUT ./matroid.tex
-INPUT ./matroid.tex
-INPUT matroid.tex
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
 INPUT ./appendix.tex
 INPUT ./appendix.tex
 INPUT appendix.tex

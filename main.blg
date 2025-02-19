@@ -1,20 +1,10 @@
 [0] Config.pm:308> INFO - This is Biber 2.20
 [0] Config.pm:311> INFO - Logfile is 'main.blg'
-[91] biber-darwin:340> INFO - === Wed Feb 19, 2025, 02:32:37
-[113] Biber.pm:420> INFO - Reading 'main.bcf'
-[223] Biber.pm:994> INFO - Found 5 citekeys in bib section 0
-[239] Biber.pm:4463> INFO - Processing section 0
-[256] Biber.pm:4654> INFO - Looking for bibtex file 'ref.bib' for section 0
-[264] bibtex.pm:1713> INFO - LaTeX decoding ...
-[481] bibtex.pm:1519> INFO - Found BibTeX data source 'ref.bib'
-[566] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[567] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[567] Biber.pm:4283> INFO - Sorting list 'anyt/global//global/global/global' of type 'entry' with template 'anyt' and locale 'en-US'
-[567] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
-[573] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[573] bbl.pm:677> INFO - Converting UTF-8 to TeX macros on output to .bbl
-[582] bbl.pm:779> INFO - Output to main.bbl
-[583] Biber.pm:131> WARN - BibTeX subsystem: /var/folders/rg/ddt5bhvn33q8x21j0g8t7gwr0000gn/T/biber_tmp_Pm02/e800e2552f53b910154f366d4c3730d7_71872.utf8, line 1795, warning: 1 characters of junk seen at toplevel
-[583] Biber.pm:131> WARN - BibTeX subsystem: /var/folders/rg/ddt5bhvn33q8x21j0g8t7gwr0000gn/T/biber_tmp_Pm02/e800e2552f53b910154f366d4c3730d7_71872.utf8, line 1806, warning: 1 characters of junk seen at toplevel
-[583] Biber.pm:131> WARN - BibTeX subsystem: /var/folders/rg/ddt5bhvn33q8x21j0g8t7gwr0000gn/T/biber_tmp_Pm02/e800e2552f53b910154f366d4c3730d7_71872.utf8, line 1850, warning: 1 characters of junk seen at toplevel
-[583] Biber.pm:133> INFO - WARNINGS: 3
+[74] biber-darwin:340> INFO - === Wed Feb 19, 2025, 10:23:10
+[94] Biber.pm:420> INFO - Reading 'main.bcf'
+[195] Biber.pm:994> INFO - Found 0 citekeys in bib section 0
+[210] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[210] bbl.pm:677> INFO - Converting UTF-8 to TeX macros on output to .bbl
+[211] bbl.pm:779> INFO - Output to main.bbl
+[211] Biber.pm:131> WARN - The file 'main.bcf' does not contain any citations!
+[211] Biber.pm:133> INFO - WARNINGS: 1

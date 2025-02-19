@@ -2372,17 +2372,6 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">ref.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1" intorder="1">LPS88</bcf:citekey>
-    <bcf:citekey order="1" intorder="2">Mar88</bcf:citekey>
-    <bcf:citekey order="2" intorder="1">LPS88</bcf:citekey>
-    <bcf:citekey order="2" intorder="2">Mar88</bcf:citekey>
-    <bcf:citekey order="3" intorder="1">LPS88</bcf:citekey>
-    <bcf:citekey order="4" intorder="1">Mor94</bcf:citekey>
-    <bcf:citekey order="5" intorder="1">Mor94</bcf:citekey>
-    <bcf:citekey order="6" intorder="1">LPS88</bcf:citekey>
-    <bcf:citekey order="7" intorder="1">LPS88</bcf:citekey>
-    <bcf:citekey order="8" intorder="1">Friedman_random_regular</bcf:citekey>
-    <bcf:citekey order="9" intorder="1">HLW06</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="anyt">
