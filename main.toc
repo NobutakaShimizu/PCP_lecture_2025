@@ -1,6 +1,6 @@
 \contentsline {chapter}{Preface}{5}{chapter*.2}%
 \contentsline {chapter}{\numberline {1}導入}{7}{chapter.1}%
-\contentsline {section}{\numberline {1.1}計算量理論の最低限の基礎}{7}{section.1.1}%
+\contentsline {section}{\numberline {1.1}計算量理論の復習}{7}{section.1.1}%
 \contentsline {section}{\numberline {1.2}検証の計算量}{8}{section.1.2}%
 \contentsline {subsection}{\numberline {1.2.1}効率的な検証とクラスNP}{9}{subsection.1.2.1}%
 \contentsline {subsection}{\numberline {1.2.2}確率的な検証とクラスMA}{9}{subsection.1.2.2}%
