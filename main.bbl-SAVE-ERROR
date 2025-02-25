@@ -1,0 +1,194 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{anyt/global//global/global/global}
+    \entry{AroraLMSS98}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=8e08b59145b9531815169c7ed0a0b055}{%
+           family={Arora},
+           familyi={A\bibinitperiod},
+           given={Sanjeev},
+           giveni={S\bibinitperiod}}}%
+        {{hash=8de06808d97fa9673d700197a2bce191}{%
+           family={Lund},
+           familyi={L\bibinitperiod},
+           given={Carsten},
+           giveni={C\bibinitperiod}}}%
+        {{hash=2f555526320a1c4028ad0f6328953999}{%
+           family={Motwani},
+           familyi={M\bibinitperiod},
+           given={Rajeev},
+           giveni={R\bibinitperiod}}}%
+        {{hash=8753fbfaaa4aa8a1195c657edc9daef4}{%
+           family={Sudan},
+           familyi={S\bibinitperiod},
+           given={Madhu},
+           giveni={M\bibinitperiod}}}%
+        {{hash=02787b7c625f75874530bb3bf8b10add}{%
+           family={Szegedy},
+           familyi={S\bibinitperiod},
+           given={Mario},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{6bc1e98cb01145498a2f0dd2d6054b70}
+      \strng{fullhash}{6bc1e98cb01145498a2f0dd2d6054b70}
+      \strng{fullhashraw}{6bc1e98cb01145498a2f0dd2d6054b70}
+      \strng{bibnamehash}{6bc1e98cb01145498a2f0dd2d6054b70}
+      \strng{authorbibnamehash}{6bc1e98cb01145498a2f0dd2d6054b70}
+      \strng{authornamehash}{6bc1e98cb01145498a2f0dd2d6054b70}
+      \strng{authorfullhash}{6bc1e98cb01145498a2f0dd2d6054b70}
+      \strng{authorfullhashraw}{6bc1e98cb01145498a2f0dd2d6054b70}
+      \field{labelalpha}{ALMSS98}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{1}
+      \field{issn}{0004-5411}
+      \field{issue}{3}
+      \field{journaltitle}{Journal of the ACM}
+      \field{month}{5}
+      \field{title}{Proof verification and the hardness of approximation problems}
+      \field{volume}{45}
+      \field{year}{1998}
+      \field{dateera}{ce}
+      \field{pages}{501\bibrangedash 555}
+      \range{pages}{55}
+      \verb{doi}
+      \verb 10.1145/278298.278306
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/278298.278306
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/278298.278306
+      \endverb
+    \endentry
+    \entry{AroraS98}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=8e08b59145b9531815169c7ed0a0b055}{%
+           family={Arora},
+           familyi={A\bibinitperiod},
+           given={Sanjeev},
+           giveni={S\bibinitperiod}}}%
+        {{hash=39a329e2b5e4ee534c5c5ef2f16d4b64}{%
+           family={Safra},
+           familyi={S\bibinitperiod},
+           given={Shmuel},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{075a9a815662b8cfc3908e240d581b6d}
+      \strng{fullhash}{075a9a815662b8cfc3908e240d581b6d}
+      \strng{fullhashraw}{075a9a815662b8cfc3908e240d581b6d}
+      \strng{bibnamehash}{075a9a815662b8cfc3908e240d581b6d}
+      \strng{authorbibnamehash}{075a9a815662b8cfc3908e240d581b6d}
+      \strng{authornamehash}{075a9a815662b8cfc3908e240d581b6d}
+      \strng{authorfullhash}{075a9a815662b8cfc3908e240d581b6d}
+      \strng{authorfullhashraw}{075a9a815662b8cfc3908e240d581b6d}
+      \field{labelalpha}{AS98}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{1}
+      \field{issn}{0004-5411}
+      \field{issue}{1}
+      \field{journaltitle}{Journal of the ACM}
+      \field{month}{1}
+      \field{title}{Probabilistic checking of proofs: a new characterization of {NP}}
+      \field{volume}{45}
+      \field{year}{1998}
+      \field{dateera}{ce}
+      \field{pages}{70\bibrangedash 122}
+      \range{pages}{53}
+      \verb{doi}
+      \verb 10.1145/273865.273901
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/273865.273901
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/273865.273901
+      \endverb
+    \endentry
+    \entry{Din07}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=9a5f80a9b2b1359cbc50244c7816730c}{%
+           family={Dinur},
+           familyi={D\bibinitperiod},
+           given={Irit},
+           giveni={I\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{9a5f80a9b2b1359cbc50244c7816730c}
+      \strng{fullhash}{9a5f80a9b2b1359cbc50244c7816730c}
+      \strng{fullhashraw}{9a5f80a9b2b1359cbc50244c7816730c}
+      \strng{bibnamehash}{9a5f80a9b2b1359cbc50244c7816730c}
+      \strng{authorbibnamehash}{9a5f80a9b2b1359cbc50244c7816730c}
+      \strng{authornamehash}{9a5f80a9b2b1359cbc50244c7816730c}
+      \strng{authorfullhash}{9a5f80a9b2b1359cbc50244c7816730c}
+      \strng{authorfullhashraw}{9a5f80a9b2b1359cbc50244c7816730c}
+      \field{labelalpha}{Din07}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{1}
+      \field{issn}{0004-5411}
+      \field{issue}{3}
+      \field{journaltitle}{Journal of the ACM}
+      \field{month}{6}
+      \field{title}{The {PCP} theorem by gap amplification}
+      \field{volume}{54}
+      \field{year}{2007}
+      \field{dateera}{ce}
+      \field{pages}{12\bibrangedash es}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1145/1236457.1236459
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/1236457.1236459
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/1236457.1236459
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
