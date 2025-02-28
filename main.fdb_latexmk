@@ -1,18 +1,18 @@
 # Fdb version 4
-["biber main"] 1740490719.38623 "main.bcf" "main.bbl" "main" 1740490727.50934 0
-  "main.bcf" 1740490726.45373 109090 2fb347cf879e5d1148b15e5a836b7ee4 "latex"
-  "ref.bib" 1740489699.78702 1623 7e37976cbedf7e99f473458c7ba2dca8 ""
+["biber main"] 1740724542.39848 "main.bcf" "main.bbl" "main" 1740724552.25934 0
+  "main.bcf" 1740724550.86745 109150 ef0ba37eddb5647e2c6a134c0f99b14d "latex"
+  "ref.bib" 1740717377.94798 2151 f47b447a3a8821bd3f9ee4af36ffdf92 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["dvipdf"] 1740490726.5835 "main.dvi" "main.pdf" "main" 1740490727.51348 0
-  "main.dvi" 1740490726.45527 56584 7c914217eb668482ff5046b83e15f91d "latex"
+["dvipdf"] 1740724551.01785 "main.dvi" "main.pdf" "main" 1740724552.26355 0
+  "main.dvi" 1740724550.87125 107940 a4542b6390e2983770badb8a24a950e9 "latex"
   (generated)
   "main.pdf"
   (rewritten before read)
-["latex"] 1740490724.39138 "/Users/nobushimi/Documents/GitHub/PCP_lecture_2025/main.tex" "main.dvi" "main" 1740490727.50945 0
-  "/Users/nobushimi/Documents/GitHub/PCP_lecture_2025/main.tex" 1740490717.18318 1758 79aac5acfa962a66c650ee4050cf6748 ""
+["latex"] 1740724548.39214 "/Users/nobushimi/Documents/GitHub/PCP_lecture_2025/main.tex" "main.dvi" "main" 1740724552.25945 0
+  "/Users/nobushimi/Documents/GitHub/PCP_lecture_2025/main.tex" 1740716859.20877 1799 6db78523eb41f4058217ea6532e2f97d ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -39,6 +39,9 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr6.tfm" 1136768653 1300 b62933e007d01cfd073f79b963c01526 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1136768653 1292 21c1c5bfeaebccffdb478fd231a0997d ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmsl12.tfm" 1136768653 1504 f280e6069e577ca4a981806c471fe65c ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmss10.tfm" 1136768653 1316 b636689f1933f24d1294acdf6041daaa ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmss12.tfm" 1136768653 1324 37b971caf729d7edd9cbb9f9b0ea76eb ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmss8.tfm" 1136768653 1296 d77f431d10d47c8ea2cc18cf45346274 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1136768653 1124 6c73e740cf17375f03eec0ee63599741 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
@@ -150,6 +153,8 @@
   "/usr/local/texlive/2024/texmf-dist/tex/latex/biblatex/lbx/english.lbx" 1711143581 40021 daa5a82ed0967f3ac4b77cb8384cac55 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/cleveref/cleveref.sty" 1525128982 329481 7fc6b003158402a4c694bc0a1b729308 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/comment/comment.sty" 1472166125 10197 204f75d5d8d88aa345a8c402e879e63b ""
+  "/usr/local/texlive/2024/texmf-dist/tex/latex/complexity/complexity.sty" 1505594840 26143 7d572ae81bd3f5cfbfb151760bf949c4 ""
+  "/usr/local/texlive/2024/texmf-dist/tex/latex/complexity/mycomplexity.sty" 1195210373 493 940abec71250a8c7129fe57eea5f60b6 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/environ/environ.sty" 1399239813 4378 f429f0da968c278653359293040a8f52 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/etoolbox/etoolbox.sty" 1739279216 46850 d87daedc2abdc653769a6f1067849fe0 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/geometry/geometry.sty" 1578002852 41601 9cf6c5257b1bc7af01a58859749dd37a ""
@@ -212,17 +217,17 @@
   "CSP.tex" 1740489699.77229 585 a0c728908d16a9d532a014ea7b542bbb ""
   "alphabet_reduction.tex" 1740489699.77259 99 e6225972ef36378c2f52cbf408574b49 ""
   "appendix.tex" 1722009924.38322 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "commands.tex" 1740490648.32374 1985 3b7ad38087f8ff4b56d48d7fafa5b555 ""
+  "commands.tex" 1740717532.0291 1951 0d16341cbc7e4e6d682eed5c6c9386aa ""
   "gap_amplification.tex" 1740489699.77343 282 07ebac43649ddf4f0c5c2484b0b12be0 ""
-  "introduction.tex" 1740490703.38302 6708 ec90fc2751d73c1afcdbc2451909b8b4 ""
-  "main.aux" 1740490726.44697 5828 3a9911263dc93c63e7c7035a6cc098a9 "latex"
-  "main.bbl" 1740490722.19446 6565 ab0b1a13bcd349ff393641f8b7083dc0 "biber main"
-  "main.out" 1740490726.44918 2702 5aee2443b1821e49a387e232e62d6cbf "latex"
-  "main.run.xml" 1740490726.45499 2338 1ce6592cf421c3a52a6f5907ed25509b "latex"
-  "main.tex" 1740490717.18318 1758 79aac5acfa962a66c650ee4050cf6748 ""
-  "main.toc" 1740490726.45511 2125 7ce1cc98fcde95fb3dd7a0ec795ca897 "latex"
+  "introduction.tex" 1740724539.11224 14874 355dc3d9481a1abb39150331a770b51f ""
+  "main.aux" 1740724550.8605 7399 de643909970b1c31dc182b61f4284b04 "latex"
+  "main.bbl" 1740724545.67032 8699 2d01346dd8772e8be5762bd5047a7876 "biber main"
+  "main.out" 1740724550.86348 2470 3c273406102e3bd44843028db9b571ef "latex"
+  "main.run.xml" 1740724550.86973 2338 1ce6592cf421c3a52a6f5907ed25509b "latex"
+  "main.tex" 1740716859.20877 1799 6db78523eb41f4058217ea6532e2f97d ""
+  "main.toc" 1740724550.87113 1943 60989dc312f8df235ab482710a7b52f3 "latex"
   "preface.tex" 1740489699.78672 2123 0d0ec9450070e062b79cbd57eb090cd6 ""
-  "theorems.tex" 1722009924.41922 2133 69db9d75d724de86fdd49146e3a3f747 ""
+  "theorems.tex" 1740716564.46993 2419 f3cc42045eb7dae17cc6bee7ac016293 ""
   (generated)
   "main.aux"
   "main.bcf"

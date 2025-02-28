@@ -49,6 +49,13 @@ title = 演習問題~\thetcbcounter~\if #2\kara \else（#2） \fi,
 #1,
 label = exer:#3}
 
+%example
+\newtcolorbox[auto counter, use counter from=definition, crefname = {例}{例}]{example}[3][]
+{enhanced, breakable = true, colback = brown!10!white, colframe = brown!50!black, fonttitle = \bfseries,
+title = 例~\thetcbcounter~\if #2\kara \else（#2） \fi,
+#1,
+label = ex:#3}
+
 \renewcommand{\proofname}{\textbf{証明}}
 \renewcommand{\figurename}{図}
 \crefname{equation}{式}{式}

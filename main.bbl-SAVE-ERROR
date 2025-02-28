@@ -19,6 +19,68 @@
 
 \refsection{0}
   \datalist[entry]{anyt/global//global/global/global}
+    \entry{AKS04}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=643dfbd788f89e01e0d8f3dcfca6a7c8}{%
+           family={Agrawal},
+           familyi={A\bibinitperiod},
+           given={Manindra},
+           giveni={M\bibinitperiod}}}%
+        {{hash=132a91296a099d008b0c152b456ec45a}{%
+           family={Kayal},
+           familyi={K\bibinitperiod},
+           given={Neeraj},
+           giveni={N\bibinitperiod}}}%
+        {{hash=72d1eef2e218521619ddc0b9bebf0b3a}{%
+           family={Saxena},
+           familyi={S\bibinitperiod},
+           given={Nitin},
+           giveni={N\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {Annals of Mathematics}%
+      }
+      \strng{namehash}{36b48090d1990c2c2cdf61dc7f162d7c}
+      \strng{fullhash}{36b48090d1990c2c2cdf61dc7f162d7c}
+      \strng{fullhashraw}{36b48090d1990c2c2cdf61dc7f162d7c}
+      \strng{bibnamehash}{36b48090d1990c2c2cdf61dc7f162d7c}
+      \strng{authorbibnamehash}{36b48090d1990c2c2cdf61dc7f162d7c}
+      \strng{authornamehash}{36b48090d1990c2c2cdf61dc7f162d7c}
+      \strng{authorfullhash}{36b48090d1990c2c2cdf61dc7f162d7c}
+      \strng{authorfullhashraw}{36b48090d1990c2c2cdf61dc7f162d7c}
+      \field{labelalpha}{AKS04}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{1}
+      \field{issn}{0003-486X,1939-8980}
+      \field{issue}{2}
+      \field{journaltitle}{Annals of mathematics}
+      \field{month}{9}
+      \field{title}{{PRIMES} is in {P}}
+      \field{urlday}{28}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{volume}{160}
+      \field{year}{2004}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{781\bibrangedash 793}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.4007/annals.2004.160.781
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.4007/annals.2004.160.781
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.4007/annals.2004.160.781
+      \endverb
+    \endentry
     \entry{AroraLMSS98}{article}{}{}
       \name{author}{5}{}{%
         {{hash=8e08b59145b9531815169c7ed0a0b055}{%
