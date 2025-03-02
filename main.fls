@@ -414,6 +414,10 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm
+INPUT ./images/PCPverifier.drawio.pdf
+INPUT ./images/PCPverifier.drawio.pdf
+INPUT ./images/PCPverifier.drawio.pdf
+INPUT extractbb -B cropbox -O images/PCPverifier.drawio.pdf
 INPUT ./CSP.tex
 INPUT ./CSP.tex
 INPUT CSP.tex

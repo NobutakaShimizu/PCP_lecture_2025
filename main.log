@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2025.2.7)  28 FEB 2025 15:35
+This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2025.2.7)  2 MAR 2025 11:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1030,12 +1030,12 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 135.
 [10]
-Underfull \vbox (badness 4120) has occurred while \output is active []
-
+File: images/PCPverifier.drawio.pdf Graphic file (type pdf)
+<images/PCPverifier.drawio.pdf>
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 167.
+(Font)              No change on input line 163.
 [11]) (./CSP.tex
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
@@ -1084,18 +1084,18 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3C273406102E3BD44843028DB9B571EF;2470.
+(rerunfilecheck)             Checksum: 303B820A549656481B9F3F359A184691;2491.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35607 strings out of 473863
- 706726 string characters out of 5731560
- 1545703 words of memory out of 5000000
- 58360 multiletter control sequences out of 15000+600000
+ 35622 strings out of 473863
+ 707054 string characters out of 5731560
+ 1545851 words of memory out of 5000000
+ 58370 multiletter control sequences out of 15000+600000
  579401 words of font info for 129 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  98i,10n,107p,983b,1690s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.dvi (19 pages, 107940 bytes).
+Output written on main.dvi (19 pages, 112176 bytes).

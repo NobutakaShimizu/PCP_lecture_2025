@@ -140,30 +140,50 @@ PCP定理は1998年に\citet{AroraS98,AroraLMSS98}によって証明された.
 しかし, 証明$\pi$のうちの一部の文字を読むだけで$x\in L$かどうかを\emph{確率的に}判定できる場合がある.
 そのような性質を持つ証拠を\emph{確率的検証可能な証拠}(Probabilistically Checkable Proof, PCP)という.
 
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/PCPverifier.drawio.pdf}
+  \caption{確率的検証可能な証拠の概念図. 検証者は乱数を用いて証拠$\pi$のうちの一部の文字のみを読み, それに基づいて判定を行う.}
+  \label{fig:pcpverifier}
+\end{figure}
+
+
 \begin{definition}{確率的検証可能な証拠}{PCP}
   二つの関数$r,q\colon\Nat\to\Nat$に対し, $\PCP(r,q)$を以下の性質を持つ判定集合$L$の集合とする: ある多項式時間オラクル乱択アルゴリズム$V$が存在して, 任意の$x\in\binset^*$に対し,
   \begin{enumerate}
-  \item もし$x\in L$ならば, ある$\pi\in\binset^*$が存在して, ($V$の乱択に関して)確率$1$で$V^\pi(x)=1$となる.
-  \item もし$x\notin L$ならば, 全ての$\pi\in\binset^*$に対して, ($V$の乱択に関して)確率$1/3$以上で$V^\pi(x)=0$となる.
+  \item もし$x\in L$ならば, ある$\pi\in\binset^*$が存在して, ($V$の乱択に関して)確率$1$で$V^\pi(x)=1$となる (\emph{完全性}).
+  \item もし$x\notin L$ならば, 全ての$\pi\in\binset^*$に対して, ($V$の乱択に関して)確率$1/3$以上で$V^\pi(x)=0$となる (\emph{健全性}).
   \item さらに, 入力長が$n=\abs{x}$のとき, $V^\pi(x)$はオラクル$\pi$のうち高々$q(n)$個の文字を読み, そのランダムシード長は$r(n)$で抑えられる.
   \end{enumerate}
   このようなオラクル乱択アルゴリズム$V$を\emph{PCP検証者}といい, 証拠$\pi$を\emph{PCP}という.
 \end{definition}
-\begin{remark}{PCPの長さ}{remark.PCP-length}
+\begin{remark}{PCPの長さ}{PCP-length}
   $\PCP(r,q)$の証拠$\pi$の長さは$q(n)2^{r(n)}$で抑えられる.
   各ランダムシード$s \in \binset^{r(n)}$に対して検証者は$\pi$のうち高々$q(n)$個の文字を読むため, 全てのランダムシードを列挙すると, アクセスされる可能性のある$\pi$の文字数は高々$q(n)2^{r(n)}$で抑えられる.
 \end{remark}
 
-\begin{example}{グラフ彩色問題}{ex.graph-coloring-problem-PCP}
-  ...
-\end{example}
-
-\section{PCP定理}
+一般にランダムシード長$r(n)$と読み込む文字数$q(n)$が小さいほど良いPCP検証者であると考えられる.
+PCP検証者の構成は非常に難しい.
+例えば\cref{ex:ex.graph-coloring-problem}のグラフ彩色問題に対する次の検証者を考えてみよう:
+入力としてグラフ$G=(V,E)$と証拠として関数$\pi\colon V\to[k]$を受け取り, この関数$\pi$が実際に$G$の$k$-彩色であるかどうかを判定する.
+検証者は$G$の辺$\{u,v\}\in E$をランダムに一つ選び, $\pi(u)\neq \pi(v)$であるかどうかによって判定する.
+この検証者は$\pi$のうち高々$q(n)=O(1)$個の文字を読み, そのランダムシード長は$r(n)=O(\log n)$で抑えられる.
+しかし, この検証者は健全性の条件を満たさない.
+実際, $G$が$k$-彩色可能でない場合, どのような関数$\pi\colon V \to [k]$を与えても, 少なくとも一つの辺$\{u,v\}\in E$が存在して$\pi(u)=\pi(v)$となるが, 検証者がこのような辺を引き当てる確率は最悪の場合, $1/\abs{E}$となるからである.
 
 PCP定理とは, ある$r(n)=O(\log n)$, $q(n)=O(1)$に対して$\PCP(r,q)=\NP$が成り立つことを主張する定理である.
+例えばグラフ彩色問題は$\NP$に属するため, 実は全段落の$r(n),q(n)$を達成するPCP検証者が存在するのである!
 
 \begin{theorem}{PCP定理}{PCPtheorem}
-  ...
+  ある$r(n)=O(\log n)$, $q(n)=O(1)$に対して$\PCP(r,q)=\NP$が成り立つ.
 \end{theorem}
 
+\begin{remark}{片側の包含関係}{one-sided-inclusion}
+  PCP定理において, $\PCP(r,q)\subseteq \NP$は容易に示すことができる.
+  実際, \cref{rem:PCP-length}により, 証拠$\pi$の長さは$q(n)2^{r(n)} = n^{O(1)}$で抑えられる.
+  また, $r(n)=O(\log n)$より, 検証者は$2^{r(n)}=n^{O(1)}$個のランダムシードを列挙し, それら全てに対してPCP検証者を適用し, その出力値の多数決をとることで, 入力$x$に対して$x\in L$かどうかを多項式時間で判定できる.
+  PCP定理の証明の本質的な難しさは逆側の包含関係$\NP\subseteq \PCP(r,q)$の証明にある.
+\end{remark}
 
+\section{PCP定理の応用}
+PCP定理の応用として, 様々な組合せ最適化問題に対する近似のNP困難性を導出することができる.
