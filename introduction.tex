@@ -94,7 +94,7 @@ PCP定理は1998年に\citet{AroraS98,AroraLMSS98}によって証明された.
   一方, 逆側の包含関係$\NP\subseteq\P$が成り立つかどうかはP vs NP問題と呼ばれる計算量理論における最も重要な未解決問題であり, 多くの研究者は$\NP\subseteq\P$が成り立たないと信じている.
 \end{remark}
 
-\begin{example}{合成数判定問題}{ex.composite-number-problem}
+\begin{example}{合成数判定問題}{composite-number-problem}
   判定問題$L=\{x\in\binset^*\colon x\text{は合成数}\}$を考える.
   このとき, 検証者は$x$と$\pi$を読み込んで, $\pi\not\in\{1,x\}$かつ$\pi$が$x$を割り切るかどうかを判定する.
   もしも$x\in L$である場合, 合成数なので非自明な約数を証拠$\pi$として与えれば$V(x,\pi)=1$となる.
@@ -102,7 +102,7 @@ PCP定理は1998年に\citet{AroraS98,AroraLMSS98}によって証明された.
   このアルゴリズム$V$は入力長(つまり数値の二進表現したときのビット長)に関する多項式時間で動作するため, $L$はNPに属する.
 \end{example}
 
-\begin{example}{グラフ彩色問題}{ex.graph-coloring-problem}
+\begin{example}{グラフ彩色問題}{graph-coloring-problem}
   自然数$k\ge 2$とグラフ$G=(V,E)$に対し, 関数$c\colon V\to[k]$が
   全ての辺$\{u,v\}\in E$に対して$c(u)\neq c(v)$を満たすとき, $c$を$G$の$k$-彩色といい,
   $k$-彩色が存在するようなグラフは$k$-彩色可能であるという.
@@ -164,7 +164,7 @@ PCP定理は1998年に\citet{AroraS98,AroraLMSS98}によって証明された.
 
 一般にランダムシード長$r(n)$と読み込む文字数$q(n)$が小さいほど良いPCP検証者であると考えられる.
 PCP検証者の構成は非常に難しい.
-例えば\cref{ex:ex.graph-coloring-problem}のグラフ彩色問題に対する次の検証者を考えてみよう:
+例えば\cref{ex:graph-coloring-problem}のグラフ彩色問題に対する次の検証者を考えてみよう:
 入力としてグラフ$G=(V,E)$と証拠として関数$\pi\colon V\to[k]$を受け取り, この関数$\pi$が実際に$G$の$k$-彩色であるかどうかを判定する.
 検証者は$G$の辺$\{u,v\}\in E$をランダムに一つ選び, $\pi(u)\neq \pi(v)$であるかどうかによって判定する.
 この検証者は$\pi$のうち高々$q(n)=O(1)$個の文字を読み, そのランダムシード長は$r(n)=O(\log n)$で抑えられる.
@@ -185,5 +185,24 @@ PCP定理とは, ある$r(n)=O(\log n)$, $q(n)=O(1)$に対して$\PCP(r,q)=\NP$�
   PCP定理の証明の本質的な難しさは逆側の包含関係$\NP\subseteq \PCP(r,q)$の証明にある.
 \end{remark}
 
+\subsection{3彩色問題のNP完全性}
+
+クラス$\NP$に属する問題のうち最も難しいという性質を\emph{NP完全性}という.
+本来はNP完全性を定義するには帰着の概念を導入しなければならないが, この講義では3彩色問題がNP完全であるという事実のみを用いるため,
+この事実について証明なしで述べる.
+
+\begin{theorem}{3彩色問題のNP完全性}{3-coloring-problem-NP-complete}
+  3彩色問題$\ThreeCOL$はNP完全である. すなわち, 任意の$L\in\NP$に対して, 多項式時間アルゴリズム$f$が存在して, 任意の$x\in\binset^*$に対して$x\in L$と$f(x)\in\ThreeCOL$は同値である.
+\end{theorem}
+
+つまり, $\ThreeCOL$を多項式時間アルゴリズムで解くアルゴリズムが存在するならば, $\NP$に属する任意の判定問題$L$を多項式時間で解くことができる. 実際, \cref{thm:3-coloring-problem-NP-complete}のアルゴリズム$f$を用いて$L$の入力を$\ThreeCOL$の入力に変換した後に, $\ThreeCOL$を解くアルゴリズムを適用すればよい.
+この意味で, $\ThreeCOL$はNPに属する問題の中で最も難しい問題(の一つ)であるといえる.
+
 \section{PCP定理の応用}
 PCP定理の応用として, 様々な組合せ最適化問題に対する近似のNP困難性を導出することができる.
+
+\section{PCP定理の歴史}
+PCP定理は1992年にAroraとSafraによって証明された.
+その後, 2005年にDinurによって証明が簡略化され, 2010年にAroraとBarakによって証明が再構成された.
+
+

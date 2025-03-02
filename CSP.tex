@@ -1,9 +1,44 @@
 \chapter{制約充足問題} \label{chap:CSP}
-制約充足問題(Constraint Satisfaction Problem, CSP)は, 論理学や計算複雑性理論において重要な問題の一つであり,
+制約充足問題(Constraint Satisfaction Problem, CSP)は, 計算量理論において重要な問題の一つであり,
 PCP定理の証明においても中心的な役割を果たす.
 
 \section{制約充足問題の定義}
-制約充足問題とは端的に言えば連立方程式である.
+制約充足問題とは端的に言えば抽象化された連立方程式である.
+複数の変数$x_1,\dots,x_n$があり, それぞれの変数は有限集合$\Sigma$に値をとる.
+そしてこれらの変数が満たすべき複数の制約が与えられたとき, それらの制約を全て同時に満たす$(x_1,\dots,x_n)$の割り当てを求める問題を制約充足問題という.
+
+\begin{definition}{制約充足問題}{CSP}
+\emph{制約充足問題(CSP)}とは次の要素からなる組$(X,\Sigma,\calI,\calC)$を入力とする判定問題である:
+\begin{itemize}
+  \item \emph{アルファベット}と呼ばれる有限集合$\Sigma$.
+  \item 変数集合$X=\{x_1,\dots,x_n\}$.
+  \item 部分集合族$\calI=\{I_1,\dots,I_m\}$. ただし各$I_i$は$I_i\subseteq[n]$である.
+  \item 関数族$\calC=\{c_1,\dots,c_m\}$. ただし各$c_i$は$c_i: \Sigma^{I_i}\to\{0,1\}$である.
+\end{itemize}
+入力$(X,\Sigma,\calI,\calC)$は,
+ある変数への割り当て$(a_1,\dots,a_n)\in\Sigma^n$が存在して, 任意の$i\in[m]$について$c_i(a_{I_i})=1$であるとき, かつその時に限りYesインスタンスである.
+
+また, 全ての$i\in[m]$について$\abs{I_i}\le k$であるとき, このCSPは\emph{$k$-CSP}と呼ばれる.
+\end{definition}
+
+\begin{example}{グラフ彩色問題}{graph-coloring-problem-CSP}
+  グラフ彩色問題(\cref{ex:graph-coloring-problem})は$2$-CSPである.
+  実際, グラフ$G=(V,E)$に対して
+  \begin{itemize}
+    \item 変数集合を$X=V$とする.
+    \item アルファベットを$\Sigma=[k]$とする.
+    \item 制約集合を$\calI=\{E\}$とする.
+    \item 関数族を$\calC=\{c_e\}_{e\in E}$とし, 各$e=\{u,v\}\in E$に対して
+    \begin{align*}
+      c_e(a_u,a_v) = \begin{cases}
+        1 & \text{if } a_u\neq a_v, \\
+        0 & \text{if } a_u=a_v
+      \end{cases}
+    \end{align*}
+    と定義する.
+  \end{itemize}
+  このとき, グラフ$G$が$k$-彩色可能であることと, このCSPがYesインスタンスであることは同値である.
+\end{example}
 
 \subsection{PCPとの関係}
 \subsection{制約グラフ}
