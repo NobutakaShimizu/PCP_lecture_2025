@@ -1,22 +1,22 @@
 # Fdb version 4
-["biber .tex_intermediates/main"] 1741358912.33062 ".tex_intermediates/main.bcf" ".tex_intermediates/main.bbl" ".tex_intermediates/main" 1741358922.22032 0
-  ".tex_intermediates/main.bcf" 1741358920.87026 109150 ef0ba37eddb5647e2c6a134c0f99b14d "latex"
+["biber .tex_intermediates/main"] 1741360442.4479 ".tex_intermediates/main.bcf" ".tex_intermediates/main.bbl" ".tex_intermediates/main" 1741360452.45314 0
+  ".tex_intermediates/main.bcf" 1741360451.21403 109150 ef0ba37eddb5647e2c6a134c0f99b14d "latex"
   "ref.bib" 1740717377.94798 2151 f47b447a3a8821bd3f9ee4af36ffdf92 ""
   (generated)
   ".tex_intermediates/main.bbl"
   ".tex_intermediates/main.blg"
   (rewritten before read)
-["dvipdf"] 1741358921.0063 "main.dvi" "main.pdf" "main" 1741358922.22382 0
-  "main.dvi" 1741358920.87223 137252 626563e8e795ee27bab1536a29d7541a "latex"
+["dvipdf"] 1741360451.36368 "main.dvi" "main.pdf" "main" 1741360452.45696 0
+  "main.dvi" 1741360451.21786 151212 e778c15a19b175b131a87559b8155586 "latex"
   (generated)
   "main.pdf"
   (rewritten before read)
-["latex"] 1741358917.819 "/Users/nobushimi/Documents/GitHub/PCP_lecture_2025/main.tex" "main.dvi" "main" 1741358922.22044 0
-  ".tex_intermediates/main.aux" 1741358920.86597 9108 224c2a27f68bf9aaf0f9bb6741fd0eb3 "latex"
-  ".tex_intermediates/main.bbl" 1741358915.15679 8699 2d01346dd8772e8be5762bd5047a7876 "biber .tex_intermediates/main"
-  ".tex_intermediates/main.out" 1741358920.86858 2729 76ca1f7a628fa8cd119b194ff36c4571 "latex"
-  ".tex_intermediates/main.run.xml" 1741358920.8718 2338 1ce6592cf421c3a52a6f5907ed25509b "latex"
-  ".tex_intermediates/main.toc" 1741358920.87211 2129 3d98fc6a4dec09d6bd817d9a0fd6908d "latex"
+["latex"] 1741360448.72058 "/Users/nobushimi/Documents/GitHub/PCP_lecture_2025/main.tex" "main.dvi" "main" 1741360452.45333 0
+  ".tex_intermediates/main.aux" 1741360451.20942 9822 73dddf7a9ff3854f06f26006261bd37c "latex"
+  ".tex_intermediates/main.bbl" 1741360445.66015 8699 2d01346dd8772e8be5762bd5047a7876 "biber .tex_intermediates/main"
+  ".tex_intermediates/main.out" 1741360451.21205 2729 76ca1f7a628fa8cd119b194ff36c4571 "latex"
+  ".tex_intermediates/main.run.xml" 1741360451.21719 2338 1ce6592cf421c3a52a6f5907ed25509b "latex"
+  ".tex_intermediates/main.toc" 1741360451.21737 2129 3d98fc6a4dec09d6bd817d9a0fd6908d "latex"
   "/Users/nobushimi/Documents/GitHub/PCP_lecture_2025/main.tex" 1741358903.30559 1789 f5753ac3af7f23cccc30cc926ea41d19 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -221,7 +221,7 @@
   "commands.tex" 1740884843.31659 1989 1e5e4ca4fa5e9a2b17603d2daae01cf2 ""
   "gap_amplification.tex" 1740489699.77343 282 07ebac43649ddf4f0c5c2484b0b12be0 ""
   "images/PCPverifier.drawio.pdf" 1740881802.99203 37155 dedec75a824df776311f81fd27bd9623 ""
-  "introduction.tex" 1740885568.87223 18722 5036256a5563178067d78346043aa7f5 ""
+  "introduction.tex" 1741360439.25298 20267 b4f9e1ab32722d3542681dc4e21ca1dd ""
   "main.tex" 1741358903.30559 1789 f5753ac3af7f23cccc30cc926ea41d19 ""
   "preface.tex" 1740489699.78672 2123 0d0ec9450070e062b79cbd57eb090cd6 ""
   "theorems.tex" 1740716564.46993 2419 f3cc42045eb7dae17cc6bee7ac016293 ""
