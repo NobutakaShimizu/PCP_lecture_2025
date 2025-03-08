@@ -26,8 +26,9 @@ PCP定理は1998年に\citet{AroraS98,AroraLMSS98}によって証明された.
 計算量理論で最も基本的な問題群として判定問題と呼ばれる問題群がある.
 
 \begin{definition}{判定問題}{decision-problem}
-  部分集合$L\subseteq\binset^*$を\emph{判定問題(または言語)}という.
-  また, 文字列$x\in\binset^*$は$x\in L$であるとき, 判定問題$L$の\emph{Yesインスタンス}といい,
+  部分集合$L\subseteq\binset^*$を\emph{判定問題(または言語)}といい,
+  アルゴリズムに与える$L$の入力を\emph{インスタンス}という.
+  また, インスタンス$x\in\binset^*$は$x\in L$であるとき, 判定問題$L$の\emph{Yesインスタンス}といい,
   そうでない場合は\emph{Noインスタンス}という.
 
   文字列$x\in\binset^*$に対し$L(x)\in\binset$を, $x\in L$かどうかの指示関数, すなわち$x\in L$ならば$L(x)=1$, そうでなければ$L(x)=0$と定義する.

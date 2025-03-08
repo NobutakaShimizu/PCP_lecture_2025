@@ -74,6 +74,8 @@
     \hline
     ランダムネスを固定した時の判定 & CSPの制約 \\
     \hline
+    PCP$\pi$を受理する確率 & 割り当ての充足度 $\val(\pi)$ \\
+    \hline
   \end{tabular}
   \caption{PCPとCSPの対応関係}
   \label{table:pcp-csp-correspondence}
@@ -82,13 +84,13 @@
 この対応関係に基づいて, PCP定理をCSPを用いた言葉で表すことができる.
 
 \begin{theorem}{PCP定理のCSP版}{PCP-CSP-theorem}
-  ある関数$m=n^{O(1)}$, $q=O(1)$, $\ell=n^{O(1)}$, 定数$c>1$, および
+  ある関数$m=n^{O(1)}$, $q=O(1)$, $\ell=n^{O(1)}$, 定数$c\in\Nat$, $\epsilon>0$, および
   次の性質を満たす多項式時間決定的アルゴリズム$A$が存在する:
-  3彩色問題のインスタンス$G=(V,E)$を入力として受け取り, $G$の頂点数を$n$としたとき, $A$は高々$\ell(n)$個の変数と$m(n)$個の制約からなる$q$-CSPのインスタンス$\varphi$を出力する.
+  3彩色問題のインスタンス$G=(V,E)$を入力として受け取り, $G$の頂点数を$n$としたとき, $A$は高々$\ell(n)$個の変数と$m(n)$個の制約および要素数$c$のアルファベットからなる$q$-CSPのインスタンス$\varphi$を出力する.
   さらにこのインスタンス$\varphi$は
   \begin{itemize}
   \item 入力$G$が$\ThreeCOL$のYesインスタンスであるとき, $\val(\varphi) = 1  $となる (すなわち$\varphi$はYesインスタンス).
-  \item 入力$G$が$\ThreeCOL$のNoインスタンスであるとき, $\val(\varphi) < 1-c$となる.
+  \item 入力$G$が$\ThreeCOL$のNoインスタンスであるとき, $\val(\varphi) < 1-\epsilon$となる.
   \end{itemize}
 \end{theorem}
 
@@ -96,13 +98,30 @@
   \cref{thm:PCP-CSP-theorem}と\cref{thm:3-coloring-problem-PCP-verifier}は同値である.
 \end{lemma}
 \begin{proof}
-  \cref{thm:PCP-CSP-theorem}$\Rightarrow$\cref{thm:3-coloring-problem-PCP-verifier}を証明する.
+  それぞれの方向を別々に証明する.
 
-  \cref{thm:3-coloring-problem-PCP-verifier}$\Rightarrow$\cref{thm:PCP-CSP-theorem}を証明する.
+  \emph{\cref{thm:PCP-CSP-theorem}$\Rightarrow$\cref{thm:3-coloring-problem-PCP-verifier}の証明.}
+  ある$r=O(\log n)$, $q'=O(1)$に対して, $\ThreeCOL$に対するシード長$r$, クエリ回数$q'$のPCP検証者$V^\pi$を構成する.
+  入力としてグラフ$G=(V,E)$を受け取り, \cref{thm:PCP-CSP-theorem}のアルゴリズム$A$を用いて$q$-CSPのインスタンス$\varphi$を出力する.
+  また, PCP $\pi$ はこの$q$-CSPのインスタンス$\varphi$の割り当てとして解釈し,
+  PCP検証者$V^\pi$は以下の操作を十分大きな定数回繰り返す: 一様ランダムに制約$c_i$を選択し, その制約に含まれる変数に対する割り当て$\pi$の値を読み込み, この制約が充足\emph{されない}ならば$0$を出力し終了する. 何度も繰り返した末に終了しなかったのであれば, $1$を出力して終了する.
+  この検証者は繰り返しの回数が$O(1)$であり, それぞれの繰り返しにおいては高々$q$個の変数の値を読み込むため, クエリ回数は$q'=O(q)=O(1)$となる. なお, ここでアルファベットサイズ$c$が定数であることに留意する (実際にはPCP $\pi$ は二進文字列なので, 変数割り当てを読み込む際には$\log_2 c$文字を読み込んでいる).
+  また, ランダムシードはランダムな制約を選ぶために使われてるため, その長さは$O(\log m)=O(\log n)$となる.
+
+  もしグラフ$G$がYesインスタンスならば, $\varphi$もYesインスタンスであるため, $\pi$をその充足割り当てとすれば, 全ての制約$c_i$が充足されるため, (制約の選び方のランダムネスに関して)確率$1$で$V^\pi(G)=1$となる.
+  もしグラフ$G$がNoインスタンスならば, $\val(\varphi) \le 1-\epsilon$である. 従って, 任意の割り当て$\pi$に対して, 一様ランダムな制約$c_i$が充足される確率は高々$1-\epsilon$である.
+  よって, この操作を$\ceil{10/\epsilon}=O(1)$回繰り返すと, 少なくとも確率$1/3$で充足されない制約が一度以上選ばれ, 検証者は$0$を出力する.
+
+
+  \emph{\cref{thm:3-coloring-problem-PCP-verifier}$\Rightarrow$\cref{thm:PCP-CSP-theorem}の証明.}
+  仮定より, $\ThreeCOL$に対する, ランダムシード長$r=O(\log n)$, クエリ回数$q=O(1)$のPCP検証者$V^\pi$が存在する. アルゴリズム$A$は, 入力$G$に対して, 全てのランダムシード$s\in \binset^r$を列挙して, それぞれの$V^\pi(G;s)$を関数$c_s$とみなして, これらを制約とするCSPを出力する. 各$V^\pi(G;s)$は, $\pi$を変数とみなしたとき, 高々$q$個の変数の値を読み込むため, $(c_s)_{s\in\binset^r}$は$2^r=n^{O(1)}$個の制約からなる$q$-CSPとなる.
+  なお, $V^\pi$は多項式時間アルゴリズムなので, $A$も多項式時間アルゴリズムである.
 \end{proof}
 
+従って, 以降は\cref{thm:PCP-CSP-theorem}の証明に注力する.
+
 \subsection{制約グラフ}
-\cref{thm:3-coloring-problem-PCP-verifier}を証明する.
+3彩色問題は$2$-CSPである. ここでは2-CSPのインスタンスをグラフとして表現する方法として, \emph{制約グラフ}を導入する.
 
 
 \section{PCP定理の証明の概要}
