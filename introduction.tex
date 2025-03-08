@@ -14,6 +14,8 @@ PCP定理は1998年に\citet{AroraS98,AroraLMSS98}によって証明された.
 \begin{itemize}
 \item オーダー記法: 二つの関数$f,g\colon\Nat\to\Nat$に対し, $f(n)=O(g(n))$であるとは, ある定数$c>0$が存在して, 十分大きな全ての$n\in\Nat$に対して$f(n)\le cg(n)$が成り立つことをいう. また, $f(n)=\Omega(g(n)), f(n)=o(g(n)), f(n)=\omega(g(n))$なども同様に($n\to\infty$として)定義する.
 \item 自然数$n\in\Nat$に対して$[n]=\qty{1,\dots,n}$とする.
+\item 有限集合$S$に対し, $x\sim S$と書いたとき, $x$は$S$から一様ランダムに選ばれた元であることを意味する.
+\item 集合$S$上のベクトル$x\in S^n$および$I\subseteq[n]$に対し, $x_I \in S^I$を, $x$の$I$への制限, すなわち, $x_I(i)=x(i)$ ($i\in I$) と定義する.
 \item $\binset^*=\bigcup_{n\in\Nat}\binset^n$を有限長の二進文字列全体とする.
 \item $x\in\binset^*$に対して$\abs{x}$を$x$の文字数とする.
 \item アルゴリズム$A$に対し, $A(x)$を入力$x \in \binset^*$に対するアルゴリズム$A$の出力とする. ここで, 単に「アルゴリズム」と言った場合は決定的アルゴリズムを指し, 乱択アルゴリズムについては明示的に言及する.

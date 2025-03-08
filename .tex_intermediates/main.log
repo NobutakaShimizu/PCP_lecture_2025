@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2025.2.7)  8 MAR 2025 00:14
+This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2025.2.7)  8 MAR 2025 23:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -980,68 +980,76 @@ LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
 [7]
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 58.
+(Font)              No change on input line 60.
 [8]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 63.
+(Font)              No change on input line 65.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 63.
+(Font)              No change on input line 65.
 LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <14.4> not available
-(Font)              Font shape `JT2/gt/m/n' tried instead on input line 74.
+(Font)              Font shape `JT2/gt/m/n' tried instead on input line 76.
 LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 13.85594pt on input line 74.
+(Font)              scaled to size 13.85594pt on input line 76.
 LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <14.4> not available
-(Font)              Font shape `JY2/gt/m/n' tried instead on input line 74.
+(Font)              Font shape `JY2/gt/m/n' tried instead on input line 76.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 13.85594pt on input line 74.
+(Font)              scaled to size 13.85594pt on input line 76.
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 95.
+(Font)              No change on input line 90.
 [9]
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 5.77332pt on input line 98.
+(Font)              scaled to size 5.77332pt on input line 100.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 5.77332pt on input line 98.
+(Font)              scaled to size 5.77332pt on input line 100.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 126.
+(Font)              No change on input line 128.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 126.
+(Font)              No change on input line 128.
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 135.
+(Font)              No change on input line 137.
 [10]
 File: images/PCPverifier.drawio.pdf Graphic file (type pdf)
 <images/PCPverifier.drawio.pdf>
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 163.
+(Font)              No change on input line 161.
 [11]
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 200.
+(Font)              No change on input line 198.
 [12]) (./CSP.tex
+Underfull \vbox (badness 3646) has occurred while \output is active []
+
+
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 1.
 [13]
 
-[14
-
-]
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
+(Font)              No change on input line 1.
+[14]
 Chapter 2.
 
 
-[15]) (./gap_amplification.tex
-Underfull \vbox (badness 8000) has occurred while \output is active []
+[15
+
+]
+Underfull \vbox (badness 2635) has occurred while \output is active []
 
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 1.
+(Font)              No change on input line 93.
 [16]
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
+(Font)              No change on input line 99.
+) (./gap_amplification.tex
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 1.
@@ -1089,12 +1097,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35182 strings out of 473863
- 698059 string characters out of 5731560
- 1535995 words of memory out of 5000000
- 57943 multiletter control sequences out of 15000+600000
- 579401 words of font info for 129 fonts, out of 8000000 for 9000
+ 35252 strings out of 473863
+ 698599 string characters out of 5731560
+ 1538506 words of memory out of 5000000
+ 58011 multiletter control sequences out of 15000+600000
+ 580107 words of font info for 131 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  98i,17n,107p,983b,1542s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on .tex_intermediates/main.dvi (23 pages, 151212 bytes).
+Output written on .tex_intermediates/main.dvi (23 pages, 164256 bytes).

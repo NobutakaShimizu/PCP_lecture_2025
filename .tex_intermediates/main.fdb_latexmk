@@ -1,22 +1,22 @@
 # Fdb version 4
-["biber .tex_intermediates/main"] 1741360442.4479 ".tex_intermediates/main.bcf" ".tex_intermediates/main.bbl" ".tex_intermediates/main" 1741360452.45314 0
-  ".tex_intermediates/main.bcf" 1741360451.21403 109150 ef0ba37eddb5647e2c6a134c0f99b14d "latex"
+["biber .tex_intermediates/main"] 1741445054.43641 ".tex_intermediates/main.bcf" ".tex_intermediates/main.bbl" ".tex_intermediates/main" 1741445063.55898 0
+  ".tex_intermediates/main.bcf" 1741445062.4123 109150 ef0ba37eddb5647e2c6a134c0f99b14d "latex"
   "ref.bib" 1740717377.94798 2151 f47b447a3a8821bd3f9ee4af36ffdf92 ""
   (generated)
   ".tex_intermediates/main.bbl"
   ".tex_intermediates/main.blg"
   (rewritten before read)
-["dvipdf"] 1741360451.36368 "main.dvi" "main.pdf" "main" 1741360452.45696 0
-  "main.dvi" 1741360451.21786 151212 e778c15a19b175b131a87559b8155586 "latex"
+["dvipdf"] 1741445062.54156 "main.dvi" "main.pdf" "main" 1741445063.56302 0
+  "main.dvi" 1741445062.4137 164256 23be64d313bcef59df8df638e7e6239c "latex"
   (generated)
   "main.pdf"
   (rewritten before read)
-["latex"] 1741360448.72058 "/Users/nobushimi/Documents/GitHub/PCP_lecture_2025/main.tex" "main.dvi" "main" 1741360452.45333 0
-  ".tex_intermediates/main.aux" 1741360451.20942 9822 73dddf7a9ff3854f06f26006261bd37c "latex"
-  ".tex_intermediates/main.bbl" 1741360445.66015 8699 2d01346dd8772e8be5762bd5047a7876 "biber .tex_intermediates/main"
-  ".tex_intermediates/main.out" 1741360451.21205 2729 76ca1f7a628fa8cd119b194ff36c4571 "latex"
-  ".tex_intermediates/main.run.xml" 1741360451.21719 2338 1ce6592cf421c3a52a6f5907ed25509b "latex"
-  ".tex_intermediates/main.toc" 1741360451.21737 2129 3d98fc6a4dec09d6bd817d9a0fd6908d "latex"
+["latex"] 1741445059.93261 "/Users/nobushimi/Documents/GitHub/PCP_lecture_2025/main.tex" "main.dvi" "main" 1741445063.55934 0
+  ".tex_intermediates/main.aux" 1741445062.40798 10131 27620f4f8a4920a6a5430f098111bdb0 "latex"
+  ".tex_intermediates/main.bbl" 1741445057.25569 8699 2d01346dd8772e8be5762bd5047a7876 "biber .tex_intermediates/main"
+  ".tex_intermediates/main.out" 1741445062.41068 2729 76ca1f7a628fa8cd119b194ff36c4571 "latex"
+  ".tex_intermediates/main.run.xml" 1741445062.41347 2338 1ce6592cf421c3a52a6f5907ed25509b "latex"
+  ".tex_intermediates/main.toc" 1741445062.41358 2129 c84196f637828159a9495ccd6a474641 "latex"
   "/Users/nobushimi/Documents/GitHub/PCP_lecture_2025/main.tex" 1741358903.30559 1789 f5753ac3af7f23cccc30cc926ea41d19 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -34,6 +34,7 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm" 1136768653 1344 8a0be4fe4d376203000810ad4dc81558 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm" 1136768653 1336 3125ccb448c1a09074e3aa4a9832f130 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm" 1136768653 1332 1fde11373e221473104d6cc5993f046e ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm" 1136768653 1532 9162035f4e7176612125649e348e2195 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm" 1136768653 1300 63a6111ee6274895728663cf4b4e7e81 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmex10.tfm" 1136768653 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1136768653 1524 4414a8315f39513458b80dfc63bff03a ""
@@ -50,6 +51,7 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1136768653 1124 6c73e740cf17375f03eec0ee63599741 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti12.tfm" 1136768653 1484 ed72f8f5cf654cda15ecc8e32bfcbee5 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti7.tfm" 1136768653 1492 86331993fe614793f5e7e755835c31c5 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti8.tfm" 1136768653 1504 1747189e0441d1c18f3ea56fafc1c480 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm" 1136768653 772 9a936b7f5e2ff0557fce0f62822f0bbf ""
@@ -215,13 +217,13 @@
   "/usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf" 1727217670 42021 a58d36c7ede3d2fc9f93da62d691ddff ""
   "/usr/local/texlive/2024/texmf-var/web2c/euptex/uplatex.fmt" 1738857502 3294390 063dceb6b310a2603ee67ca8a3787ac1 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "CSP.tex" 1740886468.86769 4499 727b635aedd8b33f3818f2c9793ae90e ""
+  "CSP.tex" 1741445051.36588 5834 fd389f1937dcacc91bb3fa8d7057a2e6 ""
   "alphabet_reduction.tex" 1740489699.77259 99 e6225972ef36378c2f52cbf408574b49 ""
   "appendix.tex" 1722009924.38322 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "commands.tex" 1740884843.31659 1989 1e5e4ca4fa5e9a2b17603d2daae01cf2 ""
+  "commands.tex" 1741443604.1713 3689 d4692fc146a43da86d9fcc31a0443365 ""
   "gap_amplification.tex" 1740489699.77343 282 07ebac43649ddf4f0c5c2484b0b12be0 ""
   "images/PCPverifier.drawio.pdf" 1740881802.99203 37155 dedec75a824df776311f81fd27bd9623 ""
-  "introduction.tex" 1741360439.25298 20267 b4f9e1ab32722d3542681dc4e21ca1dd ""
+  "introduction.tex" 1741444786.82434 20586 48a2774eea72c534fccf788e482732ba ""
   "main.tex" 1741358903.30559 1789 f5753ac3af7f23cccc30cc926ea41d19 ""
   "preface.tex" 1740489699.78672 2123 0d0ec9450070e062b79cbd57eb090cd6 ""
   "theorems.tex" 1740716564.46993 2419 f3cc42045eb7dae17cc6bee7ac016293 ""

@@ -1,14 +1,11 @@
 \chapter{制約充足問題} \label{chap:CSP}
-制約充足問題(Constraint Satisfaction Problem, CSP)は, 計算量理論において重要な問題の一つであり,
-PCP定理の証明においても中心的な役割を果たす.
+制約充足問題(Constraint Satisfaction Problem, CSP)は, 計算量理論において重要な問題の一つであり, PCP定理の証明においても中心的な役割を果たす.
 
 \section{制約充足問題の定義}
-制約充足問題とは端的に言えば抽象化された連立方程式である.
-複数の変数$x_1,\dots,x_n$があり, それぞれの変数は有限集合$\Sigma$に値をとる.
-そしてこれらの変数が満たすべき複数の制約が与えられたとき, それらの制約を全て同時に満たす$(x_1,\dots,x_n)$の割り当てを求める問題を制約充足問題という.
+制約充足問題とは端的に言えば連立方程式の解の存在性判定を問う判定問題である.
 
 \begin{definition}{制約充足問題}{CSP}
-\emph{制約充足問題(CSP)}とは次の要素からなる組$(X,\Sigma,\calI,\calC)$を入力とする判定問題である:
+\emph{制約充足問題(CSP)}とは次の要素からなる組$\varphi = (X,\Sigma,\calI,\calC)$を入力とする判定問題である:
 \begin{itemize}
   \item \emph{アルファベット}と呼ばれる有限集合$\Sigma$.
   \item 変数集合$X=\{x_1,\dots,x_n\}$.
@@ -17,8 +14,18 @@ PCP定理の証明においても中心的な役割を果たす.
 \end{itemize}
 入力$(X,\Sigma,\calI,\calC)$は,
 ある変数への割り当て$(a_1,\dots,a_n)\in\Sigma^n$が存在して, 任意の$i\in[m]$について$c_i(a_{I_i})=1$であるとき, かつその時に限りYesインスタンスである.
+ここで, $a_{I_i}=(a_{i_1},\dots,a_{i_{\abs{I_i}}})$は$a_i$の部分列である.
+特に, 全ての$i\in[m]$について$\abs{I_i}\le q$であるとき, このCSPは\emph{$q$-CSP}という.
 
-また, 全ての$i\in[m]$について$\abs{I_i}\le q$であるとき, このCSPは\emph{$q$-CSP}と呼ばれる.
+また, 固定した割り当て$\veca = (a_1,\dots,a_n)$に対する$\varphi$の\emph{充足度}を
+\begin{align*}
+  \val(\veca) = \Pr_{i\sim[m]}[c_i(\veca_{I_i})=1]
+\end{align*}
+とし, 全ての割り当てに関して充足度の最大値
+\begin{align*}
+  \val(\varphi) = \max_{\veca\in\Sigma^n} \val(\veca)
+\end{align*}
+を$\varphi$の充足度という.
 \end{definition}
 
 \begin{example}{グラフ彩色問題}{graph-coloring-problem-CSP}
@@ -39,6 +46,7 @@ PCP定理の証明においても中心的な役割を果たす.
   \end{itemize}
   このとき, グラフ$G$が$k$-彩色可能であることと, このCSPがYesインスタンスであることは同値である.
 \end{example}
+
 
 \subsection{PCPとの関係}
 ランダムシード長$r=r(n)$かつクエリ数$q=O(1)$のPCP検証者は$\Sigma=\{0,1\}$の場合の$q$-CSPによって表現でき, 逆に$q$-CSPはPCP検証者として表現できる.
@@ -71,9 +79,31 @@ PCP定理の証明においても中心的な役割を果たす.
   \label{table:pcp-csp-correspondence}
 \end{table}
 
+この対応関係に基づいて, PCP定理をCSPを用いた言葉で表すことができる.
+
+\begin{theorem}{PCP定理のCSP版}{PCP-CSP-theorem}
+  ある関数$m=n^{O(1)}$, $q=O(1)$, $\ell=n^{O(1)}$, 定数$c>1$, および
+  次の性質を満たす多項式時間決定的アルゴリズム$A$が存在する:
+  3彩色問題のインスタンス$G=(V,E)$を入力として受け取り, $G$の頂点数を$n$としたとき, $A$は高々$\ell(n)$個の変数と$m(n)$個の制約からなる$q$-CSPのインスタンス$\varphi$を出力する.
+  さらにこのインスタンス$\varphi$は
+  \begin{itemize}
+  \item 入力$G$が$\ThreeCOL$のYesインスタンスであるとき, $\val(\varphi) = 1  $となる (すなわち$\varphi$はYesインスタンス).
+  \item 入力$G$が$\ThreeCOL$のNoインスタンスであるとき, $\val(\varphi) < 1-c$となる.
+  \end{itemize}
+\end{theorem}
+
+\begin{lemma}{}{}
+  \cref{thm:PCP-CSP-theorem}と\cref{thm:3-coloring-problem-PCP-verifier}は同値である.
+\end{lemma}
+\begin{proof}
+  \cref{thm:PCP-CSP-theorem}$\Rightarrow$\cref{thm:3-coloring-problem-PCP-verifier}を証明する.
+
+  \cref{thm:3-coloring-problem-PCP-verifier}$\Rightarrow$\cref{thm:PCP-CSP-theorem}を証明する.
+\end{proof}
+
 \subsection{制約グラフ}
-\cref{thm:3-coloring-problem-NP-complete}より, NP完全であるような2-CSPが存在する.
-そこで, 以後は2-CSPのみを考える.
+\cref{thm:3-coloring-problem-PCP-verifier}を証明する.
+
 
 \section{PCP定理の証明の概要}
 
