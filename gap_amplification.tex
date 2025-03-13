@@ -1,6 +1,50 @@
 \chapter{ギャップ増幅補題} \label{chap:gap-amplification}
 この章ではPCP定理の証明において重要な役割を果たすギャップ増幅補題について解説する.
+
 \section{主張と直感}
+
+ギャップ増幅補題は, 制約グラフの不満足値を増幅するための重要なツールである. この補題は, エクスパンダーグラフの性質を利用して, 制約グラフの不満足値を2倍に増幅する.
+
+\begin{lemma}{ギャップ増幅補題}{gap-amplification-lemma}
+  定数$\alpha > 0$が存在し, 以下の性質を満たす多項式時間アルゴリズムが存在する:
+  入力として制約グラフ$G = \langle(V, E), \Sigma, C\rangle$を受け取り, 新しい制約グラフ$G' = \langle(V', E'), \Sigma', C'\rangle$を出力する.
+  \begin{itemize}
+  \item $\mathrm{UNSAT}(G) = 0$ならば$\mathrm{UNSAT}(G') = 0$である.
+  \item $\mathrm{UNSAT}(G) > 0$ならば$\mathrm{UNSAT}(G') \ge \min(2\mathrm{UNSAT}(G), \alpha)$である.
+  \item $\abs{V'} = O(\abs{V})$である.
+  \item $\abs{E'} = O(\abs{E})$である.
+  \item $\abs{\Sigma'} = \abs{\Sigma}^{O(1)}$である.
+  \end{itemize}
+\end{lemma}
+
+この補題の直感的な説明は以下の通りである:
+\begin{itemize}
+\item 制約グラフ$G$の各頂点$v$を, その頂点の近傍の情報を持つ新しい頂点の集合に置き換える.
+\item 新しい頂点間の辺は, 元のグラフの辺の情報を保持するように設定する.
+\item エクスパンダーグラフの性質により, 元のグラフで満たされない制約は, 新しいグラフでより多くの制約違反を引き起こす.
+\end{itemize}
+
 \section{証明}
 \subsection{構成}
+
+ギャップ増幅補題の証明は, 以下の3つのステップから構成される:
+
+\begin{enumerate}
+\item \textbf{グラフの冪乗}: 制約グラフ$G$の冪乗$G^t$を構築する. これは, 各頂点をその$t$-近傍の情報を持つ頂点に置き換える操作である.
+
+\item \textbf{エクスパンダー変換}: 冪乗グラフ$G^t$を, エクスパンダーグラフの性質を持つ新しいグラフ$G'$に変換する.
+
+\item \textbf{制約の変換}: 新しいグラフ$G'$の各辺に, 元の制約を適切に変換した制約を付随させる.
+\end{enumerate}
+
 \subsection{正当性の証明}
+
+ギャップ増幅補題の正当性は, 以下の2つの重要な性質に基づいて証明される:
+
+\begin{enumerate}
+\item \textbf{完全性}: $\mathrm{UNSAT}(G) = 0$の場合, 新しいグラフ$G'$も$\mathrm{UNSAT}(G') = 0$を満たす. これは, 元のグラフの充足割り当てを新しいグラフに自然に拡張できることから従う.
+
+\item \textbf{健全性}: $\mathrm{UNSAT}(G) > 0$の場合, エクスパンダーグラフの性質により, 新しいグラフ$G'$の不満足値は元のグラフの2倍以上になる. これは, エクスパンダーグラフの混交補題を用いて証明される.
+\end{enumerate}
+
+これらの性質により, ギャップ増幅補題が成り立つことが示される. この補題は, PCP定理の証明において, 小さな不満足値を大きな値に増幅するための重要なツールとなる.

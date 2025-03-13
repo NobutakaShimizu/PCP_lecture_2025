@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2025.3.9)  9 MAR 2025 22:11
+This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2025.3.9)  14 MAR 2025 01:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -808,7 +808,20 @@ Package cleveref Info: `amsthm' support loaded on input line 3026.
 ) (./commands.tex)
 \@quotelevel=\count460
 \@quotereset=\count461
- (.tex_intermediates/main.aux)
+ (.tex_intermediates/main.aux
+
+LaTeX Warning: Label `lem:' multiply defined.
+
+
+LaTeX Warning: Label `lem:@cref' multiply defined.
+
+
+LaTeX Warning: Label `lem:' multiply defined.
+
+
+LaTeX Warning: Label `lem:@cref' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
@@ -1022,14 +1035,11 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 199.
-[12]) (./CSP.tex
-Underfull \vbox (badness 3646) has occurred while \output is active []
-
-
+[12]
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 1.
-[13]
+(Font)              No change on input line 226.
+[13]) (./CSP.tex
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 1.
@@ -1049,30 +1059,74 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 127.
-[17]) (./gap_amplification.tex
+(Font)              No change on input line 126.
+[17]
+
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
+(Font)              No change on input line 199.
+[18]
+
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
+(Font)              No change on input line 221.
+[19]
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
+(Font)              No change on input line 238.
+
+
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
+(Font)              No change on input line 258.
+[20]
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
+(Font)              No change on input line 278.
+
+Overfull \hbox (24.29721pt too wide) detected at line 288
+[]
+ []
+
+
+
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
+(Font)              No change on input line 288.
+[21]
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
+(Font)              No change on input line 302.
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
+(Font)              No change on input line 314.
+) (./gap_amplification.tex
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 1.
-[18]
+[22]
 Chapter 3.
-) (./alphabet_reduction.tex
 
-[19
 
-]
+[23
 
-[20
+]) (./alphabet_reduction.tex
 
-]
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
+(Font)              No change on input line 1.
+[24]
 Chapter 4.
-)
 
-[21]
 
-[22
+[25
 
-]
+])
+
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
+(Font)              No change on input line 61.
+[26]
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
+(Font)              No change on input line 61.
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
+(Font)              No change on input line 61.
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
+(Font)              No change on input line 61.
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
+(Font)              No change on input line 61.
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
+(Font)              No change on input line 61.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
 (Font)              No change on input line 61.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
@@ -1083,25 +1137,31 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
 (Font)              No change on input line 61.
  (./appendix.tex)
 
-[23] (.tex_intermediates/main.aux)
+[27
+
+] (.tex_intermediates/main.aux)
  ***********
 pLaTeX2e <2023-02-14u04>+1, based on
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 76CA1F7A628FA8CD119B194FF36C4571;2729.
+(rerunfilecheck)             Checksum: F192528BD3BBE04AD128900054E711CE;2930.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35252 strings out of 473863
- 698599 string characters out of 5731560
- 1539509 words of memory out of 5000000
- 58011 multiletter control sequences out of 15000+600000
+ 35393 strings out of 473863
+ 701566 string characters out of 5731560
+ 1539990 words of memory out of 5000000
+ 58152 multiletter control sequences out of 15000+600000
  580107 words of font info for 131 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 98i,17n,107p,983b,1542s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,17n,107p,983b,1606s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on .tex_intermediates/main.dvi (23 pages, 169508 bytes).
+Output written on .tex_intermediates/main.dvi (27 pages, 252908 bytes).

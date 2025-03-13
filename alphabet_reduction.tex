@@ -1,3 +1,43 @@
 \chapter{アルファベット削減} \label{chap:alphabet-reduction}
 
 \section{PCP定理の証明}
+
+PCP定理の証明の最後のステップは, アルファベットサイズを定数に削減することである. これは, ギャップ増幅ステップによって増加したアルファベットサイズを, 標準的なPCP合成ステップを用いて修正する.
+
+\begin{lemma}{アルファベット削減補題}{alphabet-reduction-lemma}
+  定数$\epsilon > 0$が存在し, 以下の性質を満たす多項式時間アルゴリズムが存在する:
+  入力として制約グラフ$G = \langle(V, E), \Sigma, C\rangle$を受け取り, 新しい制約グラフ$G' = \langle(V', E'), \Sigma', C'\rangle$を出力する.
+  \begin{itemize}
+  \item $\mathrm{UNSAT}(G) = 0$ならば$\mathrm{UNSAT}(G') = 0$である.
+  \item $\mathrm{UNSAT}(G) > 0$ならば$\mathrm{UNSAT}(G') \ge \min(\mathrm{UNSAT}(G), \epsilon)$である.
+  \item $\abs{V'} = O(\abs{V})$である.
+  \item $\abs{E'} = O(\abs{E})$である.
+  \item $\abs{\Sigma'} = O(1)$である.
+  \end{itemize}
+\end{lemma}
+
+この補題の証明は, 標準的なPCP合成ステップを用いる. 具体的には:
+
+\begin{enumerate}
+\item \textbf{制約の分解}: 各制約$c(e)$を, より小さなアルファベットサイズを持つ制約の集合に分解する.
+
+\item \textbf{制約の合成}: 分解された制約を, 新しい制約グラフ$G'$の制約として合成する.
+
+\item \textbf{正当性の証明}: 元の制約グラフと新しい制約グラフの不満足値の関係を証明する.
+\end{enumerate}
+
+このアルファベット削減補題は, PCP定理の証明の最後のピースとなる. これにより, 制約グラフのアルファベットサイズを定数に削減しつつ, 不満足値の基本的な性質を保持することができる.
+
+\section{まとめ}
+
+PCP定理の証明は, 以下の3つの主要なステップから構成される:
+
+\begin{enumerate}
+\item \textbf{前処理補題}: 任意のCSPインスタンスを制約グラフに変換する.
+
+\item \textbf{ギャップ増幅補題}: 制約グラフの不満足値を2倍に増幅する.
+
+\item \textbf{アルファベット削減補題}: アルファベットサイズを定数に削減する.
+\end{enumerate}
+
+これらの補題を組み合わせることで, PCP定理が証明される. この証明は, 制約システムの不満足値という量に着目することで, より直接的にPCP定理を証明できる点に特徴がある.

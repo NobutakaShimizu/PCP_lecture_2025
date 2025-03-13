@@ -218,11 +218,41 @@ PCP定理とは, ある$r(n)=O(\log n)$, $q(n)=O(1)$に対して$\PCP(r,q)=\NP$�
   \cref{thm:3-coloring-problem-PCP-verifier}と\cref{thm:3-coloring-problem-NP-complete}を仮定して, PCP定理(\cref{thm:PCPtheorem})を証明せよ.
 \end{exercise}
 
-\section{PCP定理の応用}
-PCP定理の応用として, 様々な組合せ最適化問題に対する近似のNP困難性を導出することができる.
-
 \section{PCP定理の歴史}
-PCP定理は1992年にAroraとSafraによって証明された.
-その後, 2005年にDinurによって証明が簡略化され, 2010年にAroraとBarakによって証明が再構成された.
+
+PCP定理は計算複雑性理論において重要な成果の一つである. 1997年, RazとSafraは低次多項式の制限を使用する新しい低次テストを導入し, NPの低エラーPCP特性を証明した. この研究により, 任意の定数$c>0$に対して, 任意のNP言語のメンバーシップは$O(1)$回のアクセスで検証でき, 各アクセスは対数的なビット数を読み取り, エラー確率は$2^{-(\log n)^c}$となることが示された.
+
+1998年には, AroraとSafraがNPの新しい特性付けを提供し, NPはメンバーシップの証明が対数的な数のランダムビットを使用し, 証明から部分対数的な数のビットを読み取ることによって, 確率的に多項式時間で検証できる言語のクラスを正確に含むことを示した. また, Aroraらは, NPのすべての言語が対数的な数のランダムビットを使用し, 証明内の定数数のビットを調べることによってメンバーシップ証明をチェックする確率的な検証者を持つことを証明した. この結果は$\mathrm{NP} \not\subseteq \mathrm{P}$でない限り, MAX SNP困難な問題は多項式時間近似スキームを持たないことを示している.
 
 
+\subsection{PCP定理の最近の研究動向}
+
+PCP定理の証明以降, 研究者たちはPCPシステムの効率性と応用可能性を向上させるための様々な研究を行ってきた. 特に注目すべき最近の研究動向は以下の通りである:
+
+\begin{enumerate}
+\item \textbf{効率的なPCPの構築}: 
+  \begin{itemize}
+  \item \citet{BenSasson06}は, 準線形長(almost-linear length)のPCPを構築し, 証明長を大幅に短縮した.
+  \item \citet{BenSasson06}は, 多項式対数(polylog)の問い合わせ複雑性を持つ短いPCPを提案した.
+  \end{itemize}
+
+\item \textbf{低エラーPCPの研究}:
+  \begin{itemize}
+  \item \citet{DinurHarsha13}は, 復号可能なPCP(Decodable PCPs)の概念を導入し, 低エラー2クエリPCPの合成方法を開発した.
+  \item \citet{Guruswami20}は, 定数の健全性を持ちながら低エラー確率を実現するPCPにおいて, アルファベットサイズを削減する新しい技術を提案した.
+  \end{itemize}
+
+\item \textbf{ゼロ知識PCPの研究}:
+  \begin{itemize}
+  \item \citet{Gur24}は, \#P内のすべての言語に対する完全ゼロ知識PCPを初めて構築した.
+  \item さらに, 任意の多項式時間敵対者に対して完全ゼロ知識であるNEXP用の指数サイズ定数クエリPCPも構築した.
+  \end{itemize}
+
+\item \textbf{新しい応用分野の開拓}:
+  \begin{itemize}
+  \item \citet{Abboud17}は, 分散PCPの概念を導入し, 強指数時間仮説(SETH)からP内の近似問題への初めてのPCP的還元を提供した.
+  \item \citet{Chen19}は, fine-grained complexityと対話型証明システムの理論を融合させ, 計算問題の細粒度な困難性に関する新しい知見を提供した.
+  \end{itemize}
+\end{enumerate}
+
+これらの研究は, PCPの理論的基盤を強化するとともに, 暗号プロトコルや対話型証明システムなどの応用分野にも新たな可能性を開いている. 特に, ゼロ知識PCPの研究は, プライバシーを保持しながら効率的な証明検証を可能にする新しい方向性を示している.
