@@ -1,22 +1,22 @@
 # Fdb version 4
-["biber .tex_intermediates/main"] 1741448389.98409 ".tex_intermediates/main.bcf" ".tex_intermediates/main.bbl" ".tex_intermediates/main" 1741448399.6191 0
-  ".tex_intermediates/main.bcf" 1741448398.43437 109150 ef0ba37eddb5647e2c6a134c0f99b14d "latex"
+["biber .tex_intermediates/main"] 1741525899.96917 ".tex_intermediates/main.bcf" ".tex_intermediates/main.bbl" ".tex_intermediates/main" 1741525909.19267 0
+  ".tex_intermediates/main.bcf" 1741525908.12095 109150 ef0ba37eddb5647e2c6a134c0f99b14d "latex"
   "ref.bib" 1740717377.94798 2151 f47b447a3a8821bd3f9ee4af36ffdf92 ""
   (generated)
   ".tex_intermediates/main.bbl"
   ".tex_intermediates/main.blg"
   (rewritten before read)
-["dvipdf"] 1741448398.59444 "main.dvi" "main.pdf" "main" 1741448399.62235 0
-  "main.dvi" 1741448398.43617 169508 8091461465d575865522d82f5662869b "latex"
+["dvipdf"] 1741525908.24942 "main.dvi" "main.pdf" "main" 1741525909.19739 0
+  "main.dvi" 1741525908.12229 169508 b80f0e0b58c61ae99c97d214fa876a2f "latex"
   (generated)
   "main.pdf"
   (rewritten before read)
-["latex"] 1741448395.91335 "/Users/nobushimi/Documents/GitHub/PCP_lecture_2025/main.tex" "main.dvi" "main" 1741448399.61922 0
-  ".tex_intermediates/main.aux" 1741448398.42949 10131 cb8ae3020bbb95f3d3feb0f363b35079 "latex"
-  ".tex_intermediates/main.bbl" 1741448392.7501 8699 2d01346dd8772e8be5762bd5047a7876 "biber .tex_intermediates/main"
-  ".tex_intermediates/main.out" 1741448398.43256 2729 76ca1f7a628fa8cd119b194ff36c4571 "latex"
-  ".tex_intermediates/main.run.xml" 1741448398.43592 2338 1ce6592cf421c3a52a6f5907ed25509b "latex"
-  ".tex_intermediates/main.toc" 1741448398.43605 2129 34fdb4d8baf26a5b4125972ce52a6c2e "latex"
+["latex"] 1741525905.59611 "/Users/nobushimi/Documents/GitHub/PCP_lecture_2025/main.tex" "main.dvi" "main" 1741525909.19294 0
+  ".tex_intermediates/main.aux" 1741525908.11675 10131 cb8ae3020bbb95f3d3feb0f363b35079 "latex"
+  ".tex_intermediates/main.bbl" 1741525902.82462 8699 2d01346dd8772e8be5762bd5047a7876 "biber .tex_intermediates/main"
+  ".tex_intermediates/main.out" 1741525908.11944 2729 76ca1f7a628fa8cd119b194ff36c4571 "latex"
+  ".tex_intermediates/main.run.xml" 1741525908.12206 2338 1ce6592cf421c3a52a6f5907ed25509b "latex"
+  ".tex_intermediates/main.toc" 1741525908.12216 2129 34fdb4d8baf26a5b4125972ce52a6c2e "latex"
   "/Users/nobushimi/Documents/GitHub/PCP_lecture_2025/main.tex" 1741358903.30559 1789 f5753ac3af7f23cccc30cc926ea41d19 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -215,7 +215,7 @@
   "/usr/local/texlive/2024/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/xcolor/xcolor.sty" 1727642399 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "/usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf" 1727217670 42021 a58d36c7ede3d2fc9f93da62d691ddff ""
-  "/usr/local/texlive/2024/texmf-var/web2c/euptex/uplatex.fmt" 1738857502 3294390 063dceb6b310a2603ee67ca8a3787ac1 ""
+  "/usr/local/texlive/2024/texmf-var/web2c/euptex/uplatex.fmt" 1741525720 3294369 a2673532a26208c4ca026338c3a20915 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
   "CSP.tex" 1741448322.62695 8954 eba8bb2321b2da5a9da25e399b9ccdd0 ""
   "alphabet_reduction.tex" 1740489699.77259 99 e6225972ef36378c2f52cbf408574b49 ""
@@ -223,7 +223,7 @@
   "commands.tex" 1741446979.18214 3726 0f9e4bfa07d14c379a49618e22175109 ""
   "gap_amplification.tex" 1740489699.77343 282 07ebac43649ddf4f0c5c2484b0b12be0 ""
   "images/PCPverifier.drawio.pdf" 1740881802.99203 37155 dedec75a824df776311f81fd27bd9623 ""
-  "introduction.tex" 1741448387.08124 20678 b4b92d1df4fdebff5de1b1cabc8f4381 ""
+  "introduction.tex" 1741525878.77916 20678 b4b92d1df4fdebff5de1b1cabc8f4381 ""
   "main.tex" 1741358903.30559 1789 f5753ac3af7f23cccc30cc926ea41d19 ""
   "preface.tex" 1740489699.78672 2123 0d0ec9450070e062b79cbd57eb090cd6 ""
   "theorems.tex" 1740716564.46993 2419 f3cc42045eb7dae17cc6bee7ac016293 ""

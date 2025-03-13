@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2025.2.7)  9 MAR 2025 00:39
+This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2025.3.9)  9 MAR 2025 22:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1098,7 +1098,7 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Here is how much of TeX's memory you used:
  35252 strings out of 473863
  698599 string characters out of 5731560
- 1539507 words of memory out of 5000000
+ 1539509 words of memory out of 5000000
  58011 multiletter control sequences out of 15000+600000
  580107 words of font info for 131 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
