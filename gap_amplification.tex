@@ -1,10 +1,11 @@
 \chapter{ギャップ増幅補題} \label{chap:gap-amplification}
-この章ではPCP定理の証明において重要な役割を果たすギャップ増幅補題について解説する.
-
-\section{主張}
 
 DinurによるPCP定理の証明は, 与えられた制約グラフの不満足値を段階的に増幅していくアプローチに基づく.
 その中核を担うのがこのギャップ増幅補題であり, 制約グラフの不満足値を増幅できることを保証する補題である.
+本チャプターはこの補題の証明を与える.
+
+\section{主張}
+ギャップ増幅補題は以下のように述べられる.
 
 \begin{lemma}{ギャップ増幅補題}{gap-amplification-lemma}
   二つの定数$C>0,\alpha\in (0,1)$および, 
@@ -26,15 +27,20 @@ PCP定理(\cref{thm:PCP-CSP-theorem})の証明は, この補題を繰り返し�
   各$G_i$のサイズは$\size(G_i) \le C\cdot \size(G_{i-1})$であるため, $\size(G')\le C^{\ceil{2\log_2 n}}\cdot \size(G_0)=\size(G_0)^{O(1)}$である.
   従って$G'$は多項式時間で構成できる.
 
-  また, 不満足度については, 以下のようになる:
+  また, 不満足値については, 以下のようになる:
   \begin{itemize}
   \item もしも$G_0$がYesインスタンスであるならば, 全ての$i$に対して$G_i$もYesインスタンスであり, 特に$\UNSAT(G')=0$である.
   \item もしも$G_0$がNoインスタンスであるならば, $\UNSAT(G_0)\ge \frac{1}{n^2}$かつ$\UNSAT(G_i)\ge \min\{\alpha, 2\cdot \UNSAT(G_0)\}$であるため, $\UNSAT(G')\ge \min\qty{\alpha, 2^{2\log_2 n}\cdot \frac{1}{n^2}}=\alpha$である.
   \end{itemize}
 \end{proof}
+
 \section{証明の概要}
 
 \section{エクスパンダー化}
+
+\subsection{エクスパンダーグラフとその性質}
+
+\subsection{制約グラフのエクスパンダー化}
 
 \section{冪乗操作}
 

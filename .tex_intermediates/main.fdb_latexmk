@@ -1,22 +1,22 @@
 # Fdb version 4
-["biber .tex_intermediates/main"] 1744188919.33417 ".tex_intermediates/main.bcf" ".tex_intermediates/main.bbl" ".tex_intermediates/main" 1744188926.53485 0
-  ".tex_intermediates/main.bcf" 1744188925.9889 109150 ef0ba37eddb5647e2c6a134c0f99b14d "latex"
+["biber .tex_intermediates/main"] 1744189941.52106 ".tex_intermediates/main.bcf" ".tex_intermediates/main.bbl" ".tex_intermediates/main" 1744189948.50889 0
+  ".tex_intermediates/main.bcf" 1744189947.93684 109150 ef0ba37eddb5647e2c6a134c0f99b14d "latex"
   "ref.bib" 1741162703.83023 2151 f47b447a3a8821bd3f9ee4af36ffdf92 ""
   (generated)
   ".tex_intermediates/main.bbl"
   ".tex_intermediates/main.blg"
   (rewritten before read)
-["dvipdf"] 1744188926.05326 "main.dvi" "main.pdf" "main" 1744188926.53669 0
-  "main.dvi" 1744188925.98991 203792 5cf6c4e7c752543150d1b6cf897905e7 "latex"
+["dvipdf"] 1744189948.00207 "main.dvi" "main.pdf" "main" 1744189948.5108 0
+  "main.dvi" 1744189947.93794 203232 66e63bae401b6ae2f4707e12c9b902ab "latex"
   (generated)
   "main.pdf"
   (rewritten before read)
-["latex"] 1744188923.78265 "/Users/nobutakashimizu/Documents/Github/PCP_lecture_2025/main.tex" "main.dvi" "main" 1744188926.53491 0
-  ".tex_intermediates/main.aux" 1744188925.9857 11237 5bc753ca1dd76b6c4f90a73c7c6eb02a "latex"
-  ".tex_intermediates/main.bbl" 1744188921.38044 8699 2d01346dd8772e8be5762bd5047a7876 "biber .tex_intermediates/main"
-  ".tex_intermediates/main.out" 1744188925.9877 2911 f4a214388493a936ada22593231f9405 "latex"
-  ".tex_intermediates/main.run.xml" 1744188925.98976 2338 1ce6592cf421c3a52a6f5907ed25509b "latex"
-  ".tex_intermediates/main.toc" 1744188925.98984 2123 bb248f4af30032489086968049d8d844 "latex"
+["latex"] 1744189945.73576 "/Users/nobutakashimizu/Documents/Github/PCP_lecture_2025/main.tex" "main.dvi" "main" 1744189948.50895 0
+  ".tex_intermediates/main.aux" 1744189947.93377 11199 5c1893fc2cfb5bed6cbfadfa67397b73 "latex"
+  ".tex_intermediates/main.bbl" 1744189943.467 8699 2d01346dd8772e8be5762bd5047a7876 "biber .tex_intermediates/main"
+  ".tex_intermediates/main.out" 1744189947.93565 2850 5b446a245a71cb8d38e23666c0ccba58 "latex"
+  ".tex_intermediates/main.run.xml" 1744189947.93779 2338 1ce6592cf421c3a52a6f5907ed25509b "latex"
+  ".tex_intermediates/main.toc" 1744189947.93787 2055 23c80adb9b58d8edf11f6c9586079a97 "latex"
   "/Users/nobutakashimizu/Documents/Github/PCP_lecture_2025/main.tex" 1744180643.17373 1789 f5753ac3af7f23cccc30cc926ea41d19 ""
   "/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/map/fontname/texfonts.map" 1741388039 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1741388039 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -216,11 +216,11 @@
   "/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/tex/latex/xcolor/xcolor.sty" 1741388039 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/web2c/texmf.cnf" 1741388039 42151 79f67285bdd95beca4d137b380b4b9e5 ""
   "/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-var/web2c/euptex/uplatex.fmt" 1741388039 3337892 3a4aade18a945d64468f6557198fbd0c ""
-  "CSP.tex" 1744188695.80541 12292 253bd44fa22b78657701eb117a36d76b ""
-  "alphabet_reduction.tex" 1740461087.44659 99 e6225972ef36378c2f52cbf408574b49 ""
+  "CSP.tex" 1744189811.66533 12093 52660e29c230c1c455503c1d05d20d2c ""
+  "alphabet_reduction.tex" 1744189938.85806 299 ab479288943e7456e8d97973ec4efbed ""
   "appendix.tex" 1739956069.70356 0 d41d8cd98f00b204e9800998ecf8427e ""
   "commands.tex" 1744186056.5274 3908 98e2e80b07eb7a26341a008dca92ab71 ""
-  "gap_amplification.tex" 1744188917.01443 2672 9444ea014cd05eb3f10b8e8a6f1a5c22 ""
+  "gap_amplification.tex" 1744189889.40924 2786 142b7edae163e1f75cd52ab877cd8c3c ""
   "images/PCPverifier.drawio.pdf" 1741162703.81891 37155 dedec75a824df776311f81fd27bd9623 ""
   "introduction.tex" 1744188592.27513 22845 c01c81eb5d9c653d52a8816cf4ea29c1 ""
   "main.tex" 1744180643.17373 1789 f5753ac3af7f23cccc30cc926ea41d19 ""

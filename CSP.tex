@@ -23,16 +23,16 @@
 
 全ての$i\in[m]$について$\abs{I_i}\le q$であるとき, このCSPは\emph{$q$-CSP}という.
 
-また, 固定した割り当て$a \colon X\to \Sigma$に対する$\varphi$の\emph{不満足度}を
+また, 固定した割り当て$a \colon X\to \Sigma$に対する$\varphi$の\emph{不満足値}を
 \begin{align*}
   \UNSAT_\varphi(a) = \Pr_{I\sim\calI}\qty[a(I) \not\in c_I]
 \end{align*}
 とする. ここで$I\sim\calI$は$I$が$\calI$から一様ランダムに選ばれたことを意味する.
-さらに, 全ての割り当てに関して不満足度の最小値
+さらに, 全ての割り当てに関して不満足値の最小値
 \begin{align*}
   \UNSAT(\varphi) = \min_{a\in\Sigma^X} \UNSAT_\varphi(a)
 \end{align*}
-を$\varphi$の\emph{不満足度}という.
+を$\varphi$の\emph{不満足値}という.
 \end{definition}
 
 \begin{example}{グラフ彩色問題}{graph-coloring-problem-CSP}
@@ -77,7 +77,7 @@
     \hline
     ランダムネスを固定した時の判定 & CSPの制約 \\
     \hline
-    PCP$\pi$を拒否する確率 & 割り当ての不満足度 $\UNSAT(\pi)$ \\
+    PCP$\pi$を拒否する確率 & 割り当ての不満足値 $\UNSAT(\pi)$ \\
     \hline
   \end{tabular}
   \caption{PCPとCSPの対応関係}
@@ -136,11 +136,11 @@ PCP定理の証明は, NP-完全な2-CSPである3彩色問題のインスタン
     \item 制約の列$\calC'=(c'_e)_{e\in E}$は, $\abs{e}=2$ならば$c'_e=c_e$とし, $\abs{e}=1$ならば$c'_e=\qty{ (a,a) \in \Sigma^2 \colon (a)\in c_e }$とする. これにより, 全ての$c'_e$は$\Sigma^2$の部分集合となる.
   \end{itemize}
 
-  制約グラフ$G=\ip{(V,E),\Sigma,\calC}$および割り当て$a\colon V\to \Sigma$に対して, その\emph{不満足度}を
+  制約グラフ$G=\ip{(V,E),\Sigma,\calC}$および割り当て$a\colon V\to \Sigma$に対して, その\emph{不満足値}を
   \begin{align*}
     \UNSAT_G(a) = \Pr_{e\sim E}[a(e) \not\in c_e]
   \end{align*}
-  と定義し, $G$の不満足度を
+  と定義し, $G$の不満足値を
   \begin{align*}
     \UNSAT(G) = \min_{a\in\Sigma^V} \UNSAT_G(a)
   \end{align*}
@@ -166,9 +166,3 @@ PCP定理の証明は, NP-完全な2-CSPである3彩色問題のインスタン
   制約グラフ$G=\ip{(V,E),\Sigma,\calC}$に対して, その構造を表すグラフ$(V,E)$の性質を表す用語はそのまま制約グラフにも適用する.
   例えば, $(V,E)$が連結であるときに$G$は連結であるといい, $(V,E)$が正則であるならば$G$は正則であるという.
 \end{remark}
-
-
-\section{エクスパンダーグラフ}
-\subsection{エクスパンダーグラフの定義}
-\subsection{エクスパンダー混交補題}
-\subsection{制約グラフのエクスパンダー化}
