@@ -1,6 +1,44 @@
 \chapter{ギャップ増幅補題} \label{chap:gap-amplification}
 この章ではPCP定理の証明において重要な役割を果たすギャップ増幅補題について解説する.
-\section{主張と直感}
-\section{証明}
-\subsection{構成}
-\subsection{正当性の証明}
+
+\section{主張}
+
+DinurによるPCP定理の証明は, 与えられた制約グラフの不満足値を段階的に増幅していくアプローチに基づく.
+その中核を担うのがこのギャップ増幅補題であり, 制約グラフの不満足値を増幅できることを保証する補題である.
+
+\begin{lemma}{ギャップ増幅補題}{gap-amplification-lemma}
+  二つの定数$C>0,\alpha\in (0,1)$および, 
+  制約グラフ$G=\ip{(V,E),\Sigma,\calC}$を入力として受け取り, 以下の性質を満たす別の制約グラフ$G'=\ip{(V',E'),\Sigma,\calC'}$を出力する決定的多項式時間アルゴリズムが存在する:
+  \begin{itemize}
+    \item $\size(G')\le C\cdot \size(G)$.
+    \item $\UNSAT(G)=0$ならば$\UNSAT(G')=0$.
+    \item $\UNSAT(G)>0$ならば$\UNSAT(G')\ge \min\{\alpha, 2\cdot \UNSAT(G)\}$.
+  \end{itemize}
+\end{lemma}
+
+PCP定理(\cref{thm:PCP-CSP-theorem})の証明は, この補題を繰り返し適用することによって得られる.
+
+\begin{proof}[\cref{lem:gap-amplification-lemma}の下での\cref{thm:PCP-CSP-theorem}の証明.]
+  3彩色問題のインスタンスを入力として受け取り, その制約グラフを$G_0$とし, 頂点数を$n$とする.
+  この制約グラフは単純グラフであるため, $\UNSAT(G_0)=0$もしくは$\UNSAT(G_0)\ge \frac{1}{n^2}$である.
+  \cref{lem:gap-amplification-lemma}のアルゴリズムを$A$とし, 各$i=1,\dots,\ceil{2\log_2 n}$について, 制約グラフ$G_i$を
+  $G_i = A(G_{i-1})$として定義し, 最終的に得られる制約グラフを$G'=G_{\ceil{2\log_2 n}}$とする.
+  各$G_i$のサイズは$\size(G_i) \le C\cdot \size(G_{i-1})$であるため, $\size(G')\le C^{\ceil{2\log_2 n}}\cdot \size(G_0)=\size(G_0)^{O(1)}$である.
+  従って$G'$は多項式時間で構成できる.
+
+  また, 不満足度については, 以下のようになる:
+  \begin{itemize}
+  \item もしも$G_0$がYesインスタンスであるならば, 全ての$i$に対して$G_i$もYesインスタンスであり, 特に$\UNSAT(G')=0$である.
+  \item もしも$G_0$がNoインスタンスであるならば, $\UNSAT(G_0)\ge \frac{1}{n^2}$かつ$\UNSAT(G_i)\ge \min\{\alpha, 2\cdot \UNSAT(G_0)\}$であるため, $\UNSAT(G')\ge \min\qty{\alpha, 2^{2\log_2 n}\cdot \frac{1}{n^2}}=\alpha$である.
+  \end{itemize}
+\end{proof}
+\section{証明の概要}
+
+\section{エクスパンダー化}
+
+\section{冪乗操作}
+
+\section{アルファベット削減}
+
+
+

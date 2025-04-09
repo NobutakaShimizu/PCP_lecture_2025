@@ -7,42 +7,45 @@
 \begin{definition}{制約充足問題}{CSP}
 \emph{制約充足問題(CSP)}とは次の要素からなる組$\varphi = (X,\Sigma,\calI,\calC)$を入力とする判定問題である:
 \begin{itemize}
-  \item \emph{アルファベット}と呼ばれる有限集合$\Sigma$.
-  \item 変数集合$X=\{x_1,\dots,x_n\}$.
-  \item 部分集合族$\calI=\{I_1,\dots,I_m\}$. ただし各$I_i$は$I_i\subseteq[n]$である.
-  \item 関数族$\calC=\{c_1,\dots,c_m\}$. ただし各$c_i$は$c_i: \Sigma^{I_i}\to\{0,1\}$である.
+  \item \emph{アルファベット}: 有限集合$\Sigma$.
+  \item \emph{変数列}: $X=(\varx_1,\dots,\varx_n)$.
+  \item 制約の引数の列: $\calI=(I_1,\dots,I_m)$. ここで, 各$I_i$は $I_i\ne\emptyset$ かつ $I_i\subseteq [n]$を満たす.
+  \item \emph{制約の列}: $\calC=(c_I)_{I\in\calI}$. ここで, 各$c_I$は$c_I \subseteq \Sigma^{\abs{I}}$を満たす.
 \end{itemize}
-入力$(X,\Sigma,\calI,\calC)$は,
-ある変数への割り当て$(a_1,\dots,a_n)\in\Sigma^n$が存在して, 任意の$i\in[m]$について$c_i(a_{I_i})=1$であるとき, かつその時に限りYesインスタンスである.
-ここで, $a_{I_i}=(a_{i_1},\dots,a_{i_{\abs{I_i}}})$は$a_i$の部分列である.
-特に, 全ての$i\in[m]$について$\abs{I_i}\le q$であるとき, このCSPは\emph{$q$-CSP}という.
+各$\varx\in X$を\emph{変数}, 各$c_I\in\calC$を\emph{制約}という.
 
-また, 固定した割り当て$\veca = (a_1,\dots,a_n)$に対する$\varphi$の\emph{充足度}を
+入力$(X,\Sigma,\calI,\calC)$は,
+ある変数への割り当て$a \colon X \to \Sigma$が存在して, 任意の$I=\{i_1,\dots,i_k\}\in\calI$ (ただし$i_1<\dots<i_k$)について,
 \begin{align*}
-  \val(\veca) = \Pr_{i\sim[m]}[c_i(\veca_{I_i})=1]
+  a(I) := (a(\varx_{i_1}),\dots,a(\varx_{i_k})) \in c_I
 \end{align*}
-とし, 全ての割り当てに関して充足度の最大値
+であるとき, かつその時に限りYesインスタンスである.
+
+全ての$i\in[m]$について$\abs{I_i}\le q$であるとき, このCSPは\emph{$q$-CSP}という.
+
+また, 固定した割り当て$a \colon X\to \Sigma$に対する$\varphi$の\emph{不満足度}を
 \begin{align*}
-  \val(\varphi) = \max_{\veca\in\Sigma^n} \val(\veca)
+  \UNSAT_\varphi(a) = \Pr_{I\sim\calI}\qty[a(I) \not\in c_I]
 \end{align*}
-を$\varphi$の充足度という.
+とする. ここで$I\sim\calI$は$I$が$\calI$から一様ランダムに選ばれたことを意味する.
+さらに, 全ての割り当てに関して不満足度の最小値
+\begin{align*}
+  \UNSAT(\varphi) = \min_{a\in\Sigma^X} \UNSAT_\varphi(a)
+\end{align*}
+を$\varphi$の\emph{不満足度}という.
 \end{definition}
 
 \begin{example}{グラフ彩色問題}{graph-coloring-problem-CSP}
   グラフ彩色問題(\cref{ex:graph-coloring-problem})は$2$-CSPである.
   実際, グラフ$G=(V,E)$に対して
   \begin{itemize}
-    \item 変数集合を$X=V$とする.
+    \item 変数列を$X=V$とする.
     \item アルファベットを$\Sigma=[k]$とする.
-    \item 制約集合を$\calI=\{E\}$とする.
-    \item 関数族を$\calC=\{c_e\}_{e\in E}$とし, 各$e=\{u,v\}\in E$に対して
+    \item 各制約$c_e$は各辺$e=\{u,v\}\in E$に付随していて,
     \begin{align*}
-      c_e(a_u,a_v) = \begin{cases}
-        1 & \text{if } a_u\neq a_v, \\
-        0 & \text{if } a_u=a_v
-      \end{cases}
+      (a_u,a_v) \in c_e \iff a_u\ne a_v
     \end{align*}
-    と定義する.
+  と定義する.
   \end{itemize}
   このとき, グラフ$G$が$k$-彩色可能であることと, このCSPがYesインスタンスであることは同値である.
 \end{example}
@@ -61,7 +64,7 @@
 つまり, 全てのランダムシード$s$に対して$V^\pi(x;s)=1$となるような$\pi$が存在するため,
 先ほど構成した$q$-CSPのインスタンスはYesインスタンスである.
 逆に$x\not\in L$であるならば, 全ての$\pi$に対して確率$1/3$以上で$V^\pi(x)=0$となる.
-これは, $q$-CSPインスタンスに対して, 全ての割り当てを考えても, 全体の制約のうち少なくとも$1/3$の割合は充足されないことを意味する.
+これは, $q$-CSPインスタンスに対して, 全ての割り当てを考えても, 全体の制約のうち少なくとも$1/3$の割合は充足されない(すなわち, $\UNSAT$の値が$1/3$以上となる)ことを意味する.
 
 
 \begin{table}[htbp]
@@ -74,7 +77,7 @@
     \hline
     ランダムネスを固定した時の判定 & CSPの制約 \\
     \hline
-    PCP$\pi$を受理する確率 & 割り当ての充足度 $\val(\pi)$ \\
+    PCP$\pi$を拒否する確率 & 割り当ての不満足度 $\UNSAT(\pi)$ \\
     \hline
   \end{tabular}
   \caption{PCPとCSPの対応関係}
@@ -89,8 +92,8 @@
   3彩色問題のインスタンス$G=(V,E)$を入力として受け取り, $G$の頂点数を$n$としたとき, $A$は高々$\ell(n)$個の変数と$m(n)$個の制約および要素数$c$のアルファベットからなる$q$-CSPのインスタンス$\varphi$を出力する.
   さらにこのインスタンス$\varphi$は
   \begin{itemize}
-  \item 入力$G$が$\ThreeCOL$のYesインスタンスであるとき, $\val(\varphi) = 1  $となる (すなわち$\varphi$はYesインスタンス).
-  \item 入力$G$が$\ThreeCOL$のNoインスタンスであるとき, $\val(\varphi) < 1-\epsilon$となる.
+  \item 入力$G$が$\ThreeCOL$のYesインスタンスであるとき, $\UNSAT(\varphi) = 0$となる (すなわち$\varphi$はYesインスタンス).
+  \item 入力$G$が$\ThreeCOL$のNoインスタンスであるとき, $\UNSAT(\varphi) \ge \epsilon$となる.
   \end{itemize}
 \end{theorem}
 
@@ -109,7 +112,7 @@
   また, ランダムシードはランダムな制約を選ぶために使われてるため, その長さは$O(\log m)=O(\log n)$となる.
 
   もしグラフ$G$がYesインスタンスならば, $\varphi$もYesインスタンスであるため, $\pi$をその充足割り当てとすれば, 全ての制約$c_i$が充足されるため, (制約の選び方のランダムネスに関して)確率$1$で$V^\pi(G)=1$となる.
-  もしグラフ$G$がNoインスタンスならば, $\val(\varphi) \le 1-\epsilon$である. 従って, 任意の割り当て$\pi$に対して, 一様ランダムな制約$c_i$が充足される確率は高々$1-\epsilon$である.
+  もしグラフ$G$がNoインスタンスならば, $\UNSAT(\varphi) \ge \epsilon$である. 従って, 任意の割り当て$\pi$に対して, 一様ランダムな制約$c_i$が充足される確率は高々$1-\epsilon$である.
   よって, この操作を$\ceil{10/\epsilon}=O(1)$回繰り返すと, 少なくとも確率$1/3$で充足されない制約が一度以上選ばれ, 検証者は$0$を出力する.
 
 
@@ -121,10 +124,49 @@
 従って, 以降は\cref{thm:PCP-CSP-theorem}の証明に注力する.
 
 \subsection{制約グラフ}
-3彩色問題は$2$-CSPである. ここでは2-CSPのインスタンスをグラフとして表現する方法として, \emph{制約グラフ}を導入する.
+PCP定理の証明は, NP-完全な2-CSPである3彩色問題のインスタンスからスタートし,
+このインスタンスを適当な$q$-CSPにうまく変換することによって与えられる.
+この変換の記述を容易にするために, 2-CSPのインスタンスをグラフとして表現する方法として, \emph{制約グラフ}の概念を導入する.
 
+\begin{definition}{制約グラフ}{constraint-graph}
+  2-CSPのインスタンス$\varphi=(X,\Sigma,\calI,\calC)$に対し, 以下で定まる組$G=\ip{(V,E),\Sigma,\calC'}$を\emph{制約グラフ}という:
+  \begin{itemize}
+    \item $(V,E)$はグラフである. ただし頂点集合は$V=X$であり, 辺集合は$E=\calI$である. なお, ここで考えるグラフは多重辺や自己ループを持ちうるもの\footnote{具体的には$E$は多重集合であり, 自己ループに対応する辺は$\{u\}$と表す.}とし, 特に$\abs{I_i}=1$の場合は対応する辺は自己ループとする.
+    \item アルファベット$\Sigma$.
+    \item 制約の列$\calC'=(c'_e)_{e\in E}$は, $\abs{e}=2$ならば$c'_e=c_e$とし, $\abs{e}=1$ならば$c'_e=\qty{ (a,a) \in \Sigma^2 \colon (a)\in c_e }$とする. これにより, 全ての$c'_e$は$\Sigma^2$の部分集合となる.
+  \end{itemize}
 
-\section{PCP定理の証明の概要}
+  制約グラフ$G=\ip{(V,E),\Sigma,\calC}$および割り当て$a\colon V\to \Sigma$に対して, その\emph{不満足度}を
+  \begin{align*}
+    \UNSAT_G(a) = \Pr_{e\sim E}[a(e) \not\in c_e]
+  \end{align*}
+  と定義し, $G$の不満足度を
+  \begin{align*}
+    \UNSAT(G) = \min_{a\in\Sigma^V} \UNSAT_G(a)
+  \end{align*}
+  と定義する.
+
+  制約グラフ$G=\ip{(V,E),\Sigma,\calC}$に対して, その\emph{サイズ}を
+  \begin{align*}
+    \size(G) = \abs{V} + \abs{E}
+  \end{align*}
+  と定義する.
+\end{definition}
+
+\begin{remark}{入力長とサイズの関係}{input-length-and-size-relation}
+  本講義で考える制約グラフのアルファベットサイズ$\abs{\Sigma}$は常に定数, すなわち$\abs{V}$や$\abs{E}$に依存しない値であるとする.
+  この仮定の下, 制約グラフ$G=\ip{(V,E),\Sigma,\calC}$を指定するために必要なビット数を考える.
+  グラフ$(V,E)$は隣接行列で表現すると$\abs{V}^2$ビットで表現できる.
+  各辺$e\in E$に付随する制約$c'_e\subseteq\Sigma^2$は, 各$(a,b)\in\Sigma^2$について$(a,b)\in c'_e$かどうかを表すビットを$(a,b)$について並べれば良いため, 全部で$\abs{E}\cdot\abs{\Sigma}^2$ビットで表現できる.
+  よって, 制約グラフ$G$は$\abs{V}^2+\abs{E}\cdot\abs{\Sigma}^2 = O(\size(G)^2)$ビットで表現できる.
+  このことから, 制約グラフを入力として受け取るアルゴリズムが多項式時間かどうかを議論する際は, その時間計算量が$\size(G)$に関して多項式かどうかを議論すれば良いことになる.
+\end{remark}
+
+\begin{remark}{制約グラフの性質}{constraint-graph-properties}
+  制約グラフ$G=\ip{(V,E),\Sigma,\calC}$に対して, その構造を表すグラフ$(V,E)$の性質を表す用語はそのまま制約グラフにも適用する.
+  例えば, $(V,E)$が連結であるときに$G$は連結であるといい, $(V,E)$が正則であるならば$G$は正則であるという.
+\end{remark}
+
 
 \section{エクスパンダーグラフ}
 \subsection{エクスパンダーグラフの定義}
