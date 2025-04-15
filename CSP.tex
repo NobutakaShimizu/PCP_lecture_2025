@@ -170,9 +170,147 @@ PCP定理の証明は, NP-完全な2-CSPである3彩色問題のインスタン
 \section{多重グラフの導入とエクスパンダーグラフ}
 
 以後, 制約グラフに関する様々な操作をしていく上で多重グラフのフォーマルな定義を与えておく.
+自己ループの次数への寄与を$2$としていることに留意されたい.
 
 \begin{definition}{多重グラフ}{multigraph}
 有限集合$V$と多重集合$E$の組$(V,E)$を\emph{多重グラフ}という.
 ここで$E$は$V\cup \binom{V}{2}$の元から構成される多重集合であり, $e\in E$は$\abs{e}=1$ならば\emph{自己ループ}であるという.
+
+二頂点$u,v\in V$の間の\emph{重み}を
+\begin{align*}
+  w(u,v) = \begin{cases}
+   \abs{\qty{e\in E \colon e = \{u,v\}}} & \text{if } u\ne v \\
+   2\abs{\qty{e\in E \colon e = \{u\}}} & \text{if } u=v
+  \end{cases}
+\end{align*}
+と定義し, 頂点$u$の\emph{次数}を
+\begin{align*}
+  \deg(u) = \sum_{v\in V} w(u,v)
+\end{align*}
+と定義する. また, $W=(w(u,v))_{u,v\in V}$を\emph{重み行列}と呼び, 
+$P(u,v):=\frac{w(u,v)}{\deg(u)}$で定まる行列$P\in[0,1]^{V\times V}$を\emph{遷移確率行列}という.
+
 \end{definition}
+
+以下に正則グラフとエクスパンダーグラフの定義を述べる.
+
+\begin{definition}{正則性とエクスパンダー性}{regularity-and-expander-graph}
+  $n$頂点の多重グラフ$G=(V,E)$の全ての頂点の次数が$d$に等しいとき, $G$は\emph{$d$-正則}であるという.
+
+  また, 遷移確率行列$P$の固有値$1=\lambda_1\ge \lambda_2\ge \cdots \ge \lambda_n \ge -1$が
+  \begin{align*}
+    \lambda:=\max\{\abs{\lambda_2}, \abs{\lambda_n}\} \le \lambda
+  \end{align*}
+  を満たすとき, $G$は\emph{$\lambda$-エクスパンダー}であるという.
+\end{definition}
+
+多重グラフ$G$が正則ならば$P$は対称行列となるため実固有値を持つことが直ちに従うが, 一般の場合でも実固有値を持つことが示せる.
+さらに, Gershgorinの定理からそれらの固有値の絶対値は$1$以下であることが従う.
+また, 全成分$1$のベクトル$\allone$は$P$の固有値$1$に対する固有ベクトルとなるため, $\lambda_1=1$である.
+
+\begin{exercise}{}
+  任意の多重グラフ$G$の遷移確率行列$P$は実固有値を持つことを示せ.
+\end{exercise}
+
+第一固有値$1$の多重度はグラフの連結成分の個数に等しいことが知られている.
+ここではその特殊ケースである以下の事実を用いる.
+
+\begin{proposition}{}{}
+  多重グラフ$G$が連結であるならば, 遷移確率行列$P$の固有値$1$の多重度は$1$, すなわち$\lambda_2<1$である.
+\end{proposition}
+
+
+\subsection{正則エクスパンダーの性質}
+
+この節では正則かつエクスパンダー性を持つ単純グラフの性質は同様に
+多重グラフに対しても成り立つことを確認する.
+特に, 正則性より遷移確率行列$P$は対称となることに留意されたい.
+
+\begin{lemma}{エクスパンダー混交補題}{expander-mixing-lemma}
+  連結な頂点数$n$の多重グラフ$G$が$d$-正則かつ$\lambda$-エクスパンダーであるとする.
+  二つの頂点部分集合$S,T\subseteq V$に対して
+  \begin{align*}
+    W(S,T) = \sum_{u \in S, v\in T} w(u,v)
+  \end{align*}
+  とすると, 任意の$S,T\subseteq V$に対して
+  \begin{align*}
+    \abs{ W(S,T) - \frac{d}{n}\abs{S}\abs{T} } \le \frac{\lambda d}{n} \sqrt{\abs{S}\abs{T}\abs{V\setminus S}\abs{V\setminus T}}
+  \end{align*}
+  が成り立つ. 特に, $\abs{S}\le n/2$を満たす任意の$S\subseteq V$に対して
+  \begin{align*}
+    W(S,V\setminus S) \ge (1-\lambda)\frac{nd}{2}
+  \end{align*}
+  が成り立つ.
+\end{lemma}
+
+\begin{remark}{直感的な意味}{intuitive-meaning-of-expander-mixing-lemma}
+  $n$頂点$d$-正則グラフは全部で$nd/2$本の辺を持つ.
+  全部で$\binom{n}{2}\approx n^2/2$個の頂点対があるため, 辺密度は$d/n$である.
+  さて, グラフの辺が$\binom{V}{2}$に「均一に」散らばっていると仮定すると, 任意に固定した頂点部分集合$S,T\subseteq V$に対してその間をまたがる辺の本数$W(S,T)$はおよそ$(d/n)\cdot \abs{S}\abs{T}$であることが期待される.
+  グラフ$G$がエクスパンダー性を持つ場合, この期待値からのずれの上からの評価を与えるのがエクスパンダー混交補題である.
+\end{remark}
+
+\begin{proof}
+  「特に, ...」の部分は前半の主張に$T=V\setminus S$を代入して$\abs{V\setminus S}\ge n/2$を用いれば示せるので, 前半の主張を証明する.
+
+
+  全成分$1$の行列$J \in \Real^{V\times V}$に対し, $M:=P - \frac{1}{n}J$とおく.
+  また, 頂点部分集合$S\subseteq V$に対し, $\allone_S\in \Real^V$を
+  \begin{align*}
+    \allone_S(u) = \begin{cases}
+      1 & \text{if } u\in S \\
+      0 & \text{otherwise}
+    \end{cases}
+  \end{align*}
+  で定める. 二つのベクトル$x,y\in\Real^V$を,
+  \begin{align*}
+    &x = \allone_S - \frac{\abs{S}}{n}\allone,\\
+    &y = \allone_T - \frac{\abs{T}}{n}\allone
+  \end{align*}
+  とする.
+  ベクトル$x,y$は$\allone$に直交するので$\allone_S = x + \frac{\abs{S}}{n}\allone$は$\allone_S$の直交分解となっていること, 及び$W\allone=d\allone$に着目すると,
+  \begin{align*}
+    W(S,T) &= \allone_S^T W \allone_T \\
+    &= x^T W y + \frac{\abs{S}\abs{T}}{n^2}\allone^T W \allone \\
+    &= x^\top W y + \frac{d}{n}\abs{S}\abs{T}
+  \end{align*}
+  が成り立つ.
+  
+  従って
+  \begin{align*}
+    \abs{ W(S,T) - \frac{d}{n}\abs{S}\abs{T} } &= \abs{x^\top W y} \le \norm{x}_2 \norm{W y}_2  & & \because\text{Cauchy-Schwarzの不等式} \\
+    &\le d \lambda \norm{x}_2 \norm{y}_2 & & \because\text{レイリー商と固有値の関係} \\
+    &= \frac{\lambda d}{n} \sqrt{\abs{S}\abs{T}\abs{V\setminus S}\abs{V\setminus T}} & & \because \norm{x}_2^2 = \frac{\abs{S}(n-\abs{S})}{n}
+  \end{align*}
+  を得る.
+\end{proof}
+
+\subsection{エクスパンダーグラフの構成}
+
+エクスパンダーグラフは, その構造から様々な応用が知られている.
+特に, 各$n\ge 2$に対して頂点数$n$のエクスパンダーグラフを$n^{O(1)}$時間で構成できることが知られている.
+
+\begin{theorem}{エクスパンダーグラフの構成}{construction-of-expander-graph}
+  ある定数$d_0\ge 3$, $\lambda_0<1$および以下を満たす多項式時間アルゴリズム$A$が存在する:
+  アルゴリズム$A$は入力として$1^n=(\underbrace{1,\dots,1}_n)$を受け取り, 頂点数$n$の$d_0$-正則かつ$\lambda_0$-エクスパンダーグラフの隣接行列$W$を出力する.
+\end{theorem}
+
+\cref{thm:construction-of-expander-graph}の証明はエクスパンダーグラフの構成に関するブレイクスルーの結果\cite{ReingoldVW02}の結果に軽微な修正を施すことによって得られる.
+
+\begin{theorem}{エクスパンダーグラフ族の構成}{construction-of-expander-graph-family}
+  ある定数$d'_0\in\Nat$, $\lambda'_0<1$および以下を満たす多項式時間アルゴリズム$A'$が存在する:
+  各$k\in \Nat$に対して$1^{2^k}$を入力として受け取り, 頂点数$2^k$の$d'_0$-正則かつ$\lambda'_0$-エクスパンダーグラフの隣接行列$W'$を出力する.
+\end{theorem}
+
+\cref{thm:construction-of-expander-graph-family}の証明はジグザク積と呼ばれるグラフの積に関する手法を用いることで得られるが, 本講義のスコープからは逸脱するので割愛する.
+\cref{thm:construction-of-expander-graph}の証明, すなわち
+一般の頂点数のエクスパンダーグラフを得るには, まず$2^{k-1}< n \le 2^k$を満たす$k$に対して\cref{thm:construction-of-expander-graph-family}を適用し, その後にそのグラフが$n$頂点になるようにうまく二つの頂点を縮約し, 必要に応じて頂点に自己ループまたは多重辺を追加することによって正則にすることによって得られる.
+
+
+
+
+
+
+
+
 

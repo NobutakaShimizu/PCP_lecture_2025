@@ -250,6 +250,57 @@
       \verb https://doi.org/10.1145/1236457.1236459
       \endverb
     \endentry
+    \entry{ReingoldVW02}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=6ff631f4e02261486e4a7d47b7aa7d0b}{%
+           family={Reingold},
+           familyi={R\bibinitperiod},
+           given={Omer},
+           giveni={O\bibinitperiod}}}%
+        {{hash=c915d3380da8c4288e9634bbee5ba983}{%
+           family={Vadhan},
+           familyi={V\bibinitperiod},
+           given={Salil},
+           giveni={S\bibinitperiod}}}%
+        {{hash=94bdc407739d530448ac88956c6c98a5}{%
+           family={Wigderson},
+           familyi={W\bibinitperiod},
+           given={Avi},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{4e32763ac9e1234ad3e080dfb813afb4}
+      \strng{fullhash}{4e32763ac9e1234ad3e080dfb813afb4}
+      \strng{fullhashraw}{4e32763ac9e1234ad3e080dfb813afb4}
+      \strng{bibnamehash}{4e32763ac9e1234ad3e080dfb813afb4}
+      \strng{authorbibnamehash}{4e32763ac9e1234ad3e080dfb813afb4}
+      \strng{authornamehash}{4e32763ac9e1234ad3e080dfb813afb4}
+      \strng{authorfullhash}{4e32763ac9e1234ad3e080dfb813afb4}
+      \strng{authorfullhashraw}{4e32763ac9e1234ad3e080dfb813afb4}
+      \field{labelalpha}{RVW02}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0003-486X}
+      \field{issue}{1}
+      \field{journaltitle}{Annals of mathematics}
+      \field{month}{1}
+      \field{title}{Entropy Waves, the Zig-Zag Graph Product, and New Constant-Degree Expanders}
+      \field{volume}{155}
+      \field{year}{2002}
+      \field{dateera}{ce}
+      \field{pages}{157}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.2307/3062153
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.2307/3062153
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.2307/3062153
+      \endverb
+    \endentry
   \enddatalist
 \endrefsection
 \endinput
