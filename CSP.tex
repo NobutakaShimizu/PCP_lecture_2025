@@ -170,7 +170,6 @@ PCP定理の証明は, NP-完全な2-CSPである3彩色問題のインスタン
 \section{多重グラフの導入とエクスパンダーグラフ}
 
 以後, 制約グラフに関する様々な操作をしていく上で多重グラフのフォーマルな定義を与えておく.
-自己ループの次数への寄与を$2$としていることに留意されたい.
 
 \begin{definition}{多重グラフ}{multigraph}
 有限集合$V$と多重集合$E$の組$(V,E)$を\emph{多重グラフ}という.
@@ -187,10 +186,18 @@ PCP定理の証明は, NP-完全な2-CSPである3彩色問題のインスタン
 \begin{align*}
   \deg(u) = \sum_{v\in V} w(u,v)
 \end{align*}
-と定義する. また, $W=(w(u,v))_{u,v\in V}$を\emph{重み行列}と呼び, 
+と定義する.\footnote{自己ループの次数への寄与は$2$であることに留意されたい. このようにしておくと握手補題(次数の総和が辺数の$2$倍に等しいこと)が成り立つ.} また, $W=(w(u,v))_{u,v\in V}$を\emph{重み行列}と呼び, 
 $P(u,v):=\frac{w(u,v)}{\deg(u)}$で定まる行列$P\in[0,1]^{V\times V}$を\emph{遷移確率行列}という.
 
 \end{definition}
+
+グラフの次数を並べたベクトル$d=(\deg(v))_{v\in V}\in \Real^V$を\emph{次数ベクトル}という.
+次数ベクトルは
+\begin{align*}
+  d = W\allone
+\end{align*}
+で与えられる.
+
 
 以下に正則グラフとエクスパンダーグラフの定義を述べる.
 
@@ -218,7 +225,6 @@ $P(u,v):=\frac{w(u,v)}{\deg(u)}$で定まる行列$P\in[0,1]^{V\times V}$を\emp
 \begin{proposition}{}{}
   多重グラフ$G$が連結であるならば, 遷移確率行列$P$の固有値$1$の多重度は$1$, すなわち$\lambda_2<1$である.
 \end{proposition}
-
 
 \subsection{正則エクスパンダーの性質}
 
@@ -285,6 +291,37 @@ $P(u,v):=\frac{w(u,v)}{\deg(u)}$で定まる行列$P\in[0,1]^{V\times V}$を\emp
   を得る.
 \end{proof}
 
+次にグラフの\emph{べき乗}の操作を定義する.
+
+\begin{definition}{グラフのべき乗}{power-of-graph}
+  重み行列$W$を持つ多重グラフ$G=(V,E)$および$k\ge 0$に対し, 多重グラフ$G^k=(V,E^k)$を
+  \begin{align*}
+    W' = W^k
+  \end{align*}
+  を重み行列とする多重グラフと定める.
+\end{definition}
+
+元のグラフ$G$の各二頂点$u,v\in V$に対し,
+$uv$間の長さ$k$の路の個数だけ$uv$間の辺を追加することで$G^k$を得られる.
+
+\begin{lemma}{正則エクスパンダー性のべき乗}{power-of-regular-expander}
+  頂点数$n$の$d$-正則かつ$\lambda$-エクスパンダーである多重グラフ$G$が与えられたとする.
+  このとき, $G^k$は$d^k$-正則かつ$\lambda^k$-エクスパンダーである.
+\end{lemma}
+
+\begin{proof}
+  べき乗で得られるグラフ$G^k$の重み行列は$W'=W^k$であるため, その次数ベクトルは
+  \begin{align*}
+    W'\allone = W^k\allone = d^k\allone
+  \end{align*}
+  となるため, $G^k$は$d^k$-正則である.
+
+  さらに, $G^k$の遷移確率行列は$P^k$で与えられるため, $1=\lambda_1 \ge \dots \ge \lambda_n \ge -1$に対して
+  $P^k$の固有値は$1=\lambda_1^k \ge \dots \ge \lambda_n^k \ge -1$となる.
+  今, $\max\{\abs{\lambda_2}, \abs{\lambda_n}\} \le \lambda$であるため, $\max\{\abs{\lambda_2^k}, \abs{\lambda_n^k}\} \le \lambda^k$である.
+  よって, $G^k$は$\lambda^k$-エクスパンダーである.
+\end{proof}
+
 \subsection{エクスパンダーグラフの構成}
 
 エクスパンダーグラフは, その構造から様々な応用が知られている.
@@ -307,7 +344,7 @@ $P(u,v):=\frac{w(u,v)}{\deg(u)}$で定まる行列$P\in[0,1]^{V\times V}$を\emp
 一般の頂点数のエクスパンダーグラフを得るには, まず$2^{k-1}< n \le 2^k$を満たす$k$に対して\cref{thm:construction-of-expander-graph-family}を適用し, その後にそのグラフが$n$頂点になるようにうまく二つの頂点を縮約し, 必要に応じて頂点に自己ループまたは多重辺を追加することによって正則にすることによって得られる.
 
 
-
+なお, \cref{lem:power-of-regular-expander}より, 次数を大きくすることによって固有値$\lambda_0$をいくらでも$0$に近づけることが可能である.
 
 
 
