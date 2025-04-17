@@ -8,10 +8,10 @@ DinurによるPCP定理の証明は, 与えられた制約グラフの不満足�
 ギャップ増幅補題は以下のように述べられる.
 
 \begin{lemma}{ギャップ増幅補題}{gap-amplification-lemma}
-  二つの定数$C>0,\alpha\in (0,1)$および, 
+  二つの定数$c>0,\alpha\in (0,1)$および, 
   制約グラフ$G=\ip{(V,E),\Sigma,\calC}$を入力として受け取り, 以下の性質を満たす別の制約グラフ$G'=\ip{(V',E'),\Sigma,\calC'}$を出力する決定的多項式時間アルゴリズムが存在する:
   \begin{itemize}
-    \item $\size(G')\le C\cdot \size(G)$.
+    \item $\size(G')\le c\cdot \size(G)$.
     \item $\UNSAT(G)=0$ならば$\UNSAT(G')=0$.
     \item $\UNSAT(G)>0$ならば$\UNSAT(G')\ge \min\{\alpha, 2\cdot \UNSAT(G)\}$.
   \end{itemize}
@@ -24,7 +24,7 @@ PCP定理(\cref{thm:PCP-CSP-theorem})の証明は, この補題を繰り返し�
   この制約グラフは単純グラフであるため, $\UNSAT(G_0)=0$もしくは$\UNSAT(G_0)\ge \frac{1}{n^2}$である.
   \cref{lem:gap-amplification-lemma}のアルゴリズムを$A$とし, 各$i=1,\dots,\ceil{2\log_2 n}$について, 制約グラフ$G_i$を
   $G_i = A(G_{i-1})$として定義し, 最終的に得られる制約グラフを$G'=G_{\ceil{2\log_2 n}}$とする.
-  各$G_i$のサイズは$\size(G_i) \le C\cdot \size(G_{i-1})$であるため, $\size(G')\le C^{\ceil{2\log_2 n}}\cdot \size(G_0)=\size(G_0)^{O(1)}$である.
+  各$G_i$のサイズは$\size(G_i) \le c\cdot \size(G_{i-1})$であるため, $\size(G')\le c^{\ceil{2\log_2 n}}\cdot \size(G_0)=\size(G_0)^{O(1)}$である.
   従って$G'$は多項式時間で構成できる.
 
   また, 不満足値については, 以下のようになる:
@@ -34,10 +34,57 @@ PCP定理(\cref{thm:PCP-CSP-theorem})の証明は, この補題を繰り返し�
   \end{itemize}
 \end{proof}
 
+ギャップ増幅補題では与えられた制約グラフを変換していく.
+表記の簡略化のため, グラフに対する性質を表す用語を制約グラフにもそのまま適用することとする.
+例えば$(V,E)$が連結であるときに$G=\ip{(V,E),\Sigma,\calC}$は連結であるという.
+また, $(V,E)$が正則であるときに$G=\ip{(V,E),\Sigma,\calC}$は正則であるという.
+
 
 \section{証明の概要}
 
 \section{制約グラフの定数次数エクスパンダー化}
+
+まず, 与えられた制約グラフを, 不満足値をそれほど減らさずに定数次数の正則性かつエクスパンダー性を持つように変形する.
+
+\begin{lemma}{定数次数エクスパンダー化}{constant-degree-expanderization-lemma}
+  ある定数$\lambda<1$, $d\in\Nat$, $c>0$, $\beta>0$が存在して,
+  任意の制約グラフ$G=\ip{(V,E),\Sigma,\calC}$を入力として受け取り, 以下の性質を満たす別の制約グラフ$G'=\ip{(V',E'),\Sigma,\calC'}$を出力する決定的多項式時間アルゴリズム $A$ が存在する:
+  \begin{itemize}
+    \item $G'$は自己ループを持つ$d$-正則$\lambda$-エクスパンダーである.
+    \item $\UNSAT(G) \ge \UNSAT(G') \ge \beta\cdot\UNSAT(G)$.
+    \item $\size(G') \le c\cdot \size(G)$.
+  \end{itemize}
+\end{lemma}
+
+この補題の証明は次数の削減とエクスパンダー化の二つのステップからなる.
+
+\subsection{次数の削減}
+
+\begin{lemma}{次数削減補題}{degree-reduction-lemma}
+  ある定数$d\in\Nat$, $c>0$が存在して, 任意の制約グラフ$G=\ip{(V,E),\Sigma,\calC}$を入力として受け取り, 以下の性質を満たす別の制約グラフ$G'=\ip{(V',E'),\Sigma,\calC'}$を出力する決定的多項式時間アルゴリズム $A_1$ が存在する:
+  \begin{itemize}
+    \item $G'$は$d$-正則である.
+    \item $\abs{V'} = 2\abs{E}$.
+    \item $c \cdot \UNSAT(G) \le \UNSAT(G') \le \frac{\UNSAT(G)}{d}$.
+  \end{itemize}
+\end{lemma}
+
+\begin{proof}
+
+与えられた制約グラフを$G=\ip{(V,E),\Sigma,\calC}$とし, 変換によって得られる制約グラフを$G'=\ip{(V',E'),\Sigma,\calC'}$とする.
+
+元のグラフの各頂点$u\in V$に対し, 以下で多重集合$[u] \subseteq \{u\}\times E$を定める:
+\begin{itemize}
+\item 各自己ループ$e=\{u,u\}\in E$に対し, 元$(u,e)$を$[u]$に\emph{二つ}追加する.
+\item 各辺$e=\{u,v\}\in E$ (ただし$v\ne u$)に対し, 
+すなわち, $u$をそれに接続する辺の本数だけコピーして得られる集合が$[u]$である.
+新しいグラフの頂点集合$V'$は$V'=\bigcup_{u\in V} [u]$である.
+
+
+
+\end{proof}
+
+\subsection{エクスパンダー化}
 
 
 \section{制約グラフのべき乗}

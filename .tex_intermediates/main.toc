@@ -18,8 +18,10 @@
 \contentsline {section}{\numberline {3.1}主張}{25}{section.3.1}%
 \contentsline {section}{\numberline {3.2}証明の概要}{26}{section.3.2}%
 \contentsline {section}{\numberline {3.3}制約グラフの定数次数エクスパンダー化}{26}{section.3.3}%
-\contentsline {section}{\numberline {3.4}制約グラフのべき乗}{26}{section.3.4}%
-\contentsline {section}{\numberline {3.5}アルファベット削減}{26}{section.3.5}%
-\contentsline {chapter}{\numberline {4}割り当てテスターとアルファベット削減}{27}{chapter.4}%
-\contentsline {section}{\numberline {4.1}割り当てテスター}{27}{section.4.1}%
-\contentsline {section}{\numberline {4.2}アルファベット削減}{27}{section.4.2}%
+\contentsline {subsection}{\numberline {3.3.1}次数の削減}{26}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}エクスパンダー化}{27}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}制約グラフのべき乗}{27}{section.3.4}%
+\contentsline {section}{\numberline {3.5}アルファベット削減}{27}{section.3.5}%
+\contentsline {chapter}{\numberline {4}割り当てテスターとアルファベット削減}{29}{chapter.4}%
+\contentsline {section}{\numberline {4.1}割り当てテスター}{29}{section.4.1}%
+\contentsline {section}{\numberline {4.2}アルファベット削減}{29}{section.4.2}%
