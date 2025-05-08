@@ -8,8 +8,8 @@ DinurによるPCP定理の証明は, 与えられた制約グラフの不満足�
 ギャップ増幅補題は以下のように述べられる.
 
 \begin{lemma}{ギャップ増幅補題}{gap-amplification-lemma}
-  二つの定数$c>0,\alpha\in (0,1)$および, 
-  制約グラフ$G=\ip{(V,E),\Sigma,\calC}$を入力として受け取り, 以下の性質を満たす別の制約グラフ$G'=\ip{(V',E'),\Sigma,\calC'}$を出力する決定的多項式時間アルゴリズムが存在する:
+  二つの定数$c>0,\alpha\in (0,1)$, アルファベット$\Sigma$, および以下の性質を満たす決定的多項式時間アルゴリズム$A$が存在する: 
+  アルゴリズム$A$は制約グラフ$G=\ip{(V,E),\Sigma,\calC}$を入力として受け取り, 次の性質を満たす別の制約グラフ$G'=\ip{(V',E'),\Sigma,\calC'}$を出力する:
   \begin{itemize}
     \item $\size(G')\le c\cdot \size(G)$.
     \item $\UNSAT(G)=0$ならば$\UNSAT(G')=0$.
@@ -39,8 +39,6 @@ PCP定理(\cref{thm:PCP-CSP-theorem})の証明は, この補題を繰り返し�
 例えば$(V,E)$が連結であるときに$G=\ip{(V,E),\Sigma,\calC}$は連結であるという.
 また, $(V,E)$が正則であるときに$G=\ip{(V,E),\Sigma,\calC}$は正則であるという.
 
-
-\section{証明の概要}
 
 \section{制約グラフの定数次数エクスパンダー化}
 
