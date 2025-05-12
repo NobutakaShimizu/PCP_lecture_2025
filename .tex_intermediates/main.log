@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.uptex) (TeX Live 2025/Homebrew) (preloaded format=uplatex 2025.3.15)  12 MAY 2025 18:52
+This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.uptex) (TeX Live 2025/Homebrew) (preloaded format=uplatex 2025.3.15)  12 MAY 2025 21:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1115,22 +1115,19 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 
 [25]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 71.
+(Font)              No change on input line 76.
+
+
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
+(Font)              No change on input line 79.
+[26]
 File: images/degree_reduction.pdf Graphic file (type pdf)
 <images/degree_reduction.pdf>
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 88.
-[26]) (./alphabet_reduction.tex
-
-LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 1.
-[27]
+(Font)              No change on input line 117.
+[27]) (./alphabet_reduction.tex
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 1.
@@ -1176,10 +1173,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Here is how much of TeX's memory you used:
  35329 strings out of 473836
  708768 string characters out of 5721972
- 1539866 words of memory out of 5000000
+ 1539890 words of memory out of 5000000
  58088 multiletter control sequences out of 15000+600000
  580107 words of font info for 131 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  98i,16n,107p,989b,1542s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on .tex_intermediates/main.dvi (31 pages, 275808 bytes).
+Output written on .tex_intermediates/main.dvi (31 pages, 277808 bytes).

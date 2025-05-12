@@ -49,8 +49,9 @@ PCP定理(\cref{thm:PCP-CSP-theorem})の証明は, この補題を繰り返し�
   任意の制約グラフ$G=\ip{(V,E),\Sigma,\calC}$を入力として受け取り, 以下の性質を満たす別の制約グラフ$G'=\ip{(V',E'),\Sigma,\calC'}$を出力する決定的多項式時間アルゴリズム $A$ が存在する:
   \begin{itemize}
     \item $G'$は自己ループを持つ$d$-正則$\lambda$-エクスパンダーである.
-    \item $\UNSAT(G) \ge \UNSAT(G') \ge \beta\cdot\UNSAT(G)$.
     \item $\size(G') \le c\cdot \size(G)$.
+    \item $\UNSAT(G)=0$ならば$\UNSAT(G')=0$.
+    \item $\UNSAT(G') \ge \beta\cdot\UNSAT(G)$.
   \end{itemize}
 \end{lemma}
 
@@ -58,12 +59,16 @@ PCP定理(\cref{thm:PCP-CSP-theorem})の証明は, この補題を繰り返し�
 
 \subsection{次数の削減}
 
+まず, 与えられた制約グラフを定数次数の正則グラフに変換する補題を示す.
+この変換によって$\UNSAT$の値は定数倍しか変化しない.
+
 \begin{lemma}{次数削減補題}{degree-reduction-lemma}
   ある定数$d\in\Nat$, $c>0$が存在して, 任意の制約グラフ$G=\ip{(V,E),\Sigma,\calC}$を入力として受け取り, 以下の性質を満たす別の制約グラフ$G'=\ip{(V',E'),\Sigma,\calC'}$を出力する決定的多項式時間アルゴリズム $A_1$ が存在する:
   \begin{itemize}
     \item $G'$は$d$-正則である.
     \item $\abs{V'} \le 2\abs{E}$.
-    \item $c \cdot \UNSAT(G) \le \UNSAT(G') \le \frac{\UNSAT(G)}{d}$.
+    \item $\UNSAT(G)=0$ならば$\UNSAT(G')=0$.
+    \item $\UNSAT(G') \ge c\cdot \UNSAT(G)$.
   \end{itemize}
 \end{lemma}
 
@@ -75,7 +80,7 @@ PCP定理(\cref{thm:PCP-CSP-theorem})の証明は, この補題を繰り返し�
 \begin{figure}[h]
   \centering
   \includegraphics[width=\textwidth]{images/degree_reduction.pdf}
-  \caption{次数削減変換の例. 橙色の内部の頂点集合がクラウドであり, クラウド内の辺は\cref{thm:construction-of-expander-graph}によって構成されるが, ここでは図の簡単のため$X_d$を長さ$d$の閉路としている.}
+  \caption{次数削減変換の例. 橙色の内部の頂点集合がクラウドであり, クラウド内の辺は\cref{thm:construction-of-expander-graph}によって構成されるが, ここでは図の簡単のため$X_d$を長さ$d$の閉路としている. この例の場合, $G'$は$3$-正則となる.}
   \label{fig:degree-reduction}
 \end{figure}
 
@@ -84,7 +89,6 @@ PCP定理(\cref{thm:PCP-CSP-theorem})の証明は, この補題を繰り返し�
 を(この証明のローカルな用語として)\emph{$u$-クラウド}と呼ぶことにする.
 新しい頂点集合$V'$は$V'=\bigcup_{u\in V} [u]$である.
 すなわち, $u$をそれに接続する辺の本数(自己ループは1個分としてカウント)だけコピーして得られる集合が$[u]$である.
-このとき, $V'$の要素数は次数の総和で上から抑えられるため, $\abs{V'}\le 2\abs{E}$を満たす ($2\abs{E}-\abs{V'}$は元のグラフの自己ループの個数分に等しい).
 
 次に辺集合$E'$を以下のように構成する.
 まず, $(X_n)_{n\in\Nat}$を\cref{thm:construction-of-expander-graph}によって構成される$n$頂点$d_0$-正則$\lambda$-エクスパンダーの族とする.
@@ -111,6 +115,20 @@ PCP定理(\cref{thm:PCP-CSP-theorem})の証明は, この補題を繰り返し�
 すなわち, $e'=\qty{ (u,e), (v,e) }$ならば, $c'_{e'}=c_e$である.
 \item 辺$e'\in E_{\mathrm{inner}}$がクラウド内部の辺ならば, その制約は全集合, すなわち$c'_{e'}=\Sigma^2$とする.
 \end{itemize}
+
+このようにして得られる制約グラフ$G'=\ip{(V',E'),\Sigma,\calC'}$が補題の主張を全て満たすことを確認する.
+まず, $G'$は$(d_0+1)$-正則である.
+実際, $G'$の各頂点$(u,e)\in V'$に接続する辺は, クラウド内の辺が$d_0$本, クラウド間の辺が$1$本である.
+また, $V'$の要素数は次数の総和に等しいため, $\abs{V'}\le 2\abs{E}$を満たす ($2\abs{E}-\abs{V'}$は元のグラフの自己ループの個数分に等しい).
+次に, $\UNSAT(G)=0$ならば$\UNSAT(G')=0$である.
+実際, 元の制約グラフの全ての制約を満たす割り当て$a\colon V\to\Sigma$に対し, $G'$の割り当て$a'\colon V'\to\Sigma$を
+\begin{align*}
+  a'(u,e) = a(u)
+\end{align*}
+と定めると, $a'$は$G'$の制約を満たす (クラウド内の辺に対応する制約は全て満たされ, クラウド間の辺に対応する制約は$a$の取り方により全て満たされることがわかる).
+
+最後の主張, すなわち$\UNSAT(G') \ge c\cdot \UNSAT(G)$を確認する.
+
 
 
 
