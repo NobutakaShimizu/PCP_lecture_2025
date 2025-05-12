@@ -18,9 +18,9 @@
 \contentsline {section}{\numberline {3.1}主張}{25}{section.3.1}%
 \contentsline {section}{\numberline {3.2}制約グラフの定数次数エクスパンダー化}{26}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}次数の削減}{26}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}エクスパンダー化}{27}{subsection.3.2.2}%
-\contentsline {section}{\numberline {3.3}制約グラフのべき乗}{27}{section.3.3}%
-\contentsline {section}{\numberline {3.4}アルファベット削減}{27}{section.3.4}%
+\contentsline {subsection}{\numberline {3.2.2}エクスパンダー化}{28}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}制約グラフのべき乗}{28}{section.3.3}%
+\contentsline {section}{\numberline {3.4}アルファベット削減}{28}{section.3.4}%
 \contentsline {chapter}{\numberline {4}割り当てテスターとアルファベット削減}{29}{chapter.4}%
 \contentsline {section}{\numberline {4.1}割り当てテスター}{29}{section.4.1}%
 \contentsline {section}{\numberline {4.2}アルファベット削減}{29}{section.4.2}%

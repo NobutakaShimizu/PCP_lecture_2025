@@ -35,6 +35,10 @@
 を$\varphi$の\emph{不満足値}という.
 \end{definition}
 
+各制約$c_I\in \calC$は, その制約が充足される割り当ての集合を表す.
+例えば$c_I = \Sigma^{\abs{I}}$であるならば, 任意の割り当てに対して$c_I$は充足されるし,
+$c_I = \emptyset$であるならば, どの割り当ても$c_I$を充足しない.
+
 \begin{example}{グラフ彩色問題}{graph-coloring-problem-CSP}
   グラフ彩色問題(\cref{ex:graph-coloring-problem})は$2$-CSPである.
   実際, グラフ$G=(V,E)$に対して
@@ -49,6 +53,8 @@
   \end{itemize}
   このとき, グラフ$G$が$k$-彩色可能であることと, このCSPがYesインスタンスであることは同値である.
 \end{example}
+
+
 
 
 \subsection{PCPとの関係}
@@ -131,16 +137,16 @@ PCP定理の証明は, NP-完全な2-CSPである3彩色問題のインスタン
 \begin{definition}{制約グラフ}{constraint-graph}
   2-CSPのインスタンス$\varphi=(X,\Sigma,\calI,\calC)$に対し, 以下で定まる組$G=\ip{(V,E),\Sigma,\calC'}$を\emph{制約グラフ}という\footnote{制約グラフの表記に用いる括弧は形式的には本来$((V,E),\Sigma,\calC')$のようにすべきだが, 可読性のためあえて外側の括弧を$\ip{\cdot}$としている.}:
   \begin{itemize}
-    \item $(V,E)$はグラフである. ただし頂点集合は$V=X$であり, 辺集合は$E=\calI$である. なお, ここで考えるグラフは多重辺や自己ループを持ちうるもの\footnote{具体的には$E$は多重集合であり, 自己ループに対応する辺は$\{u\}$と表す.}とし, 特に$\abs{I_i}=1$の場合は対応する辺は自己ループとする.
+    \item $(V,E)$はグラフである. ただし頂点集合は$V=X$であり, 辺集合は$E=\calI$である. なお, ここで考えるグラフは多重辺や自己ループを持ちうるもの\footnote{具体的には$E$は多重集合であり, 自己ループに対応する辺は$\{u\}$と表す. 詳細は\cref{def:multigraph}を参照.}とし, 特に$\abs{I_i}=1$の場合は対応する辺は自己ループとする.
     \item アルファベット$\Sigma$.
-    \item 制約の列$\calC'=(c'_e)_{e\in E}$は, $\abs{e}=2$ならば$c'_e=c_e$とし, $\abs{e}=1$ならば$c'_e=\qty{ (a,a) \in \Sigma^2 \colon (a)\in c_e }$とする. これにより, 全ての$c'_e$は$\Sigma^2$の部分集合となる.
+    \item 制約の列$\calC'=(c'_e)_{e\in E}$は, $\abs{e}=2$ならば$c'_e=c_e$とし, $\abs{e}=1$ならば$c'_e=\qty{ (u,u) \in \Sigma^2 \colon u\in e }$とする. これにより, 全ての$c'_e$は$\Sigma^2$の部分集合となる.
   \end{itemize}
 
   制約グラフ$G=\ip{(V,E),\Sigma,\calC}$および割り当て$a\colon V\to \Sigma$に対して, その\emph{不満足値}を
   \begin{align*}
     \UNSAT_G(a) = \Pr_{e\sim E}[a(e) \not\in c_e]
   \end{align*}
-  と定義し, $G$の不満足値を
+  と定義し (ここで$e=\{u,v\}$ ($u<v$)に対して$a(e)=(a(u),a(v))\in\Sigma^2$とする), $G$の不満足値を
   \begin{align*}
     \UNSAT(G) = \min_{a\in\Sigma^V} \UNSAT_G(a)
   \end{align*}
@@ -172,16 +178,13 @@ PCP定理の証明は, NP-完全な2-CSPである3彩色問題のインスタン
 
 二頂点$u,v\in V$の間の\emph{重み}を
 \begin{align*}
-  w(u,v) = \begin{cases}
-   \abs{\qty{e\in E \colon e = \{u,v\}}} & \text{if } u\ne v \\
-   2\abs{\qty{e\in E \colon e = \{u\}}} & \text{if } u=v
-  \end{cases}
+  w(u,v) = \abs{\qty{e\in E \colon e = \{u,v\}}}
 \end{align*}
 と定義し, 頂点$u$の\emph{次数}を
 \begin{align*}
   \deg(u) = \sum_{v\in V} w(u,v)
 \end{align*}
-と定義する.\footnote{自己ループの次数への寄与は$2$であることに留意されたい. このようにしておくと握手補題(次数の総和が辺数の$2$倍に等しいこと)が成り立つ.} また, $W=(w(u,v))_{u,v\in V}$を\emph{重み行列}と呼び, 
+と定義する.\footnote{自己ループの次数への寄与は$1$であることに留意されたい (文脈によってはこの寄与が$1$である場合もある).} また, $W=(w(u,v))_{u,v\in V}$を\emph{重み行列}と呼び, 
 $P(u,v):=\frac{w(u,v)}{\deg(u)}$で定まる行列$P\in[0,1]^{V\times V}$を\emph{遷移確率行列}という.
 
 \end{definition}
@@ -210,7 +213,7 @@ $P(u,v):=\frac{w(u,v)}{\deg(u)}$で定まる行列$P\in[0,1]^{V\times V}$を\emp
 さらに, Gershgorinの定理からそれらの固有値の絶対値は$1$以下であることが従う.
 また, 全成分$1$のベクトル$\allone$は$P$の固有値$1$に対する固有ベクトルとなるため, $\lambda_1=1$である.
 
-\begin{exercise}{}
+\begin{exercise}{}{}
   任意の多重グラフ$G$の遷移確率行列$P$は実固有値を持つことを示せ.
 \end{exercise}
 
@@ -245,7 +248,8 @@ $P(u,v):=\frac{w(u,v)}{\deg(u)}$で定まる行列$P\in[0,1]^{V\times V}$を\emp
 \end{lemma}
 
 \begin{remark}{直感的な意味}{intuitive-meaning-of-expander-mixing-lemma}
-  $n$頂点$d$-正則グラフは全部で$nd/2$本の辺を持つ.
+  簡単のため自己ループを持たないグラフを考える.
+  このグラフが$n$頂点$d$-正則ならば全部で$nd/2$本の辺を持つ.
   全部で$\binom{n}{2}\approx n^2/2$個の頂点対があるため, 辺密度は$d/n$である.
   さて, グラフの辺が$\binom{V}{2}$に「均一に」散らばっていると仮定すると, 任意に固定した頂点部分集合$S,T\subseteq V$に対してその間をまたがる辺の本数$W(S,T)$はおよそ$(d/n)\cdot \abs{S}\abs{T}$であることが期待される.
   グラフ$G$がエクスパンダー性を持つ場合, この期待値からのずれの上からの評価を与えるのがエクスパンダー混交補題である.

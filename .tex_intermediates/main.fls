@@ -418,6 +418,10 @@ INPUT /opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/tfm/public/
 INPUT ./gap_amplification.tex
 INPUT ./gap_amplification.tex
 INPUT gap_amplification.tex
+INPUT ./images/degree_reduction.pdf
+INPUT ./images/degree_reduction.pdf
+INPUT ./images/degree_reduction.pdf
+INPUT extractbb -B cropbox -O images/degree_reduction.pdf
 INPUT ./alphabet_reduction.tex
 INPUT ./alphabet_reduction.tex
 INPUT alphabet_reduction.tex

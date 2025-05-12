@@ -62,7 +62,7 @@ PCP定理(\cref{thm:PCP-CSP-theorem})の証明は, この補題を繰り返し�
   ある定数$d\in\Nat$, $c>0$が存在して, 任意の制約グラフ$G=\ip{(V,E),\Sigma,\calC}$を入力として受け取り, 以下の性質を満たす別の制約グラフ$G'=\ip{(V',E'),\Sigma,\calC'}$を出力する決定的多項式時間アルゴリズム $A_1$ が存在する:
   \begin{itemize}
     \item $G'$は$d$-正則である.
-    \item $\abs{V'} = 2\abs{E}$.
+    \item $\abs{V'} \le 2\abs{E}$.
     \item $c \cdot \UNSAT(G) \le \UNSAT(G') \le \frac{\UNSAT(G)}{d}$.
   \end{itemize}
 \end{lemma}
@@ -70,14 +70,49 @@ PCP定理(\cref{thm:PCP-CSP-theorem})の証明は, この補題を繰り返し�
 \begin{proof}
 
 与えられた制約グラフを$G=\ip{(V,E),\Sigma,\calC}$とし, 変換によって得られる制約グラフを$G'=\ip{(V',E'),\Sigma,\calC'}$とする.
+フォーマルな構成を与える前に, まず図例を先に示す.
 
-元のグラフの各頂点$u\in V$に対し, 以下で多重集合$[u] \subseteq \{u\}\times E$を定める:
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{images/degree_reduction.pdf}
+  \caption{次数削減変換の例. 橙色の内部の頂点集合がクラウドであり, クラウド内の辺は\cref{thm:construction-of-expander-graph}によって構成されるが, ここでは図の簡単のため$X_d$を長さ$d$の閉路としている.}
+  \label{fig:degree-reduction}
+\end{figure}
+
+元のグラフの各頂点$u\in V$に対し, 
+\[[u]=\qty{ (u,e) \in \{u\}\times E \colon e=\{u,v\} \text{ for some } v\in V }\]
+を(この証明のローカルな用語として)\emph{$u$-クラウド}と呼ぶことにする.
+新しい頂点集合$V'$は$V'=\bigcup_{u\in V} [u]$である.
+すなわち, $u$をそれに接続する辺の本数(自己ループは1個分としてカウント)だけコピーして得られる集合が$[u]$である.
+このとき, $V'$の要素数は次数の総和で上から抑えられるため, $\abs{V'}\le 2\abs{E}$を満たす ($2\abs{E}-\abs{V'}$は元のグラフの自己ループの個数分に等しい).
+
+次に辺集合$E'$を以下のように構成する.
+まず, $(X_n)_{n\in\Nat}$を\cref{thm:construction-of-expander-graph}によって構成される$n$頂点$d_0$-正則$\lambda$-エクスパンダーの族とする.
+元のグラフの各頂点$u\in V$に対し, $d=\abs{[u]}$としたとき, 頂点集合$[u]$上で$X_d$と同型なグラフを構成し, それを$([u],E_u)$とする.
+このとき, 各$u$-クラウド内部の辺集合$E_{\mathrm{inner}}$は
+\begin{align*}
+  E_{\mathrm{inner}} = \bigcup_{u\in V} E_u
+\end{align*}
+とする.
+次に異なるクラウド間を繋ぐ辺集合$E_{\mathrm{outer}}$を
+\begin{align*}
+  E_{\mathrm{outer}} = \qty{\qty{ (u,e), (v,e) } \colon e\notin [u]\cap[v]}
+\end{align*}
+とする.
+このとき, グラフ$G'$の辺集合$E'$は
+\begin{align*}
+  E' = E_{\mathrm{inner}} \cup E_{\mathrm{outer}}
+\end{align*}
+となる.
+
+次に各辺$e'\in E'$の制約$c'_{e'}$を以下のように定める:
 \begin{itemize}
-\item 各自己ループ$e=\{u,u\}\in E$に対し, 元$(u,e)$を$[u]$に\emph{二つ}追加する.
-\item 各辺$e=\{u,v\}\in E$ (ただし$v\ne u$)に対し, 
+\item 辺$e'\in E_{\mathrm{outer}}$がクラウド間をつなぐ辺ならば, その制約は対応する元の辺$e$の制約と同じとする.
+すなわち, $e'=\qty{ (u,e), (v,e) }$ならば, $c'_{e'}=c_e$である.
+\item 辺$e'\in E_{\mathrm{inner}}$がクラウド内部の辺ならば, その制約は全集合, すなわち$c'_{e'}=\Sigma^2$とする.
 \end{itemize}
-すなわち, $u$をそれに接続する辺の本数(自己ループは2回分カウント)だけコピーして得られる集合が$[u]$である.
-新しいグラフの頂点集合$V'$は$V'=\bigcup_{u\in V} [u]$である.
+
+
 
 \end{proof}
 
