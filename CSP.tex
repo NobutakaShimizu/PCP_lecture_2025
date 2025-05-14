@@ -195,6 +195,11 @@ $P(u,v):=\frac{w(u,v)}{\deg(u)}$で定まる行列$P\in[0,1]^{V\times V}$を\emp
   d = W\allone
 \end{align*}
 で与えられる.
+グラフ$G$が自己ループを含まない場合は握手補題が成り立つため$\sum_{u\in V}\deg(u) = 2\abs{E}$が成り立つが, そうでない場合は次数の総和は自己ループを一度ずつしかカウントしないため, 自己ループの個数を$\ell$とすると
+\begin{align}
+  \sum_{u\in V} \deg(u) = 2\abs{E} - \ell \le 2\abs{E} \label{eq:hand_shake_multigraph}
+\end{align}
+が成り立つ.
 
 
 以下に正則グラフとエクスパンダーグラフの定義を述べる.
@@ -204,7 +209,7 @@ $P(u,v):=\frac{w(u,v)}{\deg(u)}$で定まる行列$P\in[0,1]^{V\times V}$を\emp
 
   また, 遷移確率行列$P$の固有値$1=\lambda_1\ge \lambda_2\ge \cdots \ge \lambda_n \ge -1$が
   \begin{align*}
-    \lambda:=\max\{\abs{\lambda_2}, \abs{\lambda_n}\} \le \lambda
+    \lambda(P):=\max\{\abs{\lambda_2}, \abs{\lambda_n}\} \le \lambda
   \end{align*}
   を満たすとき, $G$は\emph{$\lambda$-エクスパンダー}であるという.
 \end{definition}
@@ -242,7 +247,7 @@ $P(u,v):=\frac{w(u,v)}{\deg(u)}$で定まる行列$P\in[0,1]^{V\times V}$を\emp
   \end{align*}
   が成り立つ. 特に, $\abs{S}\le n/2$を満たす任意の$S\subseteq V$に対して
   \begin{align*}
-    W(S,V\setminus S) \ge (1-\lambda)\frac{nd}{2}
+    W(S,V\setminus S) \ge (1-\lambda)\frac{d\abs{S}}{2}
   \end{align*}
   が成り立つ.
 \end{lemma}
