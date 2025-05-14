@@ -127,7 +127,60 @@ PCP定理(\cref{thm:PCP-CSP-theorem})の証明は, この補題を繰り返し�
 \end{align*}
 と定めると, $a'$は$G'$の制約を満たす (クラウド内の辺に対応する制約は全て満たされ, クラウド間の辺に対応する制約は$a$の取り方により全て満たされることがわかる).
 
-最後の主張, すなわち$\UNSAT(G') \ge c\cdot \UNSAT(G)$を確認する.
+最後の主張, すなわち$\UNSAT(G') \ge c\cdot \UNSAT(G)$を背理法で示すために, これが成り立たないと仮定する.
+このとき, ある$G'$の割り当て$a'\colon V'\to\Sigma$が存在して$\UNSAT_{G'}(a')<c\cdot \UNSAT_G(a')$となる.
+この割り当て$a'$に対し, 元のグラフ$G$の割り当て$a\colon V\to\Sigma$を
+\begin{align*}
+  a(u) = \Maj((a'(u,e))_{(u,e) \in [u]})
+\end{align*}
+と定める. ここで$\Maj(\cdot)$は多数決関数であり,
+タイは任意に選ぶとする.
+例えば$\Maj(1,2,2)=2$, $\Maj(1,2,3,3)=3$, $\Maj(1,2,2,3,3)=2$である ($\Maj(1,2,2,3,3)=3$としても良いが, ここでは便宜上小さい方の数字を採用している).
+以下, このようにして定まる新たな割り当て$a\colon V \to \Sigma$が
+$\UNSAT_G(a) < \UNSAT(G')$となることを示すことによって矛盾を導く (この不等式は$\UNSAT(G)$の定義に反している).
+
+以降, 割り当て$a'\colon V'\to\Sigma$に対し, 頂点$(u,e)\in V'$への割り当て$a'(u,e)$を頂点$(u,e)$の\emph{意見}と呼ぶこととする.
+同様に, 割り当て$a\colon V\to\Sigma$に対し, 頂点$u\in V$への割り当て$a(u)$を頂点$u$の意見と呼ぶこととする.
+直感的には頂点$u$の意見は対応する$u$-クラウド内の頂点の意見の多数決である.
+
+
+辺集合$F\subseteq E$を割り当て$a$によって充足されない辺の集合, すなわち
+\begin{align*}
+  F = \qty{ e=\{u,v\}\in E \colon u<v\text{ and } (a(u),a(v)) \not\in c_e}
+\end{align*}
+と定義する.
+ここで$\calC = (c_e)_{e\in E}$は元の制約グラフ$G$の制約である.
+同様に, $F'\subseteq E'$を割り当て$a'$によって充足されない辺の集合とする.
+このとき$\UNSAT_G(a) = \frac{|F|}{|E|}$および$\UNSAT_{G'}(a') = \frac{|F'|}{|E'|}$である.
+頂点部分集合$S\subseteq V'$を$a$の多数決で選ばれなかった意見を持つ頂点の集合, すなわち
+\begin{align*}
+  S = \qty{ (u,e) \in V' \colon a(u) \ne a'(u,e)}
+\end{align*}
+と定義し, 各$v\in V$に対し$S^v = S\cap [v]$とし, 各$\sigma\in \Sigma$に対し$S^v_\sigma = \qty{ (u,e)\in S^v \colon a'(u,e)=\sigma }$とする (\cref{fig:majority-degree-reduction}).
+なお, $\sigma\in\Sigma$が多数決の意見 (すなわち$\sigma=a(v)$)のとき, $S^v_\sigma=\emptyset$とする.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{images/majority_degree_reduction.png}
+  \caption{多数決によって選ばれなかった$v$-クラウド内の頂点の集合を$S_v\subseteq [v]$とする. \label{fig:majority-degree-reduction}}
+\end{figure}
+
+以下の二つのケースを考える:
+
+\paragraph*{ケース1. $\abs{S} \ge \frac{\UNSAT_G(a)}{2}\abs{E}$の場合.}
+
+各頂点$v\in V$に対し, 
+
+\paragraph*{ケース2. $\abs{S} < \frac{\UNSAT_G(a)}{2}\abs{E}$の場合.}
+
+
+
+
+
+
+
+
+
 
 
 
