@@ -139,7 +139,7 @@ PCP定理(\cref{thm:PCP-CSP-theorem})の証明は, この補題を繰り返し�
   c' = \min\qty{\frac{(1-\lambda_0)d_0}{8(d_0+1)}, \frac{1}{2(d_0+1)}} \label{eq:c_of_degree_reduction}
 \end{align}
 と定める.
-$\UNSAT_{G'}(a')=\UNSAT(G')$を満たす割り当て$a'\colon V'\to\Sigma$を任意に取る.
+$\UNSAT(a';G')=\UNSAT(G')$を満たす割り当て$a'\colon V'\to\Sigma$を任意に取る.
 この割り当て$a'$に対し, 元のグラフ$G$の割り当て$a\colon V\to\Sigma$を
 \begin{align*}
   a(u) = \Maj((a'(u,e))_{(u,e) \in [u]})
@@ -155,12 +155,12 @@ $\UNSAT_{G'}(a')=\UNSAT(G')$を満たす割り当て$a'\colon V'\to\Sigma$を任
 
 辺集合$F\subseteq E$を割り当て$a$によって充足されない辺の集合, すなわち
 \begin{align*}
-  F = \qty{ e=\{u,v\}\in E \colon u<v\text{ and } (a(u),a(v)) \not\in c_e}
+  F = \qty{ e=\{u,v\}\in E \colon (a(u),a(v)) \not\in c_e}
 \end{align*}
 と定義する.
 ここで$\calC = (c_e)_{e\in E}$は元の制約グラフ$G$の制約である.
 同様に, $F'\subseteq E'$を割り当て$a'$によって充足されない辺の集合とする.
-このとき$\UNSAT_G(a) = \frac{|F|}{|E|}$および$\UNSAT_{G'}(a') = \frac{|F'|}{|E'|}$である.
+このとき$\UNSAT(a;G) = \frac{|F|}{|E|}$および$\UNSAT((a';G') = \frac{|F'|}{|E'|}$である.
 頂点部分集合$S\subseteq V'$を$a$の多数決で選ばれなかった意見を持つ頂点の集合, すなわち
 \begin{align*}
   S = \qty{ (u,e) \in V' \colon a(u) \ne a'(u,e)}
@@ -176,7 +176,7 @@ $\UNSAT_{G'}(a')=\UNSAT(G')$を満たす割り当て$a'\colon V'\to\Sigma$を任
 
 以下の二つのケースを考える:
 
-\paragraph*{ケース1. $\abs{S} \ge \frac{\UNSAT_G(a)}{2}\abs{E}$の場合.}
+\paragraph*{ケース1. $\abs{S} \ge \frac{\UNSAT(a;G)}{2}\abs{E}$の場合.}
 
 各頂点$v\in V$と多数決によって選ばれなかった意見$\sigma\in\Sigma \setminus \{a(v)\}$に対し$\abs{S^v_\sigma} \le \frac{\abs{[v]}}{2}$である
 (そうでなければ意見$\sigma$が多数決によって選ばれなかったことに矛盾する).
@@ -191,12 +191,12 @@ $\UNSAT_{G'}(a')=\UNSAT(G')$を満たす割り当て$a'\colon V'\to\Sigma$を任
   \abs{F'} &\ge \frac{1}{2}\sum_{v,\sigma} W(S^v_\sigma, [v]\setminus S^v_\sigma) \\
   &\ge \frac{(1-\lambda_0)d_0}{4}\sum_{v,\sigma} \abs{S^v_\sigma} \\
   &= \frac{(1-\lambda_0)d_0}{4}\abs{S} \\
-  &\ge \frac{(1-\lambda_0)d_0}{8}\UNSAT_G(a)\cdot \abs{E}  & & \because \text{ケース1の仮定} \\
-  &\ge \frac{(1-\lambda_0)d_0}{8(d_0+1)}\UNSAT_G(a)\cdot \abs{E'}. & & \because\text{\cref{eq:bound_of_E'}}
+  &\ge \frac{(1-\lambda_0)d_0}{8}\UNSAT(a;G)\cdot \abs{E}  & & \because \text{ケース1の仮定} \\
+  &\ge \frac{(1-\lambda_0)d_0}{8(d_0+1)}\UNSAT(a;G)\cdot \abs{E'}. & & \because\text{\cref{eq:bound_of_E'}}
 \end{align*}
-特にこれから$\UNSAT_{G'}(a') = \frac{\abs{F'}}{\abs{E'}}\ge \frac{(1-\lambda_0)d_0}{8(d_0+1)}\cdot\UNSAT(G')$が成り立つ.
+特にこれから$\UNSAT(a';G') = \frac{\abs{F'}}{\abs{E'}}\ge \frac{(1-\lambda_0)d_0}{8(d_0+1)}\cdot\UNSAT(a;G)$が成り立つ.
 
-\paragraph*{ケース2. $\abs{S} < \frac{\UNSAT_G(a)}{2}\abs{E}$の場合.}
+\paragraph*{ケース2. $\abs{S} < \frac{\UNSAT(a;G)}{2}\abs{E}$の場合.}
 任意の辺$e = \{u,v\} \in F$に対して, それに対応する$G'$の辺$e' = \{(u,e),(v,e)\}$を考える.
 \begin{itemize}
 \item もしも$a(u)=a'(u,e)$かつ$a(v)=a'(v,e)$が成り立つならば, $e'$と$e$は同じ制約を持ち, $e\in F$であることから$e'\in F'$である.
@@ -205,17 +205,17 @@ $\UNSAT_{G'}(a')=\UNSAT(G')$を満たす割り当て$a'\colon V'\to\Sigma$を任
 以上より$\abs{F} \le \abs{F'} + \abs{S}$が成り立つので
 \begin{align*}
   \abs{F'} &\ge \abs{F} - \abs{S} \\
-  &\ge \abs{E}\UNSAT_G(a) - \frac{\UNSAT_G(a)}{2}\abs{E} & & \because \text{ケース2の仮定}\\
-  &= \frac{\UNSAT_G(a)}{2}\abs{E} \\
-  &\ge \frac{\UNSAT_{G}(a)}{2(d_0+1)}\abs{E'} & & \because\text{\cref{eq:bound_of_E'}}
+  &\ge \abs{E}\UNSAT(a;G) - \frac{\UNSAT(a;G)}{2}\abs{E} & & \because \text{ケース2の仮定}\\
+  &= \frac{\UNSAT(a;G)}{2}\abs{E} \\
+  &\ge \frac{\UNSAT(a;G)}{2(d_0+1)}\abs{E'} & & \because\text{\cref{eq:bound_of_E'}}
 \end{align*}
 となり, これから
 \begin{align*}
-  \UNSAT_{G'}(a') = \frac{\abs{F'}}{\abs{E'}} \ge \frac{1}{2(d_0+1)}\cdot \UNSAT_G(a)
+  \UNSAT(a';G') = \frac{\abs{F'}}{\abs{E'}} \ge \frac{1}{2(d_0+1)}\cdot \UNSAT(a;G)
 \end{align*}
 が成り立つ.
 
-ケース1,2より, \cref{eq:c_of_degree_reduction}で定まる定数$c'>0$に対して$\UNSAT_{G'}(a') \ge c'\cdot \UNSAT_G(a) \ge c'\cdot \UNSAT(G)$が成り立つ.
+ケース1,2より, \cref{eq:c_of_degree_reduction}で定まる定数$c'>0$に対して$\UNSAT(a';G') \ge c'\cdot \UNSAT(a;G) \ge c'\cdot \UNSAT(G)$が成り立つ.
 \end{proof}
 
 \subsection{エクスパンダー化}
@@ -244,9 +244,9 @@ $\UNSAT_{G'}(a')=\UNSAT(G')$を満たす割り当て$a'\colon V'\to\Sigma$を任
 次に$\UNSAT(G')=\frac{d}{d+d_0+1}\UNSAT(G)$を示す.
 任意の割り当て$a\colon V \to \Sigma$に対し, 
 ステップ1,2で追加した辺に対応する制約は常に充足されるため, 両者が充足\emph{しない}制約の個数は一致する.
-すなわち$\abs{E}\UNSAT_G(a) = \abs{E'}\UNSAT_{G'}(a)$が成り立つので
+すなわち$\abs{E}\UNSAT(a;G) = \abs{E'}\UNSAT(a;G')$が成り立つので
 \begin{align*}
-  \UNSAT(G') = \min_{a}\UNSAT_{G'}(a) = \frac{\abs{E}}{\abs{E'}}\min_a \UNSAT_G(a) = \frac{d}{d+d_0+1}\UNSAT(G)
+  \UNSAT(G') = \min_{a}\UNSAT(a;G') = \frac{\abs{E}}{\abs{E'}}\min_a \UNSAT(a;G) = \frac{d}{d+d_0+1}\UNSAT(G)
 \end{align*}
 が成り立つ.
 
@@ -288,6 +288,28 @@ $\UNSAT(G') = \frac{d}{d+d_0+1}\UNSAT(G_1) = 0$を得る.
 \end{proof}
 
 \section{制約グラフのべき乗}
+
+\cref{lem:constant-degree-expanderization}により, 任意の制約グラフを定数次数エクスパンダーに変換することができる.
+この節では, そのような制約グラフに対し, 以下で定義する\emph{べき乗}という操作を考えることで, その$\UNSAT$の値を増幅させることができることを示す.
+
+\begin{definition}{制約グラフの冪乗}{power-of-constraint-graph}
+  パラメータ$t\in\Nat$および全頂点が自己ループを持つ$d$-正則な制約グラフ$G=\ip{(V,E),\Sigma,\calC}$に対し, べき乗$G^t = \ip{(V,\boldE),\Sigma^{\ceil{t/2}},\calC^t}$を, 以下のようにして定義する:
+  \begin{itemize}
+    \item 頂点集合は同じ$V$とする.
+    \item 二頂点$u,v\in V$に対し, 長さ$t$の$uv$-路の個数と同じだけ$uv$間に多重辺を用意する. このようにして得られる辺の多重集合を$\boldE$とし, その元を$\bolde = \{u,v\} \in \boldE$とする.
+    \item アルファベット集合は$\Sigma^{d^{\ceil{t/2}}}$とする. ここで, 頂点$u$に意見$\sigma=(\sigma_1,\dots,\sigma_{d^{\ceil{t/2}}}) \in \Sigma^{d^{\ceil{t/2}}}$が割り当てられたとき, 次の意味を持つ: 元の$d$-正則グラフ$G$上で頂点$u$から距離$\ceil{t/2}$以内の頂点の集合を$\Gamma(u)$とし, その元を頂点番号の大小順で並べて$\Gamma(u)=\qty{ v_1,\dots,v_\ell}$ とする (ここで$G$の$d$-正則性より$\ell \le d^{\ceil{t/2}}$である). このとき, 意見$\sigma$は$v_1,\dots,v_\ell$の各頂点に$\Sigma$の元を割り当てる関数$\sigma \colon \Gamma(u)\to\Sigma$とみなす.
+    \begin{itemize}
+      \item 例えば$\ell < d^{\ceil{t/2}}$の場合は相異なる二つの$\sigma,\sigma'\in\Sigma$が同一の関数を与えることもある.
+      \item 頂点$u$と$\sigma\in\Sigma^{\ceil{t/2}}$の取り方によっては同一の頂点に対し, 相異なる$\Sigma$の元を割り当てるため$\sigma\in\Sigma^{\ceil{t/2}}$を関数$\Gamma(u)\to\Sigma$とみなせない場合もある. このようなとき, 意見$\sigma$は$u$にとって\emph{不適切}といい, 不適切でない場合は\emph{適切}であるという.
+    \end{itemize}
+    \item 辺$\bolde = \{u,v\} \in \boldE$ に対応する制約$\boldc_{\bolde}\in \calC^t$は次の二つを満たす割り当て$(\sigma,\sigma')\in \Sigma^{d^{\ceil{t/2}}} \times \Sigma^{d^{\ceil{t/2}}}$によって満たされる:
+    \begin{itemize}
+      \item 意見$\sigma$と$\sigma'$はそれぞれ$u,v$にとって適切であり, これらの意見は関数$\sigma\colon \Gamma(u)\to\Sigma$と$\sigma'\colon \Gamma(v)\to\Sigma$と同一視できる.
+      \item 全ての頂点$u\in \Gamma(u)\cap \Gamma(v)$に対し, $\sigma(u)=\sigma'(u)$が成り立つ.
+      \item 一方の端点が$\Gamma(u)$, もう一方の端点が$\Gamma(v)$に属する全ての辺$e=\{s,t\}\in E$に対し, $(\sigma(s), \sigma'(t))\in c_e$が成り立つ.
+    \end{itemize}
+  \end{itemize}
+\end{definition}
 
 \section{アルファベット削減}
 

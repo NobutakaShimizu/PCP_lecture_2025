@@ -428,6 +428,12 @@ INPUT ./images/majority_degree_reduction.png
 INPUT ./images/majority_degree_reduction.png
 INPUT ./images/majority_degree_reduction.png
 INPUT extractbb -B cropbox -O images/majority_degree_reduction.png
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib8.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib6.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm
 INPUT ./alphabet_reduction.tex
 INPUT ./alphabet_reduction.tex
 INPUT alphabet_reduction.tex

@@ -17,7 +17,7 @@
 入力$(X,\Sigma,\calI,\calC)$は,
 ある変数への割り当て$a \colon X \to \Sigma$が存在して, 任意の$I=\{i_1,\dots,i_k\}\in\calI$ (ただし$i_1<\dots<i_k$)について,
 \begin{align*}
-  a(I) := (a(\varx_{i_1}),\dots,a(\varx_{i_k})) \in c_I
+  (a(\varx_{i_1}),\dots,a(\varx_{i_k})) \in c_I
 \end{align*}
 であるとき, かつその時に限りYesインスタンスである.
 
@@ -25,12 +25,12 @@
 
 また, 固定した割り当て$a \colon X\to \Sigma$に対する$\varphi$の\emph{不満足値}を
 \begin{align*}
-  \UNSAT_\varphi(a) = \Pr_{I\sim\calI}\qty[a(I) \not\in c_I]
+  \UNSAT(a;\varphi) = \Pr_{\qty{i_1,\dots,i_k}\sim\calI}\qty[(a(\varx_{i_1}),\dots,a(\varx_{i_k})) \not\in c_I]
 \end{align*}
 とする. ここで$I\sim\calI$は$I$が$\calI$から一様ランダムに選ばれたことを意味する.
 さらに, 全ての割り当てに関して不満足値の最小値
 \begin{align*}
-  \UNSAT(\varphi) = \min_{a\in\Sigma^X} \UNSAT_\varphi(a)
+  \UNSAT(\varphi) = \min_{a\colon X\to\Sigma} \UNSAT(a;\varphi)
 \end{align*}
 を$\varphi$の\emph{不満足値}という.
 \end{definition}
@@ -144,11 +144,11 @@ PCP定理の証明は, NP-完全な2-CSPである3彩色問題のインスタン
 
   制約グラフ$G=\ip{(V,E),\Sigma,\calC}$および割り当て$a\colon V\to \Sigma$に対して, その\emph{不満足値}を
   \begin{align*}
-    \UNSAT_G(a) = \Pr_{e\sim E}[a(e) \not\in c_e]
+    \UNSAT(a;G) = \Pr_{e\sim E}[a(e) \not\in c_e]
   \end{align*}
   と定義し (ここで$e=\{u,v\}$ ($u<v$)に対して$a(e)=(a(u),a(v))\in\Sigma^2$とする), $G$の不満足値を
   \begin{align*}
-    \UNSAT(G) = \min_{a\in\Sigma^V} \UNSAT_G(a)
+    \UNSAT(G) = \min_{a\in\Sigma^V} \UNSAT(a;G)
   \end{align*}
   と定義する.
 

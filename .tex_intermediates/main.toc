@@ -20,7 +20,7 @@
 \contentsline {subsection}{\numberline {3.2.1}次数の削減}{26}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}エクスパンダー化}{30}{subsection.3.2.2}%
 \contentsline {section}{\numberline {3.3}制約グラフのべき乗}{32}{section.3.3}%
-\contentsline {section}{\numberline {3.4}アルファベット削減}{32}{section.3.4}%
-\contentsline {chapter}{\numberline {4}割り当てテスターとアルファベット削減}{33}{chapter.4}%
-\contentsline {section}{\numberline {4.1}割り当てテスター}{33}{section.4.1}%
-\contentsline {section}{\numberline {4.2}アルファベット削減}{33}{section.4.2}%
+\contentsline {section}{\numberline {3.4}アルファベット削減}{33}{section.3.4}%
+\contentsline {chapter}{\numberline {4}割り当てテスターとアルファベット削減}{35}{chapter.4}%
+\contentsline {section}{\numberline {4.1}割り当てテスター}{35}{section.4.1}%
+\contentsline {section}{\numberline {4.2}アルファベット削減}{35}{section.4.2}%
