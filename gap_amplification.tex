@@ -305,11 +305,39 @@ $\UNSAT(G') = \frac{d}{d+d_0+1}\UNSAT(G_1) = 0$を得る.
     \item 辺$\bolde = \{u,v\} \in \boldE$ に対応する制約$\boldc_{\bolde}\in \calC^t$は次の二つを満たす割り当て$(\sigma,\sigma')\in \Sigma^{d^{\ceil{t/2}}} \times \Sigma^{d^{\ceil{t/2}}}$によって満たされる:
     \begin{itemize}
       \item 意見$\sigma$と$\sigma'$はそれぞれ$u,v$にとって適切であり, これらの意見は関数$\sigma\colon \Gamma(u)\to\Sigma$と$\sigma'\colon \Gamma(v)\to\Sigma$と同一視できる.
-      \item 全ての頂点$u\in \Gamma(u)\cap \Gamma(v)$に対し, $\sigma(u)=\sigma'(u)$が成り立つ.
+      \item 全ての頂点$a\in \Gamma(u)\cap \Gamma(v)$に対し, $\sigma(a)=\sigma'(a)$が成り立つ.
       \item 一方の端点が$\Gamma(u)$, もう一方の端点が$\Gamma(v)$に属する全ての辺$e=\{s,t\}\in E$に対し, $(\sigma(s), \sigma'(t))\in c_e$が成り立つ.
     \end{itemize}
   \end{itemize}
 \end{definition}
+
+\begin{lemma}{べき乗の性質}{property-of-power}
+  ある定数$\beta=\beta(\lambda,d,\abs{\Sigma})$が存在して以下が成り立つ:
+  パラメータ$t\in\Nat$および全頂点が自己ループを持つ$d$-正則な制約グラフ$G=\ip{(V,E),\Sigma,\calC}$に対し, べき乗$G^t = \ip{(V,\boldE),\Sigma^{\ceil{t/2}},\calC^t}$を, \cref{def:power-of-constraint-graph}で定義する.
+  このとき
+  \begin{itemize}
+    \item 元の制約グラフ$G$が$\lambda$-エクスパンダーであるとき, $G^t$は$d^t$-正則$\lambda^t$-エクスパンダーである.
+    \item $\size(G^t) \le \size(G)\cdot d^t$である.
+    \item $\UNSAT(G)=0$ならば$\UNSAT(G^t)=0$である.
+    \item $\UNSAT(G^t) \ge \beta\sqrt{t}\cdot \min\qty{ \UNSAT(G), \frac{1}{t} }$である.
+  \end{itemize}
+\end{lemma}
+\begin{proof}
+
+\cref{lem:power-of-regular-expander}により, $G$が$d$-正則かつ$\lambda$-エクスパンダーならば$G^t$は$d^t$-正則かつ$\lambda^t$-エクスパンダーとなる.
+特に, $\size(G^t) \le \size(G)\cdot d^t$である.
+
+また, $\UNSAT(G)=0$ならば, 全制約を満たす割り当て$a\colon V \to \Sigma$を用いて$G^t$の全ての制約を満たす割り当て$a'\colon V \to \Sigma^{\ceil{t/2}}$を, 各頂点$u\in V$の適切な意見$a'(u)\colon\Gamma(U)\to\Sigma$を
+\begin{align*}
+  a'(u)\colon s \mapsto a(s)
+\end{align*}
+と定めることによって得られる.
+すなわち$\UNSAT(G^t)=0$である.
+
+最後に$\UNSAT(G^t)$の下界を証明する.
+
+
+\end{proof}
 
 \section{アルファベット削減}
 
