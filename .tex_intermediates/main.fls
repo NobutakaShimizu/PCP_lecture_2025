@@ -415,3 +415,41 @@ INPUT ./images/PCPverifier.drawio.pdf
 INPUT ./images/PCPverifier.drawio.pdf
 INPUT ./images/PCPverifier.drawio.pdf
 INPUT extractbb -B cropbox -O images/PCPverifier.drawio.pdf
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
+INPUT ./weak_PCP.tex
+INPUT ./weak_PCP.tex
+INPUT weak_PCP.tex
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm
+INPUT ./CSP.tex
+INPUT ./CSP.tex
+INPUT CSP.tex
+INPUT ./gap_amplification.tex
+INPUT ./gap_amplification.tex
+INPUT gap_amplification.tex
+INPUT ./images/degree_reduction.pdf
+INPUT ./images/degree_reduction.pdf
+INPUT ./images/degree_reduction.pdf
+INPUT extractbb -B cropbox -O images/degree_reduction.pdf
+INPUT ./images/majority_degree_reduction.png
+INPUT ./images/majority_degree_reduction.png
+INPUT ./images/majority_degree_reduction.png
+INPUT extractbb -B cropbox -O images/majority_degree_reduction.png
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib8.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib6.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
+INPUT ./appendix.tex
+INPUT ./appendix.tex
+INPUT appendix.tex
+INPUT .tex_intermediates/main.aux
+INPUT .tex_intermediates/main.out
+INPUT .tex_intermediates/main.out
+INPUT .tex_intermediates/main.run.xml
+OUTPUT .tex_intermediates/main.run.xml
