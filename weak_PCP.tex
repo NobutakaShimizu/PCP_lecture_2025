@@ -8,7 +8,7 @@
 一般的な感覚として, ある主張が成り立つことを示す証明を検証する際, \emph{冗長に表現で記述しない限り}その証明を全て読み込まなければ検証できないと思われる (全ての文字に本質的な意味があるならば全てを確認しなければならないはずであろう).
 では逆に, 証明を冗長に表現することで局所的な検証を可能にすることはできるだろうか?
 
-\subsection{線形方程式の局所的な検証}
+\subsection{線形方程式の局所的な検証(1/2)}
 興味深いことに, 非常に冗長性が大きい記述で証明が与えられたならば局所検証が可能であることを, 線形方程式の検証を例に説明する.
 
 \begin{definition}{線形方程式}{linear-equation}
@@ -50,7 +50,7 @@ $My\ne z$ならば確率$1-1/q$で検証者は拒否する (何度も繰り返�
 \begin{algorithm}{$\LinEq$に対する局所的な検証?}{local-verification-LinEq?}
   \begin{enumerate}
   \item 入力として$M,z$を受け取り, 証拠として$\pi \in \F^{q^n}$へのオラクルアクセスを受け取る.
-  \item 一様ランダムな$r\sim\F^n$を選択し, $r^\top M$と$r^\top z$を計算する.
+  \item 一様ランダムな$r\sim\F^m$を選択し, $r^\top M$と$r^\top z$を計算する.
   \item 証拠$\pi\colon \F^{q^n}$を関数$\pi\colon \F^n\to \F$として解釈し, オラクルアクセスを用いて$a=\pi(M^\top r)$を求める.
   \item $a=r^\top z$ならば$1$を出力し, そうでなければ$0$を出力する.
   \end{enumerate}
@@ -158,6 +158,21 @@ $\LinEq$に対するPCP検証者を構成するために,
     すなわち, $v(x)$は$(v_y(x))_{y\in G}$の中での多数決, すなわち最も出現頻度の高い値として定める.
     
   \end{proof}
+
+\subsection{線形方程式の局所的な検証(2/2)}
+ここまでの議論を用いて$\LinEq$に対する局所的な検証者を構成する.
+\begin{algorithm}{$\LinEq$に対する局所的な検証}{local-verification-LinEq}
+  \begin{enumerate}
+    \item 入力として$M,z$を受け取り, 証拠として$\pi \in \F^{q^n}$へのオラクルアクセスを受け取る.
+    \item \cref{thm:linearity-test}のアルゴリズムを$\pi$をオラクルとして実行し, $\dist(\pi,\calF)\ge 0.01$ならば拒否して終了する.
+    \item 一様ランダムな$r\sim\F^m$を選択し, $r^\top M$と$r^\top z$を計算する.
+    \item 新たに一様ランダムなベクトル$r'\sim\F^n$を選び, オラクルアクセスを用いて$a=\pi(M^\top r + r') - \pi(r')$を求める.
+  \end{enumerate}
+\end{algorithm}
+
+
+
+
 
 \section{弱いPCP定理とその証明}
 本節では以下の弱いPCP定理を証明する.

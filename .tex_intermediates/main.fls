@@ -304,12 +304,6 @@ INPUT .tex_intermediates/main.aux
 INPUT .tex_intermediates/main.aux
 INPUT .tex_intermediates/main.aux
 OUTPUT .tex_intermediates/main.aux
-INPUT .tex_intermediates/main.out
-INPUT .tex_intermediates/main.out
-INPUT .tex_intermediates/main.out
-INPUT .tex_intermediates/main.out
-INPUT .tex_intermediates/main.out
-INPUT .tex_intermediates/main.out
 OUTPUT .tex_intermediates/main.out
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/biblatex/lbx/english.lbx
@@ -349,10 +343,10 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT .tex_intermediates/main.toc
-INPUT .tex_intermediates/main.toc
-INPUT .tex_intermediates/main.toc
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+OUTPUT .tex_intermediates/main.toc
+INPUT ./preface.tex
+INPUT ./preface.tex
+INPUT preface.tex
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
@@ -370,10 +364,6 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
-OUTPUT .tex_intermediates/main.toc
-INPUT ./preface.tex
-INPUT ./preface.tex
-INPUT preface.tex
 INPUT ./introduction.tex
 INPUT ./introduction.tex
 INPUT introduction.tex
@@ -382,6 +372,7 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm
@@ -451,5 +442,4 @@ INPUT appendix.tex
 INPUT .tex_intermediates/main.aux
 INPUT .tex_intermediates/main.out
 INPUT .tex_intermediates/main.out
-INPUT .tex_intermediates/main.run.xml
 OUTPUT .tex_intermediates/main.run.xml
