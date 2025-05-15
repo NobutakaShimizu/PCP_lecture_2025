@@ -296,7 +296,7 @@ $\UNSAT(G') = \frac{d}{d+d_0+1}\UNSAT(G_1) = 0$を得る.
   パラメータ$t\in\Nat$および全頂点が自己ループを持つ$d$-正則な制約グラフ$G=\ip{(V,E),\Sigma,\calC}$に対し, べき乗$G^t = \ip{(V,\boldE),\Sigma^{\ceil{t/2}},\calC^t}$を, 以下のようにして定義する:
   \begin{itemize}
     \item 頂点集合は同じ$V$とする.
-    \item 二頂点$u,v\in V$に対し, 長さ$t$の$uv$-路の個数と同じだけ$uv$間に多重辺を用意する. このようにして得られる辺の多重集合を$\boldE$とし, その元を$\bolde = \{u,v\} \in \boldE$とする.
+    \item 二頂点$u,v\in V$に対し, 長さ$t$の$uv$-路の個数と同じだけ$uv$間に多重辺を用意する. このようにして得られる辺の多重集合を$\boldE$とし, その元を$\bolde = \{u,v\} \in \boldE$とする. すなわち, $(V,\boldE)$は$(V,E)$のべき乗 (\cref{def:power-of-graph})に一致する.
     \item アルファベット集合は$\Sigma^{d^{\ceil{t/2}}}$とする. ここで, 頂点$u$に意見$\sigma=(\sigma_1,\dots,\sigma_{d^{\ceil{t/2}}}) \in \Sigma^{d^{\ceil{t/2}}}$が割り当てられたとき, 次の意味を持つ: 元の$d$-正則グラフ$G$上で頂点$u$から距離$\ceil{t/2}$以内の頂点の集合を$\Gamma(u)$とし, その元を頂点番号の大小順で並べて$\Gamma(u)=\qty{ v_1,\dots,v_\ell}$ とする (ここで$G$の$d$-正則性より$\ell \le d^{\ceil{t/2}}$である). このとき, 意見$\sigma$は$v_1,\dots,v_\ell$の各頂点に$\Sigma$の元を割り当てる関数$\sigma \colon \Gamma(u)\to\Sigma$とみなす.
     \begin{itemize}
       \item 例えば$\ell < d^{\ceil{t/2}}$の場合は相異なる二つの$\sigma,\sigma'\in\Sigma$が同一の関数を与えることもある.

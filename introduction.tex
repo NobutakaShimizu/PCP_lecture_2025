@@ -21,7 +21,7 @@ PCP定理は1998年に\citet{AroraS98,AroraLMSS98}によって証明された.
 \item $x\in\binset^*$に対して$\abs{x}$を$x$の文字数とする.
 \item アルゴリズム$A$に対し, $A(x)$を入力$x \in \binset^*$に対するアルゴリズム$A$の出力とする. ここで, 単に「アルゴリズム」と言った場合は決定的アルゴリズムを指し, 乱択アルゴリズムについては明示的に言及する.
 \item 関数$T(n)\colon\Nat\to\Nat$を考える. 十分大きな全ての$n\in\Nat$と全ての$x\in\binset^n$に対して, $A$が$A(x)$を出力するまでにかかる計算ステップ数の最大値が高々$T(n)$であるとき, アルゴリズム$A$の計算量は$T(n)$であるという. 特に, ある($n$に依らない)定数$c>0$が存在して計算量が$O(n^c)$で抑えられるアルゴリズムを\emph{多項式時間アルゴリズム}という\footnote{計算モデルによって一つ一つの計算ステップの定義は異なるが, 原理的には1bitの演算や記憶領域への読み書きの回数と思えばよい. 多項式時間で動くかどうかの議論であれば, 多くの古典的な計算モデルは等価である.}
-\item 計算量理論において慣例的に用いられる記法だが, 関数$f(n)$が$n$に関する多項式であることを$f(n)=n^{O(1)}$と表す. 例えば多項式時間アルゴリズムとは, 十分大きな全ての$n\in\Nat$に対して, 長さ$n$の任意の文字列$x\in\binset^n$を受け取ったときの時間計算量が$n^{O(1)}$で抑えられるアルゴリズムである.
+\item 計算量理論において慣例的に用いられる記法だが, 関数$f(n)$が$n$に関する多項式である, すなわち$n$に依存しないある定数$c>0$に対して$f(n)=O(n^c)$が成り立つことを$f(n)=n^{O(1)}$または$f(n)=\poly(n)$と表す. 例えば多項式時間アルゴリズムとは, 十分大きな全ての$n\in\Nat$に対して, 長さ$n$の任意の文字列$x\in\binset^n$を受け取ったときの時間計算量が$n^{O(1)}$で抑えられるアルゴリズムである.
 \item 二つの文字列$x,y\in\binset^*$を入力として受け取るアルゴリズムは$A(x,y)$と表す. 三つ以上の場合も$A(x,y,z)$などと表す.
 \end{itemize}
 
@@ -108,7 +108,7 @@ PCP定理は1998年に\citet{AroraS98,AroraLMSS98}によって証明された.
   \item もし$x\in L$ならば, ある$\pi\in\binset^{p(\abs{x})}$が存在して$V(x,\pi)=1$となる.
   \item もし$x\notin L$ならば, 全ての$\pi\in\binset^{p(\abs{x})}$に対して$V(x,\pi)=0$となる.
   \end{enumerate}
-  また, このようなアルゴリズム$V$を\emph{NP検証者}といい, $\pi$を\emph{NP証拠}という.
+  また, このようなアルゴリズム$V$を\emph{NP検証者}といい, $\pi$を\emph{NP証明}という.
 \end{definition}
 
 \begin{remark}{クラスPとNPの関係}{remark.P-NP}
@@ -118,10 +118,13 @@ PCP定理は1998年に\citet{AroraS98,AroraLMSS98}によって証明された.
   一方, 逆側の包含関係$\NP\subseteq\P$が成り立つかどうかはP vs NP問題と呼ばれる計算量理論における最も重要な未解決問題であり, 多くの研究者は$\NP\subseteq\P$が成り立たないと信じている.
 \end{remark}
 
+検証者$V(x,\pi)$が$1$を出力したとき, $V$は証明$\pi$を\emph{受理する}といい,
+検証者が$0$を出力したとき, $V$は証明$\pi$を\emph{拒否する}という.
+
 \begin{example}{合成数判定問題}{composite-number-problem}
   判定問題$L=\{x\in\binset^*\colon x\text{は合成数}\}$を考える.
   このとき, 検証者は$x$と$\pi$を読み込んで, $\pi\not\in\{1,x\}$かつ$\pi$が$x$を割り切るかどうかを判定する.
-  もしも$x\in L$である場合, 合成数なので非自明な約数を証拠$\pi$として与えれば$V(x,\pi)=1$となる.
+  もしも$x\in L$である場合, 合成数なので非自明な約数を証明$\pi$として与えれば$V(x,\pi)=1$となる.
   そうでない場合, 非自明な約数は存在しないため必ず$V(x,\pi)=0$となる.
   このアルゴリズム$V$は入力長(つまり数値の二進表現したときのビット長)に関する多項式時間で動作するため, $L$はNPに属する.
 \end{example}
@@ -134,13 +137,14 @@ PCP定理は1998年に\citet{AroraS98,AroraLMSS98}によって証明された.
   $$L=\{G\in\binset^*\colon G\text{は}k\text{-彩色可能}\}$$
   はNPに属する.
   検証者は$G$と$\pi$を読み込んで, $\pi$が$G$の$k$-彩色であるかどうかを判定する.
-  もしも$G\in L$である場合, $G$は$k$-彩色可能であるため, $k$-彩色の証拠$\pi$を与えれば$V(G,\pi)=1$となる.
+  もしも$G\in L$である場合, $G$は$k$-彩色可能であるため, $k$-彩色の証明$\pi$を与えれば$V(G,\pi)=1$となる.
   そうでない場合, $G$は$k$-彩色可能でないため必ず$V(G,\pi)=0$となる.
   このアルゴリズム$V$は多項式時間で動作するため, $L$はNPに属する.
 \end{example}
 
 \begin{exercise}{素数判定問題}{exer.prime-problem}
-  自然数$n\in\Nat$に対し, 判定問題$\PRIMES=\{a\in\Nat\colon a\text{は素数}\}$を考える.
+  自然数$n\in\Nat$に対しその二進表記を$(n)_2\in\binset^*$と表す.
+  判定問題$\PRIMES=\{(a)_2\in\Nat\colon a\text{は素数}\}$を考える.
   この問題は$\P$に属することが知られている\cite{AKS04}が, その複雑なアルゴリズムを用いずに
   初等的に$\PRIMES\in \NP$を示したい.
   そのために, 以下の事実を用いる:
@@ -153,8 +157,8 @@ PCP定理は1998年に\citet{AroraS98,AroraLMSS98}によって証明された.
   これらの事実を用いて, 以下の小問に答えよ.
 
   \begin{enumerate}
-  \item 次の検証者$V_1$を考える: 入力$a\in\Nat$と証拠$\gamma\in\{1,\dots,a-1\}$に対し, $\gamma^0,\gamma^1,\dots,\gamma^{a-2} \pmod a$を全て検証し, これら全て相異なるかどうかを判定する. この検証者$V_1$が多項式時間アルゴリズム\emph{でない}理由を簡潔に説明せよ.
-  \item 入力$a\in\Nat$に対し, $a$が素数であることの証拠として, 原始元$\gamma\in\{1,\dots,a-1\}$および$a-1$の素因数分解$a-1=p_1^{\alpha_1}\cdots p_k^{\alpha_k}$および各$p_i$が素数であることの証拠を再帰的に与える. この証拠を用いて, 検証者$V_2$は$a$が素数であるかどうかを多項式時間で判定できることを示せ.
+  \item 次の検証者$V_1$を考える: 入力$a\in\Nat$と証明$\gamma\in\{1,\dots,a-1\}$に対し, $\gamma^0,\gamma^1,\dots,\gamma^{a-2} \pmod a$を全て検証し, これら全て相異なるかどうかを判定する. この検証者$V_1$が多項式時間アルゴリズム\emph{でない}理由を簡潔に説明せよ.
+  \item 入力$a\in\Nat$に対し, $a$が素数であることの証明として, 原始元$\gamma\in\{1,\dots,a-1\}$および$a-1$の素因数分解$a-1=p_1^{\alpha_1}\cdots p_k^{\alpha_k}$および各$p_i$が素数であることの証明を再帰的に与える. この証明を用いて, 検証者$V_2$は$a$が素数であるかどうかを多項式時間で判定できることを示せ.
   \end{enumerate}
 \end{exercise}
 
@@ -162,34 +166,34 @@ PCP定理は1998年に\citet{AroraS98,AroraLMSS98}によって証明された.
 
 一般に$x\in L$かどうかの検証では, 証明$\pi$の全ての文字を読む必要がある.
 しかし, 証明$\pi$のうちの一部の文字を読むだけで$x\in L$かどうかを\emph{確率的に}判定できる場合がある.
-そのような性質を持つ証拠を\emph{確率的検証可能な証拠}(Probabilistically Checkable Proof, PCP)という.
+そのような性質を持つ証明を\emph{確率的検証可能な証明}(Probabilistically Checkable Proof, PCP)という.
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{images/PCPverifier.drawio.pdf}
-  \caption{確率的検証可能な証拠の概念図. 検証者は乱数を用いて証拠$\pi$のうちの一部の文字のみを読み, それに基づいて判定を行う.}
+  \caption{確率的検証可能な証明の概念図. 検証者は乱数を用いて証明$\pi$のうちの一部の文字のみを読み, それに基づいて判定を行う.}
   \label{fig:pcpverifier}
 \end{figure}
 
 
-\begin{definition}{確率的検証可能な証拠}{PCP}
+\begin{definition}{確率的検証可能な証明}{PCP}
   二つの関数$r,q\colon\Nat\to\Nat$に対し, $\PCP(r,q)$を以下の性質を持つ判定集合$L$の集合とする: ある多項式時間オラクル乱択アルゴリズム$V$が存在して, 任意の$x\in\binset^*$に対し,
   \begin{enumerate}
   \item もし$x\in L$ならば, ある$\pi\in\binset^*$が存在して, ($V$の乱択に関して)確率$1$で$V^\pi(x)=1$となる (\emph{完全性}).
   \item もし$x\notin L$ならば, 全ての$\pi\in\binset^*$に対して, ($V$の乱択に関して)確率$1/3$以上で$V^\pi(x)=0$となる (\emph{健全性}).
   \item さらに, 入力長が$n=\abs{x}$のとき, $V^\pi(x)$はオラクル$\pi$のうち高々$q(n)$個の文字を読み, そのランダムシード長は$r(n)$で抑えられる.
   \end{enumerate}
-  このようなオラクル乱択アルゴリズム$V$を\emph{PCP検証者}といい, 証拠$\pi$を\emph{PCP}という.
+  このようなオラクル乱択アルゴリズム$V$を\emph{PCP検証者}といい, 証明$\pi$を\emph{PCP}という.
 \end{definition}
 \begin{remark}{PCPの長さ}{PCP-length}
-  $\PCP(r,q)$の証拠$\pi$の長さは$q(n)2^{r(n)}$で抑えられる.
+  $\PCP(r,q)$の証明$\pi$の長さは$q(n)2^{r(n)}$で抑えられる.
   各ランダムシード$s \in \binset^{r(n)}$に対して検証者は$\pi$のうち高々$q(n)$個の文字を読むため, 全てのランダムシードを列挙すると, アクセスされる可能性のある$\pi$の文字数は高々$q(n)2^{r(n)}$で抑えられる.
 \end{remark}
 
 一般にランダムシード長$r(n)$と読み込む文字数$q(n)$が小さいほど良いPCP検証者であると考えられる.
 PCP検証者の構成は非常に難しい.
 例えば\cref{ex:graph-coloring-problem}のグラフ彩色問題に対する次の検証者を考えてみよう:
-入力としてグラフ$G=(V,E)$と証拠として関数$\pi\colon V\to[k]$を受け取り, この関数$\pi$が実際に$G$の$k$-彩色であるかどうかを判定する.
+入力としてグラフ$G=(V,E)$と証明として関数$\pi\colon V\to[k]$を受け取り, この関数$\pi$が実際に$G$の$k$-彩色であるかどうかを判定する.
 検証者は$G$の辺$\{u,v\}\in E$をランダムに一つ選び, $\pi(u)\neq \pi(v)$であるかどうかによって判定する.
 この検証者は$\pi$のうち高々$q(n)=O(1)$個の文字を読み, そのランダムシード長は$r(n)=O(\log n)$で抑えられる.
 しかし, この検証者は健全性の条件を満たさない.
@@ -204,45 +208,89 @@ PCP定理とは, ある$r(n)=O(\log n)$, $q(n)=O(1)$に対して$\PCP(r,q)=\NP$�
 
 \begin{remark}{片側の包含関係}{one-sided-inclusion}
   PCP定理において, $\PCP(r,q)\subseteq \NP$は容易に示すことができる.
-  実際, \cref{rem:PCP-length}により, 証拠$\pi$の長さは$q(n)2^{r(n)} = n^{O(1)}$で抑えられる.
+  実際, \cref{rem:PCP-length}により, 証明$\pi$の長さは$q(n)2^{r(n)} = n^{O(1)}$で抑えられる.
   また, $r(n)=O(\log n)$より, 検証者は$2^{r(n)}=n^{O(1)}$個のランダムシードを列挙し, それら全てに対してPCP検証者を適用し, その出力値の多数決をとることで, 入力$x$に対して$x\in L$かどうかを多項式時間で判定できる.
   PCP定理の証明の本質的な難しさは逆側の包含関係$\NP\subseteq \PCP(r,q)$の証明にある.
 \end{remark}
 
-\subsection{3彩色問題のNP完全性}
+\subsection{NP完全性とCook-Levinの定理}
 
-クラス$\NP$に属する問題のうち最も難しいという性質を\emph{NP完全性}という.
-本来はNP完全性を定義するには帰着の概念を導入しなければならないが, この講義では3彩色問題がNP完全であるという事実のみを用いるため,
-この事実について証明なしで述べる.
+クラス$\NP$に属する全ての問題に対しそれ以上に難しいという性質を\emph{NP困難性}という.
+そしてNPに属する問題がNP困難であるとき, その問題は\emph{NP完全}であるという.
+ここでは判定問題\footnote{文脈によっては最適化問題や数え上げ問題といった, 判定問題ではない問題に対してもNP困難性の概念が自然に定義されることもあり, この講義でもPCP定理の応用を紹介する際に「最適化問題XはNP困難である」という言い方を用いる箇所がある. その際は最適化問題Xを解く多項式時間アルゴリズムを用いると全てのNPに属する問題が多項式時間で解けるということを意味する.}に対してNP困難性とNP完全性の定義を与える.
+
+\begin{definition}{NP完全性}{NP-complete}
+  判定問題$L\in \NP$は, 任意の$L'\in\NP$に対して以下を満たす決定的多項式時間アルゴリズム$A$が存在するとき, \emph{NP完全}であるという ($A$は$L'$に依存してよい):
+  文字列$x\in\binset^*$を入力として受け取ったアルゴリズム$A$の出力を$A(x)\in\binset^*$とする.
+  このとき, 任意の$x\in\binset^*$に対して, $x\in L'$と$A(x)\in L$は同値である.
+  また, このようなアルゴリズム$A$を$L'$から$L$への\emph{カープ帰着}という.
+\end{definition}
+
+\begin{remark}{「NP以上に難しい」の意味}{NP-hardness-property}
+NP完全な判定問題$L$を解く多項式時間アルゴリズム$A_0$が存在するならば, 任意の$L'\in \NP$に対し$L'$を解く多項式時間アルゴリズムが存在する.
+実際, $L'$から$L$へのカープ帰着を$A$とすると, 与えられた$x\in\binset^*$が$x\in L$かどうかはまず, $y=A(x)$を計算し, その後$A_0(y)$を計算することで判定できる.
+この意味で$L$は$L'$以上に難しいといえる.
+
+しかし, 二つの問題の困難性を比較する際は必ずしもカープ帰着に拘る必要はない.
+実際, 上述のアルゴリズムは$L$を解くアルゴリズム$A_0$を一度だけ用いてしかもその出力$A_0(y)\in\binset$がそのまま$x\in L'$かどうかの答えと一致しているが, 「$L$が解けたら$L'$も解ける」ということを示すのであれば複数の入力$y_1,\dots,y_m$に対して$A_0(y_1),\dots,A_0(y_m)$を計算してもよいし, それらの出力を組み合わせて$x\in L'$かどうかを判定してもよい.
+このような自由度の高い操作を許しつつ$A_0$が多項式時間で動くならば全体も多項式時間で動くことが保証されるような帰着を\emph{チューリング帰着}という.
+\end{remark}
+
+具体的にカープ帰着含めNP完全性の枠組みが確立されたのは\citet{Karp1972}であるが,
+実はそれ以前の\citet{Cook1971}は, カープ帰着とは少し異なる帰着を用いて\emph{充足可能性判定問題($\SAT$)}と呼ばれる問題がNP完全であることを示していた. 
+SATは論理回路に関する問題だが, カープ帰着の下でも\cite{Cook1971}の証明は成立することを利用して\citet{Karp1972}は最大クリーク問題, ハミルトン閉路問題, 彩色数の計算, ナップザック問題といった様々な自然な組合せ最適化問題のNP困難性を証明していった.
+\citet{Karp1972}がNP完全性を示したこれらの問題は現在では\emph{Karpの21のNP完全問題} (Karp's 21 NP-complete problems)と呼ばれており,
+この成果によってCookは1982年とKarpは1985年にそれぞれチューリング章を受賞している.
+また, 実は\citet{Levin1973}も同様の結果を独立に示していたことが判明し(論文の発行当時は冷戦下であったことが災いして違いの認識が遅れてしまった), Levinは2012年にクヌース章を受賞している.
+このことから以下に定める充足可能性判定問題のNP完全性を示す定理を\emph{Cook-Levinの定理}といい,
+この定理は全てのNP完全性の理論の基礎となる計算量理論における最も重要な定理の一つである.
+
+\begin{theorem}{Cook-Levinの定理}{Cook-Levin}
+  論理回路$C\colon\binset^n\to\binset$を入力として受け取り, $C(x)=1$を満たす$x\in\binset^n$が存在するかどうかを判定する問題を\emph{充足可能性判定問題}(SAT; satisfiability problem)という.
+  充足可能性判定問題(SAT)はNP完全である.
+\end{theorem}
+
+Cook-Levinの定理の証明はクラスNPの検証者を非決定的チューリング機械で模倣し, その機械を回路として表現することによって与えられるが, それにはチューリング機械や論理回路の定義なども必要になってしまい本講義の本筋から離れていってしまうため割愛する.
+なお, 文脈によっては上記の定義における充足可能性判定問題を\emph{回路充足可能性判定問題}(CSAT; Circuit SAT)と呼ぶこともある.
+%次に, 3-SATと呼ばれるSATの特殊ケースのNP完全性\cite{Karp1972}について述べる. この結果は間接的にPCP定理の証明にも必要であるが, そのためには論理回路の構造的性質を本質的に利用する必要があり, Cook-Levinの定理の証明と同様に本講義の本筋から離れてしまうため, ここではその証明を省略する.
+%\begin{definition}{3-SAT}{3-SAT}
+%  $\true$または$\false$上に値をとる変数$\varx$に対し, $\varx$または$\overline{\varx}$のいずれかの形の論理式を\emph{リテラル}(literal)といい, 複数の変数のリテラルを論理和$\lor$で結んで得られる, すなわち$C=\ell_1\lor \dots \lor \ell_k$の形で表される論理式を\emph{節}(clause)という.
+%  複数の節を論理積$\land$で結んで得られる論理式の形式を\emph{連言標準形式(CNF形式)}と呼び, さらに全ての節がリテラルの数が3以下であるとき, \emph{3-CNF形式}という.
+%  すなわち, 3-CNF形式の論理式は
+%  \begin{align*}
+%    \varphi = \bigwedge_{a=1}^m \qty(\ell_{i_a}\lor \ell_{j_a} \lor \ell_{k_a} )
+%  \end{align*}
+%  の形で表される論理式であり, この形式の論理式$\varphi$を入力として与えたときに$\varphi(\varx)=\true$を満たす$\varx$の割り当てが存在するかどうかを判定する問題を\emph{3-充足可能性判定問題}($\ThreeSAT$)という.
+%\end{definition}
+
+%\begin{theorem}{3SATのNP完全性}{3-SAT-NP-complete}
+%  $\ThreeSAT$はNP完全である.
+%\end{theorem}
+
+Cook-Levinの定理を用いると3彩色問題$\ThreeCOL$のNP完全性を示すことができる.
+具体的には3-SATと呼ばれるNP完全な問題を$\ThreeCOL$に帰着させることで$\ThreeCOL$のNP完全性を示せる (本講義では割愛).
 
 \begin{theorem}{3彩色問題のNP完全性}{3-coloring-problem-NP-complete}
   3彩色問題$\ThreeCOL$はNP完全である. すなわち, 任意の$L\in\NP$に対して, 多項式時間アルゴリズム$f$が存在して, 任意の$x\in\binset^*$に対して$x\in L$と$f(x)\in\ThreeCOL$は同値である.
 \end{theorem}
 
-つまり, $\ThreeCOL$を多項式時間アルゴリズムで解くアルゴリズムが存在するならば, $\NP$に属する任意の判定問題$L$を多項式時間で解くことができる. 実際, \cref{thm:3-coloring-problem-NP-complete}のアルゴリズム$f$を用いて$L$の入力を$\ThreeCOL$の入力に変換した後に, $\ThreeCOL$を解くアルゴリズムを適用すればよい.
-この意味で, $\ThreeCOL$はNPに属する問題の中で最も難しい問題(の一つ)であるといえる.
-
-\begin{remark}{NP完全性の定義}{NP-complete-definition}
-  この注釈はNP完全性の定義を与えるものであり, この講義では必要ない.
-  二つの判定問題$L,L'$に対し, ある多項式時間アルゴリズム$f\colon\binset^*\to\binset^*$が存在して, \[x\in L \iff f(x)\in L'\]を満たすとき, $L$は$L'$に\emph{カープ帰着可能}といい, そのようなアルゴリズム$f$を\emph{カープ帰着}という. このとき, $L'$を解く多項式時間アルゴリズムが存在すればそれを用いて$L$を解く多項式時間アルゴリズムを構成することができる. この意味で「$L'$は$L$以上に難しい」とみなし, $L \le_p L'$と表す.
-
-  クラス$\NP$に属するある判定問題$L$は, 任意の$L'\in\NP$に対して$L'\le_p L$が成り立つとき, \emph{$\NP$完全}であるという.
-\end{remark}
-
-3彩色問題のNP完全性より, PCP定理(\cref{thm:PCPtheorem})を証明するには3彩色問題に対してPCP検証者を構成すればよいことがわかる.
+\cref{thm:3-coloring-problem-NP-complete}により, PCP定理を証明するには, $\ThreeCOL$に対する効率的なPCP検証者を構成すればよいことがわかる.
 
 \begin{theorem}{3彩色問題のPCP検証者}{3-coloring-problem-PCP-verifier}
   ある$r(n)=O(\log n),q(n)=O(1)$に対して, 3彩色問題$\ThreeCOL$は$\PCP(r,q)$に属する.
 \end{theorem}
 
-\begin{exercise}{}{}
-  \cref{thm:3-coloring-problem-PCP-verifier}と\cref{thm:3-coloring-problem-NP-complete}を仮定して, PCP定理(\cref{thm:PCPtheorem})を証明せよ.
+\begin{exercise}{}{exercise2}
+  \cref{thm:3-coloring-problem-PCP-verifier,thm:3-coloring-problem-NP-complete}を仮定して, PCP定理(\cref{thm:PCPtheorem})を証明せよ.
 \end{exercise}
 
 \section{PCP定理の応用}
 PCP定理の応用として, 様々な組合せ最適化問題に対する近似のNP困難性を導出することができる.
 
-\section{PCP定理の歴史}
+\section{PCP定理の背景}
+PCP定理は組合せ最適化の分野への著しい応用を持つため,
+その視点からPCP定理を紹介する文献ではなぜPCP定理が発見されたのかという動機が語られることが少ないように思われる.
+そこで, この節ではPCPという計算量クラスを考えるに至った背景について軽く触れたい.
 PCP定理は1992年にAroraとSafraによって証明された.
 その後, 2005年にDinurによって証明が簡略化され, 2010年にAroraとBarakによって証明が再構成された.
 

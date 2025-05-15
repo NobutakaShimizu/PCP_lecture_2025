@@ -56,6 +56,20 @@ title = 例~\thetcbcounter~\if #2\kara \else（#2） \fi,
 #1,
 label = ex:#3}
 
+%algorithm
+\newtcolorbox[auto counter, use counter from=definition, crefname = {アルゴリズム}{アルゴリズム}]{algorithm}[3][]
+{enhanced, breakable = true, colback = cyan!10!white, colframe = cyan!50!black, fonttitle = \bfseries,
+title = アルゴリズム~\thetcbcounter~\if #2\kara \else（#2） \fi,
+#1,
+label = alg:#3}
+
+%claim
+\newtcolorbox[auto counter, use counter from=definition, crefname = {主張}{主張}]{claim}[3][]
+{enhanced, breakable = true, colback = yellow!10!white, colframe = yellow!50!black, fonttitle = \bfseries,
+title = 主張~\thetcbcounter~\if #2\kara \else（#2） \fi,
+#1,
+label = claim:#3}
+
 \renewcommand{\proofname}{\textbf{証明}}
 \renewcommand{\figurename}{図}
 \crefname{equation}{式}{式}

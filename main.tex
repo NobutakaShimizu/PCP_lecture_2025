@@ -39,10 +39,15 @@
 
 \usepackage{cleveref}
 
+\newcommand{\crefpairconjunction}{と}
+\newcommand{\crefrangeconjunction}{から}
+\newcommand{\crefmiddleconjunction}{,}
+\newcommand{\creflastconjunction}{,}
+
 \input{theorems.tex}
 \input{commands.tex}
 
-\title{PCP定理とその証明}
+\title{PCP定理の証明と応用}
 \author{清水 伸高 (東京科学大学)}
 \date{}
 \begin{document}
@@ -51,9 +56,10 @@
 \input{preface.tex}
 \addcontentsline{toc}{chapter}{Preface}
 \input{introduction.tex}
+\input{weak_PCP.tex}
 \input{CSP.tex}
 \input{gap_amplification.tex}
-\input{alphabet_reduction.tex}
+%\input{alphabet_reduction.tex}
 %\input{error-correcting code.tex}
 %\input{expander graph.tex}
 %\input{HDX.tex}

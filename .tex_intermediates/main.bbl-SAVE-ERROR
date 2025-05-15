@@ -202,6 +202,106 @@
       \verb https://doi.org/10.1145/273865.273901
       \endverb
     \endentry
+    \entry{BLR93}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=28c90cdf2ecdb66629343cb5855120e9}{%
+           family={Blum},
+           familyi={B\bibinitperiod},
+           given={Manuel},
+           giveni={M\bibinitperiod}}}%
+        {{hash=e6551d9c62955309f7597c6fc741020a}{%
+           family={Luby},
+           familyi={L\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=4ba7eb0b3b00b233795bfe2218584caf}{%
+           family={Rubinfeld},
+           familyi={R\bibinitperiod},
+           given={Ronitt},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{eb4caf7cfef8c4155bc3555ba21bba21}
+      \strng{fullhash}{eb4caf7cfef8c4155bc3555ba21bba21}
+      \strng{fullhashraw}{eb4caf7cfef8c4155bc3555ba21bba21}
+      \strng{bibnamehash}{eb4caf7cfef8c4155bc3555ba21bba21}
+      \strng{authorbibnamehash}{eb4caf7cfef8c4155bc3555ba21bba21}
+      \strng{authornamehash}{eb4caf7cfef8c4155bc3555ba21bba21}
+      \strng{authorfullhash}{eb4caf7cfef8c4155bc3555ba21bba21}
+      \strng{authorfullhashraw}{eb4caf7cfef8c4155bc3555ba21bba21}
+      \field{labelalpha}{BLR93}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0022-0000}
+      \field{issue}{3}
+      \field{journaltitle}{Journal of Computer and System Sciences}
+      \field{title}{Self-testing/correcting with applications to numerical problems}
+      \field{volume}{47}
+      \field{year}{1993}
+      \field{dateera}{ce}
+      \field{pages}{549\bibrangedash 595}
+      \range{pages}{47}
+      \verb{doi}
+      \verb 10.1016/0022-0000(93)90044-W
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1016/0022-0000(93)90044-W
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1016/0022-0000(93)90044-W
+      \endverb
+    \endentry
+    \entry{Cook1971}{inproceedings}{}{}
+      \name{author}{1}{}{%
+        {{hash=609a39905dc0e988c3b294dceecdb1e4}{%
+           family={Cook},
+           familyi={C\bibinitperiod},
+           given={Stephen\bibnamedelima A},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {New York, New York, USA}%
+      }
+      \list{publisher}{1}{%
+        {ACM Press}%
+      }
+      \strng{namehash}{609a39905dc0e988c3b294dceecdb1e4}
+      \strng{fullhash}{609a39905dc0e988c3b294dceecdb1e4}
+      \strng{fullhashraw}{609a39905dc0e988c3b294dceecdb1e4}
+      \strng{bibnamehash}{609a39905dc0e988c3b294dceecdb1e4}
+      \strng{authorbibnamehash}{609a39905dc0e988c3b294dceecdb1e4}
+      \strng{authornamehash}{609a39905dc0e988c3b294dceecdb1e4}
+      \strng{authorfullhash}{609a39905dc0e988c3b294dceecdb1e4}
+      \strng{authorfullhashraw}{609a39905dc0e988c3b294dceecdb1e4}
+      \field{labelalpha}{Coo71}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the third annual ACM symposium on Theory of computing - STOC '71}
+      \field{eventtitle}{the third annual ACM symposium}
+      \field{title}{The complexity of theorem-proving procedures}
+      \field{urlday}{15}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{venue}{Shaker Heights, Ohio, United States}
+      \field{year}{1971}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.1145/800157.805047
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1145/800157.805047
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1145/800157.805047
+      \endverb
+    \endentry
     \entry{Din07}{article}{}{}
       \name{author}{1}{}{%
         {{hash=9a5f80a9b2b1359cbc50244c7816730c}{%
@@ -248,6 +348,97 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1145/1236457.1236459
+      \endverb
+    \endentry
+    \entry{Karp1972}{inbook}{}{}
+      \name{author}{1}{}{%
+        {{hash=5290385c419686f6312edeb3578dc9cf}{%
+           family={Karp},
+           familyi={K\bibinitperiod},
+           given={Richard\bibnamedelima M},
+           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {Boston, MA}%
+      }
+      \list{publisher}{1}{%
+        {Springer US}%
+      }
+      \strng{namehash}{5290385c419686f6312edeb3578dc9cf}
+      \strng{fullhash}{5290385c419686f6312edeb3578dc9cf}
+      \strng{fullhashraw}{5290385c419686f6312edeb3578dc9cf}
+      \strng{bibnamehash}{5290385c419686f6312edeb3578dc9cf}
+      \strng{authorbibnamehash}{5290385c419686f6312edeb3578dc9cf}
+      \strng{authornamehash}{5290385c419686f6312edeb3578dc9cf}
+      \strng{authorfullhash}{5290385c419686f6312edeb3578dc9cf}
+      \strng{authorfullhashraw}{5290385c419686f6312edeb3578dc9cf}
+      \field{labelalpha}{Kar72}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Complexity of Computer Computations}
+      \field{isbn}{9781468420036,9781468420012}
+      \field{title}{Reducibility among Combinatorial Problems}
+      \field{urlday}{15}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{1972}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{85\bibrangedash 103}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1007/978-1-4684-2001-2_9
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1007/978-1-4684-2001-2_9
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1007/978-1-4684-2001-2_9
+      \endverb
+    \endentry
+    \entry{Levin1973}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=759aa9722723b99dc6dc9dfd89af3c73}{%
+           family={Levin},
+           familyi={L\bibinitperiod},
+           given={Leonid\bibnamedelima Anatolievich},
+           giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{759aa9722723b99dc6dc9dfd89af3c73}
+      \strng{fullhash}{759aa9722723b99dc6dc9dfd89af3c73}
+      \strng{fullhashraw}{759aa9722723b99dc6dc9dfd89af3c73}
+      \strng{bibnamehash}{759aa9722723b99dc6dc9dfd89af3c73}
+      \strng{authorbibnamehash}{759aa9722723b99dc6dc9dfd89af3c73}
+      \strng{authornamehash}{759aa9722723b99dc6dc9dfd89af3c73}
+      \strng{authorfullhash}{759aa9722723b99dc6dc9dfd89af3c73}
+      \strng{authorfullhashraw}{759aa9722723b99dc6dc9dfd89af3c73}
+      \field{labelalpha}{Lev73}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issue}{3}
+      \field{journaltitle}{Problems of Information Transmission (translated from Problemy Peredachi Informatsii (Russian))}
+      \field{title}{Universal Sequential Search Problems}
+      \field{urlday}{15}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{volume}{9}
+      \field{year}{1973}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{115\bibrangedash 116}
+      \range{pages}{2}
+      \verb{urlraw}
+      \verb https://www.mathnet.ru/php/archive.phtml?wshow=paper&jrnid=ppi&paperid=914&option_lang=eng
+      \endverb
+      \verb{url}
+      \verb https://www.mathnet.ru/php/archive.phtml?wshow=paper&jrnid=ppi&paperid=914&option_lang=eng
       \endverb
     \endentry
     \entry{ReingoldVW02}{article}{}{}
