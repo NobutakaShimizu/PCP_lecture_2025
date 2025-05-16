@@ -22,8 +22,10 @@
 
 愚直な検証者として$y\in\F^n$を証拠として受け取り, $My=z$を確認することで検証を行うことを考える (実際の計算機では全てを二進文字列で表現するため, $\F$の元は$\ceil{\log_2\abs{\F}}=O(1)$ビットで表現されている).
 明らかにこの検証者は$My$を計算するために$y$の全ての成分 (すなわち$O(n)$ビット) を読み込む必要があるため, 局所的な検証者とはならない.
+もちろん, この判定問題は標準的な線型方程式の解の存在性判定であるため, 掃き出し法を用いれば証拠へのオラクルアクセスなしでも多項式時間で解ける.
+しかしここではあえて, 局所的な検証の構成例を与えるという目的で取り扱う.
 
-ここで, 二つのベクトル$a,b\in\F^n$に対する次の性質を考える (証明は\cref{exer:random-inner-product}):
+重要な性質として, 二つのベクトル$a,b\in\F^n$に対する次の性質を考える (証明は\cref{exer:random-inner-product}):
 \begin{align}
   \Pr_{r\sim \F^n} \qty[ r^\top a \ne r^\top b ] = \begin{cases}
     0 & \text{if } a=b \\
@@ -127,9 +129,10 @@ $\LinEq$に対するPCP検証者を構成するために,
   これは以下の主張から従う:
 
   \begin{claim}{線形性テストの拒否確率}{linearity-test-rejection-probability}
+    関数クラス$\calF$を\cref{eq:linear-functions}で定義する.
     任意の関数$\pi\colon \F^n\to\F$に対して
     \begin{align*}
-      \Pr_{x,y\sim\F^n}\qty[ \pi(x+y) \ne \pi(x)+\pi(y) ] \ge \frac{1}{12}\cdot \dist(\pi,\calF).
+      \Pr_{x,y\sim\F^n}\qty[ \pi(x+y) \ne \pi(x)+\pi(y) ] \ge \frac{1}{6}\cdot \dist(\pi,\calF).
     \end{align*}  
   \end{claim}
 
@@ -141,11 +144,10 @@ $\LinEq$に対するPCP検証者を構成するために,
   次に\cref{claim:linearity-test-rejection-probability}を示す.
   実際にはより一般的な次の補題を証明する.
   \begin{lemma}{準同型性テスト}{homomorphism-test}
-    有限アーベル群$G,H$に対し, 写像$f\colon G\to H$が準同型であるとは, 任意の$x,y\in G$に対して$f(x+y)=f(x)+f(y)$が成り立つことをいい,
-    準同型な写像の全体を$\mathrm{Hom}(G,H)$と表す.
+    有限アーベル群$G,H$に対し, 写像$f\colon G\to H$が準同型であるとは, 任意の$x,y\in G$に対して$f(x+y)=f(x)+f(y)$が成り立つことをいい, $G$から$H$への準同型な写像の全体を$\calH$と表す.
     このとき, 任意の関数$f\colon G\to H$に対して
     \begin{align*}
-      \Pr_{x,y\sim G}\qty[ f(x+y)\ne f(x)+f(y) ] \ge \frac{1}{12}\cdot \dist(f,\mathrm{Hom}(G,H)).
+      \Pr_{x,y\sim G}\qty[ f(x+y)\ne f(x)+f(y) ] \ge \frac{1}{12}\cdot \dist(f,\calH).
     \end{align*}
   \end{lemma}
   \begin{proof}
@@ -156,7 +158,72 @@ $\LinEq$に対するPCP検証者を構成するために,
     \end{align*}
     で定める (タイが存在する場合は任意).
     すなわち, $v(x)$は$(v_y(x))_{y\in G}$の中での多数決, すなわち最も出現頻度の高い値として定める.
+    証明は以下の三つの主張を組み合わせることによって得られる.
     
+    \begin{claim}{}{claim1}
+      $\dist(f,v) \le 2\rho_f$が成り立つ.
+    \end{claim}
+    \begin{proof}
+      定義より$\rho_f = \Pr_{x,y}[f(x) + f(y) \ne f(x+y)] = \Pr_{x,y} [ f(x) \ne v_y(x)]$ である.
+      また, $v(x)\ne h\Rightarrow \Pr_y[v_y(x)\ne h]\le 1/2$が成り立つ.
+      実際, $(v_y(x))_{y\in G}$の中で多数決をとったときに$h$が選ばれなかったということは, 過半数に至らなかったことを意味するからである.
+      特に, $h=f(x)$とすると, $\mathbf{1}_{v(x)\ne f(x)} \le 2\Pr_y[v_y(x)\ne f(x)]$.
+      両辺の$x\sim G$に関する期待値をとると
+      \begin{align*}
+        \dist(f,v) = \Pr_x[v(x)\ne f(x)] \le 2\Pr_{x,y}[v_y(x)\ne f(x)] =2\rho_f.
+      \end{align*}
+      となり主張を得る.
+    \end{proof}
+    
+    \begin{claim}{}{claim2}
+      $\rho_f<1/6$ ならば, 全ての$x\in G$に対して$\Pr_y[v_y(x)= v(x)] > 2/3$.
+    \end{claim}
+    \begin{proof}
+      任意に $x\in G$ を固定し, 確率変数$\Phi$を, 一様ランダムに$y\sim G$を選び $\Phi=v_y(x)$ として定める. 我々の目標は, ある$a\in H$に対して$\Pr[\Phi=a]>2/3$ が成り立つことを示すことである.
+      $\Phi_1,\Phi_2$を$\Phi$の独立なコピーとする (固定する$x$は同一). $\Phi$がある値をとる傾向にあることを示すために, まずは $\Phi_1=\Phi_2$ が成り立つ確率が大きいことを示す.
+      \begin{align*}
+      \Pr[\Phi_1 = \Phi_2] &= \Pr_{y_1,y_2\sim G}[ v_{y_1}(x) = v_{y_2}(x) ] \\
+      &= \Pr_{y_1,y_2}[ f(x+y_1) - f(y_1) = f(x+y_2) - f(y_2) ] \\
+      &= \Pr_{y_1,y_2}[ f(x+y_1)-f(x+y_2) = f(y_1)-f(y_2) ] \\
+      &\ge 1-2\rho_f \\
+      &> 2/3.
+      \end{align*}    
+      最後の不等式では, $\Pr_{y_1,y_2}[f(x+y_1)-f(x+y_2) \ne f(y_1-y_2)]\le \rho_f$ および $\Pr_{y_1,y_2}[f(y_1)-f(y_2)\ne f(y_1-y_2)]\le \rho_f$ を用いた.    
+      ここで, $2/3<\Pr[\Phi_1=\Phi_2]=\sum_{a\in H}\Pr[\Phi=a]^2 \le \max_a\Pr[\Phi=a]\cdot \sum_{a\in H}\Pr[\Phi=a] = \max_a\Pr[\Phi=a]$ より主張を得る.
+    \end{proof}
+
+    \begin{claim}{}{claim3}
+      全ての $x\in G$ に対して $\Pr_y[v_y(x)=v(x)]>2/3$ が成り立つならば, $v\in \calH$, すなわち$h$は準同型である.
+    \end{claim}
+    \begin{proof}
+      全ての$x,y\in G$に対して$f(x)+f(y)=f(x+y)$が成り立つことを示せばよい. 任意に$x,y\in G$を固定する.
+      一様ランダムな$z\sim G$ を選ぶ. このとき, 仮定より
+      \begin{itemize}
+        \item $\Pr_z[v_z(x)\ne v(x)]<1/3$,
+        \item $\Pr_z[v_{z-y}(y)\ne v(y)]<1/3$,
+        \item $\Pr_z[v_{z-y}(x+y)\ne v(x+y)]<1/3$
+      \end{itemize}
+      従って, ユニオンバウンドより, 任意の $x,y\in G$ に対してある$z\in G$が存在して次の三つが同時に成り立つ:
+      \begin{itemize}
+        \item $v(x)=v_z(x)=f(x+z)-f(z)$,
+        \item $v(y)=v_{z-y}(y)=f(z)-f(z-y)$,
+        \item $v(x+y)=v_{z-y}(x+y)=f(x+z)-f(z-y)$
+      \end{itemize}
+      これらの等式から
+      \begin{align*}
+        v(x)+v(y)-v(x+y) = f(x+z)-f(z-y) - (f(x+z)-f(z-y)) = 0.
+      \end{align*}
+      より主張を得る.
+    \end{proof}
+    最後に\cref{lem:homomorphism-test}の証明を完成させる.
+    $\rho_f<1/6$ならば, \cref{claim:claim2,claim:claim3}より, $v\in\calH$である.
+    さらに\cref{claim:claim1}より,
+    \begin{align*}
+      \rho_f \ge \frac{\dist(f,v)}{2} \ge \frac{\dist(f,\calH)}{2}
+    \end{align*}
+    である. 一方, そうでなければ$\rho_f\ge 1/6 \ge \dist(f,\calH)/6$である.
+    いずれにせよ, $\rho_f\ge \dist(f,\calH)/6$が成り立つ.
+
   \end{proof}
 
 \subsection{線形方程式の局所的な検証(2/2)}
@@ -167,11 +234,49 @@ $\LinEq$に対するPCP検証者を構成するために,
     \item \cref{thm:linearity-test}のアルゴリズムを$\pi$をオラクルとして実行し, $\dist(\pi,\calF)\ge 0.01$ならば拒否して終了する.
     \item 一様ランダムな$r\sim\F^m$を選択し, $r^\top M$と$r^\top z$を計算する.
     \item 新たに一様ランダムなベクトル$r'\sim\F^n$を選び, オラクルアクセスを用いて$a=\pi(M^\top r + r') - \pi(r')$を求める.
+    \item $a=r^\top z$ならば受理し, そうでなければ拒否する.
   \end{enumerate}
 \end{algorithm}
+\cref{alg:local-verification-LinEq?}の検証者と比較すると,
+まず, 証拠として与えられた関数$\pi$が線形関数であることを検証するためのステップが追加されている.
+また, ステップ4のオラクルアクセスの方法が異なる.
+具体的には, \cref{alg:local-verification-LinEq?}のステップ3では“$a=\pi(M^\top r)$"としているが,
+\cref{alg:local-verification-LinEq}では“$a=\pi(M^\top r + r') - \pi(r')$"としている.
+この修正の意味について説明する.
+まず, $\pi$が線形関数であることを検証するステップが追加されているため, $\pi$に最も近い線形関数を$f\colon\F^n\to\F$とすると,
+ステップ4の処理が実行される時点で$\dist(\pi,f)\le 0.01$を満たすことが確定している (このことから特に, $\pi$に最も近い線形関数は唯一存在することが保証される. 証明は\cref{exer:uniqueness-of-nearest-linear-function}).
+すなわち, 一様ランダムなベクトル$r'\sim\F^n$に対して$\Pr[\pi(r')=f(r')] \ge 0.99$が成り立つ.
+ここで, $r\sim\F^m$に対してベクトル$M^\top r$の分布は必ずしも一様ランダムとはならない (例えば$M=O$がゼロ行列ならば常に$M^\top r=0$である).
+従って, $f(M^\top r)$は$\pi(M^\top r)$によって計算できるとは限らない.
+一方, \cref{alg:local-verification-LinEq}のステップ4では, 一様ランダムなベクトル$r'\sim\F^n$を選択し, オラクルアクセスを用いて$a=\pi(M^\top r + r') - \pi(r')$を求めている.
+このとき, $M^\top r + r'$と$r'$はどちらも(独立ではない)一様ランダムなベクトルとなる.
+従って, $f$の線形性より, 確率$0.98$で
+\begin{align*}
+  f(M^\top r) = f(M^\top r + r') - f(r') = \pi(M^\top r+r') - \pi(r') = a
+\end{align*}
+が成り立つ.
+まとめると, ステップ4は$\pi$に最も近い線形関数$f$に対して$f(M^\top r)$を計算するための操作となっている.
 
+\begin{exercise}{最も近い線形関数の唯一性}{uniqueness-of-nearest-linear-function}
+  線形関数の全体を$\calF$とする (\cref{eq:linear-functions}).
+  関数$\pi\colon\F^n\to \F$が$\dist(\pi,\calF) \le 0.01$を満たすとき,
+  $\dist(\pi,f)\le 0.01$を満たす$f\in\calF$は唯一存在することを示せ.
+\end{exercise}
 
+これまでの議論から, \cref{alg:local-verification-LinEq}は$\LinEq$に対する局所的な検証者であることがわかる.
 
+\begin{theorem}{線形方程式の局所的な検証}{local-verification-LinEq}
+  \cref{alg:local-verification-LinEq}の検証者を$V^\pi(M,z)$とする.
+  このとき, 任意の$M\in\F^{m\times n},z\in\F^m$に対して以下が成り立つ:
+  \begin{itemize}
+    \item $V^\pi(M,z)$の$\pi$へのオラクルアクセスの回数は$O(1)$である.
+    \item $My=z$を満たす$y\in\F^n$が存在するならば, $V^\pi(M,z)$は確率$1$で受理する.
+    \item $My=z$を満たす$y\in\F^n$が存在しないならば, $V^\pi(M,z)$は確率$2/3$で拒否する.
+  \end{itemize}
+\end{theorem}
+\begin{proof}
+  
+\end{proof}
 
 
 \section{弱いPCP定理とその証明}
