@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2025.3.9)  17 MAY 2025 01:42
+This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2025.3.9)  17 MAY 2025 02:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1157,27 +1157,27 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 333.
 [24]
-LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 339.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
 (Font)              No change on input line 339.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
 (Font)              No change on input line 339.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
 (Font)              No change on input line 342.
-) (./CSP.tex
+
+
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
+(Font)              No change on input line 387.
+[25]) (./CSP.tex
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 1.
-[25]
-
-[26
-
-]
+[26]
 Chapter 3.
 
 
-[27]
+[27
+
+]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
 (Font)              No change on input line 101.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
@@ -1342,18 +1342,18 @@ L3 programming layer <2025-01-18>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3319BC3BA15F67010ECE694BA578B545;3546.
+(rerunfilecheck)             Checksum: 430599356554E6B8BF3E19BC885C8BA5;3740.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35534 strings out of 473863
- 704746 string characters out of 5731560
- 1544564 words of memory out of 5000000
- 58284 multiletter control sequences out of 15000+600000
+ 35541 strings out of 473863
+ 704915 string characters out of 5731560
+ 1545919 words of memory out of 5000000
+ 58291 multiletter control sequences out of 15000+600000
  583124 words of font info for 143 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 98i,16n,107p,983b,1542s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,18n,107p,983b,1542s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on .tex_intermediates/main.dvi (47 pages, 461080 bytes).
+Output written on .tex_intermediates/main.dvi (47 pages, 475764 bytes).

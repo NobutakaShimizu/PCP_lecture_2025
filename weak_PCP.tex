@@ -335,7 +335,7 @@ $\LinEq$に対するPCP検証者を構成するために,
 我々の最終的な目標であるPCP定理(\cref{thm:PCPtheorem})では, PCP検証者のランダムビットの長さが$r(n)=O(\log n)$であることを要求しているため, $r(n)$に関しては\cref{thm:weak-PCP-theorem}は指数的に大きい値になってしまっているが, 読み込む証明の文字数は$n$に依存しない定数で抑えられるという点では同一である.
 なお, \cref{thm:weak-PCP-theorem}は後に\cref{thm:PCPtheorem}の証明でも用いられる.
 
-\begin{proof}
+\subsection{方針}
   NP完全な判定問題として3彩色問題$\ThreeCOL$を考え, ある$r=O(1),q=\poly(n)$に対して$\ThreeCOL\in\PCP(r,q)$を示す.
   すると, \cref{thm:weak-PCP-theorem}の証明は\cref{exer:exercise2}と同じ議論から得られる.
 
@@ -362,9 +362,56 @@ $\LinEq$に対するPCP検証者を構成するために,
     \item $My=\allone$.
   \end{enumerate}
   を満たすことは同値である.
-  従って, この二つの条件を検証するPCP検証者を構成すればよい.
+  方針としては, この二つの条件を検証するPCP検証者を構成して組み合わせることによって, 上記の問題に対する検証者を構成する.
+  条件2に関しては, \cref{thm:local-verification-LinEq}の検証者$V^\pi(M,z)$を用いることができる.
+  この検証者はオラクルアクセスの回数が$O(1)$でランダムビット長が$O(\abs{V^2})=O(n^2)$である.
+  
+  \subsection{テンソル積の確認}
+  条件1に対する検証者を与える.
+  ベクトル$y\in\F^{V^2}$に対し, それを$V\times V$行列とみなしたものを$Y=(y(u,v))_{u,v\in V}$とする.
+  このとき, ある$x\in\F^V$が存在して$Y=x x^\top$となることを検証すればよい.
+  以後, $X=xx^\top$と略記する.
+  
+  \cref{eq:linear-equation-property,eq:random-inner-product}では,
+  二つのベクトル$a,b\in\F^n$に対して$a=b$かどうかを検証するために, ランダムなベクトル$r\sim\F^n$に対して$r^\top a = r^\top b$かどうかを確認していた.
+  では, 二つの行列$A,B\in\F^{n\times n}$に対して$A=B$かどうかを検証するにはどうすればよいだろうか.
+  素朴な方法として, 二つのランダムなベクトル$s,r\sim \F^n$を選び, $r^\top A s = r^\top B s$かどうかを確認するという方法が考えられる.
+  \begin{exercise}{テンソル積の確認}{check-tensor-product}
+    有限体$\F$ (ただし$\abs{\F}=q$) 上の二つの行列$A,B\in\F^{n\times n}$に対して以下が成り立つことを示せ:
+    \begin{align*}
+      \Pr_{r,s\sim\F^n}\qty[ r^\top A s \ne r^\top B s ] = \begin{cases}
+        0 & \text{if } A=B \\
+        1-1/q & \text{if } A\ne B.
+      \end{cases}
+    \end{align*}
+  \end{exercise}
+  
+  \cref{thm:weak-PCP-theorem}の証明では, $A=Y$, $B=x x^\top$であった.
+  まず\cref{alg:local-verification-LinEq?}のアイデアを模倣しよう.
+  この検証者では, ベクトル$y\in\F^n$をそのまま証明として用いるのではなく, それを係数とする線形関数$\pi\colon x\mapsto x^\top y$を証明として用いるというアイデアであった.
+  このアイデアを現在の問題設定に拡張しようとすると,
+  二つの関数
+  \begin{align*}
+    &\pi_Y \colon (r,s)\mapsto r^\top Y s,\\
+    &\pi_x \colon r\mapsto r^\top x
+  \end{align*}
+  を証明として用いることになる.
+  つまり, 行列$Y$は二次形式の真理値表$\pi_Y$として保持し,
+  ベクトル$x$は線形関数の真理値表$\pi_x$として保持する.
+  \cref{alg:local-verification-LinEq?}を拡張すると以下の検証者を得る:
+  \begin{algorithm}{}{local-verification-3COL?}
+    \begin{enumerate}
+      \item 入力として$1^n$を受け取り, オラクルアクセスとして$\pi_Y\colon\F^V\times\F^V\to\F$と$\pi_x\colon\F^V\to\F$を受け取る.
+      \item 一様ランダムなベクトル$r,s\sim\F^n$を選択する.
+      \item オラクルアクセスを用いて$\pi_Y(r,s)$と$\pi_x(r)$を計算する.
+      \item $\pi_Y(r,s)=\pi_x(r)\cdot \pi_x(s)$ならば受理し, そうでなければ拒否する.
+    \end{enumerate}
+  \end{algorithm}
+  
+  
+  
   
   
 
-\end{proof}
+
 
