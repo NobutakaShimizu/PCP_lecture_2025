@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2025.3.9)  16 MAY 2025 18:59
+This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2025.3.9)  17 MAY 2025 01:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1148,27 +1148,36 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 286.
+(Font)              No change on input line 292.
 [23]
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
+(Font)              No change on input line 326.
+
+
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
+(Font)              No change on input line 333.
+[24]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 292.
+(Font)              No change on input line 339.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
-(Font)              No change on input line 292.
+(Font)              No change on input line 339.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
-(Font)              No change on input line 292.
+(Font)              No change on input line 339.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
-(Font)              No change on input line 295.
+(Font)              No change on input line 342.
 ) (./CSP.tex
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 1.
-[24]
+[25]
+
+[26
+
+]
 Chapter 3.
 
 
-[25
-
-]
+[27]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
 (Font)              No change on input line 101.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
@@ -1177,7 +1186,7 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 104.
-[26]
+[28]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 110.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
@@ -1188,7 +1197,7 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 128.
-[27]
+[29]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 138.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
@@ -1201,7 +1210,7 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 169.
-[28]
+[30]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 187.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
@@ -1215,31 +1224,31 @@ Overfull \hbox (7.54623pt too wide) in paragraph at lines 196--199
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 205.
-[29]
+[31]
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 253.
-[30]
+[32]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 264.
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 294.
-[31]
+[33]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 317.
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 337.
-[32]) (./gap_amplification.tex
+[34]) (./gap_amplification.tex
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 1.
-[33]
+[35]
 
-[34
+[36
 
 ]
 Chapter 4.
@@ -1247,39 +1256,39 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 22.
 
 
-[35]
+[37]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 76.
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 79.
-[36]
+[38]
 File: images/degree_reduction.pdf Graphic file (type pdf)
 <images/degree_reduction.pdf>
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 116.
-[37]
+[39]
 File: images/majority_degree_reduction.png Graphic file (type bmp)
 <images/majority_degree_reduction.png>
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 175.
-[38]
+[40]
 Underfull \vbox (badness 3058) has occurred while \output is active []
 
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 196.
-[39]
+[41]
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 230.
-[40]
+[42]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 233.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
@@ -1288,20 +1297,20 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 279.
-[41]
+[43]
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 312.
-[42]
+[44]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 326.
 )
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 67.
-[43]
+[45]
 
-[44
+[46
 
 ]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
@@ -1322,7 +1331,7 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
 (Font)              No change on input line 67.
  (./appendix.tex)
 
-[45] (.tex_intermediates/main.aux)
+[47] (.tex_intermediates/main.aux)
  ***********
 pLaTeX2e <2023-02-14u04>+1, based on
 LaTeX2e <2024-11-01> patch level 2
@@ -1339,12 +1348,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35532 strings out of 473863
- 704655 string characters out of 5731560
- 1544468 words of memory out of 5000000
- 58282 multiletter control sequences out of 15000+600000
+ 35534 strings out of 473863
+ 704746 string characters out of 5731560
+ 1544564 words of memory out of 5000000
+ 58284 multiletter control sequences out of 15000+600000
  583124 words of font info for 143 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  98i,16n,107p,983b,1542s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on .tex_intermediates/main.dvi (45 pages, 454000 bytes).
+Output written on .tex_intermediates/main.dvi (47 pages, 461080 bytes).

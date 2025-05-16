@@ -275,12 +275,59 @@ $\LinEq$に対するPCP検証者を構成するために,
   \end{itemize}
 \end{theorem}
 \begin{proof}
+  オラクルアクセスの回数は明らかに$O(1)$である.
+  また, $My=z$を満たす$y\in\F^n$が存在するならば, $\pi\colon\F^n\to\F$として
+  \begin{align*}
+    \pi(x) = x^\top y
+  \end{align*}
+  とすれば, $\pi$は線形関数であり, さらに
+  \begin{align*}
+    a = \pi(M^\top r + r') - \pi(r') = r^\top M y
+  \end{align*}
+  となるため, 確率$1$で受理する.
+
+  一方, $My=z$を満たす$y\in\F^n$が存在しないときに検証者が拒否する確率を考える.
+  オラクル$\pi$に関して以下の二つのケースを考える:
+
+  \paragraph*{ケース1: $\pi$が線形関数に$0.01$-近いとき.}
+  このとき, $V^\pi(M,z)$がステップ5で拒否する確率を評価する.
+  オラクル$\pi$に最も近い線形関数を$f\colon \F^n\to\F$とする.
+  ステップ4で選ばれた一様ランダムな$r'$に対し, $M^\top r + r$と$r'$はどちらも一様ランダムなベクトルであり, $\dist(\pi,f)\le 0.01$より,
+  \begin{align*}
+    &\Pr_{r'}\qty[ \pi(M^\top r + r') \ne f(M^\top r + r') ] \le 0.01,\\
+    &\Pr_{r'}\qty[ \pi(r') \ne f(r') ] \le 0.01.
+  \end{align*}
+  従って, ユニオンバウンドより, ステップ4で計算した$a$に対して
+  \begin{align}
+    \Pr_{r,r'}\qty[ a = f(M^\top r) ] \ge 0.98 \label{eq:linearity-test-rejection-probability-1}
+  \end{align}
+  となる.
+  ここで, 線形関数$f$が$f(x)=x^\top y$と表せるとすると, 拒否確率は
+  \begin{align*}
+    \Pr_{r,r'}\qty[ a \ne r^\top z ] &\ge \Pr_{r,r'}\qty[ a\ne r^\top z \mid a = f(M^\top r) ] \cdot \Pr_{r,r'}\qty[ a = f(M^\top r) ] \\
+    &\ge \Pr_{r}\qty[ r^\top M y \ne r^\top z ]\cdot 0.98 & & \because\text{\cref{eq:linearity-test-rejection-probability-1}} \\
+    &\ge \qty(1-\frac{1}{q}) \cdot 0.98 & & \because \text{\cref{eq:random-inner-product}および$My\ne z$} \\
+    &\ge 2/3 & & \because\text{$q\ge 2$}
+  \end{align*}
+  を満たす
+  
+
+  \paragraph*{ケース2: $\pi$が線形関数に$0.01$-遠いとき.}
+  このとき, \cref{thm:linearity-test}より, $V^\pi(M,z)$はステップ2において少なくとも確率$0.99$で拒否する.
+  
+  どちらのケースでも, $V^\pi(M,z)$は少なくとも確率$2/3$で拒否する.
   
 \end{proof}
 
 
 \section{弱いPCP定理とその証明}
-本節では以下の弱いPCP定理を証明する.
+\cref{thm:local-verification-LinEq}のアイデアを拡張してPCP定理を証明するには何が必要だろうか?
+\begin{itemize}
+  \item まず, $\LinEq$は実際には多項式時間で解ける判定問題であるが, 実際には何かしらのNP完全な判定問題に対して\cref{thm:local-verification-LinEq}のような検証者を構成しなければならない.  
+  \item 次に, \cref{thm:local-verification-LinEq}の検証者$V^\pi(M,z)$は, ランダムに$r,r'\sim\F^n$を選ぶ時点で$\Omega(n)$ビットのランダムネスを必要とする. 実際, 証拠として与えられた関数$\pi$を文字列として表現するとその長さは$q^n$に比例するため, その文字列のランダムなインデックスを指定しようとすると必然的に$\Omega(n)$ビットのランダムネスが必要である. そこで証明$\pi$の長さを指数的な長さ$2^{\Theta(n)}$から多項式$n^{O(1)}$に抑える必要がある (このとき, インデックスの指定に必要なビット数は$O(\log n)$で抑えられる).
+\end{itemize}
+
+本節では前者の問題を解決し, 以下の弱いPCP定理を証明する.
 \begin{theorem}{弱いPCP定理}{weak-PCP-theorem}
   ある$r(n)=\poly(n),q(n)=O(1)$に対して, $\NP \subseteq \PCP(r,q)$が成り立つ.
 \end{theorem}
