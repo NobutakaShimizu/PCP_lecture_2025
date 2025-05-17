@@ -205,6 +205,8 @@ INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/ifthen.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/complexity/mycomplexity.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/complexity/mycomplexity.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/complexity/mycomplexity.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/enumitem/enumitem.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
 INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
 INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
@@ -374,6 +376,7 @@ OUTPUT .tex_intermediates/main.toc
 INPUT ./preface.tex
 INPUT ./preface.tex
 INPUT preface.tex
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmsl12.tfm
 INPUT ./introduction.tex
 INPUT ./introduction.tex
 INPUT introduction.tex
@@ -395,7 +398,6 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmsl12.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti8.tfm
