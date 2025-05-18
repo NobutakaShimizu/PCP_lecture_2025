@@ -340,14 +340,37 @@ $\UNSAT(G') = \frac{d}{d+d_0+1}\UNSAT(G_1) = 0$を得る.
 すなわち$\UNSAT(G^t)=0$である.
 
 最後に$\UNSAT(G^t)$の下界を証明する.
-べき乗の制約グラフ$G^t$における割り当て$a'\colon V \to \Sigma^{\ceil{t/2}}$に対し, 元の制約グラフに対する割り当て$a\colon V\to\Sigma$を, 「重み付き多数決」によって定める.
-頂点$u\in V$に対し, 
+頂点$u\in V$に対し, $V$値をとる確率変数$RW(u)$を, グラフ$G$上で頂点$u$から開始する長さ$\ceil{t/2}$のランダムウォークの最終到達頂点とする (長さとは辿った辺の本数のことである).
+べき乗の制約グラフ$G^t$における割り当て$a'\colon V \to \Sigma^{\ceil{t/2}}$に対し, 元の制約グラフに対する任意の割り当て$a\colon V\to\Sigma$を, 「重み付き多数決」によって定める.
+頂点$u\in V$に対し, $\boldsigma = a(u)$とし, 以下で定まる$\sigma$を$a(u)=\sigma$とする:
+\begin{align}
+  \sigma = \argmax_{\tau \in \Sigma} \qty{ \Pr\qty[ \boldsigma\qty(\RW(u)) = \tau ] }. \label{eq:argmax-of-RW}
+\end{align}
+常に$\RW(u)\in \Gamma(u)$であるから$\boldsigma\qty( \RW(u) )$は必ず存在する.
+また, タイが発生した場合はその中から任意に選ぶ.
+直感的には, $\boldsigma(u)$の中で最も登場頻度の高い意見を$a(u)=\sigma$としている.
+このようにして定めた割り当て$a\colon V \to \Sigma$は, 適当な定数$\beta=\beta(\lambda,d,\abs{\Sigma})>0$に対して
+\begin{align}
+  \UNSAT(a';G^t) \ge \beta\sqrt{t}\cdot \min\qty{ \UNSAT(a;G), \frac{1}{t} }. \label{eq:lower-bound-of-UNSAT}
+\end{align}
+を満たすことを後で示す. $\UNSAT(a';G^t)=\UNSAT(G^t)$を満たす$a'$に対して\cref{eq:lower-bound-of-UNSAT}を適用し, さらに$\UNSAT(a;G)\le \UNSAT(G)$を代入すると$\UNSAT(G^t)$の所望の下界が得られて証明は完了する.
 
+\paragraph*{\cref{eq:lower-bound-of-UNSAT}の証明.}
 
+簡単のため$t\in\Nat$は偶数とする.
+割り当て$a'\colon V\to \Sigma^{t/2}$を固定し, $a$を\cref{eq:argmax-of-RW}によって定める.
+頂点$u\in V$に対し, 確率変数$X_u\in\Sigma$を, ($a'$における)$u$の$\RW(u)$の意見とする.
+\cref{eq:argmax-of-RW}より, $\Pr[X_u = a(u)] \ge \frac{1}{\abs{\Sigma}}$である.
+
+辺部分集合$F\subseteq E$を, $a$によって充足されない辺の集合とする.
+なお, $\abs{F} > \floor*{\frac{\abs{E}}{t}}$である場合は適当に部分集合をとって$\abs{F} \le \floor*{\frac{\abs{E}}{t}}$とする.
+このとき$\UNSAT(a;G) $
 
 
 
 \end{proof}
+
+
 
 \section{アルファベット削減}
 
