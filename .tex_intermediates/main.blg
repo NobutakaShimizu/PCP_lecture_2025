@@ -1,18 +1,18 @@
 [0] Config.pm:308> INFO - This is Biber 2.20
 [0] Config.pm:311> INFO - Logfile is '.tex_intermediates/main.blg'
-[105] biber-darwin:340> INFO - === Sun May 18, 2025, 14:22:54
-[126] Biber.pm:420> INFO - Reading '.tex_intermediates/main.bcf'
-[340] Biber.pm:994> INFO - Found 9 citekeys in bib section 0
-[368] Biber.pm:4463> INFO - Processing section 0
-[388] Biber.pm:4654> INFO - Looking for bibtex file 'ref.bib' for section 0
-[392] bibtex.pm:1713> INFO - LaTeX decoding ...
-[414] bibtex.pm:1519> INFO - Found BibTeX data source 'ref.bib'
-[548] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[548] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[548] Biber.pm:4283> INFO - Sorting list 'anyt/global//global/global/global' of type 'entry' with template 'anyt' and locale 'en-US'
-[548] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
-[567] bbl.pm:676> INFO - Writing '.tex_intermediates/main.bbl' with encoding 'UTF-8'
-[567] bbl.pm:677> INFO - Converting UTF-8 to TeX macros on output to .bbl
-[583] bbl.pm:779> INFO - Output to .tex_intermediates/main.bbl
-[583] Biber.pm:131> WARN - ISBN '9781468420036,9781468420012' in entry 'Karp1972' is invalid - run biber with '--validate_datamodel' for details.
-[583] Biber.pm:133> INFO - WARNINGS: 1
+[77] biber-darwin:340> INFO - === Sun May 18, 2025, 15:04:31
+[96] Biber.pm:420> INFO - Reading '.tex_intermediates/main.bcf'
+[188] Biber.pm:994> INFO - Found 9 citekeys in bib section 0
+[200] Biber.pm:4463> INFO - Processing section 0
+[213] Biber.pm:4654> INFO - Looking for bibtex file 'ref.bib' for section 0
+[214] bibtex.pm:1713> INFO - LaTeX decoding ...
+[228] bibtex.pm:1519> INFO - Found BibTeX data source 'ref.bib'
+[329] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[329] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[330] Biber.pm:4283> INFO - Sorting list 'anyt/global//global/global/global' of type 'entry' with template 'anyt' and locale 'en-US'
+[330] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[345] bbl.pm:676> INFO - Writing '.tex_intermediates/main.bbl' with encoding 'UTF-8'
+[345] bbl.pm:677> INFO - Converting UTF-8 to TeX macros on output to .bbl
+[358] bbl.pm:779> INFO - Output to .tex_intermediates/main.bbl
+[358] Biber.pm:131> WARN - ISBN '9781468420036,9781468420012' in entry 'Karp1972' is invalid - run biber with '--validate_datamodel' for details.
+[358] Biber.pm:133> INFO - WARNINGS: 1
