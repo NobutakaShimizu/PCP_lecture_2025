@@ -297,7 +297,7 @@ $\UNSAT(G') = \frac{d}{d+d_0+1}\UNSAT(G_1) = 0$を得る.
   \begin{itemize}
     \item 頂点集合は同じ$V$とする.
     \item 二頂点$u,v\in V$に対し, 長さ$t$の$uv$-路の個数と同じだけ$uv$間に多重辺を用意する. このようにして得られる辺の多重集合を$\boldE$とし, その元を$\bolde = \{u,v\} \in \boldE$とする. すなわち, $(V,\boldE)$は$(V,E)$のべき乗 (\cref{def:power-of-graph})に一致する.
-    \item アルファベット集合は$\Sigma^{d^{\ceil{t/2}}}$とする. ここで, 頂点$u$に意見$\sigma=(\sigma_1,\dots,\sigma_{d^{\ceil{t/2}}}) \in \Sigma^{d^{\ceil{t/2}}}$が割り当てられたとき, 次の意味を持つ: 元の$d$-正則グラフ$G$上で頂点$u$から距離$\ceil{t/2}$以内の頂点の集合を$\Gamma(u)$とし, その元を頂点番号の大小順で並べて$\Gamma(u)=\qty{ v_1,\dots,v_\ell}$ とする (ここで$G$の$d$-正則性より$\ell \le d^{\ceil{t/2}}$である). このとき, 意見$\sigma$は$v_1,\dots,v_\ell$の各頂点に$\Sigma$の元を割り当てる関数$\sigma \colon \Gamma(u)\to\Sigma$とみなす.
+    \item アルファベット集合は$\Sigma^{d^{\ceil{t/2}}}$とする. ここで, 頂点$u$に意見$\sigma=(\sigma_1,\dots,\sigma_{d^{\ceil{t/2}}}) \in \Sigma^{d^{\ceil{t/2}}}$が割り当てられたとき, 次の意味を持つ: 元の$d$-正則グラフ$G$上で頂点$u$から距離$\ceil{t/2}$以内の頂点の集合を$\Gamma(u)$とし, その元を頂点番号の大小順で並べて$\Gamma(u)=\qty{ v_1,\dots,v_\ell}$ とする (ここで$G$の$d$-正則性より$\ell \le d^{\ceil{t/2}}$である). このとき, 意見$\sigma$は$v_1,\dots,v_\ell$の各頂点に$\Sigma$の元を割り当てる関数$\sigma \colon \Gamma(u)\to\Sigma$とみなし, $w\in\Gamma(u)$に対し$\sigma(w)$を, \emph{$u$の$w$に対する意見}と呼ぶ.
     \begin{itemize}
       \item 例えば$\ell < d^{\ceil{t/2}}$の場合は相異なる二つの$\sigma,\sigma'\in\Sigma$が同一の関数を与えることもある.
       \item 頂点$u$と$\sigma\in\Sigma^{\ceil{t/2}}$の取り方によっては同一の頂点に対し, 相異なる$\Sigma$の元を割り当てるため$\sigma\in\Sigma^{\ceil{t/2}}$を関数$\Gamma(u)\to\Sigma$とみなせない場合もある. このようなとき, 意見$\sigma$は$u$にとって\emph{不適切}といい, 不適切でない場合は\emph{適切}であるという.
@@ -306,10 +306,19 @@ $\UNSAT(G') = \frac{d}{d+d_0+1}\UNSAT(G_1) = 0$を得る.
     \begin{itemize}
       \item 意見$\sigma$と$\sigma'$はそれぞれ$u,v$にとって適切であり, これらの意見は関数$\sigma\colon \Gamma(u)\to\Sigma$と$\sigma'\colon \Gamma(v)\to\Sigma$と同一視できる.
       \item 全ての頂点$a\in \Gamma(u)\cap \Gamma(v)$に対し, $\sigma(a)=\sigma'(a)$が成り立つ.
-      \item 一方の端点が$\Gamma(u)$, もう一方の端点が$\Gamma(v)$に属する全ての辺$e=\{s,t\}\in E$に対し, $(\sigma(s), \sigma'(t))\in c_e$が成り立つ.
+      \item 一方の端点が$\Gamma(u)$, もう一方の端点が$\Gamma(v)$に属する元のグラフ$G$の全ての辺$e=\{s,t\}\in E$に対し, $(\sigma(s), \sigma'(t))\in c_e$が成り立つ.
     \end{itemize}
   \end{itemize}
 \end{definition}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{images/gap_amplification.pdf}
+  \caption{制約グラフ$G$のべき乗$G^t$の図例. 頂点$u,v$にそれぞれ$\sigma,\sigma'\in\Sigma^{\ceil{t/2}}$が割り当てられているとき, それが適切ならば, それぞれ関数$\sigma\colon \Gamma(u)\to\Sigma$と$\sigma'\colon \Gamma(v)\to\Sigma$と同一視できる. \label{fig:gap-amplification}}
+\end{figure}
+
+パラメータ$t$は制約グラフのサイズ$\size(G)$には依存しない定数であることを常に想定する.
+べき乗をで得られた制約グラフは元の制約グラフに対して$\UNSAT$の値が増幅している.
 
 \begin{lemma}{べき乗の性質}{property-of-power}
   ある定数$\beta=\beta(\lambda,d,\abs{\Sigma})$が存在して以下が成り立つ:
@@ -335,6 +344,8 @@ $\UNSAT(G') = \frac{d}{d+d_0+1}\UNSAT(G_1) = 0$を得る.
 すなわち$\UNSAT(G^t)=0$である.
 
 最後に$\UNSAT(G^t)$の下界を証明する.
+べき乗の制約グラフ$G^t$における割り当て$a'\colon V \to \Sigma^{\ceil{t/2}}$に対し, 元の制約グラフに対する割り当て$a\colon V\to\Sigma$を, 以下のように「多数決」によって定める:
+
 
 
 \end{proof}

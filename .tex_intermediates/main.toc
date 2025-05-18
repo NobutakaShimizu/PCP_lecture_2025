@@ -30,4 +30,4 @@
 \contentsline {subsection}{\numberline {4.2.1}次数の削減}{42}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.2.2}エクスパンダー化}{46}{subsection.4.2.2}%
 \contentsline {section}{\numberline {4.3}制約グラフのべき乗}{48}{section.4.3}%
-\contentsline {section}{\numberline {4.4}アルファベット削減}{49}{section.4.4}%
+\contentsline {section}{\numberline {4.4}アルファベット削減}{50}{section.4.4}%
