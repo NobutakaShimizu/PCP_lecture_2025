@@ -293,78 +293,75 @@ $\UNSAT(G') = \frac{d}{d+d_0+1}\UNSAT(G_1) = 0$を得る.
 この節では, そのような制約グラフに対し, 以下で定義する\emph{べき乗}という操作を考えることで, その$\UNSAT$の値を増幅させることができることを示す.
 
 \begin{definition}{制約グラフの冪乗}{power-of-constraint-graph}
-  パラメータ$t\in\Nat$および全頂点が自己ループを持つ$d$-正則な制約グラフ$G=\ip{(V,E),\Sigma,\calC}$に対し, べき乗$G^t = \ip{(V,\boldE),\Sigma^{\ceil{t/2}},\calC^t}$を, 以下のようにして定義する:
+  パラメータ$\ell\in\Nat$および全頂点が自己ループを持つ$d$-正則な制約グラフ$G=\ip{(V,E),\Sigma,\calC}$に対し, べき乗$G^\ell = \ip{(V,\boldE),\Sigma^{d^{\ceil{\ell/2}}},\calC^\ell}$を, 以下のようにして定義する:
   \begin{itemize}
     \item 頂点集合は同じ$V$とする.
-    \item 二頂点$u,v\in V$に対し, 長さ$t$の$uv$-路の個数と同じだけ$uv$間に多重辺を用意する. このようにして得られる辺の多重集合を$\boldE$とし, その元を$\bolde = \{u,v\} \in \boldE$とする. すなわち, $(V,\boldE)$は$(V,E)$のべき乗 (\cref{def:power-of-graph})に一致する.
-    \item アルファベット集合は$\Sigma^{d^{\ceil{t/2}}}$とする. ここで, 頂点$u$に$\boldsigma=(\sigma_1,\dots,\sigma_{d^{\ceil{t/2}}}) \in \Sigma^{d^{\ceil{t/2}}}$が割り当てられたとき, 次の意味を持つ: 元の$d$-正則グラフ$G$上で頂点$u$から距離$\ceil{t/2}$以内の頂点の集合を$\Gamma(u)$とし, その元を頂点番号の大小順で並べて$\Gamma(u)=\qty{ v_1,\dots,v_\ell}$ とする (ここで$G$の$d$-正則性より$\ell \le d^{\ceil{t/2}}$である). このとき, $\boldsigma$は$v_1,\dots,v_\ell$の各頂点に$\Sigma$の元を割り当てる関数$\boldsigma \colon \Gamma(u)\to\Sigma$とみなし, $w\in\Gamma(u)$に対し$\sigma=\boldsigma(w)$を, \emph{$u$の$w$に対する意見}と呼ぶ.
-    なお, $\ell < d^{\ceil{t/2}}$の場合は相異なる二つの$\boldsigma,\boldsigma'\in\Sigma^{d^{\ceil{t/2}}}$が同一の関数としてみなされることもある.
-    \item 辺$\bolde = \{u,v\} \in \boldE$ に対応する制約$\boldc_{\bolde}\in \calC^t$は次の二つを満たす割り当て$(\boldsigma,\boldsigma')\in \Sigma^{d^{\ceil{t/2}}} \times \Sigma^{d^{\ceil{t/2}}}$によって満たされる:
-    \begin{itemize}
-      \item 全ての頂点$a\in \Gamma(u)\cap \Gamma(v)$に対し, $\boldsigma(a)=\boldsigma'(a)$が成り立つ.
-      \item 一方の端点が$\Gamma(u)$, もう一方の端点が$\Gamma(v)$に属する元のグラフ$G$の全ての辺$e=\{s,t\}\in E$に対し, $(\boldsigma(s), \boldsigma'(t))\in c_e$が成り立つ.
-    \end{itemize}
+    \item グラフ$(V,\boldE)$をべき乗(\cref{def:power-of-graph})によって得られるグラフ$(V,E)^\ell$とする. すなわち, 各二頂点$u,v\in V$に対し, 長さ$\ell$の$uv$-路の個数と同じだけ$uv$間に多重辺を用意する. このようにして得られる辺の多重集合を$\boldE$とし, その元を$\bolde = \{u,v\} \in \boldE$とする.
+    \item アルファベット集合は$\Sigma^{d^{\ceil{\ell/2}}}$とする. ここで, 頂点$u$に$\vec{\sigma}=(\sigma_1,\dots,\sigma_{d^{\ceil{\ell/2}}}) \in \Sigma^{d^{\ceil{\ell/2}}}$が割り当てられたとき, 次の意味を持つ: 元の$d$-正則グラフ$G$上で頂点$u$から距離$\ceil{\ell/2}$以内の頂点の集合を$\Gamma(u)$とし\footnote{頂点$v$が頂点$u$から距離$i$以内であるというのは, 頂点$u$から開始し頂点$v$に至る長さ$i$以下の路が存在することをいう.}, その元を頂点番号の大小順で並べて$\Gamma(u)=\qty{ v_1,\dots,v_\ell}$ とする (ここで$G$の$d$-正則性より$\ell \le d^{\ceil{\ell/2}}$である). このとき, $\vec{\sigma}$は$v_1,\dots,v_\ell$の各頂点に$\Sigma$の元を割り当てる関数$\vec{\sigma} \colon \Gamma(u)\to\Sigma$とみなし, $w\in\Gamma(u)$に対し$\sigma=\vec{\sigma}(w)$を, \emph{$u$の$w$に対する意見}と呼ぶ.
+    なお, $\ell < d^{\ceil{\ell/2}}$の場合は相異なる二つの$\vec{\sigma},\vec{\sigma}'\in\Sigma^{d^{\ceil{\ell/2}}}$が同一の関数としてみなされることもある.
+    \item 辺$\bolde = \{u,v\} \in \boldE$ に対応する制約$\boldc_{\bolde}\in \calC^\ell$は次の二つを満たす割り当て$(\vec{\sigma},\vec{\sigma}')\in \Sigma^{d^{\ceil{\ell/2}}} \times \Sigma^{d^{\ceil{\ell/2}}}$によって満たされる:
+    一方の端点が$\Gamma(u)$, もう一方の端点が$\Gamma(v)$に属する元のグラフ$G$の全ての辺$e=\{s,t\}\in E$ (ここでは$s\in\Gamma(u),t\in\Gamma(v)$とする)に対し, $(\vec{\sigma}(s), \vec{\sigma}'(t))\in c_e$が成り立つ.
   \end{itemize}
 \end{definition}
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=\textwidth]{images/gap_amplification.pdf}
-  \caption{制約グラフ$G$のべき乗$G^t$の図例. 頂点$u,v$にそれぞれ$\boldsigma,\boldsigma'\in\Sigma^{\ceil{t/2}}$が割り当てられているとき, それぞれ関数$\boldsigma\colon \Gamma(u)\to\Sigma$と$\boldsigma'\colon \Gamma(v)\to\Sigma$とみなす. なお, 元のグラフ$G$が自己ループを持つことから, 距離$\ceil{t/2}$以内の全ての頂点に対して意見が定義される. \label{fig:gap-amplification}}
+  \caption{制約グラフ$G$のべき乗$G^\ell$の図例. 頂点$u,v$にそれぞれ$\vec{\sigma},\vec{\sigma}'\in\Sigma^{d^{\ceil{\ell/2}}}$が割り当てられているとき, それぞれ関数$\vec{\sigma}\colon \Gamma(u)\to\Sigma$と$\vec{\sigma}'\colon \Gamma(v)\to\Sigma$とみなす. なお, 元のグラフ$G$が自己ループを持つことから, 距離$\ceil{\ell/2}$以内の全ての頂点に対して意見が定義される. なお, $\ell$が奇数のときはこの二つの円は交わる. \label{fig:gap-amplification}}
 \end{figure}
 
-パラメータ$t$は制約グラフのサイズ$\size(G)$には依存しない定数であることを常に想定する.
+パラメータ$\ell$は制約グラフのサイズ$\size(G)$には依存しない定数であることを常に想定する.
 べき乗をで得られた制約グラフは元の制約グラフに対して$\UNSAT$の値が増幅している.
 
 \begin{lemma}{べき乗の性質}{property-of-power}
   ある定数$\beta=\beta(\lambda,d,\abs{\Sigma})$が存在して以下が成り立つ:
-  パラメータ$t\in\Nat$および全頂点が自己ループを持つ$d$-正則な制約グラフ$G=\ip{(V,E),\Sigma,\calC}$に対し, べき乗$G^t = \ip{(V,\boldE),\Sigma^{\ceil{t/2}},\calC^t}$を, \cref{def:power-of-constraint-graph}で定義する.
+  パラメータ$\ell\in\Nat$および全頂点が自己ループを持つ$d$-正則な制約グラフ$G=\ip{(V,E),\Sigma,\calC}$に対し, べき乗$G^\ell = \ip{(V,\boldE),\Sigma^{\ceil{\ell/2}},\calC^\ell}$を, \cref{def:power-of-constraint-graph}で定義する.
   このとき
   \begin{itemize}
-    \item 元の制約グラフ$G$が$\lambda$-エクスパンダーであるとき, $G^t$は$d^t$-正則$\lambda^t$-エクスパンダーである.
-    \item $\size(G^t) \le \size(G)\cdot d^t$である.
-    \item $\UNSAT(G)=0$ならば$\UNSAT(G^t)=0$である.
-    \item $\UNSAT(G^t) \ge \beta\sqrt{t}\cdot \min\qty{ \UNSAT(G), \frac{1}{t} }$である.
+    \item 元の制約グラフ$G$が$\lambda$-エクスパンダーであるとき, $G^\ell$は$d^\ell$-正則$\lambda^\ell$-エクスパンダーである.
+    \item $\size(G^\ell) \le \size(G)\cdot d^\ell$である.
+    \item $\UNSAT(G)=0$ならば$\UNSAT(G^\ell)=0$である.
+    \item $\UNSAT(G^\ell) \ge \beta\sqrt{\ell}\cdot \min\qty{ \UNSAT(G), \frac{1}{\ell} }$である.
   \end{itemize}
 \end{lemma}
 \begin{proof}
 
-\cref{lem:power-of-regular-expander}により, $G$が$d$-正則かつ$\lambda$-エクスパンダーならば$G^t$は$d^t$-正則かつ$\lambda^t$-エクスパンダーとなる.
-特に, $\size(G^t) \le \size(G)\cdot d^t$である.
+\cref{lem:power-of-regular-expander}により, $G$が$d$-正則かつ$\lambda$-エクスパンダーならば$G^\ell$は$d^\ell$-正則かつ$\lambda^\ell$-エクスパンダーとなる.
+特に, $\size(G^\ell) \le \size(G)\cdot d^\ell$である.
 
-また, $\UNSAT(G)=0$ならば, 全制約を満たす割り当て$a\colon V \to \Sigma$を用いて$G^t$の全ての制約を満たす割り当て$a'\colon V \to \Sigma^{\ceil{t/2}}$を, 各頂点$u\in V$に対し
+また, $\UNSAT(G)=0$ならば, 全制約を満たす割り当て$a\colon V \to \Sigma$を用いて$G^\ell$の全ての制約を満たす割り当て$a'\colon V \to \Sigma^{\ceil{\ell/2}}$を, 各頂点$u\in V$に対し
 \begin{align*}
-  \boldsigma(u)\colon s \mapsto a(s)
+  \vec{\sigma}(u)\colon s \mapsto a(s)
 \end{align*}
-となるような$\boldsigma\in\Sigma^{\ceil{t/2}}$を$a'(u)$と定めることによって得られる.
-すなわち$\UNSAT(G^t)=0$である.
+となるような$\vec{\sigma}\in\Sigma^{\ceil{\ell/2}}$を$a'(u)$と定めることによって得られる.
+すなわち$\UNSAT(G^\ell)=0$である.
 
-最後に$\UNSAT(G^t)$の下界を証明する.
-頂点$u\in V$に対し, $V$値をとる確率変数$RW(u)$を, グラフ$G$上で頂点$u$から開始する長さ$\ceil{t/2}$のランダムウォークの最終到達頂点とする (長さとは辿った辺の本数のことである).
-べき乗の制約グラフ$G^t$における割り当て$a'\colon V \to \Sigma^{\ceil{t/2}}$に対し, 元の制約グラフに対する任意の割り当て$a\colon V\to\Sigma$を, 「重み付き多数決」によって定める.
-頂点$u\in V$に対し, $\boldsigma = a(u)$とし, 以下で定まる$\sigma$を$a(u)=\sigma$とする:
+最後に$\UNSAT(G^\ell)$の下界を証明する.
+頂点$u\in V$に対し, $V$値をとる確率変数$RW(u)$を, グラフ$G$上で頂点$u$から開始する長さ$\ceil{\ell/2}$のランダムウォークの最終到達頂点とする (長さとは辿った辺の本数のことである).
+べき乗の制約グラフ$G^\ell$における割り当て$a'\colon V \to \Sigma^{\ceil{\ell/2}}$に対し, 元の制約グラフに対する任意の割り当て$a\colon V\to\Sigma$を, 「重み付き多数決」によって定める.
+頂点$u\in V$に対し, $\vec{\sigma} = a(u)$とし, 以下で定まる$\sigma$を$a(u)=\sigma$とする:
 \begin{align}
-  \sigma = \argmax_{\tau \in \Sigma} \qty{ \Pr\qty[ \boldsigma\qty(\RW(u)) = \tau ] }. \label{eq:argmax-of-RW}
+  \sigma = \argmax_{\tau \in \Sigma} \qty{ \Pr\qty[ \vec{\sigma}\qty(\RW(u)) = \tau ] }. \label{eq:argmax-of-RW}
 \end{align}
-常に$\RW(u)\in \Gamma(u)$であるから$\boldsigma\qty( \RW(u) )$は必ず存在する.
+常に$\RW(u)\in \Gamma(u)$であるから$\vec{\sigma}\qty( \RW(u) )$は必ず存在する.
 また, タイが発生した場合はその中から任意に選ぶ.
-直感的には, $\boldsigma(u)$の中で最も登場頻度の高い意見を$a(u)=\sigma$としている.
+直感的には, $\vec{\sigma}(u)$の中で最も登場頻度の高い意見を$a(u)=\sigma$としている.
 このようにして定めた割り当て$a\colon V \to \Sigma$は, 適当な定数$\beta=\beta(\lambda,d,\abs{\Sigma})>0$に対して
 \begin{align}
-  \UNSAT(a';G^t) \ge \beta\sqrt{t}\cdot \min\qty{ \UNSAT(a;G), \frac{1}{t} }. \label{eq:lower-bound-of-UNSAT}
+  \UNSAT(a';G^\ell) \ge \beta\sqrt{\ell}\cdot \min\qty{ \UNSAT(a;G), \frac{1}{\ell} }. \label{eq:lower-bound-of-UNSAT}
 \end{align}
-を満たすことを後で示す. $\UNSAT(a';G^t)=\UNSAT(G^t)$を満たす$a'$に対して\cref{eq:lower-bound-of-UNSAT}を適用し, さらに$\UNSAT(a;G)\le \UNSAT(G)$を代入すると$\UNSAT(G^t)$の所望の下界が得られて証明は完了する.
+を満たすことを後で示す. $\UNSAT(a';G^\ell)=\UNSAT(G^\ell)$を満たす$a'$に対して\cref{eq:lower-bound-of-UNSAT}を適用し, さらに$\UNSAT(a;G)\le \UNSAT(G)$を代入すると$\UNSAT(G^\ell)$の所望の下界が得られて証明は完了する.
 
 \paragraph*{\cref{eq:lower-bound-of-UNSAT}の証明.}
 
-簡単のため$t\in\Nat$は偶数とする.
-割り当て$a'\colon V\to \Sigma^{t/2}$を固定し, $a$を\cref{eq:argmax-of-RW}によって定める.
+簡単のため$\ell\in\Nat$は偶数とする.
+割り当て$a'\colon V\to \Sigma^{d^{\ell/2}}$を固定し, $a$を\cref{eq:argmax-of-RW}によって定める.
 頂点$u\in V$に対し, 確率変数$X_u\in\Sigma$を, ($a'$における)$u$の$\RW(u)$の意見とする.
 \cref{eq:argmax-of-RW}より, $\Pr[X_u = a(u)] \ge \frac{1}{\abs{\Sigma}}$である.
 
 辺部分集合$F\subseteq E$を, $a$によって充足されない辺の集合とする.
-なお, $\abs{F} > \floor*{\frac{\abs{E}}{t}}$である場合は適当に部分集合をとって$\abs{F} \le \floor*{\frac{\abs{E}}{t}}$とする.
-このとき$\UNSAT(a;G) $
+なお, $\abs{F} > \floor*{\frac{\abs{E}}{\ell}}$である場合は適当に部分集合をとって$\abs{F} \le \floor*{\frac{\abs{E}}{\ell}}$とする.
+このとき$\UNSAT(a;G) \ge \frac{\abs{F}}{\abs{E}}$である.
 
 
 

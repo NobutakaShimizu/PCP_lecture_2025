@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2025.3.9)  18 MAY 2025 16:24
+This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2025.3.9)  22 MAY 2025 00:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1343,20 +1343,25 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 279.
 [47]
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
+(Font)              No change on input line 300.
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
+(Font)              No change on input line 300.
+
+
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
+(Font)              No change on input line 305.
+[48]
 File: images/gap_amplification.pdf Graphic file (type pdf)
 <images/gap_amplification.pdf>
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 314.
-[48]
+(Font)              No change on input line 326.
+[49]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 331.
-
-
-LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 338.
-[49])
+(Font)              No change on input line 328.
+)
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 67.
@@ -1398,12 +1403,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35963 strings out of 473863
- 711958 string characters out of 5731560
- 1554354 words of memory out of 5000000
- 58709 multiletter control sequences out of 15000+600000
+ 35965 strings out of 473863
+ 711990 string characters out of 5731560
+ 1554394 words of memory out of 5000000
+ 58711 multiletter control sequences out of 15000+600000
  583124 words of font info for 143 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 98i,16n,107p,983b,1542s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,16n,107p,1091b,1542s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on .tex_intermediates/main.dvi (51 pages, 527048 bytes).
+Output written on .tex_intermediates/main.dvi (51 pages, 532208 bytes).
