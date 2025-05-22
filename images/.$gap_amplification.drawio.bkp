@@ -61,7 +61,7 @@
         <mxCell id="25" value="" style="shape=waypoint;sketch=0;size=6;pointerEvents=1;points=[];fillColor=none;resizable=0;rotatable=0;perimeter=centerPerimeter;snapToPoint=1;" parent="1" vertex="1">
           <mxGeometry x="409" y="303" width="20" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="26" value="\(\boldsymbol{\sigma}(s)\) = \(u\)の\(s\)に対する意見&lt;div&gt;\(\boldsymbol{\sigma}&#39;(t)\) = \(v\)の\(t\)に対する意見&lt;/div&gt;&lt;div&gt;としたとき, \((\boldsymbol{\sigma}(s),\boldsymbol{\sigma}&#39;(t))\)が元の制約\(c_e\)を充足するか?&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+        <mxCell id="26" value="\(\boldsymbol{\sigma}(s)\) = \(u\)の\(s\)に対する意見&lt;div&gt;\(\boldsymbol{\sigma}&#39;(t)\) = \(v\)の\(t\)に対する意見&lt;/div&gt;&lt;div&gt;としたとき, \((\boldsymbol{\sigma}(s),\boldsymbol{\sigma}&#39;(v))\)が元の制約\(c_e\)を充足するか?&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="215" y="390" width="530" height="60" as="geometry" />
         </mxCell>
         <mxCell id="27" value="&lt;font style=&quot;&quot;&gt;\(e\)&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#FF0000;" parent="1" vertex="1">

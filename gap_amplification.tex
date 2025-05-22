@@ -295,12 +295,16 @@ $\UNSAT(G') = \frac{d}{d+d_0+1}\UNSAT(G_1) = 0$を得る.
 \begin{definition}{制約グラフの冪乗}{power-of-constraint-graph}
   パラメータ$\ell\in\Nat$および全頂点が自己ループを持つ$d$-正則な制約グラフ$G=\ip{(V,E),\Sigma,\calC}$に対し, べき乗$G^\ell = \ip{(V,\boldE),\Sigma^{d^{\ceil{\ell/2}}},\calC^\ell}$を, 以下のようにして定義する:
   \begin{itemize}
-    \item 頂点集合は同じ$V$とする.
-    \item グラフ$(V,\boldE)$をべき乗(\cref{def:power-of-graph})によって得られるグラフ$(V,E)^\ell$とする. すなわち, 各二頂点$u,v\in V$に対し, 長さ$\ell$の$uv$-路の個数と同じだけ$uv$間に多重辺を用意する. このようにして得られる辺の多重集合を$\boldE$とし, その元を$\bolde = \{u,v\} \in \boldE$とする.
+    \item 頂点集合は同じ$V$とする. なお, $V$の元は$v_1<\dots < v_n$のように順序づけられているとする.
+    \item グラフ$(V,\boldE)$をべき乗(\cref{def:power-of-graph})によって得られるグラフ$(V,E)^\ell$とする. すなわち, 各二頂点$u,v\in V$に対し, 長さ$\ell$の$uv$-路の個数と同じだけ$uv$間に多重辺を用意する ($uv$-路と$vu$路の個数は一致するため, 無向グラフとして定義できる). このようにして得られる辺の多重集合を$\boldE$とし, その元を$\bolde = \{u,v\} \in \boldE$とする.
     \item アルファベット集合は$\Sigma^{d^{\ceil{\ell/2}}}$とする. ここで, 頂点$u$に$\vec{\sigma}=(\sigma_1,\dots,\sigma_{d^{\ceil{\ell/2}}}) \in \Sigma^{d^{\ceil{\ell/2}}}$が割り当てられたとき, 次の意味を持つ: 元の$d$-正則グラフ$G$上で頂点$u$から距離$\ceil{\ell/2}$以内の頂点の集合を$\Gamma(u)$とし\footnote{頂点$v$が頂点$u$から距離$i$以内であるというのは, 頂点$u$から開始し頂点$v$に至る長さ$i$以下の路が存在することをいう.}, その元を頂点番号の大小順で並べて$\Gamma(u)=\qty{ v_1,\dots,v_\ell}$ とする (ここで$G$の$d$-正則性より$\ell \le d^{\ceil{\ell/2}}$である). このとき, $\vec{\sigma}$は$v_1,\dots,v_\ell$の各頂点に$\Sigma$の元を割り当てる関数$\vec{\sigma} \colon \Gamma(u)\to\Sigma$とみなし, $w\in\Gamma(u)$に対し$\sigma=\vec{\sigma}(w)$を, \emph{$u$の$w$に対する意見}と呼ぶ.
     なお, $\ell < d^{\ceil{\ell/2}}$の場合は相異なる二つの$\vec{\sigma},\vec{\sigma}'\in\Sigma^{d^{\ceil{\ell/2}}}$が同一の関数としてみなされることもある.
     \item 辺$\bolde = \{u,v\} \in \boldE$ に対応する制約$\boldc_{\bolde}\in \calC^\ell$は次の二つを満たす割り当て$(\vec{\sigma},\vec{\sigma}')\in \Sigma^{d^{\ceil{\ell/2}}} \times \Sigma^{d^{\ceil{\ell/2}}}$によって満たされる:
-    一方の端点が$\Gamma(u)$, もう一方の端点が$\Gamma(v)$に属する元のグラフ$G$の全ての辺$e=\{s,t\}\in E$ (ここでは$s\in\Gamma(u),t\in\Gamma(v)$とする)に対し, $(\vec{\sigma}(s), \vec{\sigma}'(t))\in c_e$が成り立つ.
+    元のグラフ$G$の全ての辺$e=\{s,t\}\in E$ (ただし$s<t$)に対し,
+      \begin{itemize}
+        \item $s\in \Gamma(u), t\in\Gamma(v)$ならば$(\vec{\sigma}(s), \vec{\sigma}'(t))\in c_e$が成り立つ.
+        \item $s\in\Gamma(v), t\in\Gamma(u)$ならば$(\vec{\sigma}'(s), \vec{\sigma}(t))\in c_e$が成り立つ.
+      \end{itemize}
   \end{itemize}
 \end{definition}
 
@@ -359,11 +363,28 @@ $\UNSAT(G') = \frac{d}{d+d_0+1}\UNSAT(G_1) = 0$を得る.
 頂点$u\in V$に対し, 確率変数$X_u\in\Sigma$を, ($a'$における)$u$の$\RW(u)$の意見とする.
 \cref{eq:argmax-of-RW}より, $\Pr[X_u = a(u)] \ge \frac{1}{\abs{\Sigma}}$である.
 
-辺部分集合$F\subseteq E$を, $a$によって充足されない辺の集合とする.
-なお, $\abs{F} > \floor*{\frac{\abs{E}}{\ell}}$である場合は適当に部分集合をとって$\abs{F} \le \floor*{\frac{\abs{E}}{\ell}}$とする.
-このとき$\UNSAT(a;G) \ge \frac{\abs{F}}{\abs{E}}$である.
+辺部分集合$F_0\subseteq E$を, $a$によって充足されない辺の集合とし,
+さらにその部分集合$F\subseteq F_0$を, 
+\begin{itemize}
+\item $\abs{F_0} \le \frac{\abs{E}}{\ell}$ならば$F_0=F$,
+\item そうでない場合は$\abs{F} = \floor*{\frac{\abs{E}}{\ell}}$となるように$F$を任意にとる.
+\end{itemize}
+このとき,
+\begin{align*}
+  \frac{\abs{F}}{\abs{E}} \le \min\qty{ \frac{\abs{F_0}}{\abs{E}}, \frac{1}{\ell} } = \min\qty{ \UNSAT(a;G), \frac{1}{\ell} }
+\end{align*}
+が成り立つ.
+べき乗グラフの辺$\bolde \in \boldE$は$G$上の長さ$\ell$の路に対応する.
+従って$\bolde = (v_0,\dots,v_\ell)$ (ただし全ての$i\in[\ell]$に対し$\qty{v_{i-1},v_{i}}\in E$)と表し, 元のグラフの辺と区別するため$e\in E$を$G$辺, $\bolde\in\boldE$を$G^\ell$辺と呼ぶことにする.
 
-
+$G^\ell$辺$\bolde=(v_0,\dots,v_\ell)$の$i$番目の辺$e_i:=\qty{v_{i-1},v_i}$は
+\begin{itemize}
+  \item $e_i \in F$
+  \item $\vec{\sigma}(v_{0})_{v_{i-1}} = \sigma(v_{i-1})$ かつ $\vec(\sigma)(v_\ell)_{v_i} = \sigma(v_i)$
+\end{itemize}
+を全て満たすとき, \emph{悪い}ということにする.
+$G^\ell$辺$\bolde$の中の悪い辺の個数を$B$, $B_i\in\binset$を辺$e_i$が悪いならば$B_i=1$, そうでないならば$B_i=0$とする.
+一様ランダムに$G^\ell$辺$\bolde$を選ぶとき, $B$と各$B_i$は確率変数となる.
 
 \end{proof}
 
