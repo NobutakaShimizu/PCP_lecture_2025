@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.uptex) (TeX Live 2025) (preloaded format=uplatex 2025.5.22)  23 MAY 2025 01:25
+This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.uptex) (TeX Live 2025) (preloaded format=uplatex 2025.5.22)  23 MAY 2025 01:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1362,24 +1362,19 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 333.
 
-Overfull \hbox (11.69432pt too wide) in paragraph at lines 339--341
-\JY2/mc/m/n/12 で定まる $\OML/cmm/m/it/12 a[] [] [] V \OMS/cmsy/m/n/12 ! \OT1/cmr/m/n/12 ^^F[]$ \JY2/mc/m/n/12 を考えると\OT1/cmr/m/n/12 , \JY2/mc/m/n/12 これは全ての制約を満たす割り当てであるため\OT1/cmr/m/n/12 , $[](\OML/cmm/m/it/12 G[]\OT1/cmr/m/n/12 ) =
- []
-
-
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 376.
+(Font)              No change on input line 377.
 [50]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 405.
+(Font)              No change on input line 406.
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 422.
+(Font)              No change on input line 423.
 [51]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 444.
+(Font)              No change on input line 445.
 File: images/randomwalk_process.pdf Graphic file (type pdf)
 <images/randomwalk_process.pdf>
 
@@ -1389,10 +1384,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 467.
+(Font)              No change on input line 468.
 [52]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 476.
+(Font)              No change on input line 477.
 )
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
@@ -1445,4 +1440,4 @@ Here is how much of TeX's memory you used:
  929 hyphenation exceptions out of 8191
  98i,20n,107p,1013b,1542s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on .tex_intermediates/main.dvi (55 pages, 559004 bytes).
+Output written on .tex_intermediates/main.dvi (55 pages, 559272 bytes).

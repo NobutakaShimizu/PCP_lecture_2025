@@ -333,11 +333,12 @@ $\UNSAT(G') = \frac{d}{d+d_0+1}\UNSAT(G_1) = 0$を得る.
 
 定義より$\abs{\boldE} \le \abs{V}d^{\ell}$であるから, $\size(G^\ell) \le \size(G)\cdot d^\ell$である.
 
-また, $\UNSAT(G)=0$ならば, 全制約を満たす割り当て$a\colon V \to \Sigma$に対し
+また, $\UNSAT(G)=0$ならば, 全制約を満たす割り当て$a\colon V \to \Sigma$に対し, $a'(u)$に
 \begin{align*}
-  a'(u)_u = a(u)
+  \vec{sigma}(u)\colon w \mapsto a(w)
 \end{align*}
-で定まる$a'\colon V\to\Sigma^{\ell}$を考えると, これは全ての制約を満たす割り当てであるため, $\UNSAT(G^\ell)=0$である.
+で定まる関数$\vec{\sigma}\colon \Gamma(w)\to\Sigma$とみなせる値$\vec{\sigma}\in\Sigma^{d^\ell}$を割り当てる.
+このようにして定まる$a'\colon V\to\Sigma^{\ell}$を考えると, これは全ての制約を満たす割り当てであるため, $\UNSAT(G^\ell)=0$である.
 
 最後に$\UNSAT(G^\ell)$の下界を証明する.
 頂点$u\in V$に対し, $V$値をとる確率変数$\RW_j(u)$を, グラフ$G$上で頂点$u$から開始する長さ$j$のランダムウォークの最終到達頂点とする (長さとは辿った辺の本数のことである).
