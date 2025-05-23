@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.uptex) (TeX Live 2025) (preloaded format=uplatex 2025.5.22)  23 MAY 2025 01:29
+This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.uptex) (TeX Live 2025) (preloaded format=uplatex 2025.5.22)  23 MAY 2025 15:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1360,41 +1360,49 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 331.
 [49]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 333.
+(Font)              No change on input line 339.
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 377.
+(Font)              No change on input line 379.
 [50]
-LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 406.
-
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 423.
+(Font)              No change on input line 425.
 [51]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 445.
+(Font)              No change on input line 431.
 File: images/randomwalk_process.pdf Graphic file (type pdf)
 <images/randomwalk_process.pdf>
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
+(Font)              No change on input line 451.
+[52]
+Overfull \hbox (22.78542pt too wide) in paragraph at lines 463--467
+\JY2/mc/m/n/12 である\OT1/cmr/m/n/12 . \JY2/mc/m/n/12 ステ ップ \OT1/cmr/m/n/12 2 \JY2/mc/m/n/12 で選ばれた端点 $\OML/cmm/m/it/12 u[]$ \JY2/mc/m/n/12 は $\OML/cmm/m/it/12 u[] \OT1/cmr/m/n/12 = [][](\OML/cmm/m/it/12 u[]\OT1/cmr/m/n/12 )$ \JY2/mc/m/n/12 であるから\OT1/cmr/m/n/12 , $\OML/cmm/m/it/12 X[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 a[][][] \OT1/cmr/m/n/12 =
+ []
 
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 468.
-[52]
+(Font)              No change on input line 494.
+[53]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 477.
+(Font)              No change on input line 524.
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
+(Font)              No change on input line 528.
 )
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 67.
-[53]
+[54]
 
-[54
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
+(Font)              No change on input line 67.
+[55]
+
+[56
 
 ]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
@@ -1413,9 +1421,28 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
 (Font)              No change on input line 67.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
 (Font)              No change on input line 67.
- (./appendix.tex)
+ (./appendix.tex
 
-[55] (.tex_intermediates/main.aux)
+[57]
+
+[58
+
+]
+Appendix A.
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
+(Font)              No change on input line 14.
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
+(Font)              No change on input line 30.
+
+
+[59]
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
+(Font)              No change on input line 46.
+)
+
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
+(Font)              No change on input line 70.
+[60] (.tex_intermediates/main.aux)
  ***********
 pLaTeX2e <2023-02-14u04>+1, based on
 LaTeX2e <2024-11-01> patch level 2
@@ -1426,18 +1453,18 @@ L3 programming layer <2025-01-18>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A5688C78E7A7362EB0D5DF6A5F53EDE0;4224.
+(rerunfilecheck)             Checksum: 30A5DC17090F199F217F51E1653C9EB8;4421.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35987 strings out of 473836
- 712547 string characters out of 5731190
- 1558053 words of memory out of 5000000
- 58733 multiletter control sequences out of 15000+600000
+ 36011 strings out of 473836
+ 713025 string characters out of 5731190
+ 1560025 words of memory out of 5000000
+ 58757 multiletter control sequences out of 15000+600000
  583124 words of font info for 143 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 98i,20n,107p,1013b,1542s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,20n,107p,983b,1542s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on .tex_intermediates/main.dvi (55 pages, 559272 bytes).
+Output written on .tex_intermediates/main.dvi (60 pages, 590388 bytes).

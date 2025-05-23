@@ -1,0 +1,53 @@
+\chapter{付録}
+
+\section{基本的な確率の不等式}
+この節では, 証明の中で用いられる確率の不等式とその証明を述べる.
+\begin{lemma}{Markovの不等式}{markov-inequality}
+  任意の非負の確率変数$X$と任意の$t>0$に対し,
+  \begin{align*}
+    \Pr[X\ge t] \le \frac{\E[X]}{t}
+  \end{align*}
+  が成り立つ.
+\end{lemma}
+
+\begin{proof}
+  ここでは簡単のため, $X$の台$\Omega=\supp(X)\subseteq\Real$は有限集合, すなわち$\abs{\Omega}<\infty$と仮定する\footnote{確率変数$X$のとりうる値の集合, すなわち$\qty{x\colon \Pr[X=x]>0}$を$X$の台と呼び, $\supp(X)$と表す.}.
+  このとき,
+  \begin{align*}
+    \E[X] = \sum_{x\in \Omega} x\Pr[X=x] \ge \sum_{x\in \Omega,x\ge t} x\Pr[X=x] \ge \sum_{x\in \Omega,x\ge t} t\Pr[X=x] = t\Pr[X\ge t]
+  \end{align*}
+  を整理すると主張を得る.
+\end{proof}
+
+\begin{lemma}{Chebyshevの不等式}{chebyshev-inequality}
+  期待値$\E[X]$と分散$\Var[X]$が存在する任意の確率変数$X$と任意の$t>0$に対し,
+  \begin{align*}
+    \Pr[|X-\E[X]|\ge t] \le \frac{\Var[X]}{t^2}
+  \end{align*}
+  が成り立つ.
+\end{lemma}
+\begin{proof}
+  確率変数$Y=(X-\E[X])^2$は非負の確率変数であるから, これにMarkovの不等式を適用すると
+  \begin{align*}
+    \Pr\qty[ \abs{X - \E[X]} \ge t  ] &= \Pr\qty[ (X-\E[X])^2 \ge t^2 ] \\
+    &\le \frac{\E\qty[ (X-\E[X])^2 ]}{t^2} \\
+    & = \frac{\Var[X]}{t^2}
+  \end{align*}
+  を得る.
+\end{proof}
+
+\begin{lemma}{Paley-Zygmundの不等式}{paley-zigmund-inequality}
+  非負整数値をとる任意の確率変数$X$に対し,
+  \begin{align*}
+    \Pr[X\ge 1] \ge \frac{\E[X]^2}{\E[X^2]}.
+  \end{align*}
+\end{lemma}
+\begin{proof}
+  非負整数値をとる確率変数$X$に対し
+  \begin{align*}
+    \E[X] &= \E[X\cdot \indicator{X\ge 1}] \\
+    &\le \sqrt{ \E[X^2]\cdot \E[\indicator{X\ge 1}] } & & \because\text{Cauchy-Schwarzの不等式}\\
+    &= \sqrt{ \E[X^2]\cdot \Pr[X\ge 1] }.
+  \end{align*}
+  両辺を二乗して整理すると主張を得る.  
+\end{proof}

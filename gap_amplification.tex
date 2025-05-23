@@ -77,7 +77,7 @@ PCP定理(\cref{thm:PCP-CSP-theorem})の証明は, この補題を繰り返し�
 与えられた制約グラフを$G=\ip{(V,E),\Sigma,\calC}$とし, 変換によって得られる制約グラフを$G'=\ip{(V',E'),\Sigma,\calC'}$とする.
 フォーマルな構成を与える前に, まず図例を先に示す.
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]{images/degree_reduction.pdf}
   \caption{次数削減変換の例. 橙色の内部の頂点集合がクラウドであり, クラウド内の辺は\cref{thm:construction-of-expander-graph}によって構成されるが, ここでは図の簡単のため$X_d$を長さ$d$の閉路としている. $G'$における黒い辺の制約は対応する元のグラフの辺と同一の制約とし, クラウド内の赤辺の制約は等式制約とする.}
@@ -168,7 +168,7 @@ $\UNSAT(a';G')=\UNSAT(G')$を満たす割り当て$a'\colon V'\to\Sigma$を任�
 と定義し, 各$v\in V$に対し$S^v = S\cap [v]$とし, 各$\sigma\in \Sigma$に対し$S^v_\sigma = \qty{ (u,e)\in S^v \colon a'(u,e)=\sigma }$とする (\cref{fig:majority-degree-reduction}).
 なお, $\sigma\in\Sigma$が多数決の意見 (すなわち$\sigma=a(v)$)のとき, $S^v_\sigma=\emptyset$とする.
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]{images/majority_degree_reduction.png}
   \caption{多数決によって選ばれなかった$v$-クラウド内の頂点の集合を$S_v\subseteq [v]$とする. \label{fig:majority-degree-reduction}}
@@ -297,8 +297,8 @@ $\UNSAT(G') = \frac{d}{d+d_0+1}\UNSAT(G_1) = 0$を得る.
   \begin{itemize}
     \item 頂点集合は同じ$V$とする. なお, $V$の元は$v_1<\dots < v_n$のように順序づけられているとする.
     \item グラフ$(V,\boldE)$をべき乗(\cref{def:power-of-graph})によって得られるグラフ$(V,E)^\ell$とする. すなわち, 各二頂点$u,v\in V$に対し, 長さ$\ell$の$uv$-路の個数と同じだけ$uv$間に多重辺を用意する ($uv$-路と$vu$路の個数は一致するため, 無向グラフとして定義できる). このようにして得られる辺の多重集合を$\boldE$とし, その元を$\bolde = \{u,v\} \in \boldE$とする.
-    \item アルファベット集合は$\Sigma^{d^{\ell}}$とする. ここで, 頂点$u$に$\vec{\sigma}=(\sigma_1,\dots,\sigma_{d^{\ell}}) \in \Sigma^{d^{\ell}}$が割り当てられたとき, 次の意味を持つ: 元の$d$-正則グラフ$G$上で頂点$u$から距離$\ell$以内の頂点の集合を$\Gamma(u)$とし\footnote{頂点$v$が頂点$u$から距離$i$以内であるというのは, 頂点$u$から開始し頂点$v$に至る長さ$i$以下の路が存在することをいう.}, その元を頂点番号の大小順で並べて$\Gamma(u)=\qty{ v_1,\dots,v_\ell}$ とする (ここで$G$の$d$-正則性より$\ell \le d^{\ell}$である). このとき, $\vec{\sigma}$は$v_1,\dots,v_\ell$の頂点を$\Sigma$の元に移す写像$\vec{\sigma} \colon \Gamma(u)\to\Sigma$とみなし, $w\in\Gamma(u)$に対し$\vec{\sigma}(w)$を, \emph{$u$の$w$に対する意見}と呼ぶ.
-    なお, $\ell < d^{\ell}$の場合は相異なる二つの$\vec{\sigma},\vec{\sigma}'\in\Sigma^{d^{\ell}}$が同一の関数としてみなされることもある (これらは制約を充足するか否かにおいては区別されない).
+    \item アルファベット集合は$\Sigma^{d^{\ell}}$とする. ここで, 頂点$u$に$\vec{\sigma}=(\sigma_1,\dots,\sigma_{d^{\ell}}) \in \Sigma^{d^{\ell}}$が割り当てられたとき, 次の意味を持つ: 元の$d$-正則グラフ$G$上で頂点$u$から距離$\ell$以内の頂点の集合を$\Gamma(u)$とし\footnote{頂点$v$が頂点$u$から距離$i$以内であるというのは, 頂点$u$から開始し頂点$v$に至る長さ$i$以下の路が存在することをいう.}, その元を頂点番号の大小順で並べて$\Gamma(u)=\qty{ v_1,\dots,v_\ell}$ とする (ここで$G$の$d$-正則性より$\ell \le d^{\ell}$である). このとき, $\vec{\sigma}$は各$v\in\Gamma(u)$に$\vec{\sigma}_u\in \Sigma$を割り当てる写像とみなし, $\vec{\sigma}_v$を\emph{$u$の$v$に対する意見}と呼ぶ.
+    なお, $\ell < d^{\ell}$の場合は相異なる二つの$\vec{\sigma},\vec{\sigma}'\in\Sigma^{d^{\ell}}$が同一の写像としてみなされることもある (これらは制約を充足するか否かにおいては区別されない).
     \item 辺$\bolde = \{u,v\} \in \boldE$ に対応する制約$\boldc_{\bolde}\in \calC^\ell$は次の二つを満たす割り当て$(\vec{\sigma},\vec{\sigma}')\in \Sigma^{d^{\ell}} \times \Sigma^{d^{\ell}}$によって満たされる:
     元のグラフ$G$の全ての辺$e=\{s,t\}\in E$ (ただし$s<t$)に対し,
       \begin{itemize}
@@ -308,10 +308,10 @@ $\UNSAT(G') = \frac{d}{d+d_0+1}\UNSAT(G_1) = 0$を得る.
   \end{itemize}
 \end{definition}
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]{images/gap_amplification.pdf}
-  \caption{制約グラフ$G$のべき乗$G^\ell$の図例. 頂点$u,v$にそれぞれ$\vec{\sigma},\vec{\sigma}'\in\Sigma^{d^{\ell}}$が割り当てられているとき, それぞれ関数$\vec{\sigma}\colon \Gamma(u)\to\Sigma$と$\vec{\sigma}'\colon \Gamma(v)\to\Sigma$とみなす. なお, 元のグラフ$G$が自己ループを持つことから, 距離$\ell$以内の全ての頂点に対して意見が定義される. なお, $\ell$が奇数のときはこの二つの円は交わる. \label{fig:gap-amplification}}
+  \caption{制約グラフ$G$のべき乗$G^\ell$の図例. 頂点$u,v$にそれぞれ$\vec{\sigma},\vec{\sigma}'\in\Sigma^{d^{\ell}}$が割り当てられているとき, それぞれ関数$\vec{\sigma}\colon \Gamma(u)\to\Sigma$と$\vec{\sigma}'\colon \Gamma(v)\to\Sigma$とみなす. なお, 元のグラフ$G$が自己ループを持つことから, 距離$\ell$以内の全ての頂点に対して意見が定義される.\label{fig:gap-amplification}}
 \end{figure}
 
 最後に, $G^\ell$における割り当て$a'\colon V\to\Sigma^{d^{\ell}}$に対し, $u$の$w$に対する意見を$a'(u)_w$と表すことにする.
@@ -321,7 +321,7 @@ $\UNSAT(G') = \frac{d}{d+d_0+1}\UNSAT(G_1) = 0$を得る.
 
 \begin{lemma}{べき乗の性質}{property-of-power}
   ある定数$\beta=\beta(\lambda,d,\abs{\Sigma})$が存在して以下が成り立つ:
-  パラメータ$\ell \le \abs{E}$および全頂点が自己ループを持つ$d$-正則な制約グラフ$G=\ip{(V,E),\Sigma,\calC}$に対し, べき乗$G^\ell = \ip{(V,\boldE),\Sigma^{\ell},\calC^\ell}$を, \cref{def:power-of-constraint-graph}で定義する.
+  十分大きいパラメータ$\ell=\ell(d,\abs{\Sigma},\lambda) \le \abs{E}$および全頂点が自己ループを持つ$d$-正則な制約グラフ$G=\ip{(V,E),\Sigma,\calC}$に対し, べき乗$G^\ell = \ip{(V,\boldE),\Sigma^{\ell},\calC^\ell}$を, \cref{def:power-of-constraint-graph}で定義する.
   このとき
   \begin{itemize}
     \item $\size(G^\ell) \le \size(G)\cdot d^\ell$である.
@@ -329,27 +329,33 @@ $\UNSAT(G') = \frac{d}{d+d_0+1}\UNSAT(G_1) = 0$を得る.
     \item $\UNSAT(G^\ell) \ge \beta\sqrt{\ell}\cdot \min\qty{ \UNSAT(G), \frac{1}{\ell} }$である.
   \end{itemize}
 \end{lemma}
+
+\begin{remark}{「定数」の意味}{mean-of-constants}
+  主張や証明の中でしばし「定数」という言葉を多用するが, ここでは$d,\lambda,\abs{\Sigma}$をユニバーサルな定数で固定し, これらの値に応じて定まる値$\beta,\ell$なども定数と呼ぶ.
+  ただし, 定数はグラフの頂点数や辺数には依存しない.
+\end{remark}
+
 \begin{proof}
 
 定義より$\abs{\boldE} \le \abs{V}d^{\ell}$であるから, $\size(G^\ell) \le \size(G)\cdot d^\ell$である.
 
 また, $\UNSAT(G)=0$ならば, 全制約を満たす割り当て$a\colon V \to \Sigma$に対し, $a'(u)$に
 \begin{align*}
-  \vec{sigma}(u)\colon w \mapsto a(w)
+  \vec{\sigma}(u)\colon w \mapsto a(w)
 \end{align*}
-で定まる関数$\vec{\sigma}\colon \Gamma(w)\to\Sigma$とみなせる値$\vec{\sigma}\in\Sigma^{d^\ell}$を割り当てる.
+で定まる関数$\vec{\sigma}\colon \Gamma(w)\to\Sigma$とみなせる値$\vec{\sigma}\in\Sigma^{d^\ell}$を割り当てる (候補が複数存在する場合はどれでもよい).
 このようにして定まる$a'\colon V\to\Sigma^{\ell}$を考えると, これは全ての制約を満たす割り当てであるため, $\UNSAT(G^\ell)=0$である.
 
 最後に$\UNSAT(G^\ell)$の下界を証明する.
+簡単のため$\ell$は偶数であるとする (奇数の場合は$\ell/2$を$\floor{\ell/2}$に置き換えれば同じ証明が成立する).
 頂点$u\in V$に対し, $V$値をとる確率変数$\RW_j(u)$を, グラフ$G$上で頂点$u$から開始する長さ$j$のランダムウォークの最終到達頂点とする (長さとは辿った辺の本数のことである).
 べき乗の制約グラフ$G^\ell$における割り当て$a'\colon V \to \Sigma^{\ell}$に対し, 元の制約グラフに対する任意の割り当て$a\colon V\to\Sigma$を
 \begin{align}
-  a(u) = \argmax_{\tau \in \Sigma} \qty{ \Pr\qty[ a'(u)_{\RW(u)} = \tau ] }. \label{eq:argmax-of-RW}
+  a(u) = \argmax_{\tau \in \Sigma} \qty{ \Pr\qty[ a'(\RW_{\ell/2}(u))_u = \tau ] }. \label{eq:argmax-of-RW}
 \end{align}
 によって定める.
-常に$\RW(u)\in \Gamma(u)$であるから$a'(u)_{\RW(u)}$は必ず存在する.
+常に$\RW_{\ell/2}(u)\in \Gamma(u)$であるから$a'(\RW(u))_u$は必ず存在する.
 すなわち, $u$から開始したランダムウォークが最も「拾いやすい」意見を$a(u)$としている.
-また, タイが発生した場合はその中から任意に選ぶ.
 このようにして定めた割り当て$a\colon V \to \Sigma$は, 適当な定数$\beta=\beta(\lambda,d,\abs{\Sigma})>0$に対して
 \begin{align}
   \UNSAT(a';G^\ell) \ge \beta\sqrt{\ell}\cdot \min\qty{ \UNSAT(a;G), \frac{1}{\ell} }. \label{eq:lower-bound-of-UNSAT}
@@ -358,11 +364,7 @@ $\UNSAT(G') = \frac{d}{d+d_0+1}\UNSAT(G_1) = 0$を得る.
 
 \paragraph*{\cref{eq:lower-bound-of-UNSAT}の証明.}
 
-$\UNSAT(a;G)=0$ならばすでに示されているため, $\UNSAT(a;G)>0$とする.
 割り当て$a'\colon V\to \Sigma^{d^{\ell}}$を固定し, $a$を\cref{eq:argmax-of-RW}によって定める.
-頂点$u\in V$に対し, 確率変数$X_u\in\Sigma$を, ($a'$における)$u$の$\RW(u)$の意見とする.
-\cref{eq:argmax-of-RW}より, $\Pr[X_u = a(u)] \ge \frac{1}{\abs{\Sigma}}$である.
-
 辺部分集合$F_0\subseteq E$を, $a$によって充足されない辺の集合とし,
 さらにその部分集合$F\subseteq F_0$を, 
 \begin{itemize}
@@ -389,31 +391,14 @@ $G^\ell$辺$\bolde=(u_0,\dots,u_\ell)$の$i$番目の辺$e_i:=\qty{u_{i-1},u_i}$
 一様ランダムに$\bolde$を選んだとき, $B_i\in\binset$を辺$e_i$が悪いならば$B_i=1$, そうでないならば$B_i=0$とする (これらは確率変数である).
 さらに
 \begin{align*}
-  I = \qty[\frac{\ell}{2} - \sqrt{\frac{\ell}{2}}, \frac{\ell}{2} + \sqrt{\frac{\ell}{2}}] \cap \mathbb{Z}
+  I = \qty[\frac{\ell}{2} - \sqrt{\ell}, \frac{\ell}{2} + \sqrt{\ell}] \cap \mathbb{Z}
 \end{align*}
 に対し, $B=\sum_{i\in I}B_i$とする.
 もしも$B>0$ならば, 辺$\bolde$の制約$c'_{\bolde}$は$a'$によって充足されない.
 従って, $\UNSAT(a';G^\ell) \ge \Pr_{\bolde\sim \boldE}[B\ge 1]$である.
 
-以下の不等式を用いて$\Pr[B>0]$を評価する:
-\begin{lemma}{Paley-Zygmundの不等式}{paley-zigmund-inequality}
-  非負整数値をとる任意の確率変数$X$に対し,
-  \begin{align*}
-    \Pr[X\ge 1] \ge \frac{\E[X]^2}{\E[X^2]}.
-  \end{align*}
-\end{lemma}
-\begin{proof}
-  非負整数値をとる確率変数$X$に対し
-  \begin{align*}
-    \E[X] &= \E[X\cdot \indicator{X\ge 1}] \\
-    &\le \sqrt{ \E[X^2]\cdot \E[\indicator{X\ge 1}] } & & \because\text{Cauchy-Schwarzの不等式}\\
-    &= \sqrt{ \E[X^2]\cdot \Pr[X\ge 1] }.
-  \end{align*}
-  両辺を二乗して整理すると主張を得る.  
-\end{proof}
-
-すなわち, $E[B]$および$\E[B^2]$を評価することで$\Pr[B\ge 1]$の下界を得ることができる.
-これらは以下のように評価できる. 主張の証明は後で与える.
+Paley-Zygmundの不等式(\cref{lem:paley-zigmund-inequality})より, $\E[B]$および$\E[B^2]$を評価することで$\Pr[B\ge 1]$の下界を得ることができる.
+これらは以下のように評価できる. 
 
 \begin{claim}{$B$の期待値}{expectation-of-B}
   ある十分小さな定数$C=C(d,\lambda,\abs{\Sigma})>0$が存在して, $B$の期待値は
@@ -429,7 +414,8 @@ $G^\ell$辺$\bolde=(u_0,\dots,u_\ell)$の$i$番目の辺$e_i:=\qty{u_{i-1},u_i}$
   \end{align*}
 \end{claim}
 
-これらを用いて\cref{eq:lower-bound-of-UNSAT}を示す.
+これらの主張の証明は後で与える.
+ここでは, これらを用いて\cref{eq:lower-bound-of-UNSAT}を示す.
 実際, \cref{lem:paley-zigmund-inequality,claim:expectation-of-B,claim:expectation-of-B-squared}より, 定数$\beta=\frac{C^2}{2C'}>0$に対して
 \begin{align*}
   \UNSAT(a';G^\ell) &\ge \Pr[B\ge 1] \\
@@ -452,7 +438,7 @@ $G^\ell$辺$\bolde=(u_0,\dots,u_\ell)$の$i$番目の辺$e_i:=\qty{u_{i-1},u_i}$
     \item 頂点列$(u_0,\dots,u_\ell)$に対応する$\bolde \in \boldE$を出力する.
   \end{enumerate}
 
-  \begin{figure}[h]
+  \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth]{images/randomwalk_process.pdf}
     \caption{ランダムウォークの図例. 頂点$u_0$から開始して長さ$i-1$のランダムウォークを行い, 辿った頂点を順番に$u_{i-1},u_{i-2},\dots,u_0$とする. 同様に, 頂点$u_i$から開始して長さ$\ell-i$のランダムウォークを行い, 辿った頂点を順番に$u_i,u_{i+1},\dots,u_\ell$とする. この二つのランダムウォークを組み合わせて, 長さ$\ell$のランダムウォークを生成する. \label{fig:random-walk}}
@@ -462,16 +448,81 @@ $G^\ell$辺$\bolde=(u_0,\dots,u_\ell)$の$i$番目の辺$e_i:=\qty{u_{i-1},u_i}$
   まず, ステップ1で選ばれた辺が$\qty{u_{i-1},u_i}\in F$である確率は$\frac{\abs{F}}{\abs{E}}$である.
   次にステップ1で選ばれた辺$\qty{u_{i-1},u_i}\in F$で条件つけたとき, ステップ2と3は独立なランダムネスに基づく試行であるため, それぞれの両端点$u_0,u_\ell$は独立な確率変数である.
   従って
-  \begin{align*}
-    \Pr[B_i=1] &= \E_{\text{step 1-3}}\qty[\{u_{i-1},u_i\}\in F \text{ and }a'(u_0)_{u_{i-1}} = a(u_{i-1})\text{ and }a'(u_\ell)_{u_i} = a(u_i)] \\
-     &= \frac{\abs{F}}{\abs{E}} \cdot \E_{\{u_{i-1},u_i\}\sim F}\qty[ \underbrace{\Pr_{\text{step 2}}[a'(u_0)_{u_{i-1}} = a(u_{i-1})]}_{=:p_0} \cdot \underbrace{\Pr_{\text{step 3}}[a'(u_\ell)_{u_i} = a(u_i)]}_{=:p_\ell}]
-  \end{align*}
+  \begin{align}
+    \Pr[B_i=1] &= \E_{\text{step 1-3}}\qty[\{u_{i-1},u_i\}\in F \text{ and }a'(u_0)_{u_{i-1}} = a(u_{i-1})\text{ and }a'(u_\ell)_{u_i} = a(u_i)] \nonumber \\
+     &= \frac{\abs{F}}{\abs{E}} \cdot \E_{\{u_{i-1},u_i\}\sim F}\qty[ \underbrace{\Pr_{\text{step 2}}[a'(u_0)_{u_{i-1}} = a(u_{i-1})]}_{=:p_0} \cdot \underbrace{\Pr_{\text{step 3}}[a'(u_\ell)_{u_i} = a(u_i)]}_{=:p_\ell}] \label{eq:Pr-B_i}
+  \end{align}
   を得る. 二つ目の等式では, $\{u_{i-1},u_i\}\in F$で条件つけて$\{u_{i-1},u_i\}\sim E$をランダムに選ぶというのは, $F$内の辺を一様ランダムに選ぶことに他ならないことに留意する.
 
   次に, $p_0$と$p_\ell$を評価する.
   頂点$u_{i-1}$を任意に固定して$p_0$を考える ($p_\ell$も同様に示せる).
-  ステップ2の端点$u_0$は$u_0=\RW_i(u_{i-1})$である.
+  頂点$u\in V$および非負整数$m\ge 0$に対し, 確率変数$X_{u,m}\in\Sigma$を, ($a'$における)$\RW_m(u)$の$u$に対する意見, すなわち$X_{u,m} = a'(\RW_m(u))_u$とする.
+  \cref{eq:argmax-of-RW}より, $m=\ell/2$のとき, 
+  \begin{align}
+  \Pr[X_{u_{i-1},\ell/2} = a(u_{i-1})] \ge \frac{1}{\abs{\Sigma}} \label{eq:center_opinion}
+  \end{align}
+  である.
+  ステップ2で選ばれた端点$u_0$は$u_0=\RW_i(u_{i-1})$であるから, $X_{u_{i-1},i}=a'\qty( \RW_i(u_{i-1}) )_{u_{i-1}} = a'\qty(u_0)_{u_{i-1}}$である.
+  従って, 
+  \begin{align}
+    p_0 = \Pr[X_{u_{i-1},i} = a(u_{i-1})] \label{eq:p_0}
+  \end{align}
+  である. 任意に頂点$u\in V$と$i\in I$を固定して$X_{u,\ell/2}$と$X_{u,i}$の分布を比較する.
+  $i\in I$なので, $\abs{i-\ell/2} \le \sqrt{\ell}$である.
 
+  元のグラフ$G$の各頂点に対し, その頂点が持つ自己ループの一つを赤く塗る
+  (仮定より元のグラフ$(V,E)$は$d$-正則かつ各頂点が自己ループを少なくとも一つ持つ).
+  頂点$u$から開始する長さ$\ell/2$のランダムウォークを考え,
+  確率変数$Y_{\ell/2}$を, このランダムウォークが辿った赤\emph{以外}の辺の個数とする ($Y_i$も同様に定義する).
+  各頂点がちょうど一つの赤い自己ループを持つため,
+  確率変数$Y_{\ell/2}$の分布は始点$u$に依存せず二項分布$\Bin(\ell/2,1-1/d)$である (同様に$Y_i$の分布は$\Bin(i,1-1/d)$である).
+  また, $\RW'_k(u)$を, 頂点$u$から開始する赤い辺を選ばない長さ$k$のランダムウォークの最終到達頂点とする (すなわち, $G$の各頂点から赤い辺を除いて得られるグラフ上の長さ$k$のランダムウォークである).
+  従って, 任意の頂点部分集合$A\subseteq V$に対し
+  \begin{align}
+    \Pr\qty[\RW_{i}(u)\in A] &= \sum_{k=0}^{i} \Pr\qty[\RW_{i}(u) \in A \condition Y_{i}=k] \cdot \Pr\qty[Y_{i}=k] \nonumber \\
+    &= \sum_{k=0}^{i} \Pr\qty[\RW'_k(u) \in A] \cdot \Pr\qty[Y_{i}=k] \label{eq:RW_i_distribution}
+  \end{align}
+  が成り立つ.
+  ここで, 以下の主張を後で示す:
+  \begin{claim}{}{two-constants}
+  十分大きな定数$C_1=C_1(d,\abs{\Sigma})>0$と十分小さな定数$C_2=C_2(d,\abs{\Sigma})>0$が存在して以下が成り立つことを示す:
+  $K:= \qty{ k\in \mathbb{Z}_{\ge 0} \colon \abs{k - \qty(1-\frac{1}{d})\frac{\ell}{2}} \le C_1\sqrt{\ell} }$ としたとき,
+  \begin{enumerate}
+    \item $\Pr\qty[Y_{\ell/2} \not\in K] \le \frac{1}{2\abs{\Sigma}}$.
+    \item 全ての$k\in K$と全ての$i\in I$に対し, $\Pr\qty[Y_i=k] \ge C_2\cdot \Pr\qty[Y_{\ell/2}=k]$.
+  \end{enumerate}
+  \end{claim}
+  
+  \cref{claim:two-constants}を仮定し, その定数$C_1,C_2$を用いて\cref{claim:expectation-of-B}を示す.
+  パラメータ$\ell$は$d$に依存して十分大きくとる.
+  このとき, 任意の$i\in I$に対して$K\subseteq [0,\ell/2-\sqrt{\ell}] \subseteq [0,i]$が成り立つから
+  \begin{align}
+    \Pr\qty[\RW_{i}(u)\in A] &= \sum_{k=0}^{i} \Pr\qty[\RW'_{k}(u) \in A] \cdot \Pr\qty[Y_{i}=k] \nonumber\\
+    &\ge \sum_{k\in K} \Pr\qty[\RW'_{k}(u) \in A] \cdot \underbrace{\Pr\qty[Y_{i}=k]}_{\ge C_2\cdot \Pr\qty[Y_{\ell/2}=k]} \nonumber\\
+    &\ge C_2 \sum_{k \in K} \Pr\qty[\RW'_{k}(u) \in A] \cdot \Pr\qty[Y_{\ell/2}=k] \nonumber\\
+    &\ge C_2 \qty(\sum_{0\le k \le \ell/2} \Pr\qty[\RW'_{k}(u) \in A] \cdot \Pr\qty[Y_{\ell/2}=k] - \Pr[Y_{\ell/2}\not\in K]) \nonumber\\
+    &\ge C_2 \qty( \Pr\qty[ \RW_{\ell/2}(u)\in A ] - \frac{1}{2\abs{\Sigma}} ) \label{eq:RW_i_distribution_2}
+  \end{align}
+  を得る. ここで頂点部分集合$A\subseteq V$を
+  $A = \qty{ v \in V \colon a'(v)_u = a(u) }$
+  として\cref{eq:RW_i_distribution_2}を適用すると
+  \begin{align*}
+    \Pr\qty[X_{u,i}=a(u)] = \Pr\qty[ a'\qty(\RW_{i}(u))_u = a(u) ] = \Pr\qty[\RW_{i}(u)\in A] \ge \frac{C_2}{2\abs{\Sigma}}
+  \end{align*}
+  となるため, $u=u_{i-1}$とすると, \cref{eq:p_0}より
+  \begin{align*}
+    p_0 = \Pr\qty[X_{u_{i-1},i} = a(u_{i-1})]\ge \frac{C_2}{2\abs{\Sigma}}
+  \end{align*}
+  を得る.
+  同様に, $p_\ell$についても, 適当な定数$C'_2>0$に対して$p_{\ell}\ge \frac{C'_2}{2\abs{\Sigma}}$が成り立つため, \cref{eq:Pr-B_i}より, 適当な定数$C_3=C_3(d,\abs{\Sigma})>0$に対して
+  \begin{align*}
+    \Pr[B_i=1] &\ge \frac{\abs{F}}{\abs{E}} \cdot \E_{\{u_{i-1},u_i\}\sim F}\qty[ p_0 \cdot p_\ell ] \ge C_3\cdot \frac{\abs{F}}{\abs{E}}
+  \end{align*}
+  を得る. 最後に$B=\sum_{i\in I}B_i$より, $\E[B]\ge C_3\sqrt{\ell}\cdot \frac{\abs{F}}{\abs{E}}$を得る.
+\end{proof}
+
+\begin{proof}[\cref{claim:two-constants}の証明]
+  ...
 \end{proof}
 
 \begin{proof}[\cref{claim:expectation-of-B-squared}の証明]
