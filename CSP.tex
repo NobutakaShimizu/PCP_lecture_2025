@@ -54,7 +54,11 @@ $c_I = \emptyset$であるならば, どの割り当ても$c_I$を充足しな�
   このとき, グラフ$G$が$k$-彩色可能であることと, このCSPがYesインスタンスであることは同値である.
 \end{example}
 
-
+\begin{example}{二次方程式系の充足可能性判定問題}{ThreeQuadEQ-3-CSP}
+  \cref{thm:ThreeQuadEQ-NP-complete}で定義した判定問題$\ThreeQuadEQ$は$3$-CSPである.
+  $\ThreeQuadEQ$のインスタンス$f_1,\dots,f_m\colon\F_2^n\to\F_2$に対し,
+  変数を$x_1,\dots,x_n$とし, $f_i(x)=0$という制約を考えると, 各$f_i$の出力は高々三つの変数の値にのみ依存するため, これは$3$-CSPである.
+\end{example}
 
 
 \subsection{PCPとの関係}

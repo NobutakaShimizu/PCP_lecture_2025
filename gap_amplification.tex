@@ -591,19 +591,41 @@ Paley-Zygmundの不等式(\cref{lem:paley-zigmund-inequality})より, $\E[B]$お
 ギャップ増幅補題(\cref{lem:gap-amplification-lemma})では変換前後で制約グラフのアルファベットは同一であることを主張しているが,
 べき乗をとることによって, $\UNSAT$の値は$\sqrt{\ell}$倍に増幅する一方でアルファベットは$\Sigma^\ell$になってしまう.
 そこで, アルファベット$\Sigma^\ell$上の制約グラフ$G$を, $\UNSAT$や$\size$をそれほど損なわずアルファベット$\Sigma$上の制約グラフ$G'$に変換する必要がある.
-\begin{lemma}{アルファベット削減}{alphabet-reduction}
-  ある定数$q\in\Nat$, $C,\gamma>0$, アルファベット$\Sigma_0$, および多項式時間アルゴリズム$A$が存在して以下が成り立つ:
+\begin{theorem}{アルファベット削減}{alphabet-reduction}
+  ある定数$c,\gamma>0$, アルファベット$\Sigma_0$, および多項式時間アルゴリズム$A$が存在して以下が成り立つ:
   アルゴリズム$A$は制約グラフ$G=\ip{(V,E),\Sigma,C}$を入力として受け取り,
   別の制約グラフ$G'=\ip{(V',E'),\Sigma_0,C'}$を出力する.
   ただし$G'$は
   \begin{itemize}
-    \item $\size(G') \le C\cdot \size(G)$
+    \item $\size(G') \le c\cdot \size(G)$
     \item $\UNSAT(G)=0$ならば$\UNSAT(G')=0$
     \item $\UNSAT(G)>0$ならば$\UNSAT(G') \ge \gamma\UNSAT(G)$
   \end{itemize}
+\end{theorem}
+\cref{thm:alphabet-reduction}の証明では,
+  まず, あるアルファベット$\Sigma_1$と定数$k\in\Nat$が存在して,
+  与えられた制約グラフ$G=\ip{(V,E),\Sigma,\calC}$を, アルファベット$\Sigma_1$上の$k$-CSP $\varphi=\ip{(X,\Sigma_1,\calI,\calC')}$に変換する多項式時間アルゴリズム$A'$が存在することを示す.
+  次にこの$k$-CSPを\cref{lem:k-CSP-constraint-graph-representation}を用いて$\Sigma_0:=\Sigma_1^k$上の制約グラフ$G'=\ip{(V',\Sigma_0,\calC')}$に変換することによって証明は完了する.
+
+\begin{lemma}{}{alphabet-reduction-kCSP}
+  ある定数$k\in\Nat$, $c>0$, $\gamma_0>0$, アルファベット$\Sigma_1$, および多項式時間アルゴリズム$A'$が存在して以下が成り立つ:
+  アルゴリズム$A'$は制約グラフ$G=\ip{(V,E),\Sigma,C}$を入力として受け取り,
+  $k$-CSP $\varphi=\ip{(X,\Sigma_1,\calI,\calC')}$を出力する.
+  ただし$\varphi$は
+  \begin{itemize}
+    \item $\abs{X} \le c\size(G)$, $\abs{\calI} \le c\cdot\size(G)$.
+    \item $\UNSAT(G)=0$ならば$\UNSAT(\varphi)=0$.
+    \item $\UNSAT(G)>0$ならば$\UNSAT(\varphi) \ge \gamma_0\cdot\UNSAT(G)$.
+  \end{itemize}
 \end{lemma}
 \begin{proof}
-
+  $b = \ceil{\log_2\abs{\Sigma}}$とし, アルファベット$\Sigma$を$\binset^b$と同一視する
+  ($\abs{\Sigma}$が2できでない場合はダミーの値を追加して$\abs{\Sigma}=\binset^b$とし, 各制約はダミーの値を無視する).
+  制約グラフ$G$の各辺$e\in E$に対応する制約$c_e\subseteq \Sigma^2$を指示関数$c_e\colon\Sigma^2\to\binset$と同一視し, これを論理回路で表現したものを$C_e\colon \binset^{2b}\to \binset$とする.
 \end{proof}
 
+最後に\cref{lem:k-CSP-constraint-graph-representation}を用いて, $k$-CSPを制約グラフ$G'=\ip{(V',\Sigma_0,\calC')}$に変換して証明が完了する:
+\begin{proof}[\cref{thm:alphabet-reduction}の証明.]
+
+\end{proof}
 
