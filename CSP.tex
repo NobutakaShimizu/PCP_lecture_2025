@@ -168,6 +168,69 @@ PCP定理の証明は, NP-完全な2-CSPである3彩色問題のインスタン
   このことから, 制約グラフを入力として受け取るアルゴリズムが多項式時間かどうかを議論する際は, その時間計算量が$\size(G)$に関して多項式かどうかを議論すれば良いことになる.
 \end{remark}
 
+制約グラフは2-CSPを表現するためのものであるが, 一般の$k$-CSPもまた制約グラフとして表現することができる.
+\begin{lemma}{k-CSPの制約グラフ表現}{k-CSP-constraint-graph-representation}
+  任意の$k\in\Nat$に対し, ある定数$c>0$および多項式時間アルゴリズム$A$が存在して次が成り立つ:
+  $k$-CSPのインスタンス$\varphi=(X,\Sigma,\calI,\calC)$を入力として受け取り, 以下を満たす制約グラフ$G=\ip{(V,E),\Sigma^k,\calC'}$を出力する.
+  \begin{itemize}
+    \item $\size(G) \le ck(\abs{X}+\abs{\calI})$
+    \item $\UNSAT(\varphi)=0$ならば$\UNSAT(G)=0$.
+    \item $\UNSAT(\varphi)>0$ならば$\UNSAT(G) \ge \frac{1}{k}\cdot \UNSAT(\varphi)$.
+  \end{itemize}
+\end{lemma}
+\begin{proof}
+  入力として与えられた$k$-CSPの変数集合$X=\qty{\varx_1,\dots,\varx_n}$および制約集合$\calC=(c_I)_{I\in\calI}$に対し,
+  新たに構成する制約グラフは次のような構造を持つ:
+  $\varphi$の各変数$\varx_i$に対し頂点$x_i$を用意し, 各制約$c_I$ ($I\in\calI$)に対し頂点$y_I$を用意する.
+  変数$\varx_i$が制約$c_I$に含まれる, すなわち$\varx_i\in I$ならば, 二頂点$x_i$と$y_I$の間に辺を引いて得られる二部グラフを$(V,E)$とする.
+  簡単のため, 以下では各$I\in\calI$に対して$\abs{I}=k$とする (そうでない制約が存在するならば, そのような各制約に対して高々$k$個のダミー変数を新たに用意し, 制約ではダミー頂点の値を無視して評価するようにすればよい. このようにすれば変数の個数は高々$n+k\abs{\calI}$となり, $\UNSAT$の値は変換前後で変わらない).
+  この二部グラフは, 各$y_i$の次数はちょうど$k$であり, $\size$は($k$のみに依存する)定数倍で抑えられる.
+
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/k-to-two.pdf}
+    \caption{制約グラフの構成例. 例えば, 変数$\vary_1$に対応する制約は変数$\varx_1,\varx_2,\varx_3$に依存している. \label{fig:k-to-two}}
+  \end{figure}
+
+  新たな制約グラフのアルファベットは$\Sigma^k$とする.
+  各辺$e=\{x_i,y_I\}$に対応する制約$c'_e$は, 割り当て$x_i\leftarrow \vec{\sigma}=(\sigma_1,\dots,\sigma_k)\in\Sigma^k$, $y_I\leftarrow \vec{\tau}=(\tau_1,\dots,\tau_k)\in\Sigma^k$が次の条件を満たすとき, かつその時に限り充足される: $y_I$の隣接頂点を$x_{i_1},\dots,x_{i_k}$ ($i_1<\dots<i_k$)としたとき,
+  \begin{itemize}
+    \item 部分割り当て$(\varx_{i_1}\leftarrow \tau_1,\dots,\varx_{i_k}\leftarrow \tau_k)$が$c_I$を充足する.
+    \item $\tau_i = \sigma_1$
+  \end{itemize}
+  ここでは, $x_i$への割り当てのうち, $\sigma_2,\dots,\sigma_k$は無視されていることに留意されたい.
+
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/k-to-two2.pdf}
+    \caption{割り当ての例. ここでは, $(\tau_1,\tau_2,\tau_3)$が$\vary_1$に対する制約を充足し, さらに$\sigma_j=\tau_j$ ($j=1,2,3$)であれば, 辺$\{y_1,x_j\}$に対応する制約グラフの制約が満たされる. \label{fig:k-to-two2}}
+  \end{figure}
+
+  元の$k$-CSPのインスタンス$\varphi$が充足可能, すなわち$\UNSAT(\varphi)=0$ならば, その充足割り当て$a\colon X \to \Sigma$に対し, 
+  制約グラフ$G$の割り当て$a'\colon V\to \Sigma^k$を
+  \begin{align*}
+    & a'(x_i) = (a(\varx_i),\underbrace{\ast,\dots,\ast}_{k-1}) \quad (i\in[n]), \\
+    & a'(y_I) = \qty(a(\varx_{i_1}),\dots,a(\varx_{i_k}),\sigma_1) \quad (I=\qty{i_1,\dots,i_k}\in\calI).
+  \end{align*}
+  と定める. この割り当て$a'$は$G$の全ての制約を満たすため, $\UNSAT(G)=0$である.
+
+  逆に, $G$の任意の割り当て$a'\colon V\to \Sigma^k$に対し, $\varphi$の割り当て$a\colon X\to \Sigma$を
+  \begin{align*}
+    a(\varx_i) = a'(x_i)_1 \quad (i\in[n])
+  \end{align*}
+  と定める.
+  割り当て$a'$が頂点$y_I$に接続する全ての辺$\{x_i,y_I\}$ ($\forall i\in I$)に対応する$G$の制約を充足するならば,
+  割り当て$a$は制約$c_I$を満たす.
+  対偶をとると, $a$が$c_I$を満たさないならば, $a'$は少なくとも1つの辺$\qty{\{x_i,y_I\}}_{i\in I}$に対応する制約が充足されない.
+  すなわち$\UNSAT(a';G) \ge \frac{1}{k}\cdot \UNSAT(a;\varphi)$である.
+  従って, 割り当て$a'$を$\UNSAT(a';G)=\UNSAT(G)$となるように選ぶと
+  \begin{align*}
+    \UNSAT(G) = \UNSAT(a';G) \ge \frac{\UNSAT(a;\varphi)}{k}  \ge \frac{\UNSAT(\varphi)}{k}
+  \end{align*}
+  より, 主張を得る.
+  
+\end{proof}
+
 \section{多重グラフの導入とエクスパンダーグラフ}
 
 以後, 制約グラフに関する様々な操作をしていく上で多重グラフのフォーマルな定義を与えておく.

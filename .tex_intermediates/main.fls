@@ -429,6 +429,14 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm
 INPUT ./CSP.tex
 INPUT ./CSP.tex
 INPUT CSP.tex
+INPUT ./images/k-to-two.pdf
+INPUT ./images/k-to-two.pdf
+INPUT ./images/k-to-two.pdf
+INPUT extractbb -B cropbox -O images/k-to-two.pdf
+INPUT ./images/k-to-two2.pdf
+INPUT ./images/k-to-two2.pdf
+INPUT ./images/k-to-two2.pdf
+INPUT extractbb -B cropbox -O images/k-to-two2.pdf
 INPUT ./gap_amplification.tex
 INPUT ./gap_amplification.tex
 INPUT gap_amplification.tex
