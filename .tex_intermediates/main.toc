@@ -30,6 +30,6 @@
 \contentsline {subsection}{\numberline {4.2.1}次数の削減}{42}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.2.2}エクスパンダー化}{46}{subsection.4.2.2}%
 \contentsline {section}{\numberline {4.3}制約グラフのべき乗}{48}{section.4.3}%
-\contentsline {section}{\numberline {4.4}アルファベット削減}{55}{section.4.4}%
+\contentsline {section}{\numberline {4.4}アルファベット削減}{56}{section.4.4}%
 \contentsline {chapter}{\numberline {A}付録}{59}{appendix.A}%
 \contentsline {section}{\numberline {A.1}基本的な確率の不等式}{59}{section.A.1}%

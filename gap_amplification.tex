@@ -485,7 +485,7 @@ Paley-Zygmundの不等式(\cref{lem:paley-zigmund-inequality})より, $\E[B]$お
   が成り立つ.
   ここで, 以下の主張を後で示す:
   \begin{claim}{}{two-constants}
-  十分大きな定数$C_1=C_1(d,\abs{\Sigma})>0$と十分小さな定数$C_2=C_2(d,\abs{\Sigma})>0$が存在して以下が成り立つことを示す:
+  十分大きな定数$C_1=C_1(d,\abs{\Sigma})>0$と十分小さな定数$C_2=C_2(d,\abs{\Sigma})>0$が存在して以下が成り立つ:
   $K:= \qty{ k\in \mathbb{Z}_{\ge 0} \colon \abs{k - \qty(1-\frac{1}{d})\frac{\ell}{2}} \le C_1\sqrt{\ell} }$ としたとき,
   \begin{enumerate}
     \item $\Pr\qty[Y_{\ell/2} \not\in K] \le \frac{1}{2\abs{\Sigma}}$.
@@ -522,11 +522,69 @@ Paley-Zygmundの不等式(\cref{lem:paley-zigmund-inequality})より, $\E[B]$お
 \end{proof}
 
 \begin{proof}[\cref{claim:two-constants}の証明]
-  ...
+  一つ目の主張は, $Y_{\ell/2}$の分布が二項分布$\Bin(\ell/2,1-1/d)$であることとChebyshevの不等式(\cref{lem:chebyshev-inequality})を用いれば示せる (\cref{exer:two-constants}).
+
+  二つ目の主張を示す. すなわち, 二つの二項分布$\Bin(i,1-1/d)$と$\Bin(\ell/2,1-1/d)$を比較する.
+  一つ目の主張を満たすように任意に定数$C_1>0$を固定する.
+  このとき, 二つ目の主張が成り立つようにうまく$C_2>0$を選べることを示せばよい.
+
+  一般に, 任意の$m\in\Nat$, 定数$p\in(0,1)$, $C>0$および$k\in\Nat$ (ただし$\abs{k-mp}\le C\sqrt{m}$を満たす)に対し, 
+  \begin{align}
+    \Pr\qty[\Bin(m,p) = k] = \frac{1}{\sqrt{2\pi m p(1-p)}} \exp\qty( - \frac{(k-mp)^2}{2m p(1-p)} ) \cdot \qty(1\pm O_{C,p}\qty(\frac{1}{m})) \label{eq:de-moivre-laplace}
+  \end{align}
+  が成り立つ (De Moivre-Laplaceの定理).
+  特に, $\abs{k-mp}\le C\sqrt{m}$を満たすため, 右辺は$\Theta(1/\sqrt{m})$で評価できる.
+  
+  従って, 適当な定数$D_1,D_2>0$が存在して, $\ell$が十分大きいとき,
+  \begin{align*}
+    &\Pr[Y_i=k]=\Pr[\Bin(i,1-1/d)=k] \ge \frac{D_1}{\sqrt{i}}, \\
+    &\Pr[Y_{\ell/2}=k]=\Pr[\Bin(\ell/2,1-1/d)=k] \le \frac{D_2}{\sqrt{\ell/2}}
+  \end{align*}
+  を満たす. $i\in I$より, 主張を得る.    
 \end{proof}
 
+\begin{exercise}{主張の証明}{two-constants}
+  \cref{claim:two-constants}の一つ目の主張, すなわちある十分大きな定数$C_1=C_1(d,\abs{\Sigma})>0$が存在して
+  \begin{align*}
+    \Pr\qty[Y_{\ell/2} \not\in K] \le \frac{1}{2\abs{\Sigma}}
+  \end{align*}
+  が成り立つことを示せ.
+\end{exercise}
+
 \begin{proof}[\cref{claim:expectation-of-B-squared}の証明]
-  
+  ランダムウォーク$\bolde=(u_0,\dots,u_\ell)\sim\boldE$に対し, 確率変数$Z_i$を, $\qty{u_{i-1},u_i}\in F$ならば$Z_i=1$, そうでなければ$Z_i=0$とする.
+  このとき, $B_i\le Z_i$であるから, $Z:=\sum_{i\in I} Z_i$に対し$B\le Z$であり, 特に$\E[B^2]\le \E[Z^2]$である.
+  以下, $\E[Z^2]$を評価する. まず, $\E[Z_i]=\Pr[\qty{u_{i-1},u_i}\in F]=\frac{\abs{F}}{\abs{E}}$である (ランダムウォークの$i$番目の辺の周辺分布は$E$上の一様分布だから).
+  定義より
+  \begin{align}
+    \E[Z^2] &= \sum_{i,j\in I} \E[Z_i Z_j] = \E[Z] + 2 \sum_{i,j\in I,i<j} \E[Z_i Z_j] \nonumber \\
+    &= \frac{\abs{F}}{\abs{E}} \abs{I} + 2 \sum_{i,j\in I,i<j} \E[Z_iZ_j]. \label{eq:E-Z^2}
+  \end{align}
+  ここで, 固定した$i<j$に対して$\E[Z_iZ_j]$を上から評価する.
+  すなわち, $\lambda$-エクスパンダーグラフ上の長さ$\ell$のランダムウォーク$(u_0,\dots,u_\ell)$を考えたとき, $i$番目の辺$\qty{u_{i-1},u_i}$と$j$番目の辺$\qty{u_{j-1},u_j}$が同時に$F$に含まれる確率を評価する.
+  辺部分集合$F\subseteq E$の辺に接続している頂点部分集合を$V_F:=\bigcup_{e\in F} e$とすると
+  \begin{align}
+    \Pr_{(u_{i-1},\dots,u_j)}\qty[\qty{u_{i-1},u_i}\in F \text{ and } \qty{u_{j-1},u_j}\in F] \le \Pr_{(u_{i-1},\dots,u_j)}\qty[u_{i-1}\in V_F\text{ and }u_j\in V_F] \label{eq:V_F-bound}
+  \end{align}
+  となる. ここでは, 頂点$u_{i-1}$を一様ランダムに選び, そこから開始する長さ$j-i+1$のランダムウォーク$(u_{i-1},u_i,\dots,u_{j-1},u_j)$に関する確率を考えている.
+  このランダムウォークは, べき乗グラフ$G^{j-i+1}$上の長さ$1$のランダムウォークと一致する.
+  \cref{lem:power-of-regular-expander}より, $G^{j-i+1}$は$d^{j-i+1}$-正則かつ$\lambda^{j-i+1}$-エクスパンダーである.
+  従って, \cref{lem:expander-mixing-lemma}より, \cref{eq:V_F-bound}の右辺は
+  \begin{align*}
+    \Pr\qty[u_{i-1}\in V_F\text{ and }u_j\in V_F] &= \frac{W(V_F,V_F)}{nd^{j-i+1}} \\
+    &\le \qty(\frac{\abs{V_F}}{n})^2 + \lambda^{j-i+1} \cdot \frac{\abs{V_F}}{n} \\
+    &\le \qty(\frac{2\abs{F}}{n})^2 + \lambda^{j-i+1} \cdot \frac{2\abs{F}}{n} \\
+    &= \frac{d\abs{F}^2}{\abs{E}^2} + \frac{\lambda^{j-i+1}d\abs{F}}{\abs{E}}
+  \end{align*}
+  を得る. ここで,
+  $\abs{F}/\abs{E} \le 1/\ell$および$\abs{I} \le 2\sqrt{\ell}$を用いると,
+  ある定数$C=C(d,\lambda)>0$が存在して
+  \begin{align*}
+    \sum_{i,j\in I,i<j} \E[Z_iZ_j] &\le d\underbrace{\abs{I}^2 \qty(\frac{\abs{F}}{\abs{E}})^2}_{\le 4\abs{F}/\abs{E}} + \frac{d\abs{F}}{\abs{E}} \sum_{i,j\in I,i<j} \lambda^{j-i+1} \\
+    &\le 4d \frac{\abs{F}}{\abs{E}} + d\abs{I}\cdot \frac{\abs{F}}{\abs{E}} \cdot \sum_{i\ge 0} \lambda^i \\
+    &\le C\abs{I}\frac{\abs{F}}{\abs{E}}.
+  \end{align*}
+  これと\cref{eq:E-Z^2}を組み合わせると, 主張を得る.
 \end{proof}
 
 \section{アルファベット削減}
