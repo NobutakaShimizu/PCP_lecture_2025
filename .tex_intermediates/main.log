@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.uptex) (TeX Live 2025) (preloaded format=uplatex 2025.5.22)  25 MAY 2025 14:52
+This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.uptex) (TeX Live 2025) (preloaded format=uplatex 2025.5.22)  25 MAY 2025 15:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1158,7 +1158,7 @@ Chapter 2.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 78.
 [20]
-Underfull \vbox (badness 1077) has occurred while \output is active []
+Underfull \vbox (badness 1168) has occurred while \output is active []
 
 
 
@@ -1204,7 +1204,7 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 311.
 
-Underfull \vbox (badness 1681) has occurred while \output is active []
+Underfull \vbox (badness 1776) has occurred while \output is active []
 
 
 
@@ -1226,30 +1226,32 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 457.
 [29]
+
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
+(Font)              No change on input line 489.
+[30]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 481.
+(Font)              No change on input line 492.
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 496.
-[30]
-Overfull \hbox (3.08307pt too wide) in paragraph at lines 516--517
-\JY2/mc/m/n/12 プ \OT1/lmr/m/n/12 3 \JY2/mc/m/n/12 において確率 $\OT1/lmr/m/n/12 0\OML/lmm/m/it/12 :\OT1/lmr/m/n/12 99$ \JY2/mc/m/n/12 で拒絶する\OT1/lmr/m/n/12 . \JY2/mc/m/n/12 以降では $[]\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 ^^Y[]; [][]\OT1/lmr/m/n/12 ) \OML/lmm/m/it/12 < \OT1/lmr/m/n/12 0\OML/lmm/m/it/12 :\OT1/lmr/m/n/12 01$ \JY2/mc/m/n/12 かつ $[]\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 ^^Y[]; [][]\OT1/lmr/m/n/12 ) \OML/lmm/m/it/12 <
+(Font)              No change on input line 531.
+[31]
+Overfull \hbox (3.08307pt too wide) in paragraph at lines 531--532
+\JY2/mc/m/n/12 プ \OT1/lmr/m/n/12 3 \JY2/mc/m/n/12 において確率 $\OT1/lmr/m/n/12 0\OML/lmm/m/it/12 :\OT1/lmr/m/n/12 99$ \JY2/mc/m/n/12 で拒否する\OT1/lmr/m/n/12 . \JY2/mc/m/n/12 以降では $[]\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 ^^Y[]; [][]\OT1/lmr/m/n/12 ) \OML/lmm/m/it/12 < \OT1/lmr/m/n/12 0\OML/lmm/m/it/12 :\OT1/lmr/m/n/12 01$ \JY2/mc/m/n/12 かつ $[]\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 ^^Y[]; [][]\OT1/lmr/m/n/12 ) \OML/lmm/m/it/12 <
  []
 
 ) (./CSP.tex
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 1.
-[31]
-
-[32
-
-]
+[32]
 Chapter 3.
 
 
-[33]
+[33
+
+]
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 108.
@@ -1349,14 +1351,14 @@ File: images/degree_reduction.pdf Graphic file (type pdf)
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 117.
 [47]
-File: images/majority_degree_reduction.png Graphic file (type bmp)
-<images/majority_degree_reduction.png>
+File: images/majority_degree_reduction.pdf Graphic file (type pdf)
+<images/majority_degree_reduction.pdf>
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 175.
 [48]
-Underfull \vbox (badness 3068) has occurred while \output is active []
+Underfull \vbox (badness 3646) has occurred while \output is active []
 
 
 
@@ -1511,12 +1513,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36273 strings out of 473836
- 719154 string characters out of 5731190
- 1561656 words of memory out of 5000000
- 58983 multiletter control sequences out of 15000+600000
+ 36300 strings out of 473836
+ 719739 string characters out of 5731190
+ 1561697 words of memory out of 5000000
+ 59011 multiletter control sequences out of 15000+600000
  669755 words of font info for 142 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  98i,20n,107p,983b,1542s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on .tex_intermediates/main.dvi (66 pages, 663708 bytes).
+Output written on .tex_intermediates/main.dvi (66 pages, 670436 bytes).

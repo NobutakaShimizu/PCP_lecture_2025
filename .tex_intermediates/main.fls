@@ -470,10 +470,10 @@ INPUT ./images/degree_reduction.pdf
 INPUT ./images/degree_reduction.pdf
 INPUT ./images/degree_reduction.pdf
 INPUT extractbb -B cropbox -O images/degree_reduction.pdf
-INPUT ./images/majority_degree_reduction.png
-INPUT ./images/majority_degree_reduction.png
-INPUT ./images/majority_degree_reduction.png
-INPUT extractbb -B cropbox -O images/majority_degree_reduction.png
+INPUT ./images/majority_degree_reduction.pdf
+INPUT ./images/majority_degree_reduction.pdf
+INPUT ./images/majority_degree_reduction.pdf
+INPUT extractbb -B cropbox -O images/majority_degree_reduction.pdf
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/lmmib10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/lmmib10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/lmmib7.tfm
