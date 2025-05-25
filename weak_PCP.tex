@@ -1,14 +1,16 @@
-\chapter{局所的な検証と弱いPCP定理の証明}
+\chapter{弱いPCP定理}
 
 この章はPCP検証者における「少ないクエリ回数」という要件がなぜ達成できるかについて説明することを目的とする.
 そのため, まずはPCP定理の要件であるランダムビットの短さはひとまず無視した以下の形の「弱いPCP定理」を証明する: 任意の$\NP$に属する判定問題が$O(1)$クエリかつ$\poly(n)$ビットのランダムネスを用いて確率的に検証可能である.
 
-\section{局所的な検証}
-本講義では, 検証者が証明の文字列$\pi$のうち$O(1)$個の文字を読み込んで検証を行うことを\emph{局所的な検証}と呼ぶことにする.
+\section{局所的な検証はなぜ可能なのか?}
+PCP検証者は, オラクルアクセスとして与えられた証明のうち, 定数文字のみを見てその証明がちゃんと証明たりうるかを判定しなければならない.
+ここでは, 定数個の文字のみを見るという性質を検証者の局所性と呼ぶことにする.
+
 一般的な感覚として, ある主張が成り立つことを示す証明を検証する際, \emph{冗長に表現で記述しない限り}その証明を全て読み込まなければ検証できないと思われる (全ての文字に本質的な意味があるならば全てを確認しなければならないはずであろう).
 では逆に, 証明を冗長に表現することで局所的な検証を可能にすることはできるだろうか?
 
-\subsection{線形方程式の局所的な検証(1/2)}
+\subsection{線形方程式に対する局所的な検証(1/2)}
 興味深いことに, 非常に冗長性が大きい記述で証明が与えられたならば局所検証が可能であることを, 線形方程式の検証を例に説明する.
 
 \begin{definition}{線形方程式}{linear-equation}
@@ -21,7 +23,7 @@
 \end{definition}
 
 愚直な検証者として$y\in\F^n$を証拠として受け取り, $My=z$を確認することで検証を行うことを考える (実際の計算機では全てを二進文字列で表現するため, $\F$の元は$\ceil{\log_2\abs{\F}}=O(1)$ビットで表現されている).
-明らかにこの検証者は$My$を計算するために$y$の全ての成分 (すなわち$O(n)$ビット) を読み込む必要があるため, 局所的な検証者とはならない.
+明らかにこの検証者は$My$を計算するために$y$の全ての成分 (すなわち$O(n)$ビット) を読み込む必要があるため, オラクルアクセスの回数が大きくなり局所性を持たない.
 もちろん, この判定問題は標準的な線型方程式の解の存在性判定であるため, 掃き出し法を用いれば証拠へのオラクルアクセスなしでも多項式時間で解ける.
 しかしここではあえて, 局所的な検証の構成例を与えるという目的で取り扱う.
 
@@ -350,43 +352,45 @@ PCP検証者であることを示す(cf. \cref{def:PCP})には, 任意の$\pi\in
 なお, \cref{thm:weak-PCP-theorem}の証明のアイデアは後に\cref{thm:PCPtheorem}の証明でも用いられる.
 
 \subsection{方針}
-  NP完全な判定問題として3彩色問題$\ThreeCOL$を考え, ある$r=O(1),q=\poly(n)$に対して$\ThreeCOL\in\PCP(r,q)$を示す.
-  すると, \cref{thm:weak-PCP-theorem}の証明は\cref{exer:exercise2}と同じ議論から得られる.
-
-  3彩色問題$\ThreeCOL$のインスタンス$G=(V,E)$を考える.
-  以降, $\F_3$を$\F$と略記する.
-  これがYesインスタンスであることと, ある$x=(x(u))_{u\in V}\in\F^V$が存在して
+  \cref{thm:ThreeQuadEQ-NP-complete}で定義した問題$\ThreeQuadEQ$に対してPCP検証者を構成すればよい.
+  ここではより一般的に, ある$r=O(1),q=\poly(n)$に対して$\QuadEQ\in\PCP(r,q)$を示す.
+  $\QuadEQ$のインスタンスは
+  \begin{align*}
+    &f_1(x_1,\dots,x_n) = 0,\\
+    &\quad\vdots\\
+    &f_m(x_1,\dots,x_n) = 0
+  \end{align*}
+  という$m$個の$\F_2$上の二次連立方程式からなる.
+  
+  ここで$y_{i,j}=x_ix_j$としてこれらを並べたベクトル$y\in\F_2^{n^2}$を考える.
+  各$k\in[m]$と$i,j\in[n]$に対し,
   \begin{align}
-    \forall e=\{u,v\}\in E, \quad (x(u) - x(v))^2 = 1 \label{eq:3-coloring-F3}
+    &M_{k,(i,j)} = \begin{cases}
+      1 & \text{if $f_k(x_1,\dots,x_n)$が項$x_i x_j$を含む},\\
+      0 & \text{otherwise},
+    \end{cases} \label{eq:M-matrix}\\
+    &b_k = f_k(0) \label{eq:b-vector}
   \end{align}
-  を満たすことは同値である. 従って, 二次方程式系\cref{eq:3-coloring-F3}に対する所望のPCP検証者を構成すればよい.
-  まずはこの二次方程式系を線型方程式系として表現するために, 以下の行列$M \in \F^{E \times V^2}$を定義する:
-  \begin{align}
-    M(e, (u,v)) = \begin{cases}
-      1 & \text{if } u=v\in e,\\
-      -2 & \text{if } e=\{u,v\},\\
-      0 & \text{otherwise}.
-    \end{cases} \label{eq:M-matrix}
-  \end{align}
-  ベクトル$x\in\F^V$に対して$y\in\F^{V^2}$を$y(u,v)=x(u)\cdot x(v)$と定義する (特に$u=v$ならば$y(u,u)=x(u)^2$である).
-  このとき, \cref{eq:3-coloring-F3}は$My=\allone$と表現できる.
-  ここまでの議論から, $G=(V,E)$がYesインスタンスであることと, ある$x\in\F^V,y\in \F^{V^2}$が存在して
+  によって行列$M\in\F_2^{m\times n^2}$とベクトル$b\in\F_2^m$を定義すると, 連立方程式は$My=b$と表現できる.
+  従って,
+  $\QuadEQ$のインスタンス$(f_i)_{i\in[m]}$がYesインスタンスであることと, ある$x\in\F^n,y\in\F^{n^2}$が存在して
   \begin{enumerate}[label=\textbf{条件\arabic*}, leftmargin=1.5cm]
-    \item 全ての$u,v\in V$に対し$y(u,v)=x(u)\cdot x(v)$. \label{item:jouken1}
-    \item $My=\allone$. \label{item:jouken2}
-  \end{enumerate}
-  の両方を満たすことは同値である.
+    \item 全ての$i,j\in [n]$に対し$y_{i,j}=x_i\cdot x_j$. \label{item:jouken1}
+    \item $My=b$. \label{item:jouken2}
+  \end{enumerate}  
+  を満たすことは同値である.
   方針としては, この二つの条件を検証するPCP検証者を構成して組み合わせることによって, 上記の問題に対する検証者を構成する.
   条件2に関しては, \cref{thm:local-verification-LinEq}の検証者を用いて$V^\pi(M,\allone)$を実行すればよい.
-  この検証者はオラクルアクセスの回数が$O(1)$でランダムビット長が$O(\abs{V^2})=O(n^2)$である.
-  
+  この検証者はオラクルアクセスの回数が$O(1)$でランダムビット長が$O(n^2)$である.
+
   \subsection{証明の構成}
-  PCP検証者が受け取る証明$\pi$は, 二つの関数$\pi_y\colon\F^{V^2}\to\F$と$\pi_x\colon\F^V\to\F$からなる.
-  具体的には, $\pi_y$と$\pi_x$を表すそれぞれ長さ$q^{V^2}$と$q^V$の文字列を結合して得られる文字列を$\pi$と定める (従って$\pi$の文字列としての長さは$q^{V^2}+q^V$である).
-  検証者は, \ref{item:jouken1}と\ref{item:jouken2}を満たす$x\in\F^V,y\in\F^{V^2}$に対し, これらをアダマール符号で符号化したものを$\pi_y\colon\F^{V^2}\to\F$と$\pi_x\colon\F^V\to\F$として受け取ることを想定している.
-  従って, これらが実際に$x,y$を符号化したものであることと, 確かに$(x,y)$が\ref{item:jouken1}と\ref{item:jouken2}を満たすことを検証することになる.
+  有限体$\F$の要素数を$q$とする.
+  PCP検証者が受け取る証明$\pi$は, 二つの関数$\pi_y\colon\F^{n^2}\to\F$と$\pi_x\colon\F^n\to\F$からなる.
+  具体的には, $\pi_y$と$\pi_x$を表すそれぞれ長さ$q^{n^2}$と$q^n$の文字列を結合して得られる文字列を$\pi$と定める (従って$\pi$の文字列としての長さは$q^{n^2}+q^n$である).
+  検証者は, \ref{item:jouken1}と\ref{item:jouken2}を満たす$x\in\F^n,y\in\F^{n^2}$に対し, これらをアダマール符号で符号化したもの$\pi_x=\Had(x)$, $\pi_y = \Had(y)$を想定している.
+  従って, これらが実際に$x,y$を符号化したものであることと, そして確かに$(x,y)$が\ref{item:jouken1}と\ref{item:jouken2}を満たすことを検証することになる.
   
-  \cref{thm:local-verification-LinEq}の検証者$V^\pi$を用いる($z=\allone$とする)と\ref{item:jouken2}を定数回のオラクルアクセスで確率的に検証できる.
+  \cref{thm:local-verification-LinEq}の検証者$V^\pi$を用いる($z=b$とする)と\ref{item:jouken2}を定数回のオラクルアクセスで確率的に検証できる.
   また, $\pi_y$と$\pi_x$がそれぞれ線形関数に近いかどうかは\cref{thm:linearity-test}より, 定数回のオラクルアクセスで確率的に検証できる.
   従って, $\pi_y,\pi_x$がそれぞれ線形関数に非常に近いことを仮定した上で
   \ref{item:jouken1}を検証するPCP検証者を構成すればよい.
@@ -397,13 +401,12 @@ PCP検証者であることを示す(cf. \cref{def:PCP})には, 任意の$\pi\in
   $\pi_y$と$\pi_x$への定数回のオラクルアクセスを用いて, その$x,y$が
   \ref{item:jouken1}を満たすことを検証することである.
   なお, そのような$x,y$が存在するならばそれらは一意であることが\cref{exer:uniqueness-of-nearest-linear-function}から保証されている.
-  ここで, $y\in\F^{V^2}$を$V\times V$-行列として表現したものを$Y\in\F^{V\times V}$, $X=xx^\top$とする. \ref{item:jouken1}は$Y=X$を満たすことと同値である.
+  ここで, $y\in\F^{n^2}$を$n\times n$-行列として表現したものを$Y\in\F^{n\times n}$, $X=xx^\top$とする. \ref{item:jouken1}は$Y=X$を満たすことと同値である.
 
   \begin{lemma}{テンソル積の検証}{tensor-product-verification}
-    ある$x\in\F^V,y\in\F^{V^2}$に対し, $\dist(\pi_y,\Had_{n^2})\le 0.01$と$\dist(\pi_x,\Had_n)\le 0.01$となる二つのオラクル$\pi_y$と$\pi_x$への定数回のオラクルアクセスを用いて, その$x,y$が
-    全ての$u,v\in V$に対し$y(u,v)=x(u)\cdot x(v)$を満たすことを検証するPCP検証者$V^{\pi_x,\pi_y}(1^n)$が存在する.
-
-    すなわち, $Y=(y(u,v))_{u,v\in V}\in\F^{V\times V}$と$X=xx^\top$に対し,
+    ある$x\in\F^n,y\in\F^{n^2}$に対し, $\dist(\pi_y,\Had_{n^2})\le 0.01$と$\dist(\pi_x,\Had_n)\le 0.01$となる二つのオラクル$\pi_y$と$\pi_x$への定数回のオラクルアクセスを用いて, その$x,y$が
+    全ての$i,j\in [n]$に対し$y_{i,j}=x_i\cdot x_j$を満たすことを検証するPCP検証者$V^{\pi_x,\pi_y}(1^n)$が存在する.
+    すなわち, $Y=(y_{i,j})_{i,j\in [n]}\in\F^{n\times n}$と$X=xx^\top \in \F^{n\times n}$に対し,
     \begin{itemize}
       \item $Y=X$ならば確率$1$で$V^{\pi_x,\pi_y}(1^n)$は受理する.
       \item $Y\ne X$ならば確率$0.99$で$V^{\pi_x,\pi_y}(1^n)$は拒絶する.
@@ -426,16 +429,16 @@ PCP検証者であることを示す(cf. \cref{def:PCP})には, 任意の$\pi\in
   
   まず, $X=xx^\top$であるため, 任意の$r_1,r_2\in\F^V$に対し
   \begin{align*}
-    r_1^\top X r_2 &= \sum_{u,v\in V} r_1(u) r_2(v) x(u)x(v) \\
-    &= \sum_{u\in V} r_1(u) x(u) \sum_{v\in V} r_2(v) x(v) \\
+    r_1^\top X r_2 &= \sum_{i,j\in [n]} r_1(i) r_2(j) x_i x_j \\
+    &= \sum_{i\in [n]} r_1(i) x_i \sum_{j\in [n]} r_2(j) x_j \\
     &= \Had_n(x)(r_1)\cdot \Had_n(x)(r_2)
   \end{align*}
   である. 特に, $\dist(\pi_x,\Had_n(x))\le 0.01$より, 一様ランダムに$r_1,r_2\sim\F^n$を選んだとき, 確率$0.98$で$\Had_n(x)(r_1)=\pi_x(r_1)$, $\Had_n(x)(r_2)=\pi_x(r_2)$となる.
   従って\cref{eq:random-quadratic-form}の左辺は$\pi_x$への2回のオラクルアクセスを用いて確率$0.98$で計算できる.
 
-  次に$r_1^\top Y r_2$を計算する. 任意の$r_1,r_2\in\F^V$に対し, $\barr\in\F^{V^2}$を, $(u,v)$番目の文字が$r_1(u)r_2(v)$であるような文字列とする. このとき
+  次に$r_1^\top Y r_2$を計算する. 任意の$r_1,r_2\in\F^n$に対し, $\barr\in\F^{n^2}$を, $(i,j)$番目の文字が$(r_1)_i\cdot (r_2)_j$であるような文字列とする. このとき
   \begin{align*}
-    r_1^\top Y r_2 &= \sum_{u,v\in V} r_1(u) r_2(v) y(u,v) \\
+    r_1^\top Y r_2 &= \sum_{i,j\in [n]} (r_1)_i (r_2)_j y_{i,j} \\
     &= \Had_{n^2}(y)(\barr)
   \end{align*}
   である. また, $\dist(\pi_y,\Had_{n^2})\le 0.01$より, \cref{lem:nearest-linear-function-evaluation}を$\epsilon=0.01$, $f=\Had_{n^2}(y)$, $\pi=\pi_y$として適用すると, 確率$0.98$で$\Had_{n^2}(y)(\barr)$を計算できる.
@@ -445,9 +448,9 @@ PCP検証者であることを示す(cf. \cref{def:PCP})には, 任意の$\pi\in
   \begin{algorithm}{テンソル積の検証}{tensor-product-verification}
     \begin{enumerate}
       \item 入力として$1^n$を受け取り, $\pi_x,\pi_y$へのオラクルアクセスを受け取る.
-      \item 一様ランダムな$r_1,r_2\sim\F^V$を選択する.
+      \item 一様ランダムな$r_1,r_2\sim\F^n$を選択する.
       \item オラクルアクセスを用いて$\pi_x(r_1),\pi_x(r_2)$を計算する.
-      \item \cref{lem:nearest-linear-function-evaluation}を用いて, $\Had_{n^2}(y)(\barr)$を計算する. ここで$\barr\in\F^{V^2}$は, $(u,v)$番目の文字が$r_1(u)r_2(v)$であるような文字列である.
+      \item \cref{lem:nearest-linear-function-evaluation}を用いて, $\Had_{n^2}(y)(\barr)$を計算する. ここで$\barr\in\F^{n^2}$は, $(i,j)$番目の文字が$(r_1)_i\cdot (r_2)_j$であるような文字列である.
       \item $\pi_x(r_1)\cdot \pi_x(r_2)\ne \Had_{n^2}(y)(\barr)$ならば拒否する.
       \item ステップ2-5を10回繰り返し, 一度も拒絶しなければ受理して終了する.
     \end{enumerate}
@@ -476,47 +479,45 @@ PCP検証者であることを示す(cf. \cref{def:PCP})には, 任意の$\pi\in
   \end{exercise}
 
   \begin{proof}[\cref{thm:weak-PCP-theorem}の証明]
-    NP完全問題である3彩色問題$\ThreeCOL$に対し, 所望のPCP検証者を構成する.
-    体$\F=\F_3$を考える.
-    インスタンス$G=(V,E)$がYesインスタンスであることと,
-    ある$x,y\in\F^V$が存在して, \cref{eq:M-matrix}で定義される行列$M\in\F^{E\times V^2}$に対し,
-    \ref{item:jouken1}と\ref{item:jouken2}を満たすことは同値である.
-    以下では, この条件を検証するPCP検証者を記述する.
+    判定問題$\QuadEQ$に対し, 所望のPCP検証者を構成すればよい.
+    $\QuadEQ$のインスタンス$(f_k)_{k\in[m]}$に対し, \cref{eq:M-matrix,eq:b-vector}で定義される行列$M\in\F^{m\times n^2}$とベクトル$b\in\F^m$を考える.
+    このとき, $(f_k)$がYesインスタンスであることと, \ref{item:jouken1}と\ref{item:jouken2}を満たす$x\in\F^n,y\in\F^{n^2}$が存在することは同値である.
+    以下では, これらの条件を検証するPCP検証者$V^{\pi_x,pi_y}((f_k)_{k\in[m]})$を記述する.
 
-    \begin{algorithm}{3彩色問題のPCP検証者$V^{\pi_x,\pi_y}(G)$}{3-coloring-PCP}
+    \begin{algorithm}{$\QuadEQ$に対するPCP検証者}{QuadEQ-PCP}
       \begin{enumerate}
-        \item 入力として$G=(V,E)$および証明として$\pi_x\colon\F^V\to\F$と$\pi_y\colon\F^{V^2}\to\F$へのオラクルアクセスを受け取る.
-        \item 入力に対し\cref{eq:M-matrix}で定義される行列$M\in\F^{E\times V^2}$を計算する.
-        \item \cref{thm:linearity-test}のアルゴリズムを$\pi_x$と$\pi_y$それぞれに対して(オラクルとして用いて)実行し, それぞれが線形関数に$0.01$-近いかどうかを検証する. もしいずれかの実行においてこのアルゴリズムが拒否したら拒否する.
+        \item 入力として$(f_k)_{k\in[m]}$および証明として$\pi_x\colon\F^n\to\F$と$\pi_y\colon\F^{n^2}\to\F$へのオラクルアクセスを受け取る.
+        \item 入力に対し\cref{eq:M-matrix,eq:b-vector}で定義される行列$M\in\F^{m\times n^2}$とベクトル$b\in\F^m$を計算する.
+        \item \cref{thm:linearity-test}のアルゴリズムを$\pi_x$と$\pi_y$のそれぞれに対して実行し, それぞれが線形関数に$0.01$-近いかどうかを検証する. もしいずれかの実行においてこのアルゴリズムが拒否したら拒否する.
         \item \cref{lem:tensor-product-verification}の検証者を, オラクルとして$\pi_x$と$\pi_y$を用いて実行する. この検証者が拒否したら拒否する.
-        \item \cref{lem:linear-equation-solution-verification}の検証者を, 入力として$(M,\allone)$, オラクルとして$\pi_y$を用いて実行する. この検証者が拒否したら拒否する.
+        \item \cref{lem:linear-equation-solution-verification}の検証者を, 入力として$(M,b)$, オラクルとして$\pi_y$を用いて実行する. この検証者が拒否したら拒否する.
         \item ここまでのステップで拒否していなければ受理して終了する.
       \end{enumerate}
     \end{algorithm}
 
-    この検証者$V^{\pi_x,\pi_y}(G)$が所望のPCP検証者であることを確認する.
+    この検証者$V^{\pi_x,\pi_y}$が所望のPCP検証者であることを確認する.
     \cref{thm:linearity-test,thm:local-verification-LinEq,lem:tensor-product-verification,lem:linear-equation-solution-verification}ではそれぞれオラクルアクセスは$O(1)$回であり, 内部で用いるランダムビットは$O(n^2)$である.
 
-    入力$G=(V,E)$が$\ThreeCOL$のYesインスタンスであるとする.
-    このとき, ある$x\in\F^V$が存在して, $y(u,v)=x(u)\cdot x(v)$で定まる$y\in\F^{V^2}$に対して$My=\allone$を満たす.
+    入力$(f_k)_{k\in[m]}$が$\QuadEQ$のYesインスタンスであるとする.
+    このとき, ある$x\in\F^n$が存在して, $y_{i,j}=x_i\cdot x_j$で定まる$y\in\F^{n^2}$に対して$My=b$を満たす.
     この$x,y$に対して, それぞれ$\pi_x=\Had_n(x)$と$\pi_y=\Had_{n^2}(y)$とする.
-    このとき
+    このとき,
     \begin{itemize}
       \item ステップ3では, $\pi_x,\pi_y$はどちらも線形関数であるため, 拒否する確率は$0$である.
-      \item ステップ4では, 実際に全ての$u,v\in V$に対して$y(u,v)=x(u)x(v)$が成り立つため, 拒否する確率は$0$である.
-      \item ステップ5では, 実際に$y$は$My=\allone$の解であるため, 拒否する確率は$0$である.
+      \item ステップ4では, 実際に全ての$i,j\in [n]$に対して$y_{i,j}=x_i\cdot x_j$が成り立つため, 拒否する確率は$0$である.
+      \item ステップ5では, 実際に$y$は$My=b$の解であるため, 拒否する確率は$0$である.
     \end{itemize}
-    以上より, $V^{\pi_x,\pi_y}(G)$は確率$1$で受理する.
+    以上より, $V^{\pi_x,\pi_y}((f_k)_{k\in[m]})$は確率$1$で受理する.
 
-    次に$G=(V,E)$が$\ThreeCOL$のNoインスタンスであるとする.
-    任意の$\pi_x\colon\F^V\to\F$と$\pi_y\colon\F^{V^2}\to\F$を考える.
+    次に$(f_k)$がYesインスタンスであるとする.
+    任意の$\pi_x\colon\F^n\to\F$と$\pi_y\colon\F^{n^2}\to\F$を考える.
 
     \begin{itemize}
-      \item $\dist(\pi_x,\Had_n) \ge 0.01$ または $\dist(\pi_y,\Had_{n^2})\ge 0.01$ ならば, $V^{\pi_x,\pi_y}(G)$はステップ3において確率$0.99$で拒絶する. 以降では$\dist(\pi_x,\Had_n) < 0.01$かつ$\dist(\pi_y,\Had_{n^2}) < 0.01$とし, $\pi_x,\pi_y$に最も近い線形関数をそれぞれ$\Had_n(x),\Had_{n^2}(y)$とする.
-      \item ステップ4は, \cref{lem:tensor-product-verification}の仮定が満たされているため, 確率$0.99$で拒絶する. 以降ではさらに$x\in\F^V,y\in\F^{V^2}$が, 全ての$u,v\in V$に対し$y(u,v)=x(u)x(v)$を満たすことが保証されているとする.
-      \item ステップ5は, $G$がNoインスタンスであることから, $My\ne\allone$であるため, \cref{lem:linear-equation-solution-verification}の検証者が確率$0.99$で拒絶する.
+      \item $\dist(\pi_x,\Had_n) \ge 0.01$ または $\dist(\pi_y,\Had_{n^2})\ge 0.01$ ならば, $V^{\pi_x,\pi_y}((f_k)_{k\in[m]})$はステップ3において確率$0.99$で拒絶する. 以降では$\dist(\pi_x,\Had_n) < 0.01$かつ$\dist(\pi_y,\Had_{n^2}) < 0.01$とし, $\pi_x,\pi_y$に最も近い線形関数をそれぞれ$\Had_n(x),\Had_{n^2}(y)$とする.
+      \item ステップ4は, \cref{lem:tensor-product-verification}の仮定が満たされているため, 確率$0.99$で拒否する. 以降ではさらに$x\in\F^n,y\in\F^{n^2}$が, 全ての$i,j\in [n]$に対し$y_{i,j}=x_i\cdot x_j$を満たすことが保証されているとする.
+      \item ステップ5は, $My\ne b$であるため, \cref{lem:linear-equation-solution-verification}の検証者が確率$0.99$で拒否する.
     \end{itemize}
-    以上より, $V^{\pi_x,\pi_y}(G)$が一度のステップ3-5のループで拒絶する確率は少なくとも$0.97$である.
+    以上より, $V^{\pi_x,\pi_y}((f_k)_{k\in[m]})$が一度のステップ3-5のループで拒絶する確率は少なくとも$0.97$である.
   \end{proof}
     
 
