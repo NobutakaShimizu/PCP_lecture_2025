@@ -435,10 +435,10 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmri7.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmbx12.tfm
-INPUT ./images/PCPverifier.drawio.pdf
-INPUT ./images/PCPverifier.drawio.pdf
-INPUT ./images/PCPverifier.drawio.pdf
-INPUT extractbb -B cropbox -O images/PCPverifier.drawio.pdf
+INPUT ./images/circuit_to_3-QUADEQ.pdf
+INPUT ./images/circuit_to_3-QUADEQ.pdf
+INPUT ./images/circuit_to_3-QUADEQ.pdf
+INPUT extractbb -B cropbox -O images/circuit_to_3-QUADEQ.pdf
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmri12.tfm
 INPUT ./images/Turing.pdf
 INPUT ./images/Turing.pdf
@@ -448,7 +448,6 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmbxi10.tfm
 INPUT ./images/circuit_to_3-QUADEQ.pdf
 INPUT ./images/circuit_to_3-QUADEQ.pdf
 INPUT ./images/circuit_to_3-QUADEQ.pdf
-INPUT extractbb -B cropbox -O images/circuit_to_3-QUADEQ.pdf
 INPUT ./weak_PCP.tex
 INPUT ./weak_PCP.tex
 INPUT weak_PCP.tex

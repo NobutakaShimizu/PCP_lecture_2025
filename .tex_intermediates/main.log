@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.uptex) (TeX Live 2025) (preloaded format=uplatex 2025.5.22)  25 MAY 2025 15:45
+This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.uptex) (TeX Live 2025) (preloaded format=uplatex 2025.5.22)  25 MAY 2025 18:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1100,71 +1100,81 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 163.
 [11]
-File: images/PCPverifier.drawio.pdf Graphic file (type pdf)
-<images/PCPverifier.drawio.pdf>
-
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 187.
+(Font)              No change on input line 196.
 [12]
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 227.
+(Font)              No change on input line 232.
 [13]
-
-LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 252.
-[14]
-LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 265.
-File: images/Turing.pdf Graphic file (type pdf)
-<images/Turing.pdf>
-LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 290.
-
-
-LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 298.
-[15]
-
-LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 308.
-[16]
-LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 310.
 File: images/circuit_to_3-QUADEQ.pdf Graphic file (type pdf)
 <images/circuit_to_3-QUADEQ.pdf>
 
-Overfull \hbox (20.55217pt too wide) in paragraph at lines 335--341
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
+(Font)              No change on input line 253.
+[14]
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
+(Font)              No change on input line 264.
+File: images/Turing.pdf Graphic file (type pdf)
+<images/Turing.pdf>
+
+
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
+(Font)              No change on input line 285.
+[15]
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
+(Font)              No change on input line 289.
+
+
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
+(Font)              No change on input line 297.
+[16]
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
+(Font)              No change on input line 309.
+File: images/circuit_to_3-QUADEQ.pdf Graphic file (type pdf)
+<images/circuit_to_3-QUADEQ.pdf>
+
+Overfull \hbox (9.49023pt too wide) in paragraph at lines 334--340
 []\JY2/mc/m/n/12 最後に $\OML/lmm/m/it/12 C$ \JY2/mc/m/n/12 が回路充足可能性判定問題の \OT1/lmr/m/n/12 Yes \JY2/mc/m/n/12 インスタンスであることと $\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 f[]\OT1/lmr/m/n/12 )[]$ \JY2/mc/m/n/12 が $[]$
  []
 
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 341.
-[17]) (./weak_PCP.tex
+(Font)              No change on input line 347.
+[17]
+
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
+(Font)              No change on input line 368.
+[18]) (./weak_PCP.tex
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 1.
-[18]
+[19]
+
+[20
+
+]
 Chapter 2.
 
 
-[19
-
-]
+[21]
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 78.
-[20]
+[22]
 Underfull \vbox (badness 1168) has occurred while \output is active []
 
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 109.
-[21]
+[23]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 133.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
@@ -1175,7 +1185,7 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 154.
-[22]
+[24]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 182.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
@@ -1184,7 +1194,7 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 200.
-[23]
+[25]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 210.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
@@ -1193,14 +1203,14 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 239.
-[24]
+[26]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 272.
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 294.
-[25]
+[27]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 311.
 
@@ -1210,59 +1220,81 @@ Underfull \vbox (badness 1776) has occurred while \output is active []
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 326.
-[26]
+[28]
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 362.
-[27]
+[29]
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 414.
-[28]
+[30]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 419.
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 457.
-[29]
+[31]
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 489.
-[30]
+[32]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 492.
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 531.
-[31]
-Overfull \hbox (3.08307pt too wide) in paragraph at lines 531--532
-\JY2/mc/m/n/12 プ \OT1/lmr/m/n/12 3 \JY2/mc/m/n/12 において確率 $\OT1/lmr/m/n/12 0\OML/lmm/m/it/12 :\OT1/lmr/m/n/12 99$ \JY2/mc/m/n/12 で拒否する\OT1/lmr/m/n/12 . \JY2/mc/m/n/12 以降では $[]\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 ^^Y[]; [][]\OT1/lmr/m/n/12 ) \OML/lmm/m/it/12 < \OT1/lmr/m/n/12 0\OML/lmm/m/it/12 :\OT1/lmr/m/n/12 01$ \JY2/mc/m/n/12 かつ $[]\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 ^^Y[]; [][]\OT1/lmr/m/n/12 ) \OML/lmm/m/it/12 <
+(Font)              No change on input line 527.
+[33]
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
+(Font)              No change on input line 539.
+
+
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
+(Font)              No change on input line 561.
+[34]
+
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
+(Font)              No change on input line 592.
+[35]
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
+(Font)              No change on input line 594.
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
+(Font)              No change on input line 612.
+
+
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
+(Font)              No change on input line 632.
+[36]
+Overfull \hbox (34.81161pt too wide) in paragraph at lines 640--641
+\JY2/mc/m/n/12 後はある $\OML/lmm/m/it/12 z[] \OMS/lmsy/m/n/12 2 \U/msb/m/n/12 F[]$ \JY2/mc/m/n/12 と $\OML/lmm/m/it/12 w[] \OMS/lmsy/m/n/12 2 \U/msb/m/n/12 F[]$ \JY2/mc/m/n/12 が存在して\OT1/lmr/m/n/12 , $[](\OML/lmm/m/it/12 ^^Y[]; [][]\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 z[]\OT1/lmr/m/n/12 )) \OML/lmm/m/it/12 < \OT1/lmr/m/n/12 0\OML/lmm/m/it/12 :\OT1/lmr/m/n/12 01$, $[](\OML/lmm/m/it/12 ^^Y[]; [][]\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 w[]\OT1/lmr/m/n/12 )) \OML/lmm/m/it/12 <
  []
 
 ) (./CSP.tex
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 1.
-[32]
+[37]
+
+[38
+
+]
 Chapter 3.
 
 
-[33
-
-]
+[39]
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 108.
-[34]
+[40]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 114.
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 132.
-[35]
+[41]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 142.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
@@ -1275,7 +1307,7 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 173.
-[36]
+[42]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 186.
 File: images/k-to-two.pdf Graphic file (type pdf)
@@ -1286,11 +1318,11 @@ File: images/k-to-two2.pdf Graphic file (type pdf)
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 218.
-[37]
+[43]
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 233.
-[38]
+[44]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 254.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
@@ -1304,31 +1336,31 @@ Overfull \hbox (5.43066pt too wide) in paragraph at lines 263--266
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 282.
-[39]
+[45]
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 320.
-[40]
+[46]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 331.
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 363.
-[41]
+[47]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 384.
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 411.
-[42]) (./gap_amplification.tex
+[48]) (./gap_amplification.tex
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 1.
-[43]
+[49]
 
-[44
+[50
 
 ]
 Chapter 4.
@@ -1336,39 +1368,39 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 22.
 
 
-[45]
+[51]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 76.
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 79.
-[46]
+[52]
 File: images/degree_reduction.pdf Graphic file (type pdf)
 <images/degree_reduction.pdf>
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 117.
-[47]
+[53]
 File: images/majority_degree_reduction.pdf Graphic file (type pdf)
 <images/majority_degree_reduction.pdf>
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 175.
-[48]
+[54]
 Underfull \vbox (badness 3646) has occurred while \output is active []
 
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 196.
-[49]
+[55]
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 230.
-[50]
+[56]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 233.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
@@ -1377,7 +1409,7 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 279.
-[51]
+[57]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 300.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
@@ -1386,25 +1418,25 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 309.
-[52]
+[58]
 File: images/gap_amplification.pdf Graphic file (type pdf)
 <images/gap_amplification.pdf>
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 331.
-[53]
+[59]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 339.
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 379.
-[54]
+[60]
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 425.
-[55]
+[61]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 431.
 File: images/randomwalk_process.pdf Graphic file (type pdf)
@@ -1413,7 +1445,7 @@ File: images/randomwalk_process.pdf Graphic file (type pdf)
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 454.
-[56]
+[62]
 Overfull \hbox (22.76697pt too wide) in paragraph at lines 463--467
 \JY2/mc/m/n/12 である\OT1/lmr/m/n/12 . \JY2/mc/m/n/12 ステ ップ \OT1/lmr/m/n/12 2 \JY2/mc/m/n/12 で選ばれた端点 $\OML/lmm/m/it/12 u[]$ \JY2/mc/m/n/12 は $\OML/lmm/m/it/12 u[] \OT1/lmr/m/n/12 = [][](\OML/lmm/m/it/12 u[]\OT1/lmr/m/n/12 )$ \JY2/mc/m/n/12 であるから\OT1/lmr/m/n/12 , $\OML/lmm/m/it/12 X[] \OT1/lmr/m/n/12 = \OML/lmm/m/it/12 a[][][] \OT1/lmr/m/n/12 =
  []
@@ -1422,14 +1454,14 @@ Overfull \hbox (22.76697pt too wide) in paragraph at lines 463--467
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 494.
-[57]
+[63]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 524.
 
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 531.
-[58]
+[64]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 554.
 
@@ -1441,11 +1473,11 @@ Overfull \hbox (3.3352pt too wide) in paragraph at lines 555--559
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 573.
-[59]
+[65]
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 609.
-[60]
+[66]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 622.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
@@ -1453,37 +1485,37 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 )
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 68.
-[61]
+(Font)              No change on input line 64.
+[67]
 
-[62
+[68
 
 ]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
-(Font)              No change on input line 68.
-LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 68.
+(Font)              No change on input line 64.
+LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 64.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
-(Font)              No change on input line 68.
+(Font)              No change on input line 64.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
-(Font)              No change on input line 68.
+(Font)              No change on input line 64.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
-(Font)              No change on input line 68.
+(Font)              No change on input line 64.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
-(Font)              No change on input line 68.
+(Font)              No change on input line 64.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
-(Font)              No change on input line 68.
+(Font)              No change on input line 64.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
-(Font)              No change on input line 68.
+(Font)              No change on input line 64.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
-(Font)              No change on input line 68.
+(Font)              No change on input line 64.
  (./appendix.tex
 
-[63]
+[69]
 
-[64
+[70
 
 ]
 Appendix A.
@@ -1493,32 +1525,32 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 30.
 
 
-[65]
+[71]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 46.
 )
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 71.
-[66] (.tex_intermediates/main.aux)
+(Font)              No change on input line 67.
+[72] (.tex_intermediates/main.aux)
  ***********
 pLaTeX2e <2023-02-14u04>+1, based on
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 39DB528B2B19A8781E9EB2E7B9AF9ED9;4434.
+(rerunfilecheck)             Checksum: 6F626826B1E76E66DAFE5B07F882ED3B;4640.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36300 strings out of 473836
- 719739 string characters out of 5731190
- 1561697 words of memory out of 5000000
- 59011 multiletter control sequences out of 15000+600000
+ 36306 strings out of 473836
+ 719802 string characters out of 5731190
+ 1562305 words of memory out of 5000000
+ 59018 multiletter control sequences out of 15000+600000
  669755 words of font info for 142 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  98i,20n,107p,983b,1542s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on .tex_intermediates/main.dvi (66 pages, 670436 bytes).
+Output written on .tex_intermediates/main.dvi (72 pages, 711992 bytes).

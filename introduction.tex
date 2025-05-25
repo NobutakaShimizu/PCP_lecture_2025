@@ -168,12 +168,7 @@ PCP定理は1998年に\citet{AroraS98,AroraLMSS98}によって証明された.
 しかし, 証明$\pi$のうちの一部の文字を読むだけで$x\in L$かどうかを\emph{確率的に}判定できる場合がある.
 そのような性質を持つ証明を\emph{確率的検証可能な証明}(Probabilistically Checkable Proof, PCP)という.
 
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.8\textwidth]{images/PCPverifier.drawio.pdf}
-  \caption{確率的検証可能な証明の概念図. 検証者は乱数を用いて証明$\pi$のうちの一部の文字のみを読み, それに基づいて判定を行う.}
-  \label{fig:pcpverifier}
-\end{figure}
+%\includegraphics[width=0.8\textwidth]{images/PCPverifier.drawio.pdf}
 
 
 \begin{definition}{確率的検証可能な証明}{PCP}
@@ -250,6 +245,10 @@ NP完全な判定問題$L$を解く多項式時間アルゴリズム$A_0$が存�
   論理回路$C\colon\binset^n\to\binset$を入力として受け取り, $C(x)=1$を満たす$x\in\binset^n$が存在するかどうかを判定する問題を\emph{回路充足可能性判定問題}(Circuit SAT; circuit satisfiability problem)という.
   回路充足可能性判定問題はNP完全である.
 \end{theorem}
+
+%\includegraphics[width=0.8\textwidth]{images/Turing.pdf}
+
+\includegraphics[width=0.8\textwidth]{images/circuit_to_3-QUADEQ.pdf}
 
 Cook-Levinの定理の証明はクラスNPの検証者を非決定的チューリング機械で模倣し, その機械を回路として表現することによって与えられる.
 すなわち, 回路による計算はチューリング機械を模倣できるという性質が完全性において肝要な性質であり, 以下のように述べられる:
