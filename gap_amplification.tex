@@ -354,9 +354,10 @@ Paley-Zygmundの不等式(\cref{lem:paley-zigmund-inequality})より, $\E[B]$お
   次にこの$k$-CSPを\cref{lem:k-CSP-constraint-graph-representation}を用いて$\Sigma_0:=\Sigma_1^k$上の制約グラフ$G'=\ip{(V',E'),\Sigma_0,\calC'}$に変換することによって証明は完了する.
 
 \begin{lemma}{}{alphabet-reduction-kCSP}
-  ある定数$k\in\Nat$, $c>0$, $\gamma_0>0$, アルファベット$\Sigma_1$, および多項式時間アルゴリズム$A'$が存在して以下が成り立つ:
+  ある定数$q_0\in\Nat$, $\gamma_0>0$, および多項式時間アルゴリズム$A'$が存在して以下が成り立つ:
+  任意のアルファベット$\Sigma$に対し, ある定数$c=c(\abs{\Sigma})>0$が存在し,
   アルゴリズム$A'$は制約グラフ$G=\ip{(V,E),\Sigma,C}$を入力として受け取り,
-  $k$-CSP $\varphi=(X,\Sigma_1,\calI,\calC')$を出力する.
+  $q_0$-CSP $\varphi=(X,\binset,\calI,\calC')$を出力する.
   ただし, $\varphi$は
   \begin{itemize}
     \item $\abs{X} \le c\cdot\size(G)$, $\abs{\calI} \le c\cdot\size(G)$.
@@ -366,10 +367,40 @@ Paley-Zygmundの不等式(\cref{lem:paley-zigmund-inequality})より, $\E[B]$お
 \end{lemma}
 \begin{proof}
   $b = \ceil{\log_2\abs{\Sigma}}$とし, アルファベット$\Sigma$を$\binset^b$と同一視する
-  ($\abs{\Sigma}$が2ベキでない場合はダミーの値を追加して$\abs{\Sigma}=\binset^b$とし, 各制約はダミーの値を無視する).
+  ($\abs{\Sigma}$が2ベキでない場合はダミーの値を追加して$\abs{\Sigma}=\binset^b$とし, 各制約はダミーの値を読み込んだ場合は常に拒否するようにすればよい).
   制約グラフ$G$の各辺$e\in E$に対応する制約$c_e\subseteq \Sigma^2$を指示関数$c_e\colon\Sigma^2\to\binset$と同一視し, これを二入力の論理回路として表現したものを$C_e\colon \binset^b\times \binset^b\to \binset$とする.
 
-  このようにして得られた各$C_e$に対して\cref{thm:two-input-circuit-PCP}を適用する.
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/newCSP.pdf}
+    \caption{$2$-CSPの各辺の制約を論理回路として表現したもの. \label{fig:newCSP}}
+  \end{figure}
+
+  各辺$e=\qty{u,v}\in E$に対し, このようにして得られた各$C_e$に対して\cref{thm:two-input-circuit-PCP}を適用する.
+  この定理から得られる検証者$V^{\pi_u,\pi_v,\pi_e}(C_e)$に対し,
+  ランダムシード$r\in\binset^{\poly(b)}$を固定したときの決定的な検証者を$V^{\pi_u,\pi_v,\pi_e}(C_e;r)$とする. なお, $V$の時間計算量は高々$\poly(b)\le T$であるとする.
+  これは以下の性質を持つ:
+  \begin{itemize}
+    \item $C_e(\sigma_u,\sigma_v)=1$を満たす$\sigma_u,\sigma_v\in\binset^b$に対して $\pi_u=\Had_b(\sigma_u)$および$\pi_v=\Had_b(\sigma_v)$であるならば, ある$\pi_e\in \F_2^{2^{2b} + 2^{4b^2}}$が存在して, 全ての$r\in\binset^T$に対して$V^{\pi_u,\pi_v,\pi_e}(C_e;r)$は受理する.
+    \item $C_e(\sigma_u,\sigma_v)=1$を満たす任意の$\sigma_u,\sigma_v\in\binset^b$に対して$\dist(\pi_u,\Had_b(\sigma_u))\ge0.01$または$\dist(\pi_v,\Had_b(\sigma_v))\ge0.01$を満たす任意の$\pi_u,\pi_v$および任意の$\pi_e \in \F_2^{2^{2b} + 2^{4b^2}}$に対して, $\Pr_r\qty[V^{\pi_u,\pi_v,\pi_e}(C_e;r)\text{ rejects}]\ge 0.99$である.
+    \item ある定数$q=O(1)$が存在して検証者$V^{\pi_u,\pi_v,\pi_e}(C_e)$は高々$q$回のオラクルアクセスを行う. なお, 最終的に構成するCSPは$q$-CSPとなる.
+  \end{itemize}
+  
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/newCSP2.pdf}
+    \caption{構成する$q_0$-CSPの図. PCPP検証者がアクセスするオラクルを文字列とみなした時の各成分が変数に対応する. 実際には, 各$r\in\binset^T$に対して$V^{\pi_u,\pi_v,\pi_e}(C_e;r)$を列挙してそれらを全て制約に追加する. \label{fig:newCSP2}}
+  \end{figure}
+  
+  最終的に出力する新しい$q_0$-CSP $\varphi$を以下のように構成する.
+  \begin{itemize}
+    \item 各$u\in V$と各$i\in \qty[2^b]$に対し, $\pi_{u,i}\in\F_2$を変数とする. また, $\pi_u=\qty(\pi_{u,i})_{i\in[2^b]}\in \F_2^{2^b}$とする. 同様に, 各$e\in E$と各$j\in \qty[ 2^{2b} + 2^{4b^2} ]$に対し, $\pi_{e,j}\in\F_2$を変数とする. また, $\pi_e=\qty(\pi_{e,j})_{j\in\qty[2^{2b} + 2^{4b^2}]}\in \F_2^{2^{2b} + 2^{4b^2}}$とする.
+    \item 各$e=\qty{u,v}\in E$と各$r\in\binset^{T}$に対し, 「$V^{\pi_u,\pi_v,\pi_e}(C_e;r)=1$」という制約を$c'_{e,r}$とする. この検証者$V^{\pi_u,\pi_v,\pi_e}(C_e;r)$は, 変数$\pi_u,\pi_v,\pi_e$をオラクルとして実行する.
+  \end{itemize}
+  各制約「$V^{\pi_u,\pi_v,\pi_e}(C_e;r)=1$」は, 検証者が高々$q_0$回のオラクルアクセスを行うことから, 高々$q_0$個の変数の値に依存する. すなわち$\varphi$は$q_0$-CSPである.
+
+  この$q_0$-CSP $\varphi$が所望の性質を満たすことを確認する.
+
 \end{proof}
 
 最後に\cref{lem:k-CSP-constraint-graph-representation}を用いて, $k$-CSPを制約グラフ$G'=\ip{(V',E'),\Sigma_0,\calC'}$に変換して証明が完了する:

@@ -335,6 +335,26 @@ PCP検証者であることを示す(cf. \cref{def:PCP})には, 任意の$\pi\in
   
 \end{proof}
 
+ここまでの議論を用いると以下のように, オラクルを用いて線形方程式の解を効率的に検証する検証者が構成できる.
+
+  \begin{lemma}{線型方程式の解の検証}{linear-equation-solution-verification}
+    以下を満たす定数$q=O(1)$と乱択$O(mn)$時間オラクルアルゴリズム$V^{\pi}(M,z)$が存在する:
+    入力として$M\in\F^{m\times n},z\in\F^m$を受け取り, オラクルとして$\pi\colon\F^n\to\F$へのオラクルアクセスを受け取り, これらのオラクルに対して合計で高々$q$回のオラクルアクセスを行う. 任意のオラクル$\pi$に対し以下が成り立つ:
+    \begin{itemize}
+      \item あるベクトル$y\in\F^n$に対して$\pi=\Had_n(y)$であるならば, $V^{\pi}(M,z)$は確率$1$で受理する.
+      \item $My=z$を満たす全てのベクトル$y\in\F^n$に対して$\dist(\pi,\Had_n(y))\ge 0.01$ならば, $V^{\pi}(M,z)$は確率$0.99$で拒否する.
+    \end{itemize}
+  \end{lemma}
+
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/linear_verification.pdf}
+    \caption{\cref{lem:linear-equation-solution-verification}の検証者のイメージ. $My=z$を満たす$y$に対し$\Had_n(y)$がオラクルとして与えられたときは常に受理する. 一方, そのような全ての$\Had_n(y)$から離れた$\pi$は高確率で拒否する.}
+  \end{figure}
+  
+  \begin{exercise}{線型方程式の解の検証}{linear-equation-solution-verification}
+    \cref{lem:linear-equation-solution-verification}を証明せよ (ヒント: \cref{eq:random-inner-product,lem:nearest-linear-function-evaluation}を用いる).
+  \end{exercise}
 
 \section{弱いPCP定理とその証明}
 \cref{thm:local-verification-LinEq}のアイデアを拡張してPCP定理を証明するには何が必要だろうか?
@@ -352,7 +372,7 @@ PCP検証者であることを示す(cf. \cref{def:PCP})には, 任意の$\pi\in
 なお, \cref{thm:weak-PCP-theorem}の証明のアイデアは後に\cref{thm:PCPtheorem}の証明でも用いられる.
 
 \subsection{方針}
-  \cref{thm:ThreeQuadEQ-NP-complete}で定義した問題$\ThreeQuadEQ$に対してPCP検証者を構成すればよい.
+  \cref{thm:ThreeQuadEQ-NP-complete}で定義した問題$\QuadEQ$に対してPCP検証者を構成すればよい.
   ここではより一般的に, ある$r=O(1),q=\poly(n)$に対して$\QuadEQ\in\PCP(r,q)$を示す.
   $\QuadEQ$のインスタンスは
   \begin{align*}
@@ -380,25 +400,24 @@ PCP検証者であることを示す(cf. \cref{def:PCP})には, 任意の$\pi\in
   \end{enumerate}  
   を満たすことは同値である.
   方針としては, この二つの条件を検証するPCP検証者を構成して組み合わせることによって, 上記の問題に対する検証者を構成する.
-  条件2に関しては, \cref{thm:local-verification-LinEq}の検証者を用いて$V^\pi(M,\allone)$を実行すればよい.
+  条件2に関しては, \cref{thm:local-verification-LinEq}の検証者を用いて$V^\pi(M,b)$を実行すればよい.
   この検証者はオラクルアクセスの回数が$O(1)$でランダムビット長が$O(n^2)$である.
 
   \subsection{証明の構成}
   有限体$\F$の要素数を$q$とする.
-  PCP検証者が受け取る証明$\pi$は, 二つの関数$\pi_y\colon\F^{n^2}\to\F$と$\pi_x\colon\F^n\to\F$からなる.
-  具体的には, $\pi_y$と$\pi_x$を表すそれぞれ長さ$q^{n^2}$と$q^n$の文字列を結合して得られる文字列を$\pi$と定める (従って$\pi$の文字列としての長さは$q^{n^2}+q^n$である).
-  検証者は, \ref{item:jouken1}と\ref{item:jouken2}を満たす$x\in\F^n,y\in\F^{n^2}$に対し, これらをアダマール符号で符号化したもの$\pi_x=\Had(x)$, $\pi_y = \Had(y)$を想定している.
+  PCP検証者が受け取る証明は, 二つの関数$\pi\colon\F^{n^2}\to\F$と$\pi_x\colon\F^n\to\F$からなる.
+  具体的には, $\pi$と$\pi_x$を表すそれぞれ長さ$q^{n^2}$と$q^n$の文字列を結合して得られる文字列が証明となる (従って全体の長さは$q^{n^2}+q^n$である).
+  検証者は, \ref{item:jouken1}と\ref{item:jouken2}を満たす$x\in\F^n,y\in\F^{n^2}$に対し, これらをアダマール符号で符号化したもの$\pi_x=\Had(x)$, $\pi = \Had(y)$を想定している.
   従って, これらが実際に$x,y$を符号化したものであることと, そして確かに$(x,y)$が\ref{item:jouken1}と\ref{item:jouken2}を満たすことを検証することになる.
   
   \cref{thm:local-verification-LinEq}の検証者$V^\pi$を用いる($z=b$とする)と\ref{item:jouken2}を定数回のオラクルアクセスで確率的に検証できる.
-  また, $\pi_y$と$\pi_x$がそれぞれ線形関数に近いかどうかは\cref{thm:linearity-test}より, 定数回のオラクルアクセスで確率的に検証できる.
-  従って, $\pi_y,\pi_x$がそれぞれ線形関数に非常に近いことを仮定した上で
+  また, $\pi$と$\pi_x$がそれぞれ線形関数に近いかどうかは\cref{thm:linearity-test}より, 定数回のオラクルアクセスで確率的に検証できる.
+  従って, $\pi,\pi_x$がそれぞれ線形関数に非常に近いことを仮定した上で
   \ref{item:jouken1}を検証するPCP検証者を構成すればよい.
 
   \subsection{テンソル積の検証}
-  我々の目標は, 
-  ある二つのベクトル$y\in\F^{V^2}$と$x\in\F^V$に対して, $\dist(\pi_y,\Had(y))\le 0.01$と$\dist(\pi_x,\Had(x))\le 0.01$となることが保証されている二つのオラクル
-  $\pi_y$と$\pi_x$への定数回のオラクルアクセスを用いて, その$x,y$が
+  我々の目標は, ある二つのベクトル$y\in\F^{n^2}$と$x\in\F^n$に対して, $\dist(\pi,\Had(y))\le 0.01$と$\dist(\pi_x,\Had(x))\le 0.01$となることが保証されている二つのオラクル
+  $\pi$と$\pi_x$への定数回のオラクルアクセスを用いて, その$x,y$が
   \ref{item:jouken1}を満たすことを検証することである.
   なお, そのような$x,y$が存在するならばそれらは一意であることが\cref{exer:uniqueness-of-nearest-linear-function}から保証されている.
   ここで, $y\in\F^{n^2}$を$n\times n$-行列として表現したものを$Y\in\F^{n\times n}$, $X=xx^\top$とする. \ref{item:jouken1}は$Y=X$を満たすことと同値である.
@@ -463,30 +482,23 @@ PCP検証者であることを示す(cf. \cref{def:PCP})には, 任意の$\pi\in
   \end{proof}
   
   \subsection{弱いPCP定理の証明}  
-  ここまでの議論を用いて弱いPCP定理を証明する. 以下の補題を必要とする.
 
-  \begin{lemma}{線型方程式の解の検証}{linear-equation-solution-verification}
-    あるベクトル$y\in\F^n$に対し, $\dist(\pi,\Had(y))\le 0.01$を満たすことが保証されているオラクル$\pi$への定数回のオラクルアクセスを用いて, 入力として与えられた$M\in\F^{m\times n},z\in\F^m$に対し, 
-    以下を満たす乱択$O(mn)$時間オラクルアルゴリズム$V^{\pi}(M,z)$が存在する:
-    \begin{itemize}
-      \item $My=z$ならば$V^{\pi}(M,z)$は確率$1$で受理する.
-      \item $My\ne z$ならば$V^{\pi}(M,z)$は確率$0.99$で拒否する.        
-    \end{itemize}
-  \end{lemma}
   
-  \begin{exercise}{線型方程式の解の検証}{linear-equation-solution-verification}
-    \cref{lem:linear-equation-solution-verification}を証明せよ (ヒント: \cref{eq:random-inner-product,lem:nearest-linear-function-evaluation}を用いる).
-  \end{exercise}
-  
-  次に\cref{lem:linear-equation-solution-verification}を, 線型方程式ではなく回路に対する検証に拡張する.
-  \begin{lemma}{回路の検証}{circuit-verification}
-    あるベクトル$x\in\F_2^n$に対し, $\pi_x=\Had_n(x)$を満たすことが保証されているオラクル$\pi_x$およびもう一つのオラクル$\pi$への定数回のオラクルアクセスを用いて, 入力として与えられた回路$C$に対し, 
-    以下を満たす多項式時間乱択オラクルアルゴリズム$V^{\pi_x,\pi}(C)$が存在する:
+  まず, \cref{lem:linear-equation-solution-verification}を, 線型方程式ではなく回路に対する検証に拡張する.
+  \begin{theorem}{回路の検証}{circuit-verification}
+    以下を満たす定数$q=O(1)$と多項式時間乱択オラクルアルゴリズム$V^{\pi_x,\pi}(C)$が存在する:
     \begin{itemize}
-      \item $C(x)=1$ならば, ある$\pi\in \F_2^{2^{n^2}}$が存在して, $V^{\pi_x,\pi}(C)$は確率$1$で受理する.
-      \item $C(x)=0$ならば, 任意の$\pi\in \F_2^{2^{n^2}}$に対し, $V^{\pi_x,\pi}(C)$は確率$0.99$で拒否する.
+      \item 入力として回路$C\colon \binset^n\to\binset$を受け取り, 二つのオラクル$\pi_x,\pi$へのオラクルアクセスを受け取り, 全てのオラクルに対し合計で高々$q$回のオラクルアクセスを行う.
+      \item $C(x)=1$を満たすベクトル$x\in\F_2^n$に対して$\pi_x=\Had_n(x)$であるならば, ある$\pi\in \F_2^{2^{n^2}}$に対し, $V^{\pi_x,\pi}(C)$は確率$1$で受理する.
+      \item $C(x)=1$を満たす任意の$x\in\F_2^n$に対して$\dist(\pi_x,\Had_n(x))\ge 0.01$を満たす$\pi_x$と任意の$\pi\in \F_2^{2^{n^2}}$に対して$V^{\pi_x,\pi}(C)$は確率$0.99$で拒否する.
     \end{itemize}
-  \end{lemma}
+  \end{theorem}
+  
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/circuit_verification.pdf}
+    \caption{\cref{thm:circuit-verification}の検証者のイメージ. $C(x)=1$を満たす$x\in\F_2^n$に対し, $\pi_x=\Had_n(x)$ならば, ある$\pi\in \F_2^{2^{n^2}}$に対し, $V^{\pi_x,\pi}(C)$は確率$1$で受理する. 一方, $C(x)=1$を満たす任意の$x\in\F_2^n$に対して$\dist(\pi,\Had_n(x))\ge 0.01$を満たす任意の$\pi\in \F_2^{2^{n^2}}$に対して, $V^{\pi_x,\pi}(C)$は確率$0.99$で拒否する.}
+  \end{figure}
 
   \begin{proof}
     入力として与えられた回路$C$に対し, \cref{thm:ThreeQuadEQ-NP-complete}で与えたカープ帰着を用いて$\QuadEQ$のインスタンス$(f_k)_{k\in [m]}$を構成する (ここで, $C$のサイズ$s$に対して$m=n+s+1$である).
@@ -503,8 +515,8 @@ PCP検証者であることを示す(cf. \cref{def:PCP})には, 任意の$\pi\in
     \begin{algo}{}{QuadEQ-PCP}
       PCP検証者$V^{\pi_x,\pi}(M,b)$を以下で記述する:
       \begin{enumerate}
-        \item 入力として$M\in\F_2^{m\times n^2}$と$b\in\F_2^m$および証明として$\pi_x\colon\F_2^n\to\F_2$と$\pi\colon\F_2^{n^2}\to\F_2$へのオラクルアクセスを受け取る. ただし補題の仮定より$\pi_x=\Had_n(x)$である.
-        \item \cref{thm:linearity-test}のアルゴリズムを$\pi$に対して実行し, $\pi$が線形関数に$0.01$-近いかどうかを検証する. もしこの実行においてこのアルゴリズムが拒否したら拒否する.
+        \item 入力として$M\in\F_2^{m\times n^2}$と$b\in\F_2^m$および証明として$\pi_x\colon\F_2^n\to\F_2$と$\pi\colon\F_2^{n^2}\to\F_2$へのオラクルアクセスを受け取る.
+        \item \cref{thm:linearity-test}のアルゴリズムを$\pi_x,\pi$のそれぞれに対して実行し, $\pi_x,\pi$が線形関数に$0.01$-近いかどうかを検証する. もしいずれかの実行においてこのアルゴリズムが拒否したら拒否する.
         \item \cref{lem:tensor-product-verification}の検証者を, オラクルとして$\pi_x$と$\pi$を用いて実行する. この検証者が拒否したら拒否する.
         \item \cref{lem:linear-equation-solution-verification}の検証者を, 入力として$(M,b)$, オラクルとして$\pi$を用いて実行する. この検証者が拒否したら拒否する.
         \item ここまでのステップで拒否していなければ受理して終了する.
@@ -514,7 +526,8 @@ PCP検証者であることを示す(cf. \cref{def:PCP})には, 任意の$\pi\in
     この検証者$V^{\pi_x,\pi}$が所望のPCP検証者であることを確認する.
     \cref{thm:linearity-test,thm:local-verification-LinEq,lem:tensor-product-verification,lem:linear-equation-solution-verification}ではそれぞれオラクルアクセスは$O(1)$回であり, 内部で用いるランダムビットは$O(n^2)$である.
 
-    入力$(M,b)$が, $y_{i,j}=x_i\cdot x_j$で定まるベクトル$y\in\F_2^{n^2}$に対して$My=b$を満たすとする.
+    $C(x)=1$となるような$x\in\F_2^n$に対して$\pi_x=\Had_n(x)$であるとする.
+    このとき入力$(M,b)$は, $y_{i,j}=x_i\cdot x_j$で定まるベクトル$y\in\F_2^{n^2}$に対して$My=b$を満たす.
     この$y$に対して, $\pi=\Had_{n^2}(y)$とする (補題の仮定より, $\pi_x=\Had_n(x)$である).
     このとき, 
     \begin{itemize}
@@ -524,85 +537,78 @@ PCP検証者であることを示す(cf. \cref{def:PCP})には, 任意の$\pi\in
     \end{itemize}
     以上より, $V^{\pi_x,\pi}$は確率$1$で受理する.
 
-    次に$C(x)=0$であるとする.
-    任意の$\pi\colon\F^{n^2}\to\F$を考える ($\pi_x=\Had_n(x)$であることに留意).
+    次にオラクル$\pi_x$が, $C(x)=1$を満たす任意の$x\in\F_2^n$に対して$\dist(\pi_x,\Had_n(x))\ge 0.01$を満たすとする. オラクル$\pi\colon\F_2^{n^2}\to\F_2$を任意に固定する.
 
     \begin{itemize}
-      \item $\dist(\pi,\Had_{n^2})\ge 0.01$ ならば, $V^{\pi_x,\pi}((f_k)_{k\in[m]})$はステップ3において確率$0.99$で拒否する. 以降では$\dist(\pi,\Had_{n^2}) < 0.01$とし, $\pi$に最も近い線形関数を$\Had_{n^2}(y)$とする.
-      \item ステップ3は, \cref{lem:tensor-product-verification}の仮定が満たされているため, 確率$0.99$で拒否する. 以降ではさらに$x\in\F^n,y\in\F^{n^2}$が, 全ての$i,j\in [n]$に対し$y_{i,j}=x_i\cdot x_j$を満たすことが保証されているとする.
-      \item ステップ4は, $My\ne b$であるため, \cref{lem:linear-equation-solution-verification}の検証者が確率$0.99$で拒否する.
+      \item $\dist(\pi,\Had_{n^2})\ge 0.01$または$\dist(\pi_x,\Had_n)\ge 0.01$ならば, 検証者はステップ2において確率$0.99$で拒否する. 以降では$\pi,\pi_x$はどちらも線形関数に十分近いとし, $\pi$に最も近い線形関数を$\Had_{n^2}(y)$とし, $\pi_x$に最も近い線形関数を$\Had_n(x)$とする. このとき, $\pi_x$の仮定から$C(x)=0$である.
+      \item ステップ3は, \cref{lem:tensor-product-verification}の仮定が満たされているため, ある$i,j\in[n]$に対して$y_{i,j}\ne x_i\cdot x_j$となるならば, 確率$0.99$で拒否する.
+      従って以降ではさらに$x\in\F^n,y\in\F^{n^2}$が, 全ての$i,j\in [n]$に対し$y_{i,j}=x_i\cdot x_j$を満たすとする.
+      \item ステップ4は, $C(x)=0\iff My\ne b$であるため, \cref{lem:linear-equation-solution-verification}の検証者が確率$0.99$で拒否する.
     \end{itemize}
-    以上より, $V^{\pi_x,\pi}$がステップ3-5のループで拒否する確率は少なくとも$0.97$である (ステップ3-5を2回繰り返せばこの確率は$0.99$以上になる).
+    以上より, $V^{\pi_x,\pi}$がステップ2-4のループで拒否する確率は少なくとも$0.97$である.
   \end{proof}
     
-  最後に, \cref{lem:circuit-verification}の証明を少し修正して弱いPCP定理を証明する.
+  実は\cref{thm:circuit-verification}から即座に弱いPCP定理が示せる.
   \begin{proof}[\cref{thm:weak-PCP-theorem}の証明.]
-    Cook-Levinの定理(\cref{thm:Cook-Levin})より, 任意の$L\in\NP$は回路充足判定問題に帰着できるため, この問題に対してPCP検証者を与えればよい.
-    \cref{lem:circuit-verification}の検証者を考える.
+    \cref{thm:Cook-Levin}より, 回路充足可能性判定問題はNP完全である.
+    従って, この問題に対するPCP検証者を与えればよい.
+    実は, \cref{thm:circuit-verification}の検証者がこの条件を満たす.
 
-    \cref{alg:QuadEQ-PCP}を少し修正した以下の検証者$V^{\pi_x,\pi}(C)$を考える:
-    \begin{algo}{}{weak-PCP}
-      PCP検証者$V^{\pi_x,\pi}(C)$を以下で記述する:
-      \begin{enumerate}
-        \item 入力で与えられた回路$C\colon\binset^n\to\binset$に対し, \cref{lem:circuit-verification}の証明で考えた行列$M\in\F_2^{m\times n^2}$とベクトル$b\in\F_2^m$を計算する.
-        \item \cref{thm:linearity-test}のアルゴリズムを$\pi_x,\pi$に対して実行し, $\pi_x,\pi$がそれぞれ線形関数に$0.01$-近いかどうかを検証する. もしいずれかの実行においてこのアルゴリズムが拒否したら拒否する.
-        \item \cref{lem:tensor-product-verification}の検証者を, オラクルとして$\pi_x$と$\pi$を用いて実行する. この検証者が拒否したら拒否する.
-        \item \cref{lem:linear-equation-solution-verification}の検証者を, 入力として$(M,b)$, オラクルとして$\pi$を用いて実行する. この検証者が拒否したら拒否する.
-        \item ここまでのステップで拒否していなければ受理して終了する.
-      \end{enumerate}
-    \end{algo}
+    実際,
+    入力として与えられた回路$C\colon\binset^n\to\binset$がYesインスタンスならば,
+    ある$x\in\binset^n$が存在して$C(x)=1$となる.
+    この$x$を$\F_2^n$の元とみなして, $\pi_x = \Had_n(x)$とすれば, ある$\pi$が存在して$V^{\pi_x,\pi}(C)$は確率$1$で受理する.
 
-    回路充足判定問題のインスタンス$C$がYesインスタンスならば, ある$x\in\binset^n$が存在して$C(x)=1$となる. この$x$を$\F_2^n$の元とみなして, $y_{i,j}:=x_i\cdot x_j$, $\pi_x = \Had_n(x)$, $\pi = \Had_{n^2}(y)$とすれば,
-    $V^{\pi_x,\pi}(C)$は確率$1$で受理する.
-
-    回路$C$がNoインスタンスであるとし, 任意の$\pi_x\colon \F_2^n\to\F_2$と$\pi\colon \F_2^{n^2}\to\F_2$を考える.
-    \begin{itemize}
-      \item $\dist(\pi_x,\Had_n)\ge 0.01$ または $\dist(\pi,\Had_{n^2})\ge 0.01$ ならば, $V^{\pi_x,\pi}(C)$はステップ2において確率$0.99$で拒否する. 以降では$\dist(\pi_x,\Had_n) < 0.01$かつ$\dist(\pi,\Had_{n^2}) < 0.01$とし, $\pi_x,\pi$に最も近い線形関数をそれぞれ$\Had_n(x),\Had_{n^2}(y)$とする.
-      \item ステップ3は, \cref{lem:tensor-product-verification}の仮定が満たされているため, 確率$0.99$で拒否する. 以降ではさらに$x\in\F^n,y\in\F^{n^2}$が, 全ての$i,j\in [n]$に対し$y_{i,j}=x_i\cdot x_j$を満たすことが保証されているとする.
-      \item ステップ4は, $My\ne b$であるため, \cref{lem:linear-equation-solution-verification}の検証者が確率$0.99$で拒否する.
-    \end{itemize}
-    以上より, $V^{\pi_x,\pi}(C)$が一度のステップ3-5のループで拒否する確率は少なくとも$0.97$である.
-  
+    一方, $C$がNoインスタンスならば, $C(x)=1$となるような$x\in\binset^n$は存在しないため, どのような$\pi_x,\pi$に対しても, $V^{\pi_x,\pi}(C)$は確率$0.99$で拒否する.    
   \end{proof}
 
-\section{二入力回路の割り当てに対するPCP検証者}
-\cref{lem:circuit-verification}はある意味で, $x\in\binset^n$を全て見ることなく, 与えられた回路$C$に対し$C(x)=1$となるかどうかを検証するPCP検証者を構成した (実際には$\pi_x=\Had_n(x)$および追加の情報$\pi_y$へのオラクルアクセスも仮定している).
+\begin{remark}{近接PCP}{PCPP}
+  \cref{thm:circuit-verification}のように, 入力として回路$C$が与えられ, さらに$C$が受け取る入力$x$を符号化したもの$\pi_x$および「追加の情報」をもつ$\pi$へのオラクルアクセスが与えられたとき, $x$が$C$の充足割り当てを符号化したものから遠い場合に高確率で拒否するような検証者は一般に充足可能性の検証よりも強いことを主張しており, これを達成するような証明のことを\emph{近接PCP} (PCP of Proximity)と呼び, 検証者のことをPCPP検証者と呼ぶ.
+\end{remark}
 
-ここでは回路$C$が二つの入力$x,y\in\binset^n$を受け取る場合でも同様のPCP検証者が構成できることを示す.
+\section{二入力回路の割り当てに対するPCP検証者}
+\cref{thm:circuit-verification}はある意味で, $x\in\binset^n$を全て見ることなく, 与えられた回路$C$に対し$C(x)=1$となるかどうかを検証するPCP検証者を構成した (実際には$\pi_x=\Had_n(x)$および追加の情報$\pi_y$へのオラクルアクセスも仮定している).
+
+ここでは回路$C$が二つの入力$x,y\in\binset^n$を受け取る場合でも同様のPCPP検証者が構成できることを示す.
 この設定は人工的な問題設定に見えるが, PCP定理の証明において重要な役割を果たす.
 
+
 \begin{theorem}{二入力回路の割り当てに対するPCP検証者}{two-input-circuit-PCP}
-  以下を満たす多項式時間乱択オラクルアルゴリズム$V^{\pi_x,\pi_y,\pi}(C)$が存在する:
+  以下を満たす定数$q=O(1)$と多項式時間乱択オラクルアルゴリズム$V^{\pi_x,\pi_y,\pi}(C)$が存在する:
   \begin{itemize}
-    \item 入力として$C\colon\binset^n\times\binset^n\to\binset$および三つのオラクル$\pi_x,\pi_y, \pi$へのオラクルアクセスを受け取る.
-    \item オラクル$\pi_x,\pi_y$はそれぞれ, あるベクトル$x,y\in\F_2^n$に対し$\pi_x=\Had_n(x),\pi_y=\Had_n(y)$を満たすことが保証されている (オラクル$\pi$は任意).
-    \item $C(x,y)=1$ならば, ある$\pi\in \binset^{2^{2n} + 2^{4n^2}}$が存在して, $V^{\pi_x,\pi_y,\pi}(C)$は確率$1$で受理する.
-    \item $C(x,y)=0$ならば, 任意の$\pi\in \binset^{2^{2n} + 2^{4n^2}}$に対し, $V^{\pi_x,\pi_y,\pi}(C)$は確率$0.99$で拒否する.
+    \item 入力として$C\colon\binset^n\times\binset^n\to\binset$および三つのオラクル$\pi_x,\pi_y, \pi$へのオラクルアクセスを受け取り, これらのオラクルに対して合計で高々$q$回のオラクルアクセスを行う.
+    \item $C(x,y)=1$を満たす$x,y\in\F_2^n$に対して$\pi_x=\Had_n(x)$および$\pi_y=\Had_n(y)$であるならば, ある$\pi\in \F_2^{2^{2n} + 2^{4n^2}}$が存在して, $V^{\pi_x,\pi_y,\pi}(C)$は確率$1$で受理する.
+    \item $C(x,y)=1$を満たす任意の$x,y\in\F_2^n$に対して$\dist(\pi_x,\Had_n(x))\ge0.01$または$\dist(\pi_y,\Had_n(y))\ge0.01$を満たす任意の$\pi_x,\pi_y$および任意の$\pi$に対して, $V^{\pi_x,\pi_y,\pi}(C)$は確率$0.99$で拒否する.
   \end{itemize}
 \end{theorem}
 
+$(x,y)$を一つの文字列$z\in\F_2^{2n}$とみなして\cref{thm:circuit-verification}を適用したとき, 検証者は$\pi_z=\Had_{2n}(z)$と追加の情報$\pi$へのオラクルアクセスを持つことになるが,
+\cref{thm:two-input-circuit-PCP}の検証者は, $x,y$それぞれの符号化$\pi_x,\pi_y$へのオラクルを持つという点が異なっている.
+
 \cref{thm:two-input-circuit-PCP}の証明においては, ある文字列$x\in\binset^n$が別の文字$\overline{x}\in\binset^{n+m}$の接頭辞かどうかを(オラクルアクセスを用いて)局所的に検証することを意味する以下の補題を用いる.
 \begin{lemma}{接頭辞の検証}{concatenation-test}
-  以下を満たす多項式時間乱択オラクルアルゴリズム$V_0^{\Had_n(x),\pi}$が存在する:
+  以下を満たす定数$q=O(1)$と多項式時間乱択オラクルアルゴリズム$V_0^{\pi_x,\pi_{\overline{x}}}(1^n,1^m)$が存在する:
   \begin{itemize}
-    \item 入力として$1^{n+m}$を受け取り, 二つのオラクル$\Had_n(x)\colon \F_2^n\to\F_2$と$\pi\colon \F_2^{n+m}\to\F_2$へのオラクルアクセスを受け取る. ここで, 二つ目のオラクル$\pi$は, あるベクトル$\overline{x}\in\F_2^{n+m}$に対し$\dist(\pi,\Had_{n+m}(\overline{x})) < 0.01$を満たすことが保証されている.
-    \item このような$\overline{x}$に対し, $\overline{x}$の最初の$n$文字が$x$に一致するならば, 確率$1$で受理する.
-    \item そうでなければ, 確率$0.99$で拒否する.
+    \item オラクル$\pi_x,\pi_{\overline{x}}$は, ある$x\in\F_2^n$と$\overline{x}\in\F_2^{n+m}$に対して, $\dist(\pi_x,\Had_n(x))<0.01$および$\dist(\pi_{\overline{x}},\Had_{n+m}(\overline{x}))<0.01$であることが保証されている.
+    \item 検証者$V_0^{\pi_x,\pi_{\overline{x}}}$は高々$q$回のオラクルアクセスを行う.
+    \item $\pi_x = \Had_n(x)$, $\pi_{\overline{x}}=\Had_{n+m}(\overline{x})$であって, さらに$\overline{x}$の先頭$n$文字が$x$と一致するならば, $V_0^{\pi_x,\pi_{\overline{x}}}$は確率$1$で受理する.
+    \item 一方, $\overline{x}$の先頭$n$文字が$x$に一致しない場合, 確率$0.99$で拒否する.
   \end{itemize}
 \end{lemma}
 \begin{proof}
-  アルゴリズム$V_0^{\Had_n(x),\Had_{n+m}(\overline{x})}$は単純で, 以下のように記述できる:
+  アルゴリズム$V_0^{\pi_x,\pi_{\overline{x}}}$は単純で, 以下のように記述できる:
   \begin{enumerate}
     \item 一様ランダムなベクトル$r\sim\F_2^n$を選び, $\overline{r}=(r,0^m)\in\F_2^{n+m}$とする.
-    \item $\Had_n(x)(r) \ne \Had_{n+m}(\overline{x})(\overline{r})$ならば拒否する.
+    \item $\pi_x(r) \ne \pi_{\overline{x}}(\overline{r})$ならば拒否する. ここで, $\pi_{\overline{x}}(\overline{r})$は\cref{lem:nearest-linear-function-evaluation}を用いて計算する.
     \item ステップ1-2を10回繰り返し, 一度も拒否しなければ受理して終了する.
   \end{enumerate}
 
   $\overline{x}$の最初の$n$文字を$y\in\binset^n$とする.
-  このとき, ステップ2において$\Had_{n+m}(\overline{x})(\overline{r}) = \Had_{n+m}(\overline{x})(r,0^m) = \Had_{n+m}(y,0^m) = \Had_{n}(y)(r)$となる.
-  従って, $x=y$の場合はどのような$r\sim\F_2^n$を選んでも$\Had_n(x)(r) = \Had_n(y)(r)$となり, 確率$1$でアルゴリズムは受理する.
-  一方で$x\ne y$の場合は\cref{eq:linear-equation-property}より, 一度の試行で少なくとも確率$1/2$でアルゴリズムは拒否する.
-  よって, ステップ1-2を10回だけ繰り返せば少なくとも確率$1-2^{-10}\ge 0.99$でアルゴリズムは拒否する.
+  もしも$\pi_x=\Had_n(x)$, $\pi_{\overline{x}}=\Had_{n+m}(\overline{x})$であって, $y=x$ならば, ステップ2においてどのような$r\sim\F_2^n$を選んでも$\Had_n(x)(r) = \Had_n(y)(r) = \Had_{n+m}(\overline{x})(r,0^m)$となり, 確率$1$でアルゴリズムは受理する.
+  一方で$x\ne y$の場合を考える. オラクル$\pi_{\overline{x}}$は$\Had(\overline{x})$に$0.01$-近いため,
+  \cref{lem:nearest-linear-function-evaluation}より, ステップ2において, 確率$0.98$で$\pi_{\overline{x}}(\overline{x})=\Had_n(y)(r)$を計算できる. また, $r$が一様ランダムなので, 確率$0.99$で$\pi_x(r)=\Had_n(x)(r)$である.
+  従って一度の試行で少なくとも確率$0.97$で検証者は拒否するため,
+  ステップ1-2を10回だけ繰り返せば少なくとも確率$0.99$で検証者は拒否する.
 \end{proof}
 
 \begin{remark}{接尾辞の検証}{suffix-test}
@@ -622,25 +628,38 @@ PCP検証者であることを示す(cf. \cref{def:PCP})には, 任意の$\pi\in
   PCP検証者$V^{\pi_x,\pi_{y},\pi}(C)$を以下で記述する:
   \begin{enumerate}
     \item オラクル$\pi$を二つの関数$\pi_1\colon\F_2^{2n}\to\F_2,\pi_2\colon\F_2^{4n^2}\to\F_2$の組として解釈する.
-    \item 入力で与えられた回路を$C\colon\binset^{2n}\to\binset$とみなし, \cref{lem:circuit-verification}の証明で考えた行列$M\in\F_2^{m\times {(2n)^2}}$とベクトル$b\in\F_2^m$を計算する.
-    \item \cref{thm:linearity-test}のアルゴリズムを$\pi_1,\pi_2$に対して実行し, $\pi_1,\pi_2$がそれぞれ線形関数に$0.01$-近いかどうかを検証する. もしいずれかの実行においてこのアルゴリズムが拒否したら拒否する.
-    \item $\pi_1$に最も近い線形関数を$\Had_{2n}(\overline{x})$としたとき, $\overline{x}\in\F_2^{2n}$の前半の$n$文字が$x$, 後半の$n$文字が$y$に一致するかどうかをそれぞれ\cref{lem:concatenation-test}のアルゴリズムを用いて検証する. もしいずれかの検証においてこのアルゴリズムが拒否したら拒否する.
+    \item 入力で与えられた回路を$C\colon\binset^{2n}\to\binset$とみなし, \cref{thm:circuit-verification}の証明で考えた行列$M\in\F_2^{m\times {(2n)^2}}$とベクトル$b\in\F_2^m$を計算する.
+    \item \cref{thm:linearity-test}のアルゴリズムを$\pi_x,\pi_y,\pi_1,\pi_2$に対して実行し, $\pi_1,\pi_2$がそれぞれ線形関数に$0.01$-近いかどうかを検証する. もしいずれかの実行においてこのアルゴリズムが拒否したら拒否する.
+    \item $\pi_x,\pi_y,\pi_1$に最も近い線形関数をそれぞれ$\Had_n(x),\Had_n(y),\Had_{2n}(z)$とする.
+    \item $z\in\F_2^{2n}$の前半の$n$文字が$x$, 後半の$n$文字が$y$に一致するかどうかをそれぞれ\cref{lem:concatenation-test}のアルゴリズムを用いて検証する. もしいずれかの検証においてこのアルゴリズムが拒否したら拒否する.
     \item \cref{lem:tensor-product-verification}の検証者を, オラクルとして$\pi_1$と$\pi_2$を用いて実行する. この検証者が拒否したら拒否する.
     \item \cref{lem:linear-equation-solution-verification}の検証者を, 入力として$(M,b)$, オラクルとして$\pi_2$を用いて実行する. この検証者が拒否したら拒否する.
     \item ここまでのステップで拒否していなければ受理して終了する.
   \end{enumerate}
 \end{algo}
 
-文字列$x,y$を結合して得られる文字列を$z=(x,y)\in\F_2^{2n}$とし,
-$w\in\F_2^{(2n)^2}$を, $w_{i,j} = z_i\cdot z_j$で定まるベクトルとする.
-もし$C(x,y)=1$ならば, $\pi_1 = \Had_{2n}(z)$, $\pi_2 = \Had_{(2n)^2}(w)$に対し, $\pi=(\pi_1,\pi_2)$とすることによって, 確率$1$で$V^{\pi_x,\pi_{y},\pi}(C)$は受理する.
+$C(x,y)=1$を満たす$x,y\in\F_2^n$に対し$\pi_x=\Had_n(x)$, $\pi_y=\Had_n(y)$とする.
+このとき, 文字列$x,y$を結合して得られる文字列を$z=(x,y)\in\F_2^{2n}$,
+また文字列$w\in\F_2^{4n^2}$を, $w_{i,j}=z_i\cdot z_j$と定めると,
+$V^{\Had_n(x),\Had_n(y),\Had_{2n}(z),\Had_{4n^2}(w)}(C)$は確率$1$で受理する.
 
-一方で$C(x,y)=0$とし, 任意の$\pi_1,\pi_2$を考える.
+一方, オラクル$\pi_x,\pi_y$が, $C(x,y)=1$を満たす任意の$x,y\in\F_2^n$に対して, $\dist(\pi_x,\Had_n(x))\ge 0.01$または$\dist(\pi_y,\Had_n(y))\ge0.01$の少なくとも一方が成り立つとする.
+任意にオラクル$\pi_1,\pi_2$を固定する.
 \begin{itemize}
-  \item $\pi_1,\pi_2$が線形関数から$0.01$-遠い場合, ステップ3において確率$0.99$で拒否する. 従って以後はある$z'\in\F_2^{2n}$と$w'\in\F_2^{(2n)^2}$が存在して, $\dist(\pi_1, \Had_{2n}(z'))<0.01$, $\dist(\pi_2, \Had_{(2n)^2}(w'))<0.01$を仮定する.
-  \item $z'\ne z$ならば, ステップ4において確率$0.99$で拒否する. 従って以後は$z'=z$と仮定する.
-  \item $w'\ne w$ならば, ステップ5において確率$0.99$で拒否する. 従って以後は$w'=w$と仮定する.
-  \item ステップ6において, $Mw'\ne b$であるため, 確率$0.99$で拒否する.
+  \item ステップ3では全てのオラクルが線形関数に近いかどうかを確認しており, もしもどれかが線形関数から$0.01$-遠いならば, \cref{thm:linearity-test}より確率$0.99$で検証者は拒否する. それぞれに最も近い文字列を$x\in\F_2^n,y\in\F_2^n,z\in\F_2^{2n}$とする.
+  \item ステップ4では$z=(x,y)$かどうかが確認される. もしも$z\ne(x,y)$ならば確率$0.99$で拒否される.
+  \item ステップ5以降は\cref{thm:circuit-verification}と同一であり, 特に$\pi_1$が$C$の任意の充足割り当てから$0.01$-遠い場合は確率$0.99$で検証者は拒否する. さらにこのとき, 任意の充足割り当て$(x^*,y^*)\in C^{-1}(1)$に対して, $\dist(x,x^*)\ge0.01$もしくは$\dist(y,y^*)\ge 0.01$が成り立つ (\cref{exer:split-vector-distance}).
 \end{itemize}
-以上より, 任意の$\pi_1,\pi_2$に対し, ステップ2-3において確率$0.99$で拒否する.
 \end{proof}
+
+\begin{exercise}{二つに分割したベクトルの距離}{split-vector-distance}
+  ベクトル$z\in\F_2^{2n}$に対し, その前半$n$個の成分からなる部分ベクトルを$\mathrm{head}(z)\in\F_2^n$, 後半$n$個の成分からなる部分ベクトルを$\mathrm{tail}(z)\in\F_2^n$とする.
+  集合$S\subseteq\F_2^{2n}$を任意に固定する.
+  もしもベクトル$z$が$\dist(z,S)\ge \epsilon$, すなわち, 任意の$s\in S$に対して$\dist(z,s)\ge \epsilon$を満たすならば,
+  任意の$s\in S$に対して
+  \begin{itemize}
+  \item $\dist(\mathrm{head}(z),\mathrm{head}(s))\ge \epsilon$
+  \item $\dist(\mathrm{tail}(z),\mathrm{tail}(s))\ge \epsilon$
+  \end{itemize}
+  の少なくとも一方が成り立つことを示せ.
+\end{exercise}

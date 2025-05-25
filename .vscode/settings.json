@@ -13,7 +13,7 @@
                 "-e",
                 "$makeindex=q/upmendex %O -o %D %S/",
                 "-e",
-                "$dvipdf=q/dvipdfmx %O -o %D %S/",
+                "$dvipdf=q/dvipdfmx -V 7 %O -o %D %S/",
                 "-e",
                 "$emulate_aux = 1",
                 "-e",

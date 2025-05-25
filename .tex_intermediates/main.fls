@@ -451,6 +451,14 @@ INPUT ./images/circuit_to_3-QUADEQ.pdf
 INPUT ./weak_PCP.tex
 INPUT ./weak_PCP.tex
 INPUT weak_PCP.tex
+INPUT ./images/linear_verification.pdf
+INPUT ./images/linear_verification.pdf
+INPUT ./images/linear_verification.pdf
+INPUT extractbb -B cropbox -O images/linear_verification.pdf
+INPUT ./images/circuit_verification.pdf
+INPUT ./images/circuit_verification.pdf
+INPUT ./images/circuit_verification.pdf
+INPUT extractbb -B cropbox -O images/circuit_verification.pdf
 INPUT ./CSP.tex
 INPUT ./CSP.tex
 INPUT CSP.tex
@@ -487,6 +495,14 @@ INPUT ./images/randomwalk_process.pdf
 INPUT ./images/randomwalk_process.pdf
 INPUT ./images/randomwalk_process.pdf
 INPUT extractbb -B cropbox -O images/randomwalk_process.pdf
+INPUT ./images/newCSP.pdf
+INPUT ./images/newCSP.pdf
+INPUT ./images/newCSP.pdf
+INPUT extractbb -B cropbox -O images/newCSP.pdf
+INPUT ./images/newCSP2.pdf
+INPUT ./images/newCSP2.pdf
+INPUT ./images/newCSP2.pdf
+INPUT extractbb -B cropbox -O images/newCSP2.pdf
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmcsc10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/ot1lmtt.fd
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/ot1lmtt.fd
