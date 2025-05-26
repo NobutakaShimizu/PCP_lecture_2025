@@ -5,7 +5,7 @@
             "command": "latexmk",
             "args": [
                 "-e",
-                "$latex=q/uplatex %O -halt-on-error -kanji=utf8 -no-guess-input-enc -synctex=1 -interaction=nonstopmode -file-line-error %S/",
+                "$latex=q/uplatex %O -kanji=utf8 -no-guess-input-enc -synctex=1 -interaction=nonstopmode -file-line-error %S/",
                 "-e",
                 "$bibtex=q/upbibtex -kanji=utf-8 %O %B/",
                 "-e",
@@ -17,7 +17,6 @@
                 "-e",
                 "$emulate_aux = 1",
                 "-e",
-                "$aux_dir = \".tex_intermediates\"",
                 "-norc",
                 "-gg",
                 "-pdfdvi",
