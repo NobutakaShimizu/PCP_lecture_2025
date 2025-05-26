@@ -338,10 +338,10 @@ Paley-Zygmundの不等式(\cref{lem:paley-zigmund-inequality})より, $\E[B]$お
 べき乗をとることによって, $\UNSAT$の値は$\sqrt{\ell}$倍に増幅する一方でアルファベットは$\Sigma^\ell$になってしまう.
 そこで, アルファベット$\Sigma^\ell$上の制約グラフ$G$を, $\UNSAT$や$\size$をそれほど損なわずアルファベット$\Sigma$上の制約グラフ$G'$に変換する必要がある.
 \begin{theorem}{アルファベット削減}{alphabet-reduction}
-  ある定数$c,\gamma>0$, アルファベット$\Sigma_0$, および多項式時間アルゴリズム$A$が存在して以下が成り立つ:
+  ある定数$\gamma>0$, アルファベット$\Sigma_0$, および多項式時間アルゴリズム$A$が存在して以下が成り立つ:
   アルゴリズム$A$は制約グラフ$G=\ip{(V,E),\Sigma,C}$を入力として受け取り,
   別の制約グラフ$G'=\ip{(V',E'),\Sigma_0,C'}$を出力する.
-  ただし$G'$は
+  ただし$G'$は, ある定数$c=c(\abs{\Sigma})>0$に対して
   \begin{itemize}
     \item $\size(G') \le c\cdot \size(G)$
     \item $\UNSAT(G)=0$ならば$\UNSAT(G')=0$
@@ -354,7 +354,7 @@ Paley-Zygmundの不等式(\cref{lem:paley-zigmund-inequality})より, $\E[B]$お
   次にこの$k$-CSPを\cref{lem:k-CSP-constraint-graph-representation}を用いて$\Sigma_0:=\Sigma_1^k$上の制約グラフ$G'=\ip{(V',E'),\Sigma_0,\calC'}$に変換することによって証明は完了する.
 
 \begin{lemma}{}{alphabet-reduction-kCSP}
-  ある定数$q_0\in\Nat$, $\gamma_0>0$, および多項式時間アルゴリズム$A'$が存在して以下が成り立つ:
+  ある定数$q_0\in\Nat$と多項式時間アルゴリズム$A'$が存在して以下が成り立つ:
   任意のアルファベット$\Sigma$に対し, ある定数$c=c(\abs{\Sigma})>0$が存在し,
   アルゴリズム$A'$は制約グラフ$G=\ip{(V,E),\Sigma,C}$を入力として受け取り,
   $q_0$-CSP $\varphi=(X,\binset,\calI,\calC')$を出力する.
@@ -362,7 +362,7 @@ Paley-Zygmundの不等式(\cref{lem:paley-zigmund-inequality})より, $\E[B]$お
   \begin{itemize}
     \item $\abs{X} \le c\cdot\size(G)$, $\abs{\calI} \le c\cdot\size(G)$.
     \item $\UNSAT(G)=0$ならば$\UNSAT(\varphi)=0$.
-    \item $\UNSAT(G)>0$ならば$\UNSAT(\varphi) \ge \gamma_0\cdot\UNSAT(G)$.
+    \item $\UNSAT(G)>0$ならば$\UNSAT(\varphi) \ge 0.99\cdot\UNSAT(G)$.
   \end{itemize}
 \end{lemma}
 \begin{proof}
@@ -415,23 +415,71 @@ Paley-Zygmundの不等式(\cref{lem:paley-zigmund-inequality})より, $\E[B]$お
   このように構成された$(\pi_u)_{u\in V}$と$(\pi_e)_{e\in E}$から定まる$\varphi$の割り当て$a'\colon X\to \binset$は$\varphi$の制約全てを充足する.
 
   \paragraph*{不満足値の性質.}
-  あるユニバーサルな定数$\gamma>0$が存在して$\UNSAT(\varphi)\ge \gamma\cdot\UNSAT(G)$を示す (実際には$\gamma\approx 0.99$とできる).
+ $\UNSAT(\varphi)\ge 0.99\cdot\UNSAT(G)$を示す.
   $\varphi$の任意の割り当て$a'\colon X\to\binset$を固定する.
   各頂点$u\in V$に対し, $a'$が定める
-  $\pi_u$に属する変数の部分割り当てを$\pi'_u\in\binset^b$とする.
+  変数$\pi_u$に対する部分割り当ての値を$\pi'_u\in\binset^b$とする.
   元の制約グラフ$G$の各頂点$u\in V$に対し, $a(u)\in\Sigma$を「$\pi'_u$の復号化」, すなわち
   \begin{itemize}
-    \item ある$\sigma\in\Sigma$が存在して$\dist(\pi'_u,\Had_b(\sigma)) \le 0.01$ならば, $a(u)=\sigma$
+    \item ある$\sigma\in\Sigma$が存在して$\dist(\pi'_u,\Had_b(\sigma)) \le 0.01$ならば, $a(u)=\sigma$ (このような$\sigma$は存在するならば一意であることが\cref{exer:uniqueness-of-nearest-linear-function}から保証されている)
     \item そうでないならば, $a(u)\in\Sigma$は任意に選ぶ
   \end{itemize}
   で定める.
+  辺部分集合$F\subseteq E$を$\UNSAT(a;G)$に寄与する辺の集合とする. すなわち, 辺$e=\qty{u,v}\in E$であって, $(a(u),a(v))$が辺$e$における制約を充足しないようなものの集合とする.
 
-
-
+  任意の$e=\qty{u,v}\in E$に対して, $\dist(\pi'_u,\Had_b(\sigma_u))\le0.01$かつ$\dist(\pi'_v,\Had_b(\sigma_v))\le0.01$を満たす$(\sigma_u,\sigma_v)\in c_e$が存在するならば, 
+  $a(u)=\sigma_u$かつ$a(v)=\sigma_v$であるため, $e\not\in F$となる.
+  対偶をとると, 任意の$e=\qty{u,v}\in F$と
+    任意の$(\sigma_u,\sigma_v)\in c_e$に対して, $\dist(\pi'_u,\Had_b(\sigma_u))>0.01$または$\dist(\pi'_v,\Had_b(\sigma_v))>0.01$が成り立つことがわかる.
+  
+  従って, 検証者$V(C_e)$の性質(\cref{thm:two-input-circuit-PCP})より, 任意の$e\in F$に対して
+  \begin{align*}
+    \forall \pi'_e \in \binset^{2^{2b} + 2^{4b^2}},\quad \Pr_{r\sim\binset^T}\qty[ V^{\pi'_u,\pi'_v,\pi'_e}(C_e;r)\text{が拒否する} ] \ge 0.99
+  \end{align*}
+  が成り立つ.
+  すなわち, $e\in F$に関する$2^T$個の制約のうち, $0.99\cdot 2^T$個の制約は割り当て$\pi_u\leftarrow \pi'_u,\,\pi_v\leftarrow \pi'_v,\,\pi_e\leftarrow \pi'_e$に対して充足されない.
+  従って,
+  \begin{align*}
+    \UNSAT(a';\varphi) &= \Pr_{e\sim E,r\sim\binset^T}\qty[ V^{\pi_u,\pi_v,\pi_e}(C_e;r)\text{が拒否する} ] \\
+    &= \Pr_{e\sim E,r\sim\binset^T}\qty[ V^{\pi_u,\pi_v,\pi_e}(C_e;r)\text{が拒否する} \condition e\in F ]\cdot\Pr\qty[e\in F] \\
+    &\ge 0.99\cdot \frac{\abs{F}}{\abs{E}} \\
+    &= 0.99\cdot \UNSAT(a;G)
+  \end{align*}
+  が成り立つ.
 \end{proof}
 
 最後に\cref{lem:k-CSP-constraint-graph-representation}を用いて, $q_0$-CSPを制約グラフ$G'=\ip{(V',E'),\Sigma_0,\calC'}$に変換して証明が完了する:
 \begin{proof}[\cref{thm:alphabet-reduction}の証明.]
-  ...
+  入力として受け取った制約グラフ$G=\ip{(V,E),\Sigma,\calC}$に対し, \cref{lem:alphabet-reduction-kCSP}を用いて, アルファベット$\binset$上の$q_0$-CSPのインスタンス $\varphi=\ip{(X,\binset,\calI,\calC')}$を構成する (これは多項式時間で行える).
+  さらにこの$q_0$-CSPインスタンス$\varphi$を, \cref{lem:k-CSP-constraint-graph-representation}を用いて制約グラフ$G'=\ip{(V',E'),\binset^{q_0},\calC''}$に変換する.
+  アルゴリズム$A$はこのようにして得られる制約グラフ$G'$を出力する.
+
+  以下に$G'$が所望の性質を持つことを確認する:
+  まず, \cref{lem:alphabet-reduction-kCSP}より, ある定数$c=c(\abs{\Sigma})>0$が存在して, $\varphi$は
+  \begin{itemize}
+    \item $\abs{X} \le c\cdot\size(G)$, $\abs{\calI} \le c\cdot\size(G)$.
+    \item $\UNSAT(G)=0$ならば$\UNSAT(\varphi)=0$.
+    \item $\UNSAT(G)>0$ならば$\UNSAT(\varphi) \ge 0.99\cdot\UNSAT(G)$.
+  \end{itemize}
+  が成り立つ.
+  このとき, \cref{lem:k-CSP-constraint-graph-representation}より, $G'$はアルファベット$\binset^{q_0}$上の制約グラフであって, $q_0$のみに依存するある定数$c'$に対して
+  \begin{itemize}
+    \item $\size(G') \le c'q_0\cdot (\abs{X} + \abs{\calI})$.
+    \item $\UNSAT(\varphi)=0$ならば$\UNSAT(G')=0$.
+    \item $\UNSAT(\varphi)>0$ならば$\UNSAT(G') \ge \frac{1}{q_0}\cdot\UNSAT(\varphi)$.
+  \end{itemize}
+  が成り立つ.
+  これらを組み合わせると
+  \begin{itemize}
+    \item $\size(G') \le c\cdot c'q_0\cdot\size(G)$
+    \item $\UNSAT(G)=0 \Rightarrow \UNSAT(\varphi)=0\Rightarrow \UNSAT(G')=0$.
+    \item $\UNSAT(G') \ge \frac{1}{q_0}\cdot \UNSAT(\varphi) \ge \frac{0.99}{q_0}\cdot \UNSAT(G)$
+  \end{itemize}
+  が成り立つ.
 \end{proof}
 
+\section{PCP定理の証明}
+PCP定理を証明する全ての準備が整った.
+\begin{proof}[\cref{thm:PCP-theorem}の証明.]
+  ...
+\end{proof}
