@@ -394,16 +394,43 @@ Paley-Zygmundの不等式(\cref{lem:paley-zigmund-inequality})より, $\E[B]$お
   
   最終的に出力する新しい$q_0$-CSP $\varphi$を以下のように構成する.
   \begin{itemize}
-    \item 各$u\in V$と各$i\in \qty[2^b]$に対し, $\pi_{u,i}\in\F_2$を変数とする. また, $\pi_u=\qty(\pi_{u,i})_{i\in[2^b]}\in \F_2^{2^b}$とする. 同様に, 各$e\in E$と各$j\in \qty[ 2^{2b} + 2^{4b^2} ]$に対し, $\pi_{e,j}\in\F_2$を変数とする. また, $\pi_e=\qty(\pi_{e,j})_{j\in\qty[2^{2b} + 2^{4b^2}]}\in \F_2^{2^{2b} + 2^{4b^2}}$とする.
-    \item 各$e=\qty{u,v}\in E$と各$r\in\binset^{T}$に対し, 「$V^{\pi_u,\pi_v,\pi_e}(C_e;r)=1$」という制約を$c'_{e,r}$とする. この検証者$V^{\pi_u,\pi_v,\pi_e}(C_e;r)$は, 変数$\pi_u,\pi_v,\pi_e$をオラクルとして実行する.
+    \item 各$u\in V$と各$i\in \qty[2^b]$に対し, $\pi_{u,i}\in\F_2$を変数とする. また, $\pi_u=\qty(\pi_{u,i})_{i\in[2^b]}\in \F_2^{2^b}$とする. 同様に, 各$e\in E$と各$j\in \qty[ 2^{2b} + 2^{4b^2} ]$に対し, $\pi_{e,j}\in\F_2$を変数とする. また, $\pi_e=\qty(\pi_{e,j})_{j\in\qty[2^{2b} + 2^{4b^2}]}\in \F_2^{2^{2b} + 2^{4b^2}}$とする. 全体の変数集合は$X=\qty{\pi_{u,i}\colon u\in V,i\in[2^b]} \cup \qty{\pi_{e,j}\colon e\in E,j\in[2^{2b} + 2^{4b^2}]}$となる.
+    \item 各$e=\qty{u,v}\in E$と各$r\in\binset^{T}$に対し, 「$V^{\pi_u,\pi_v,\pi_e}(C_e;r)=1$」という制約を$c'_{e,r}$とし, $e\in E,r\in\binset^T$全てに対して$c'_{e,r}$を集めたものを$\calC'$とする. この検証者$V^{\pi_u,\pi_v,\pi_e}(C_e;r)$は, 変数$\pi_u,\pi_v,\pi_e$をオラクルとして実行する.
   \end{itemize}
   各制約「$V^{\pi_u,\pi_v,\pi_e}(C_e;r)=1$」は, 検証者が高々$q_0$回のオラクルアクセスを行うことから, 高々$q_0$個の変数の値に依存する. すなわち$\varphi$は$q_0$-CSPである.
 
-  この$q_0$-CSP $\varphi$が所望の性質を満たすことを確認する.
+  この$q_0$-CSP $\varphi$が所望の性質を満たすことを以下で確認する.
+  \paragraph*{$\varphi$のサイズ.}
+  頂点(変数)の個数は$2^b\cdot\abs{V} + \abs{E}\cdot\qty(2^{2b} + 2^{4b^2}) \le c\cdot\size(G)$であり,
+  制約の個数は$2^T\cdot\abs{E} \le 2^{\poly(b)}\cdot\abs{E}$である (検証者の時間計算量が$b$に関して多項式で抑えられることから$T\le\poly(b)$である).
+  
+  \paragraph*{充足割り当ての存在性.}
+  $G$の制約全てを満たす制約$a\colon V\to\Sigma$が存在すると仮定する.
+  このとき, 各$u\in V$に対して
+  \begin{align*}
+    \pi_u = \Had_b(a(u))
+  \end{align*}
+  とする. このとき, 各辺$e=\qty{u,v}\in E$に対して$(a(u),a(v))$は辺$e$における制約を充足する.
+  従って, \cref{thm:two-input-circuit-PCP}より, ある$\pi_e\in \F_2^{2^{2b} + 2^{4b^2}}$が存在して, 全ての$r\in\binset^T$に対して$V^{\pi_u,\pi_v,\pi_e}(C_e;r)$は受理する.
+  このように構成された$(\pi_u)_{u\in V}$と$(\pi_e)_{e\in E}$から定まる$\varphi$の割り当て$a'\colon X\to \binset$は$\varphi$の制約全てを充足する.
+
+  \paragraph*{不満足値の性質.}
+  あるユニバーサルな定数$\gamma>0$が存在して$\UNSAT(\varphi)\ge \gamma\cdot\UNSAT(G)$を示す (実際には$\gamma\approx 0.99$とできる).
+  $\varphi$の任意の割り当て$a'\colon X\to\binset$を固定する.
+  各頂点$u\in V$に対し, $a'$が定める
+  $\pi_u$に属する変数の部分割り当てを$\pi'_u\in\binset^b$とする.
+  元の制約グラフ$G$の各頂点$u\in V$に対し, $a(u)\in\Sigma$を「$\pi'_u$の復号化」, すなわち
+  \begin{itemize}
+    \item ある$\sigma\in\Sigma$が存在して$\dist(\pi'_u,\Had_b(\sigma)) \le 0.01$ならば, $a(u)=\sigma$
+    \item そうでないならば, $a(u)\in\Sigma$は任意に選ぶ
+  \end{itemize}
+  で定める.
+
+
 
 \end{proof}
 
-最後に\cref{lem:k-CSP-constraint-graph-representation}を用いて, $k$-CSPを制約グラフ$G'=\ip{(V',E'),\Sigma_0,\calC'}$に変換して証明が完了する:
+最後に\cref{lem:k-CSP-constraint-graph-representation}を用いて, $q_0$-CSPを制約グラフ$G'=\ip{(V',E'),\Sigma_0,\calC'}$に変換して証明が完了する:
 \begin{proof}[\cref{thm:alphabet-reduction}の証明.]
   ...
 \end{proof}
