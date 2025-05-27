@@ -8,8 +8,8 @@ DinurによるPCP定理の証明は, 与えられた制約グラフの不満足�
 ギャップ増幅補題は以下のように述べられる.
 
 \begin{lemma}{ギャップ増幅補題}{gap-amplification-lemma}
-  二つの定数$c>0,\alpha\in (0,1)$, アルファベット$\Sigma$, および以下の性質を満たす決定的多項式時間アルゴリズム$A$が存在する: 
-  アルゴリズム$A$は制約グラフ$G=\ip{(V,E),\Sigma,\calC}$を入力として受け取り, 次の性質を満たす別の制約グラフ$G'=\ip{(V',E'),\Sigma,\calC'}$を出力する:
+  任意のアルファベット$\Sigma$に対し, ある二つの定数$c=c(\abs{\Sigma})>0,\alpha=\alpha(\abs{\Sigma})\in (0,1)$, アルファベット$\Sigma_0$, および以下の性質を満たす決定的多項式時間アルゴリズム$A$が存在する: 
+  アルゴリズム$A$は制約グラフ$G=\ip{(V,E),\Sigma,\calC}$を入力として受け取り, 次の性質を満たす別の制約グラフ$G'=\ip{(V',E'),\Sigma_0,\calC'}$を出力する:
   \begin{itemize}
     \item $\size(G')\le c\cdot \size(G)$.
     \item $\UNSAT(G)=0$ならば$\UNSAT(G')=0$.
@@ -17,28 +17,14 @@ DinurによるPCP定理の証明は, 与えられた制約グラフの不満足�
   \end{itemize}
 \end{lemma}
 
-PCP定理(\cref{thm:PCP-CSP-theorem})の証明は, この補題を繰り返し適用することによって得られる.
-
-\begin{proof}[\cref{lem:gap-amplification-lemma}の下での\cref{thm:PCP-CSP-theorem}の証明.]
-  3彩色問題のインスタンスを入力として受け取り, その制約グラフを$G_0$とし, 頂点数を$n$とする.
-  この制約グラフは単純グラフであるため, $\UNSAT(G_0)=0$もしくは$\UNSAT(G_0)\ge \frac{1}{n^2}$である.
-  \cref{lem:gap-amplification-lemma}のアルゴリズムを$A$とし, 各$i=1,\dots,\ceil{2\log_2 n}$について, 制約グラフ$G_i$を
-  $G_i = A(G_{i-1})$として定義し, 最終的に得られる制約グラフを$G'=G_{\ceil{2\log_2 n}}$とする.
-  各$G_i$のサイズは$\size(G_i) \le c\cdot \size(G_{i-1})$であるため, $\size(G')\le c^{\ceil{2\log_2 n}}\cdot \size(G_0)=\size(G_0)^{O(1)}$である.
-  従って$G'$は多項式時間で構成できる.
-
-  また, 不満足値については, 以下のようになる:
-  \begin{itemize}
-  \item もしも$G_0$がYesインスタンスであるならば, 全ての$i$に対して$G_i$もYesインスタンスであり, 特に$\UNSAT(G')=0$である.
-  \item もしも$G_0$がNoインスタンスであるならば, $\UNSAT(G_0)\ge \frac{1}{n^2}$かつ$\UNSAT(G_i)\ge \min\{\alpha, 2\cdot \UNSAT(G_0)\}$であるため, $\UNSAT(G')\ge \min\qty{\alpha, 2^{2\log_2 n}\cdot \frac{1}{n^2}}=\alpha$である.
-  \end{itemize}
-\end{proof}
+PCP定理(\cref{thm:PCP-CSP-theorem})の証明は, 
+まずNP完全問題である$\ThreeQuadEQ$を\cref{lem:k-CSP-constraint-graph-representation}を用いて制約グラフに変換し, その制約グラフに対して\cref{lem:gap-amplification-lemma}を$O(\log s)$回だけ繰り返し適用することによって$\UNSAT$の値を定数まで増幅することで得られる.
 
 
 \section{制約グラフのべき乗}
 
 \cref{lem:constant-degree-expanderization}により, 任意の制約グラフを定数次数エクスパンダーに変換することができる.
-この節では, そのような制約グラフに対し, 以下で定義する\emph{べき乗}という操作を考えることで, その$\UNSAT$の値を増幅させることができることを示す.
+この節では, そのような定数次数エクスパンダー性を持つ制約グラフに対し, 以下で定義する\emph{べき乗}という操作を考えることで, その$\UNSAT$の値を増幅させることができることを示す.
 
 \begin{definition}{制約グラフの冪乗}{power-of-constraint-graph}
   パラメータ$\ell\in\Nat$および全頂点が自己ループを持つ$d$-正則な制約グラフ$G=\ip{(V,E),\Sigma,\calC}$に対し, べき乗$G^\ell = \ip{(V,\boldE),\Sigma^{d^{\ell}},\calC^\ell}$を, 以下のようにして定義する:
@@ -195,12 +181,13 @@ Paley-Zygmundの不等式(\cref{lem:paley-zigmund-inequality})より, $\E[B]$お
   次にステップ1で選ばれた辺$\qty{u_{i-1},u_i}\in F$で条件つけたとき, ステップ2と3は独立なランダムネスに基づく試行であるため, それぞれの両端点$u_0,u_\ell$は独立な確率変数である.
   従って
   \begin{align}
-    \Pr[B_i=1] &= \E_{\text{step 1-3}}\qty[\{u_{i-1},u_i\}\in F \text{ and }a'(u_0)_{u_{i-1}} = a(u_{i-1})\text{ and }a'(u_\ell)_{u_i} = a(u_i)] \nonumber \\
-     &= \frac{\abs{F}}{\abs{E}} \cdot \E_{\{u_{i-1},u_i\}\sim F}\qty[ \underbrace{\Pr_{\text{step 2}}[a'(u_0)_{u_{i-1}} = a(u_{i-1})]}_{=:p_0} \cdot \underbrace{\Pr_{\text{step 3}}[a'(u_\ell)_{u_i} = a(u_i)]}_{=:p_\ell}] \label{eq:Pr-B_i}
+    &\Pr[B_i=1] \nonumber \\
+    &\quad = \E_{\text{step 1-3}}\qty[\{u_{i-1},u_i\}\in F \text{ and }a'(u_0)_{u_{i-1}} = a(u_{i-1})\text{ and }a'(u_\ell)_{u_i} = a(u_i)] \nonumber \\
+    &\quad = \frac{\abs{F}}{\abs{E}} \cdot \E_{\{u_{i-1},u_i\}\sim F}\qty[ \underbrace{\Pr_{\text{step 2}}[a'(u_0)_{u_{i-1}} = a(u_{i-1})]}_{=:p_0} \cdot \underbrace{\Pr_{\text{step 3}}[a'(u_\ell)_{u_i} = a(u_i)]}_{=:p_\ell}] \label{eq:Pr-B_i}
   \end{align}
   を得る. 二つ目の等式では, $\{u_{i-1},u_i\}\in F$で条件つけて$\{u_{i-1},u_i\}\sim E$をランダムに選ぶというのは, $F$内の辺を一様ランダムに選ぶことに他ならないことに留意する.
 
-  次に, $p_0$と$p_\ell$を評価する.
+  次に, 任意の辺$\qty{u_{i-1},u_i}\in F$を固定して$p_0$と$p_\ell$を評価する.
   頂点$u_{i-1}$を任意に固定して$p_0$を考える ($p_\ell$も同様に示せる).
   頂点$u\in V$および非負整数$m\ge 0$に対し, 確率変数$X_{u,m}\in\Sigma$を, ($a'$における)$\RW_m(u)$の$u$に対する意見, すなわち$X_{u,m} = a'(\RW_m(u))_u$とする.
   \cref{eq:argmax-of-RW}より, $m=\ell/2$のとき, 
@@ -345,7 +332,7 @@ Paley-Zygmundの不等式(\cref{lem:paley-zigmund-inequality})より, $\E[B]$お
   \begin{itemize}
     \item $\size(G') \le c\cdot \size(G)$
     \item $\UNSAT(G)=0$ならば$\UNSAT(G')=0$
-    \item $\UNSAT(G)>0$ならば$\UNSAT(G') \ge \gamma\UNSAT(G)$
+    \item $\UNSAT(G)>0$ならば$\UNSAT(G') \ge \gamma\cdot\UNSAT(G)$
   \end{itemize}
 \end{theorem}
 \cref{thm:alphabet-reduction}の証明では,
@@ -478,8 +465,76 @@ Paley-Zygmundの不等式(\cref{lem:paley-zigmund-inequality})より, $\E[B]$お
   が成り立つ.
 \end{proof}
 
-\section{PCP定理の証明}
+\section{ギャップ増幅補題とPCP定理の証明}
+
+ギャップ増幅補題(\cref{lem:gap-amplification-lemma})は, べき乗によって$\UNSAT$を増幅させ, それに伴い増幅したアルファベットを\cref{thm:alphabet-reduction}によって削減することによって得られる.
+
+\begin{proof}[\cref{lem:gap-amplification-lemma}の証明.]
+  入力として受け取った制約グラフ$G$に対し, 以下を適用する:
+  
+  \begin{itemize}
+  \item 与えられた制約グラフ$G$を入力として\cref{lem:constant-degree-expanderization}のアルゴリズムを実行し, その出力を$G_1$とする (エクスパンダー化)
+  \item 後で定めるパラメータ$\ell\in\Nat$に対して$G_2 = G_1^\ell$とする (べき乗操作).
+  \item \cref{thm:alphabet-reduction}のアルゴリズムを$G_2$を入力として実行し, その出力$G_3$を出力して終了する (アルファベット削減).
+  \end{itemize}
+
+  ユニバーサルな定数$d,\lambda$を\cref{lem:constant-degree-expanderization}の定数とする.
+  また, べき乗操作のパラメータ$\ell$は$d,\lambda,\abs{\Sigma}$のみに依存し, 十分大きくとる.
+  \cref{lem:constant-degree-expanderization,lem:property-of-power,thm:alphabet-reduction}より,
+  \begin{itemize}
+    \item 最終的な制約グラフ$G_3$のサイズは, 適当な$c=c(d,\lambda,\abs{\Sigma},\ell)$に対して$\size(G_3) \le c \cdot \size(G)$である.
+    \item $\UNSAT(G)=0$ならば$\UNSAT(G_3) = \UNSAT(G_2) = \UNSAT(G_1) = 0$である.
+  \end{itemize}
+  が成り立つ.
+  最後に, $\ell$を適切に選ぶことによって, 定数$\alpha:=\ceil{2/\ell}$に対して$\UNSAT(G_3)\ge \min\qty{ \alpha, 2\cdot\UNSAT(G) }$にできることを示す.
+  まず, \cref{lem:constant-degree-expanderization}より, 制約グラフ$G_2$は$d$-正則$\lambda$-エクスパンダーであり, さらにある定数$\beta_1$に対して$\UNSAT(G_1)\ge \beta_1\cdot \UNSAT(G)$が成り立つ.
+  従って, \cref{lem:property-of-power}より, ある定数$\beta_2=\beta_2(\abs{\Sigma})>0$に対して
+  \begin{align*}
+    \UNSAT(G_2) &\ge \beta_2\sqrt{\ell}\cdot \min\qty{ \UNSAT(G_1), \frac{1}{\ell} } \\
+    &\ge \beta_2\sqrt{\ell}\cdot \min\qty{ \beta_1\cdot \UNSAT(G), \frac{1}{\ell} } \\
+    &\ge \beta_1\beta_2\sqrt{\ell}\cdot \min\qty{ \UNSAT(G), \frac{1}{\ell} } 
+  \end{align*}
+  が成り立つ. 最後に\cref{thm:alphabet-reduction}より, ある定数$\gamma=\gamma(\abs{\Sigma})>0$に対して
+  \begin{align*}
+    \UNSAT(G_3) &\ge \gamma\cdot \UNSAT(G_2) \\
+    &\ge \gamma\beta_1\beta_2\sqrt{\ell}\cdot \min\qty{ \UNSAT(G), \frac{1}{\ell} }
+  \end{align*}
+  が成り立つ. このとき, $\ell = \ceil*{ \qty(\frac{2}{\gamma\beta_1\beta_2})^2 }$, $\alpha = \frac{1}{\ell}$
+  とすれば, $\UNSAT(G_3)\ge \min\qty{ \alpha, 2\cdot\UNSAT(G) }$が成り立つ.
+
+  \end{proof}
+
 PCP定理を証明する全ての準備が整った.
 \begin{proof}[\cref{thm:PCPtheorem}の証明.]
-  ...
+  \cref{thm:QuadEQ-PCP-verifier}を示せば, これと$\ThreeQuadEQ$のNP完全性を組み合わせると\cref{thm:PCPtheorem}が従う (\cref{exer:exercise2}).
+  また, \cref{lem:equivalence-of-pcp-verifier-and-csp-transformation}より,
+\cref{thm:QuadEQ-PCP-verifier,thm:PCP-CSP-theorem}は同値であるため, 以降では\cref{thm:PCP-CSP-theorem}の証明を与える.
+  すなわち, 与えられた$\ThreeQuadEQ$のインスタンス$\varphi_0=(f_k)$に対して, 多項式時間で\cref{thm:PCP-CSP-theorem}の条件を満たす$q$-CSPのインスタンス$\varphi$を構成する.
+  これは以下のアルゴリズムによって構成される.
+
+  \begin{algo}{}{transformer}
+    アルゴリズム$A$を次のように定める.
+    ただし入力として, $\ThreeQuadEQ$のインスタンス$\varphi_0=(f_k)$を受け取る.
+    \begin{enumerate}
+      \item $\varphi_0$を$3$-CSPとみなし, \cref{lem:k-CSP-constraint-graph-representation}を用いて制約グラフ$G_0$に変換する.
+      \item 各$i=1,\dots,\ceil{\log_2 (3s)}$に対し, 制約グラフ$G_i$を入力として\cref{lem:gap-amplification-lemma}のアルゴリズムを実行してその出力として得られるグラフを$G_{i+1}$とする.
+      \item $G_{\ceil{\log_2 (3s)}}$を出力して終了する.
+    \end{enumerate}
+  \end{algo}
+
+  元の問題$\ThreeQuadEQ$はアルファベット$\F_2$上の3-CSPであるため, $G_0$のアルファベットは$\F_2^3$である.
+  また, 最終的に得られる制約グラフのアルファベットは, \cref{thm:alphabet-reduction}のアルファベット$\Sigma_0$となる.
+  これらのアルファベットをユニバーサルなものとして固定する.
+  このとき, 適当な定数$c>0$が存在して
+  各$i=1,\dots,\ceil{\log_2 (3s)}$に対して$\size(G_i) \le c \cdot \size(G_{i-1})$が成り立つため, 最終的な制約グラフのサイズは
+  \begin{align*}
+    \size(G_{\ceil{\log_2 (3s)}}) \le c^{O(\log s)} \cdot \size(G_0) = s^{O(1)}
+  \end{align*}
+  が成り立つ.
+  また, \cref{lem:k-CSP-constraint-graph-representation,lem:gap-amplification-lemma}より, $\UNSAT(\varphi_0)=0$ならば, 全ての$i$について$\UNSAT(G_i)=0$が成り立つ.
+  最後に, $\UNSAT(\varphi_0)>0$ならば$\UNSAT(\varphi_0)\ge \frac{1}{s}$であり, \cref{lem:k-CSP-constraint-graph-representation}より$\UNSAT(G_0)\ge \frac{1}{3s}$となり, さらに全ての$i$に対して$\UNSAT(G_i) \ge \min\qty{ 2\UNSAT(G_{i-1}), \alpha }$が成り立つため,
+  \begin{align*}
+    \UNSAT\qty(G_{\ceil{\log_2 (3s)}}) \ge \min\qty{ \alpha, 2^{\log_2 (3s)}\cdot\UNSAT(G_0) } \ge \alpha
+  \end{align*}
+  が成り立つ. 
 \end{proof}

@@ -259,19 +259,20 @@ Cook-Levinの定理の証明はクラスNPの検証者を非決定的チュー�
   \end{itemize}
 \end{claim}
 \cref{claim:Turing-machine-circuit}を証明するにはチューリング機械の厳密な定義なども必要であり講義では詳しくは扱わないが, その概要を以下に説明する.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/Turing.pdf}
+  \caption{チューリング機械の一例. 各状態において, ヘッドの指し示す記憶テープの値のラベルがついた有効辺に沿って遷移し, そのヘッドの位置にある記憶テープの値を必要があれば書き換え, 最後にヘッドの位置を一つ右, 一つ左のいずれかに移動するかそのままにする. \label{fig:Turing-machine}}
+\end{figure}
+
 \begin{proof}[証明の概要.]
   チューリング機械とは, 無限の長さの\emph{記憶テープ}を備えた有限状態機械である.
   \emph{記憶テープ}とは無限の長さの記号列であり, 入力$x\in\binset^*$に対して
   まずは最初の$\abs{x}$文字は$x$が記載されており, それ以外の文字は全て$\bot$(空白であることを表す記号)である.
   また, \emph{ヘッド}と呼ばれるポインタがあり, これは現在は記憶テープのどの位置の文字を読み書きするかを表す.
   各ステップにおいて, 現在の状態とヘッドが指し示す文字を参照し, 次の状態, 現在のヘッドに書き込む内容, ヘッドの移動方向(左右もしくはそのまま)を決める.
-  さらに機械には二つの相異なる二つの特別な状態$q_{\mathrm{accept}}$と$q_{\mathrm{reject}}$があり, これらに遷移すると計算が終了する. 終了時の状態に応じてチューリング機械の出力(acceptまたはreject)が決まる.
-  
-  \begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.8\textwidth]{images/Turing.pdf}
-    \caption{チューリング機械の一例. 各状態において, ヘッドの指し示す記憶テープの値のラベルがついた有効辺に沿って遷移し, そのヘッドの位置にある記憶テープの値を必要があれば書き換え, 最後にヘッドの位置を一つ右, 一つ左のいずれかに移動するかそのままにする.}
-  \end{figure}
+  さらに機械には二つの相異なる二つの特別な状態$q_{\mathrm{accept}}$と$q_{\mathrm{reject}}$があり, これらに遷移すると計算が終了する. 終了時の状態に応じてチューリング機械の出力(acceptまたはreject)が決まる (\cref{fig:Turing-machine}を参照).
   
   計算が終了するまでに要したステップ数をこのチューリング機械の\emph{(時間)計算量}という.
   チューリング機械$M$が多項式時間であったとする. このとき, 任意の十分大きな$n\in\Nat$と任意の$x\in\binset^n$に対して, $M$の計算の任意の時点での記憶テープの内容($\bot$以外の文字の個数)は高々$n^{O(1)}$文字で表現できる.
@@ -322,6 +323,9 @@ Cook-Levinの定理を用いると, 以下に示す二次方程式系の充足�
   $k=s+1$に対して$f_{s+1}(x) = 1 - x_{n+s}$と定義する (\cref{fig:circuit-to-3-QUADEQ}を参照).
   このとき, 各$f_k$は高々三つの変数にのみ依存するため,
   $(f_k)_{k\in[s+1]}$は$\ThreeQuadEQ$のインスタンスとなり, 回路$C$が入力として与えられたとき多項式時間で構成できる.
+  $f_k(x)=0$であるという制約は, $k\le s$においては$k$番目のゲートの出力が$x_k$であることを強制する.
+  従って全ての$k\in[s]$に対して$f_k(x)=0$であるならば$x_{n+s}$は入力$x_1,\dots,x_n$に対する回路$C$の出力に一致する.
+  最後に$f_{s+1}(x)=0\iff x_{n+s}=1$であるとき, その入力が$C(x_1,\dots,x_n)=1$であることを意味する.
 
   \begin{figure}[ht]
     \centering
@@ -337,31 +341,30 @@ Cook-Levinの定理を用いると, 以下に示す二次方程式系の充足�
   従って, $C\mapsto (f_k)_{k\in[s+1]}$は確かに回路充足可能性判定問題から$\ThreeQuadEQ$へのカープ帰着になっている.
 \end{proof}
 
-Cook-Levinの定理を用いると3彩色問題$\ThreeCOL$のNP完全性を示すことができる.
-具体的には3-SATと呼ばれるNP完全な問題を$\ThreeCOL$に帰着させることで$\ThreeCOL$のNP完全性を示せる (本講義では割愛).
+Cook-Levinの定理を用いると\cite{Karp1972}のように, 一見すると回路と全く関係がない様々な問題に対してNP完全性を示すことができる.
+例えば, 3彩色問題$\ThreeCOL$はNP完全である.
 
 \begin{theorem}{3彩色問題のNP完全性}{3-coloring-problem-NP-complete}
   3彩色問題$\ThreeCOL$はNP完全である. すなわち, 任意の$L\in\NP$に対して, 多項式時間アルゴリズム$f$が存在して, 任意の$x\in\binset^*$に対して$x\in L$と$f(x)\in\ThreeCOL$は同値である.
 \end{theorem}
 
-\cref{thm:3-coloring-problem-NP-complete}により, PCP定理を証明するには, $\ThreeCOL$に対する効率的なPCP検証者を構成すればよいことがわかる.
 
-\begin{theorem}{3彩色問題のPCP検証者}{3-coloring-problem-PCP-verifier}
-  ある$r(n)=O(\log n),q(n)=O(1)$に対して, 3彩色問題$\ThreeCOL$は$\PCP(r,q)$に属する.
+PCP定理を証明するには, 任意の$L\in\NP$に対して所望のPCP検証者を構成すれば良いが,
+実際には一つのNP完全問題(例えば$\QuadEQ$や$\ThreeCOL$)を固定してそれに対するPCP検証者を構成すれば良いことがわかる.
+
+\begin{theorem}{二次方程式系に対するPCP検証者}{QuadEQ-PCP-verifier}
+  ある$r(n)=O(\log n),q(n)=O(1)$に対して, 二次方程式系の判定問題$\ThreeQuadEQ$は$\PCP(r,q)$に属する.
 \end{theorem}
 
 \begin{exercise}{}{exercise2}
-  \cref{thm:3-coloring-problem-PCP-verifier,thm:3-coloring-problem-NP-complete}を仮定して, PCP定理(\cref{thm:PCPtheorem})を証明せよ.
+  \cref{thm:QuadEQ-PCP-verifier,thm:ThreeQuadEQ-NP-complete}を仮定して, PCP定理(\cref{thm:PCPtheorem})を証明せよ.
 \end{exercise}
-
-\section{PCP定理の応用}
-PCP定理の応用として, 様々な組合せ最適化問題に対する近似のNP困難性を導出することができる.
 
 \section{PCP定理の背景}
 PCP定理は組合せ最適化の分野への著しい応用を持つため,
 その視点からPCP定理を紹介する文献ではなぜPCP定理が発見されたのかという動機が語られることが少ないように思われる.
 そこで, この節ではPCPという計算量クラスを考えるに至った背景について軽く触れたい.
 PCP定理は1992年にAroraとSafraによって証明された.
-その後, 2005年にDinurによって証明が簡略化され, 2010年にAroraとBarakによって証明が再構成された.
+
 
 
