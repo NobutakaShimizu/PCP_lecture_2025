@@ -644,8 +644,9 @@ $(x,y)$を一つの文字列$z\in\F_2^{2n}$とみなして\cref{thm:circuit-veri
 
 $C(x,y)=1$を満たす$x,y\in\F_2^n$に対し$\pi_x=\Had_n(x)$, $\pi_y=\Had_n(y)$とする.
 このとき, 文字列$x,y$を結合して得られる文字列を$z=(x,y)\in\F_2^{2n}$,
-また文字列$w\in\F_2^{4n^2}$を, $w_{i,j}=z_i\cdot z_j$と定めると,
-$V^{\Had_n(x),\Had_n(y),\Had_{2n}(z),\Had_{4n^2}(w)}(C)$は確率$1$で受理する.
+また文字列$w\in\F_2^{4n^2}$を, $w_{i,j}=z_i\cdot z_j$と定め, 最後に
+$\pi = \qty( \Had_{2n}(z), \Had_{4n^2}(w) )$とすると,
+$V^{\Had_n(x),\Had_n(y),\pi}(C)$は確率$1$で受理する.
 
 一方, オラクル$\pi_x,\pi_y$が, $C(x,y)=1$を満たす任意の$x,y\in\F_2^n$に対して, $\dist(\pi_x,\Had_n(x))\ge 0.01$または$\dist(\pi_y,\Had_n(y))\ge0.01$の少なくとも一方が成り立つとする.
 任意にオラクル$\pi_1,\pi_2$を固定する.
