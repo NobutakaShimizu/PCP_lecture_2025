@@ -2394,9 +2394,20 @@
     <bcf:citekey order="18" intorder="1">Levin1973</bcf:citekey>
     <bcf:citekey order="19" intorder="1">Karp1972</bcf:citekey>
     <bcf:citekey order="20" intorder="1">history-of-PCP</bcf:citekey>
-    <bcf:citekey order="21" intorder="1">BLR93</bcf:citekey>
-    <bcf:citekey order="22" intorder="1">BLR93</bcf:citekey>
-    <bcf:citekey order="23" intorder="1">ReingoldVW02</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">GMR85</bcf:citekey>
+    <bcf:citekey order="21" intorder="2">Babai1985</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">GMR85</bcf:citekey>
+    <bcf:citekey order="22" intorder="2">Babai1985</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">history-of-PCP</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">GMW86</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">GMW86</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">Shamir90</bcf:citekey>
+    <bcf:citekey order="26" intorder="2">LFKN90</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">Shamir90</bcf:citekey>
+    <bcf:citekey order="27" intorder="2">LFKN90</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">BLR93</bcf:citekey>
+    <bcf:citekey order="29" intorder="1">BLR93</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">ReingoldVW02</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="anyt">
