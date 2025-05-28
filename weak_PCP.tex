@@ -285,7 +285,7 @@ PCP検証者であることを示す(cf. \cref{def:PCP})には, 任意の$\pi\in
 \begin{algo}{}{local-verification-LinEq}
   \begin{enumerate}
     \item 入力として$M,z$を受け取り, 証拠として$\pi \in \F^{q^n}$へのオラクルアクセスを受け取る.
-    \item \cref{thm:linearity-test}のアルゴリズムを$\pi$をオラクルとして実行し, $\dist(\pi,\Had)\ge 0.01$ならば拒否して終了する.
+    \item $\pi$をオラクルとして\cref{thm:linearity-test}のアルゴリズムを実行し, $\dist(\pi,\Had)\ge 0.01$ならば拒否して終了する.
     \item 一様ランダムな$r\sim\F^m$を選択し, $r^\top M$と$r^\top z$を計算する.
     \item \cref{lem:nearest-linear-function-evaluation}のアルゴリズムを$M^\top r$を入力, $\pi$をオラクルとして実行し, その出力を$a$とする.
     \item $a\ne r^\top z$ならば拒否する.
@@ -321,10 +321,12 @@ PCP検証者であることを示す(cf. \cref{def:PCP})には, 任意の$\pi\in
   \begin{align*}
     \Pr\qty[ a \ne r^\top z ] &\ge \Pr_{r}\qty[ a\ne r^\top z \mid a = f(M^\top r) ] \cdot \Pr_{r}\qty[ a = f(M^\top r) ] \\
     &\ge \Pr_{r}\qty[ r^\top M y \ne r^\top z ]\cdot 0.98 \\
-    &\ge \qty(1-\frac{1}{q}) \cdot 0.98 & & \because \text{\cref{eq:random-inner-product}および$My\ne z$} \\
-    &\ge 0.4 & & \because\text{$q\ge 2$}
+    &\ge \qty(1-\frac{1}{q}) \cdot 0.98 \\
+    &\ge 0.4
   \end{align*}
   を満たす.
+  三つ目の不等号では\cref{eq:random-inner-product}および$My\ne z$を用いている.
+  四つ目の不等式では$q\ge 2$を用いている.
   これを4回繰り返すため, 拒否確率は少なくとも$1-(1-0.4)^3\ge \frac{2}{3}$を満たす.
   
 
@@ -537,7 +539,9 @@ PCP検証者であることを示す(cf. \cref{def:PCP})には, 任意の$\pi\in
     \end{itemize}
     以上より, $V^{\pi_x,\pi}$は確率$1$で受理する.
 
-    次にオラクル$\pi_x$が, $C(x)=1$を満たす任意の$x\in\F_2^n$に対して$\dist(\pi_x,\Had_n(x))\ge 0.01$を満たすとする. オラクル$\pi\colon\F_2^{n^2}\to\F_2$を任意に固定する.
+    次にオラクル$\pi_x$が, $C(x)=1$を満たす任意の$x\in\F_2^n$に対し
+    \[\dist(\pi_x,\Had_n(x))\ge 0.01\]
+    を満たすとする. オラクル$\pi\colon\F_2^{n^2}\to\F_2$を任意に固定する.
 
     \begin{itemize}
       \item $\dist(\pi,\Had_{n^2})\ge 0.01$または$\dist(\pi_x,\Had_n)\ge 0.01$ならば, 検証者はステップ2において確率$0.99$で拒否する. 以降では$\pi,\pi_x$はどちらも線形関数に十分近いとし, $\pi$に最も近い線形関数を$\Had_{n^2}(y)$とし, $\pi_x$に最も近い線形関数を$\Had_n(x)$とする. このとき, $\pi_x$の仮定から$C(x)=0$である.
@@ -589,7 +593,7 @@ $(x,y)$を一つの文字列$z\in\F_2^{2n}$とみなして\cref{thm:circuit-veri
 \begin{lemma}{接頭辞の検証}{concatenation-test}
   以下を満たす定数$q=O(1)$と多項式時間乱択オラクルアルゴリズム$V_0^{\pi_x,\pi_{\overline{x}}}(1^n,1^m)$が存在する:
   \begin{itemize}
-    \item オラクル$\pi_x,\pi_{\overline{x}}$は, ある$x\in\F_2^n$と$\overline{x}\in\F_2^{n+m}$に対して, $\dist(\pi_x,\Had_n(x))<0.01$および$\dist(\pi_{\overline{x}},\Had_{n+m}(\overline{x}))<0.01$であることが保証されている.
+    \item オラクル$\pi_x,\pi_{\overline{x}}$は次が保証されている: ある$x\in\F_2^n$と$\overline{x}\in\F_2^{n+m}$に対して, $\dist(\pi_x,\Had_n(x))<0.01$および$\dist(\pi_{\overline{x}},\Had_{n+m}(\overline{x}))<0.01$.
     \item 検証者$V_0^{\pi_x,\pi_{\overline{x}}}$は高々$q$回のオラクルアクセスを行う.
     \item $\pi_x = \Had_n(x)$, $\pi_{\overline{x}}=\Had_{n+m}(\overline{x})$であって, さらに$\overline{x}$の先頭$n$文字が$x$と一致するならば, $V_0^{\pi_x,\pi_{\overline{x}}}$は確率$1$で受理する.
     \item 一方, $\overline{x}$の先頭$n$文字が$x$に一致しない場合, 確率$0.99$で拒否する.
@@ -630,7 +634,7 @@ $(x,y)$を一つの文字列$z\in\F_2^{2n}$とみなして\cref{thm:circuit-veri
     \item オラクル$\pi$を二つの関数$\pi_1\colon\F_2^{2n}\to\F_2,\pi_2\colon\F_2^{4n^2}\to\F_2$の組として解釈する.
     \item 入力で与えられた回路を$C\colon\binset^{2n}\to\binset$とみなし, \cref{thm:circuit-verification}の証明で考えた行列$M\in\F_2^{m\times {(2n)^2}}$とベクトル$b\in\F_2^m$を計算する.
     \item \cref{thm:linearity-test}のアルゴリズムを$\pi_x,\pi_y,\pi_1,\pi_2$に対して実行し, $\pi_1,\pi_2$がそれぞれ線形関数に$0.01$-近いかどうかを検証する. もしいずれかの実行においてこのアルゴリズムが拒否したら拒否する.
-    \item $\pi_x,\pi_y,\pi_1$に最も近い線形関数をそれぞれ$\Had_n(x),\Had_n(y),\Had_{2n}(z)$とする.
+    \item $\Had_n(x),\Had_n(y),\Had_{2n}(z)$をそれぞれ$\pi_x,\pi_y,\pi_1$に最も近い線形関数とする.
     \item $z\in\F_2^{2n}$の前半の$n$文字が$x$, 後半の$n$文字が$y$に一致するかどうかをそれぞれ\cref{lem:concatenation-test}のアルゴリズムを用いて検証する. もしいずれかの検証においてこのアルゴリズムが拒否したら拒否する.
     \item \cref{lem:tensor-product-verification}の検証者を, オラクルとして$\pi_1$と$\pi_2$を用いて実行する. この検証者が拒否したら拒否する.
     \item \cref{lem:linear-equation-solution-verification}の検証者を, 入力として$(M,b)$, オラクルとして$\pi_2$を用いて実行する. この検証者が拒否したら拒否する.

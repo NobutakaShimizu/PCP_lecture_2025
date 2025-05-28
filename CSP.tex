@@ -643,7 +643,9 @@ $\UNSAT(a';G')=\UNSAT(G')$を満たす割り当て$a'\colon V'\to\Sigma$を任�
 ステップ1,2で追加した辺に対応する制約は常に充足されるため, 両者が充足\emph{しない}制約の個数は一致する.
 すなわち$\abs{E}\UNSAT(a;G) = \abs{E'}\UNSAT(a;G')$が成り立つので
 \begin{align*}
-  \UNSAT(G') = \min_{a}\UNSAT(a;G') = \frac{\abs{E}}{\abs{E'}}\min_a \UNSAT(a;G) = \frac{d}{d+d_0+1}\UNSAT(G)
+  \UNSAT(G') &= \min_{a}\UNSAT(a;G') \\
+  &= \frac{\abs{E}}{\abs{E'}}\min_a \UNSAT(a;G) \\
+  &= \frac{d}{d+d_0+1}\UNSAT(G)
 \end{align*}
 が成り立つ.
 

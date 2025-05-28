@@ -344,11 +344,6 @@ Cook-Levinの定理を用いると, 以下に示す二次方程式系の充足�
 Cook-Levinの定理を用いると\cite{Karp1972}のように, 一見すると回路と全く関係がない様々な問題に対してNP完全性を示すことができる.
 例えば, 3彩色問題$\ThreeCOL$はNP完全である.
 
-\begin{theorem}{3彩色問題のNP完全性}{3-coloring-problem-NP-complete}
-  3彩色問題$\ThreeCOL$はNP完全である. すなわち, 任意の$L\in\NP$に対して, 多項式時間アルゴリズム$f$が存在して, 任意の$x\in\binset^*$に対して$x\in L$と$f(x)\in\ThreeCOL$は同値である.
-\end{theorem}
-
-
 PCP定理を証明するには, 任意の$L\in\NP$に対して所望のPCP検証者を構成すれば良いが,
 実際には一つのNP完全問題(例えば$\QuadEQ$や$\ThreeCOL$)を固定してそれに対するPCP検証者を構成すれば良いことがわかる.
 

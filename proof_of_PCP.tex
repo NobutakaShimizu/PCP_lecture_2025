@@ -230,10 +230,10 @@ Paley-Zygmundの不等式(\cref{lem:paley-zigmund-inequality})より, $\E[B]$お
   パラメータ$\ell$は$d$に依存して十分大きくとる.
   このとき, 任意の$i\in I$に対して$K\subseteq [0,\ell/2-\sqrt{\ell}] \subseteq [0,i]$が成り立つから
   \begin{align}
-    \Pr\qty[\RW_{i}(u)\in A] &= \sum_{k=0}^{i} \Pr\qty[\RW'_{k}(u) \in A] \cdot \Pr\qty[Y_{i}=k] \nonumber\\
-    &\ge \sum_{k\in K} \Pr\qty[\RW'_{k}(u) \in A] \cdot \underbrace{\Pr\qty[Y_{i}=k]}_{\ge C_2\cdot \Pr\qty[Y_{\ell/2}=k]} \nonumber\\
-    &\ge C_2 \sum_{k \in K} \Pr\qty[\RW'_{k}(u) \in A] \cdot \Pr\qty[Y_{\ell/2}=k] \nonumber\\
-    &\ge C_2 \qty(\sum_{0\le k \le \ell/2} \Pr\qty[\RW'_{k}(u) \in A] \cdot \Pr\qty[Y_{\ell/2}=k] - \Pr[Y_{\ell/2}\not\in K]) \nonumber\\
+    \Pr\qty[\RW_{i}(u)\in A] &= \sum_{k=0}^{i} \Pr\qty[\RW'_{k}(u) \in A]  \Pr\qty[Y_{i}=k] \nonumber\\
+    &\ge \sum_{k\in K} \Pr\qty[\RW'_{k}(u) \in A]  \underbrace{\Pr\qty[Y_{i}=k]}_{\ge C_2 \Pr\qty[Y_{\ell/2}=k]} \nonumber\\
+    &\ge C_2 \sum_{k \in K} \Pr\qty[\RW'_{k}(u) \in A]  \Pr\qty[Y_{\ell/2}=k] \nonumber\\
+    &\ge C_2 \qty(\sum_{0\le k \le \ell/2} \Pr\qty[\RW'_{k}(u) \in A]  \Pr\qty[Y_{\ell/2}=k] - \Pr[Y_{\ell/2}\not\in K]) \nonumber\\
     &\ge C_2 \qty( \Pr\qty[ \RW_{\ell/2}(u)\in A ] - \frac{1}{2\abs{\Sigma}} ) \label{eq:RW_i_distribution_2}
   \end{align}
   を得る. ここで頂点部分集合$A\subseteq V$を
@@ -295,9 +295,9 @@ Paley-Zygmundの不等式(\cref{lem:paley-zigmund-inequality})より, $\E[B]$お
   \end{align}
   ここで, 固定した$i<j$に対して$\E[Z_iZ_j]$を上から評価する.
   すなわち, $\lambda$-エクスパンダーグラフ上の長さ$\ell$のランダムウォーク$(u_0,\dots,u_\ell)$を考えたとき, $i$番目の辺$\qty{u_{i-1},u_i}$と$j$番目の辺$\qty{u_{j-1},u_j}$が同時に$F$に含まれる確率を評価する.
-  辺部分集合$F\subseteq E$の辺に接続している頂点部分集合を$V_F:=\bigcup_{e\in F} e$とすると
+  辺部分集合$F\subseteq E$の辺に接続している頂点部分集合を$V_F:=\bigcup_{e\in F} e$とすると, ランダムウォーク$(u_{i-1},\dots,u_j)$に関する確率について,
   \begin{align}
-    \Pr_{(u_{i-1},\dots,u_j)}\qty[\qty{u_{i-1},u_i}\in F \text{ and } \qty{u_{j-1},u_j}\in F] \le \Pr_{(u_{i-1},\dots,u_j)}\qty[u_{i-1}\in V_F\text{ and }u_j\in V_F] \label{eq:V_F-bound}
+    \Pr\qty[\qty{u_{i-1},u_i}\in F \text{ and } \qty{u_{j-1},u_j}\in F] \le \Pr\qty[u_{i-1}\in V_F\text{ and }u_j\in V_F] \label{eq:V_F-bound}
   \end{align}
   となる. ここでは, 頂点$u_{i-1}$を一様ランダムに選び, そこから開始する長さ$j-i+1$のランダムウォーク$(u_{i-1},u_i,\dots,u_{j-1},u_j)$に関する確率を考えている.
   このランダムウォークは, べき乗グラフ$G^{j-i+1}$上の長さ$1$のランダムウォークと一致する.
@@ -369,7 +369,9 @@ Paley-Zygmundの不等式(\cref{lem:paley-zigmund-inequality})より, $\E[B]$お
   これは以下の性質を持つ:
   \begin{itemize}
     \item $C_e(\sigma_u,\sigma_v)=1$を満たす$\sigma_u,\sigma_v\in\binset^b$に対して $\pi_u=\Had_b(\sigma_u)$および$\pi_v=\Had_b(\sigma_v)$であるならば, ある$\pi_e\in \F_2^{2^{2b} + 2^{4b^2}}$が存在して, 全ての$r\in\binset^T$に対して$V^{\pi_u,\pi_v,\pi_e}(C_e;r)$は受理する.
-    \item $C_e(\sigma_u,\sigma_v)=1$を満たす任意の$\sigma_u,\sigma_v\in\binset^b$に対して$\dist(\pi_u,\Had_b(\sigma_u))\ge0.01$または$\dist(\pi_v,\Had_b(\sigma_v))\ge0.01$を満たす任意の$\pi_u,\pi_v$および任意の$\pi_e \in \F_2^{2^{2b} + 2^{4b^2}}$に対して, $\Pr_r\qty[V^{\pi_u,\pi_v,\pi_e}(C_e;r)\text{ rejects}]\ge 0.99$である.
+    \item $C_e(\sigma_u,\sigma_v)=1$を満たす任意の$\sigma_u,\sigma_v\in\binset^b$に対して
+    \[\dist(\pi_u,\Had_b(\sigma_u))\ge0.01 \text{ or }\dist(\pi_v,\Had_b(\sigma_v))\ge0.01\]
+    を満たす任意の$\pi_u,\pi_v$および任意の$\pi_e \in \F_2^{2^{2b} + 2^{4b^2}}$に対して, \[\Pr_r\qty[V^{\pi_u,\pi_v,\pi_e}(C_e;r)\text{ rejects}]\ge 0.99.\]
     \item ある定数$q=O(1)$が存在して検証者$V^{\pi_u,\pi_v,\pi_e}(C_e)$は高々$q$回のオラクルアクセスを行う. なお, 最終的に構成するCSPは$q$-CSPとなる.
   \end{itemize}
   
@@ -414,7 +416,8 @@ Paley-Zygmundの不等式(\cref{lem:paley-zigmund-inequality})より, $\E[B]$お
   で定める.
   辺部分集合$F\subseteq E$を$\UNSAT(a;G)$に寄与する辺の集合とする. すなわち, 辺$e=\qty{u,v}\in E$であって, $(a(u),a(v))$が辺$e$における制約を充足しないようなものの集合とする.
 
-  任意の$e=\qty{u,v}\in E$に対して, $\dist(\pi'_u,\Had_b(\sigma_u))\le0.01$かつ$\dist(\pi'_v,\Had_b(\sigma_v))\le0.01$を満たす$(\sigma_u,\sigma_v)\in c_e$が存在するならば, 
+  ある$\qty(\sigma_u,\sigma_v)\in c_e$であって,
+  任意の$e=\qty{u,v}\in E$に対して$\dist(\pi'_u,\Had_b(\sigma_u))\le0.01$かつ$\dist(\pi'_v,\Had_b(\sigma_v))\le0.01$を満たすものが存在するならば, 
   $a(u)=\sigma_u$かつ$a(v)=\sigma_v$であるため, $e\not\in F$となる.
   対偶をとると, 任意の$e=\qty{u,v}\in F$と
     任意の$(\sigma_u,\sigma_v)\in c_e$に対して, $\dist(\pi'_u,\Had_b(\sigma_u))>0.01$または$\dist(\pi'_v,\Had_b(\sigma_v))>0.01$が成り立つことがわかる.
