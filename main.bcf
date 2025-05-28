@@ -2393,9 +2393,10 @@
     <bcf:citekey order="17" intorder="1">Levin1973</bcf:citekey>
     <bcf:citekey order="18" intorder="1">Levin1973</bcf:citekey>
     <bcf:citekey order="19" intorder="1">Karp1972</bcf:citekey>
-    <bcf:citekey order="20" intorder="1">BLR93</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">history-of-PCP</bcf:citekey>
     <bcf:citekey order="21" intorder="1">BLR93</bcf:citekey>
-    <bcf:citekey order="22" intorder="1">ReingoldVW02</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">BLR93</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">ReingoldVW02</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="anyt">
