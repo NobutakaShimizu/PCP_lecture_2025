@@ -140,7 +140,8 @@ PCP検証者であることを示す(cf. \cref{def:PCP})には, 任意の$\pi\in
 
 \begin{remark}{符号の局所検査性}{locally-testable-code}
   \cref{thm:linearity-test}はアダマール符号$\Had\subseteq\F^{q^n}$は, オラクルアクセスとして与えられた文字列$\pi\in\F^{q^n}$がその符号語か, もしくは$\Had$から遠いかどうかを, $O(1)$回のオラクルアクセスで確立的に判定できることを意味する.
-  このような性質を持つ誤り訂正符号を\emph{局所検査可能符号} (locally testable code)という.
+  このような性質を持つ誤り訂正符号を\emph{局所検査可能符号} (locally testable code)という. この概念は元々は証明長の短いPCP定理の証明の文脈において, \citet{GS06}によって提案された概念である.
+  局所検査可能符号の多くの構成はPCP定理の証明とほぼ同様の手法に基づいて構成されている. 詳細はGoldreichによるサーベイ論文\cite{Gol10}を参照されたい.
 \end{remark}
 \begin{proof}
   アルゴリズム$A^\pi$は非常に単純で, 線形関数であることの特徴づけ\cref{eq:linearity-test-all-points}をランダムな点で確認するというものである.

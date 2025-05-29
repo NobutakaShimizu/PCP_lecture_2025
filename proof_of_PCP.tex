@@ -263,7 +263,7 @@ Paley-Zygmundの不等式(\cref{lem:paley-zigmund-inequality})より, $\E[B]$お
 
   一般に, 任意の$m\in\Nat$, 定数$p\in(0,1)$, $C>0$および$k\in\Nat$ (ただし$\abs{k-mp}\le C\sqrt{m}$を満たす)に対し, 
   \begin{align}
-    \Pr\qty[\Bin(m,p) = k] = \frac{1}{\sqrt{2\pi m p(1-p)}} \exp\qty( - \frac{(k-mp)^2}{2m p(1-p)} ) \cdot \qty(1\pm O_{C,p}\qty(\frac{1}{m})) \label{eq:de-moivre-laplace}
+    \Pr\qty[\Bin(m,p) = k] = \frac{1 \pm O_{C,p}(1/m)}{\sqrt{2\pi m p(1-p)}} \exp\qty( - \frac{(k-mp)^2}{2m p(1-p)} ) \label{eq:de-moivre-laplace}
   \end{align}
   が成り立つ (De Moivre-Laplaceの定理).
   特に, $\abs{k-mp}\le C\sqrt{m}$を満たすため, 右辺は$\Theta(1/\sqrt{m})$で評価できる.
